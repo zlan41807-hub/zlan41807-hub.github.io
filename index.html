@@ -143,33 +143,48 @@ html[data-lang="en"] .lang-en {
 
 /* ===== 中英双语同时显示 ===== */
 .lang-en { display: inline; }
-/* 段落/标题英文换行 */
-p .lang-en, h1 .lang-en, h2 .lang-en, h3 .lang-en, h4 .lang-en,
-.section-title .lang-en, .service-card p .lang-en,
-.team-bio .lang-en, .hero-desc .lang-en,
-.about-text p .lang-en, .process-step p .lang-en,
-.contact-item .lang-en, .stat-label .lang-en {
+.lang-zh { display: inline; }
+/* 英文为主：英文全字号，中文作为副行（小一号、浅色） */
+p .lang-zh, h1 .lang-zh, h2 .lang-zh, h3 .lang-zh, h4 .lang-zh,
+.section-title .lang-zh, .service-card p .lang-zh,
+.team-bio .lang-zh, .hero-desc .lang-zh,
+.about-text p .lang-zh, .process-step p .lang-zh,
+.contact-item .lang-zh, .stat-label .lang-zh {
   display: block;
   font-size: 0.7em;
   opacity: 0.6;
   margin-top: 2px;
   line-height: 1.5;
 }
-/* 导航链接并排 */
+/* 导航链接并排（英文在前） */
 .nav-links a { gap: 6px; }
-.nav-links a .lang-en { display: inline; font-size: 0.7em; opacity: 0.55; }
+.nav-links a .lang-zh { display: inline; font-size: 0.7em; opacity: 0.55; }
 /* 按钮并排 */
-.btn .lang-en { display: inline; font-size: 0.8em; opacity: 0.7; }
+.btn .lang-zh { display: inline; font-size: 0.8em; opacity: 0.7; }
 /* Hero badge并排 */
-.hero-badge .lang-en { display: inline; font-size: 0.8em; opacity: 0.7; }
-/* 服务卡片标题英文换行 */
-.service-card h3 .lang-en { font-size: 0.65em; font-weight: 400; opacity: 0.6; margin-top: 4px; }
-/* 团队角色并排 */
-.team-role .lang-en { display: inline; font-size: 0.8em; opacity: 0.6; }
-/* 步骤说明英文换行 */
-.process-step h4 .lang-en { font-size: 0.65em; font-weight: 400; opacity: 0.6; margin-top: 4px; }
-/* Overlay英文换行 */
-.project-overlay p .lang-en { display: block; font-size: 0.75em; opacity: 0.65; }
+.hero-badge .lang-zh { display: inline; font-size: 0.8em; opacity: 0.7; }
+/* 服务卡片标题中文副行 */
+.service-card h3 .lang-zh { font-size: 0.65em; font-weight: 400; opacity: 0.6; margin-top: 4px; }
+/* 团队角色并排（中文副行） */
+.team-role .lang-zh { display: inline; font-size: 0.8em; opacity: 0.6; }
+/* 步骤说明中文副行 */
+.process-step h4 .lang-zh { font-size: 0.65em; font-weight: 400; opacity: 0.6; margin-top: 4px; }
+/* Overlay 中文副行 */
+.project-overlay p .lang-zh { display: block; font-size: 0.75em; opacity: 0.65; }
+
+/* 元素自身即带 lang-zh（项目卡片标题/描述、标签）：同样降为副行 */
+p.lang-zh, h4.lang-zh {
+  font-size: 0.7em;
+  opacity: 0.6;
+  margin-top: 2px;
+  line-height: 1.5;
+}
+.proj-tag .lang-zh { display: inline; font-size: 0.82em; opacity: 0.72; }
+/* 兜底：任何未被上面具体规则覆盖的中文（logo、滚动提示、筛选按钮、表单标签等）
+   一律按副行处理。em 相对父级字号，所以各处的相对比例保持一致。 */
+.lang-zh { font-size: 0.72em; opacity: 0.62; }
+/* 项目卡片标题/描述自身带 lang-zh，需要压过区块级字号规则 */
+p.lang-zh, h4.lang-zh { font-size: 0.72em !important; opacity: 0.62 !important; }
 
 /* ===== Buttons ===== */
 .btn {
@@ -851,17 +866,17 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
         </svg>
       </div>
       <div>
-        <span class="lang-zh" lang="zh-CN">谨防建筑</span>
         <span class="lang-en" lang="en">JFA</span>
+        <span class="lang-zh" lang="zh-CN">谨防建筑</span>
         <span class="nav-logo-sub">JFA · ARCHITECTURE</span>
       </div>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#about"><span class="lang-zh" lang="zh-CN">关于</span><span class="lang-en" lang="en">About</span></a>
-      <a href="#services"><span class="lang-zh" lang="zh-CN">业务</span><span class="lang-en" lang="en">Services</span></a>
-      <a href="#projects"><span class="lang-zh" lang="zh-CN">案例</span><span class="lang-en" lang="en">Projects</span></a>
-      <a href="#team"><span class="lang-zh" lang="zh-CN">团队</span><span class="lang-en" lang="en">Team</span></a>
-      <a href="#contact"><span class="lang-zh" lang="zh-CN">联系</span><span class="lang-en" lang="en">Contact</span></a>
+      <a href="#about"><span class="lang-en" lang="en">About</span><span class="lang-zh" lang="zh-CN">关于</span></a>
+      <a href="#services"><span class="lang-en" lang="en">Services</span><span class="lang-zh" lang="zh-CN">业务</span></a>
+      <a href="#projects"><span class="lang-en" lang="en">Projects</span><span class="lang-zh" lang="zh-CN">案例</span></a>
+      <a href="#team"><span class="lang-en" lang="en">Team</span><span class="lang-zh" lang="zh-CN">团队</span></a>
+      <a href="#contact"><span class="lang-en" lang="en">Contact</span><span class="lang-zh" lang="zh-CN">联系</span></a>
     </div>
     <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
     <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu">
@@ -877,26 +892,26 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
     <div class="hero-text">
       <div class="hero-badge reveal">
         <i class="fas fa-building"></i>
-        <span class="lang-zh" lang="zh-CN">杭州谨防建筑设计</span>
         <span class="lang-en" lang="en">JFA · Hangzhou</span>
+        <span class="lang-zh" lang="zh-CN">杭州谨防建筑设计</span>
       </div>
       <h1 class="hero-title reveal reveal-delay-1">
-        <span class="lang-zh" lang="zh-CN">筑造<span class="highlight">无限</span>可能</span>
         <span class="lang-en" lang="en">Building <span class="highlight">Infinite</span> Possibilities</span>
+        <span class="lang-zh" lang="zh-CN">筑造<span class="highlight">无限</span>可能</span>
       </h1>
       <p class="hero-desc reveal reveal-delay-2">
-        <span class="lang-zh" lang="zh-CN">从概念到落地的全产业链建筑服务。我们以专业匠心融合全球视野，为每一个项目注入卓越品质。</span>
         <span class="lang-en" lang="en">Full-chain architectural services from concept to completion. We blend professional craftsmanship with global vision, delivering excellence for every project.</span>
+        <span class="lang-zh" lang="zh-CN">从概念到落地的全产业链建筑服务。我们以专业匠心融合全球视野，为每一个项目注入卓越品质。</span>
       </p>
       <div class="hero-actions reveal reveal-delay-3">
         <a href="#contact" class="btn btn-primary">
-          <span class="lang-zh" lang="zh-CN">联系我们</span>
           <span class="lang-en" lang="en">Contact Us</span>
+          <span class="lang-zh" lang="zh-CN">联系我们</span>
           <i class="fas fa-arrow-right"></i>
         </a>
         <a href="#projects" class="btn btn-white-outline">
-          <span class="lang-zh" lang="zh-CN">查看案例</span>
           <span class="lang-en" lang="en">View Projects</span>
+          <span class="lang-zh" lang="zh-CN">查看案例</span>
         </a>
       </div>
     </div>
@@ -912,7 +927,7 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
     </div>
   </div>
   <div class="scroll-indicator">
-    <span class="lang-zh" lang="zh-CN">向下滚动</span><span class="lang-en" lang="en">Scroll Down</span>
+    <span class="lang-en" lang="en">Scroll Down</span><span class="lang-zh" lang="zh-CN">向下滚动</span>
     <div class="scroll-line"></div>
   </div>
 </section>
@@ -921,22 +936,22 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
 <section class="about section" id="about">
   <div class="container">
     <div class="section-title text-center reveal">
-      <span class="lang-zh" lang="zh-CN">关于我们</span>
       <span class="lang-en" lang="en">About Us</span>
+      <span class="lang-zh" lang="zh-CN">关于我们</span>
     </div>
     <p class="section-subtitle text-center reveal reveal-delay-1">
-      <span class="lang-zh" lang="zh-CN">杭州谨防建筑设计有限公司是一家专注于建筑全产业链的一站式解决方案提供商</span>
       <span class="lang-en" lang="en">Hangzhou Jinfang Architectural Design Co., Ltd. is a full-chain building solution provider dedicated to delivering integrated architectural excellence</span>
+      <span class="lang-zh" lang="zh-CN">杭州谨防建筑设计有限公司是一家专注于建筑全产业链的一站式解决方案提供商</span>
     </p>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p><span class="lang-zh" lang="zh-CN">我们汇聚了建筑行业各领域的顶尖人才，从前期规划、方案设计到施工图深化、项目管理，<span class="highlight-text">覆盖建筑全生命周期的每一个环节</span>。无论是城市综合体、高端酒店、医疗建筑还是商业空间，我们都能提供专业、高效的解决方案。</span>
-        <span class="lang-en" lang="en">We bring together top-tier talent across every architectural discipline — from master planning and schematic design to construction detailing and project management — <span class="highlight-text">covering every stage of the building lifecycle</span>. Whether it's a mixed-use complex, luxury hotel, healthcare facility, or commercial space, we deliver professional, efficient solutions.</span></p>
-        <p><span class="lang-zh" lang="zh-CN">自成立以来，我们已完成超过200个项目，业务覆盖20多个国家和地区。我们坚信：<span class="highlight-text">每一座建筑，都是对未来的承诺。</span></span>
-        <span class="lang-en" lang="en">Since our founding, we have completed over 200 projects across more than 20 countries and regions. We believe: <span class="highlight-text">Every building is a promise for the future.</span></span></p>
+        <p><span class="lang-en" lang="en">We bring together top-tier talent across every architectural discipline — from master planning and schematic design to construction detailing and project management — <span class="highlight-text">covering every stage of the building lifecycle</span>. Whether it's a mixed-use complex, luxury hotel, healthcare facility, or commercial space, we deliver professional, efficient solutions.</span>
+        <span class="lang-zh" lang="zh-CN">我们汇聚了建筑行业各领域的顶尖人才，从前期规划、方案设计到施工图深化、项目管理，<span class="highlight-text">覆盖建筑全生命周期的每一个环节</span>。无论是城市综合体、高端酒店、医疗建筑还是商业空间，我们都能提供专业、高效的解决方案。</span></p>
+        <p><span class="lang-en" lang="en">Since our founding, we have completed over 200 projects across more than 20 countries and regions. We believe: <span class="highlight-text">Every building is a promise for the future.</span></span>
+        <span class="lang-zh" lang="zh-CN">自成立以来，我们已完成超过200个项目，业务覆盖20多个国家和地区。我们坚信：<span class="highlight-text">每一座建筑，都是对未来的承诺。</span></span></p>
         <a href="#contact" class="btn btn-primary" style="margin-top:12px;">
-          <span class="lang-zh" lang="zh-CN">了解更多</span>
           <span class="lang-en" lang="en">Learn More</span>
+          <span class="lang-zh" lang="zh-CN">了解更多</span>
           <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -958,19 +973,19 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
     <div class="stats-grid">
       <div class="stat-item reveal">
         <div class="stat-number"><span class="counter" data-target="200">0</span><span class="suffix">+</span></div>
-        <div class="stat-label"><span class="lang-zh" lang="zh-CN">完成项目</span><span class="lang-en" lang="en">Projects Completed</span></div>
+        <div class="stat-label"><span class="lang-en" lang="en">Projects Completed</span><span class="lang-zh" lang="zh-CN">完成项目</span></div>
       </div>
       <div class="stat-item reveal reveal-delay-1">
         <div class="stat-number"><span class="counter" data-target="50">0</span><span class="suffix">+</span></div>
-        <div class="stat-label"><span class="lang-zh" lang="zh-CN">专业团队</span><span class="lang-en" lang="en">Experts On Team</span></div>
+        <div class="stat-label"><span class="lang-en" lang="en">Experts On Team</span><span class="lang-zh" lang="zh-CN">专业团队</span></div>
       </div>
       <div class="stat-item reveal reveal-delay-2">
         <div class="stat-number"><span class="counter" data-target="15">0</span><span class="suffix">+</span></div>
-        <div class="stat-label"><span class="lang-zh" lang="zh-CN">行业经验</span><span class="lang-en" lang="en">Years Experience</span></div>
+        <div class="stat-label"><span class="lang-en" lang="en">Years Experience</span><span class="lang-zh" lang="zh-CN">行业经验</span></div>
       </div>
       <div class="stat-item reveal reveal-delay-3">
         <div class="stat-number"><span class="counter" data-target="20">0</span><span class="suffix">+</span></div>
-        <div class="stat-label"><span class="lang-zh" lang="zh-CN">覆盖国家</span><span class="lang-en" lang="en">Countries Covered</span></div>
+        <div class="stat-label"><span class="lang-en" lang="en">Countries Covered</span><span class="lang-zh" lang="zh-CN">覆盖国家</span></div>
       </div>
     </div>
   </div>
@@ -980,63 +995,63 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
 <section class="services section" id="services">
   <div class="container">
     <div class="section-title text-center reveal">
-      <span class="lang-zh" lang="zh-CN">核心业务</span>
       <span class="lang-en" lang="en">Core Services</span>
+      <span class="lang-zh" lang="zh-CN">核心业务</span>
     </div>
     <p class="section-subtitle text-center reveal reveal-delay-1">
-      <span class="lang-zh" lang="zh-CN">覆盖建筑全产业链的八大核心业务板块，从创意到落地一站式交付</span>
       <span class="lang-en" lang="en">Eight core business segments covering the full building lifecycle — from concept to completion</span>
+      <span class="lang-zh" lang="zh-CN">覆盖建筑全产业链的八大核心业务板块，从创意到落地一站式交付</span>
     </p>
     <div class="services-grid">
       <div class="service-card reveal">
         <div class="service-icon"><i class="fas fa-building"></i></div>
-        <h3><span class="lang-zh" lang="zh-CN">建筑设计</span><span class="lang-en" lang="en">Architectural Design</span></h3>
-        <p><span class="lang-zh" lang="zh-CN">从概念方案到施工图设计，涵盖城市综合体、酒店、办公、文化建筑等多种类型。</span>
-        <span class="lang-en" lang="en">From concept to construction documents — mixed-use, hospitality, office, and cultural projects.</span></p>
+        <h3><span class="lang-en" lang="en">Architectural Design</span><span class="lang-zh" lang="zh-CN">建筑设计</span></h3>
+        <p><span class="lang-en" lang="en">From concept to construction documents — mixed-use, hospitality, office, and cultural projects.</span>
+        <span class="lang-zh" lang="zh-CN">从概念方案到施工图设计，涵盖城市综合体、酒店、办公、文化建筑等多种类型。</span></p>
       </div>
       <div class="service-card reveal reveal-delay-1">
         <div class="service-icon"><i class="fas fa-couch"></i></div>
-        <h3><span class="lang-zh" lang="zh-CN">室内设计</span><span class="lang-en" lang="en">Interior Design</span></h3>
-        <p><span class="lang-zh" lang="zh-CN">商业空间、办公环境与高端住宅室内设计，融合功能美学与人性化体验。</span>
-        <span class="lang-en" lang="en">Commercial, workplace, and luxury residential interiors that blend function with human experience.</span></p>
+        <h3><span class="lang-en" lang="en">Interior Design</span><span class="lang-zh" lang="zh-CN">室内设计</span></h3>
+        <p><span class="lang-en" lang="en">Commercial, workplace, and luxury residential interiors that blend function with human experience.</span>
+        <span class="lang-zh" lang="zh-CN">商业空间、办公环境与高端住宅室内设计，融合功能美学与人性化体验。</span></p>
       </div>
       <div class="service-card reveal reveal-delay-2">
         <div class="service-icon"><i class="fas fa-tree"></i></div>
-        <h3><span class="lang-zh" lang="zh-CN">景观设计</span><span class="lang-en" lang="en">Landscape Design</span></h3>
-        <p><span class="lang-zh" lang="zh-CN">城市公共空间、公园绿地、商业景观与居住区景观的全方位设计服务。</span>
-        <span class="lang-en" lang="en">Urban public spaces, parks, commercial landscapes, and residential communities.</span></p>
+        <h3><span class="lang-en" lang="en">Landscape Design</span><span class="lang-zh" lang="zh-CN">景观设计</span></h3>
+        <p><span class="lang-en" lang="en">Urban public spaces, parks, commercial landscapes, and residential communities.</span>
+        <span class="lang-zh" lang="zh-CN">城市公共空间、公园绿地、商业景观与居住区景观的全方位设计服务。</span></p>
       </div>
       <div class="service-card reveal reveal-delay-1">
         <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
-        <h3><span class="lang-zh" lang="zh-CN">结构工程</span><span class="lang-en" lang="en">Structural Engineering</span></h3>
-        <p><span class="lang-zh" lang="zh-CN">高难度结构分析与设计，涵盖超高层、大跨度、复杂异形结构等创新方案。</span>
-        <span class="lang-en" lang="en">Advanced structural analysis and design — super-tall, long-span, and complex geometries.</span></p>
+        <h3><span class="lang-en" lang="en">Structural Engineering</span><span class="lang-zh" lang="zh-CN">结构工程</span></h3>
+        <p><span class="lang-en" lang="en">Advanced structural analysis and design — super-tall, long-span, and complex geometries.</span>
+        <span class="lang-zh" lang="zh-CN">高难度结构分析与设计，涵盖超高层、大跨度、复杂异形结构等创新方案。</span></p>
       </div>
       <div class="service-card reveal reveal-delay-2">
         <div class="service-icon"><i class="fas fa-cubes"></i></div>
-        <h3><span class="lang-zh" lang="zh-CN">BIM咨询</span><span class="lang-en" lang="en">BIM Consulting</span></h3>
-        <p><span class="lang-zh" lang="zh-CN">全专业BIM建模、碰撞检测、施工模拟与数字化交付，提升项目协作效率。</span>
-        <span class="lang-en" lang="en">Multi-discipline BIM, clash detection, construction simulation, and digital delivery.</span></p>
+        <h3><span class="lang-en" lang="en">BIM Consulting</span><span class="lang-zh" lang="zh-CN">BIM咨询</span></h3>
+        <p><span class="lang-en" lang="en">Multi-discipline BIM, clash detection, construction simulation, and digital delivery.</span>
+        <span class="lang-zh" lang="zh-CN">全专业BIM建模、碰撞检测、施工模拟与数字化交付，提升项目协作效率。</span></p>
       </div>
       <div class="service-card reveal reveal-delay-3">
         <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
-        <h3><span class="lang-zh" lang="zh-CN">工程管理</span><span class="lang-en" lang="en">Project Management</span></h3>
-        <p><span class="lang-zh" lang="zh-CN">全流程项目管理服务，从预算控制、进度管理到质量监督，确保项目高效交付。</span>
-        <span class="lang-en" lang="en">End-to-end project management — budget, schedule, and quality control.</span></p>
+        <h3><span class="lang-en" lang="en">Project Management</span><span class="lang-zh" lang="zh-CN">工程管理</span></h3>
+        <p><span class="lang-en" lang="en">End-to-end project management — budget, schedule, and quality control.</span>
+        <span class="lang-zh" lang="zh-CN">全流程项目管理服务，从预算控制、进度管理到质量监督，确保项目高效交付。</span></p>
       </div>
       <!-- 家具软装 -->
       <div class="service-card reveal">
         <div class="service-icon"><i class="fas fa-chair"></i></div>
-        <h3><span class="lang-zh" lang="zh-CN">家具软装</span><span class="lang-en" lang="en">Furnishing & Decoration</span></h3>
-        <p><span class="lang-zh" lang="zh-CN">整体软装方案设计、定制家具选配、窗帘布艺、灯具饰品一站式配置，打造与建筑完美融合的空间美学。</span>
-        <span class="lang-en" lang="en">Integrated furnishing solutions — custom furniture, curtains, lighting, and accessories that harmonize with architectural space.</span></p>
+        <h3><span class="lang-en" lang="en">Furnishing & Decoration</span><span class="lang-zh" lang="zh-CN">家具软装</span></h3>
+        <p><span class="lang-en" lang="en">Integrated furnishing solutions — custom furniture, curtains, lighting, and accessories that harmonize with architectural space.</span>
+        <span class="lang-zh" lang="zh-CN">整体软装方案设计、定制家具选配、窗帘布艺、灯具饰品一站式配置，打造与建筑完美融合的空间美学。</span></p>
       </div>
       <!-- 门窗系统 -->
       <div class="service-card reveal reveal-delay-1">
         <div class="service-icon"><i class="fas fa-door-open"></i></div>
-        <h3><span class="lang-zh" lang="zh-CN">门窗系统</span><span class="lang-en" lang="en">Door & Window Systems</span></h3>
-        <p><span class="lang-zh" lang="zh-CN">断桥铝门窗、系统门窗、幕墙门窗、智能门窗系统等全系列设计与供应，兼顾节能、安全与美学。</span>
-        <span class="lang-en" lang="en">Full range of door & window systems — thermal break, curtain wall, smart windows — balancing energy efficiency, safety, and aesthetics.</span></p>
+        <h3><span class="lang-en" lang="en">Door & Window Systems</span><span class="lang-zh" lang="zh-CN">门窗系统</span></h3>
+        <p><span class="lang-en" lang="en">Full range of door & window systems — thermal break, curtain wall, smart windows — balancing energy efficiency, safety, and aesthetics.</span>
+        <span class="lang-zh" lang="zh-CN">断桥铝门窗、系统门窗、幕墙门窗、智能门窗系统等全系列设计与供应，兼顾节能、安全与美学。</span></p>
       </div>
     </div>
   </div>
@@ -1046,150 +1061,150 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
 <section class="projects section" id="projects">
   <div class="container">
     <div class="section-title text-center reveal">
-      <span class="lang-zh" lang="zh-CN">项目案例</span>
       <span class="lang-en" lang="en">Featured Projects</span>
+      <span class="lang-zh" lang="zh-CN">项目案例</span>
     </div>
     <p class="section-subtitle text-center reveal reveal-delay-1">
-      <span class="lang-zh" lang="zh-CN">每一个项目都是一份承诺，我们用作品说话</span>
       <span class="lang-en" lang="en">Every project is a promise. Let our work speak for itself.</span>
+      <span class="lang-zh" lang="zh-CN">每一个项目都是一份承诺，我们用作品说话</span>
     </p>
     <div class="projects-filter reveal">
       <button class="filter-btn active" data-filter="all">
-        <span class="lang-zh" lang="zh-CN">全部</span><span class="lang-en" lang="en">All</span>
+        <span class="lang-en" lang="en">All</span><span class="lang-zh" lang="zh-CN">全部</span>
       </button>
       <button class="filter-btn" data-filter="commercial">
-        <span class="lang-zh" lang="zh-CN">商业建筑</span><span class="lang-en" lang="en">Commercial</span>
+        <span class="lang-en" lang="en">Commercial</span><span class="lang-zh" lang="zh-CN">商业建筑</span>
       </button>
       <button class="filter-btn" data-filter="hospitality">
-        <span class="lang-zh" lang="zh-CN">酒店文旅</span><span class="lang-en" lang="en">Hospitality</span>
+        <span class="lang-en" lang="en">Hospitality</span><span class="lang-zh" lang="zh-CN">酒店文旅</span>
       </button>
       <button class="filter-btn" data-filter="healthcare">
-        <span class="lang-zh" lang="zh-CN">医疗健康</span><span class="lang-en" lang="en">Healthcare</span>
+        <span class="lang-en" lang="en">Healthcare</span><span class="lang-zh" lang="zh-CN">医疗健康</span>
       </button>
       <button class="filter-btn" data-filter="residential">
-        <span class="lang-zh" lang="zh-CN">住宅设计</span><span class="lang-en" lang="en">Residential</span>
+        <span class="lang-en" lang="en">Residential</span><span class="lang-zh" lang="zh-CN">住宅设计</span>
       </button>
        <div class="projects-grid">
       <div class="project-card reveal" data-category="commercial">
-        <span class="proj-tag"><span class="lang-zh" lang="zh-CN">商业建筑</span><span class="lang-en" lang="en">Commercial</span></span>
+        <span class="proj-tag"><span class="lang-en" lang="en">Commercial</span><span class="lang-zh" lang="zh-CN">商业建筑</span></span>
         <img loading="lazy" class="project-card-img" src="images/projects/project-restaurant-1.jpg" alt="生态文旅餐厅 / Eco-Tourism Restaurant">
         <div class="project-overlay">
-          <h4 class="lang-zh" lang="zh-CN">生态文旅餐厅</h4>
           <h4 class="lang-en" lang="en">Eco-Tourism Restaurant</h4>
-          <p class="lang-zh" lang="zh-CN">丽水·缙云 | 建筑外立面方案设计</p>
+          <h4 class="lang-zh" lang="zh-CN">生态文旅餐厅</h4>
           <p class="lang-en" lang="en">Lishui, Zhejiang | Facade Design</p>
+          <p class="lang-zh" lang="zh-CN">丽水·缙云 | 建筑外立面方案设计</p>
         </div>
       </div>
       <div class="project-card reveal reveal-delay-1" data-category="hospitality">
-        <span class="proj-tag"><span class="lang-zh" lang="zh-CN">度假酒店</span><span class="lang-en" lang="en">Hospitality</span></span>
+        <span class="proj-tag"><span class="lang-en" lang="en">Hospitality</span><span class="lang-zh" lang="zh-CN">度假酒店</span></span>
         <img loading="lazy" class="project-card-img" src="images/projects/project-cabin-1.jpg" alt="森林度假木屋 / Forest Retreat Cabin">
         <div class="project-overlay">
-          <h4 class="lang-zh" lang="zh-CN">森林度假木屋</h4>
           <h4 class="lang-en" lang="en">Forest Retreat Cabin</h4>
-          <p class="lang-zh" lang="zh-CN">良渚 | 度假木屋建筑设计</p>
+          <h4 class="lang-zh" lang="zh-CN">森林度假木屋</h4>
           <p class="lang-en" lang="en">Liangzhu | Cabin Architecture</p>
+          <p class="lang-zh" lang="zh-CN">良渚 | 度假木屋建筑设计</p>
         </div>
       </div>
       <div class="project-card reveal reveal-delay-2" data-category="residential">
-        <span class="proj-tag"><span class="lang-zh" lang="zh-CN">高端住宅</span><span class="lang-en" lang="en">Residential</span></span>
+        <span class="proj-tag"><span class="lang-en" lang="en">Residential</span><span class="lang-zh" lang="zh-CN">高端住宅</span></span>
         <img loading="lazy" class="project-card-img" src="images/projects/project-villa-1.jpg" alt="精品度假别墅 / Premium Resort Villa">
         <div class="project-overlay">
-          <h4 class="lang-zh" lang="zh-CN">精品度假别墅</h4>
           <h4 class="lang-en" lang="en">Premium Resort Villa</h4>
-          <p class="lang-zh" lang="zh-CN">高端住宅 | 别墅建筑与景观设计</p>
+          <h4 class="lang-zh" lang="zh-CN">精品度假别墅</h4>
           <p class="lang-en" lang="en">Luxury Residence | Arch & Landscape</p>
+          <p class="lang-zh" lang="zh-CN">高端住宅 | 别墅建筑与景观设计</p>
         </div>
       </div>
       <div class="project-card reveal" data-category="commercial">
-        <span class="proj-tag"><span class="lang-zh" lang="zh-CN">商业建筑</span><span class="lang-en" lang="en">Commercial</span></span>
+        <span class="proj-tag"><span class="lang-en" lang="en">Commercial</span><span class="lang-zh" lang="zh-CN">商业建筑</span></span>
         <img loading="lazy" class="project-card-img" src="images/projects/project-restaurant-2.jpg" alt="生态文旅餐厅室内 / Restaurant Interior">
         <div class="project-overlay">
-          <h4 class="lang-zh" lang="zh-CN">生态文旅餐厅·室内</h4>
           <h4 class="lang-en" lang="en">Restaurant Interior</h4>
-          <p class="lang-zh" lang="zh-CN">丽水·缙云 | 室内空间设计</p>
+          <h4 class="lang-zh" lang="zh-CN">生态文旅餐厅·室内</h4>
           <p class="lang-en" lang="en">Lishui, Zhejiang | Interior Design</p>
+          <p class="lang-zh" lang="zh-CN">丽水·缙云 | 室内空间设计</p>
         </div>
       </div>
       <div class="project-card reveal reveal-delay-1" data-category="healthcare">
-        <span class="proj-tag"><span class="lang-zh" lang="zh-CN">医疗空间</span><span class="lang-en" lang="en">Healthcare</span></span>
+        <span class="proj-tag"><span class="lang-en" lang="en">Healthcare</span><span class="lang-zh" lang="zh-CN">医疗空间</span></span>
         <img loading="lazy" class="project-card-img" src="images/projects/project-dental-1.jpg" alt="连锁口腔医疗机构 / Dental Clinic Chain">
         <div class="project-overlay">
-          <h4 class="lang-zh" lang="zh-CN">连锁口腔医疗机构</h4>
           <h4 class="lang-en" lang="en">Dental Clinic Chain</h4>
-          <p class="lang-zh" lang="zh-CN">杭州 | 医疗空间室内设计</p>
+          <h4 class="lang-zh" lang="zh-CN">连锁口腔医疗机构</h4>
           <p class="lang-en" lang="en">Hangzhou | Medical Interior Design</p>
+          <p class="lang-zh" lang="zh-CN">杭州 | 医疗空间室内设计</p>
         </div>
       </div>
       <div class="project-card reveal reveal-delay-2" data-category="hospitality">
-        <span class="proj-tag"><span class="lang-zh" lang="zh-CN">度假酒店</span><span class="lang-en" lang="en">Hospitality</span></span>
+        <span class="proj-tag"><span class="lang-en" lang="en">Hospitality</span><span class="lang-zh" lang="zh-CN">度假酒店</span></span>
         <img loading="lazy" class="project-card-img" src="images/projects/project-cabin-2.jpg" alt="森林度假木屋景观 / Cabin Landscape">
         <div class="project-overlay">
-          <h4 class="lang-zh" lang="zh-CN">森林度假木屋·景观</h4>
           <h4 class="lang-en" lang="en">Cabin Landscape</h4>
-          <p class="lang-zh" lang="zh-CN">良渚 | 度假区景观设计</p>
+          <h4 class="lang-zh" lang="zh-CN">森林度假木屋·景观</h4>
           <p class="lang-en" lang="en">Liangzhu | Resort Landscape</p>
+          <p class="lang-zh" lang="zh-CN">良渚 | 度假区景观设计</p>
         </div>
       </div>
 
       <!-- AI 设计探索 -->
       <div class="project-card reveal" data-category="commercial" onclick="openLightbox(this)">
-        <span class="proj-tag"><span class="lang-zh" lang="zh-CN">商业建筑</span><span class="lang-en" lang="en">Commercial</span></span>
+        <span class="proj-tag"><span class="lang-en" lang="en">Commercial</span><span class="lang-zh" lang="zh-CN">商业建筑</span></span>
         <img loading="lazy" class="project-card-img" src="images/ai-works/ai-16-黄仁勋-02-入口-现代精工.jpg" alt="现代精工入口 / Precision Modern · Entrance">
         <div class="project-overlay">
-          <h4 class="lang-zh" lang="zh-CN">现代精工 · 入口</h4>
           <h4 class="lang-en" lang="en">Precision Modern · Entrance</h4>
-          <p class="lang-zh" lang="zh-CN">杭州谨防 | 商业建筑概念设计</p>
+          <h4 class="lang-zh" lang="zh-CN">现代精工 · 入口</h4>
           <p class="lang-en" lang="en">JFA | Commercial Concept</p>
+          <p class="lang-zh" lang="zh-CN">杭州谨防 | 商业建筑概念设计</p>
         </div>
       </div>
       <div class="project-card reveal reveal-delay-1" data-category="commercial" onclick="openLightbox(this)">
-        <span class="proj-tag"><span class="lang-zh" lang="zh-CN">商业建筑</span><span class="lang-en" lang="en">Commercial</span></span>
+        <span class="proj-tag"><span class="lang-en" lang="en">Commercial</span><span class="lang-zh" lang="zh-CN">商业建筑</span></span>
         <img loading="lazy" class="project-card-img" src="images/ai-works/ai-13-马斯克-02-中庭-未来有机.jpg" alt="未来有机中庭 / Futuristic Organic · Atrium">
         <div class="project-overlay">
-          <h4 class="lang-zh" lang="zh-CN">未来有机 · 中庭</h4>
           <h4 class="lang-en" lang="en">Futuristic Organic · Atrium</h4>
-          <p class="lang-zh" lang="zh-CN">杭州谨防 | 商业建筑概念设计</p>
+          <h4 class="lang-zh" lang="zh-CN">未来有机 · 中庭</h4>
           <p class="lang-en" lang="en">JFA | Commercial Concept</p>
+          <p class="lang-zh" lang="zh-CN">杭州谨防 | 商业建筑概念设计</p>
         </div>
       </div>
       <div class="project-card reveal reveal-delay-2" data-category="hospitality" onclick="openLightbox(this)">
-        <span class="proj-tag"><span class="lang-zh" lang="zh-CN">度假酒店</span><span class="lang-en" lang="en">Hospitality</span></span>
+        <span class="proj-tag"><span class="lang-en" lang="en">Hospitality</span><span class="lang-zh" lang="zh-CN">度假酒店</span></span>
         <img loading="lazy" class="project-card-img" src="images/ai-works/ai-02-特斯拉-02-庭院-自然共生.jpg" alt="自然共生庭院 / Bio-Organic · Courtyard">
         <div class="project-overlay">
-          <h4 class="lang-zh" lang="zh-CN">自然共生 · 庭院</h4>
           <h4 class="lang-en" lang="en">Bio-Organic · Courtyard</h4>
-          <p class="lang-zh" lang="zh-CN">杭州谨防 | 度假酒店概念设计</p>
+          <h4 class="lang-zh" lang="zh-CN">自然共生 · 庭院</h4>
           <p class="lang-en" lang="en">JFA | Hospitality Concept</p>
+          <p class="lang-zh" lang="zh-CN">杭州谨防 | 度假酒店概念设计</p>
         </div>
       </div>
       <div class="project-card reveal" data-category="commercial" onclick="openLightbox(this)">
-        <span class="proj-tag"><span class="lang-zh" lang="zh-CN">建筑渲染</span><span class="lang-en" lang="en">Rendering</span></span>
+        <span class="proj-tag"><span class="lang-en" lang="en">Rendering</span><span class="lang-zh" lang="zh-CN">建筑渲染</span></span>
         <img loading="lazy" class="project-card-img" src="images/ai-works/ai-06-系列A-建筑外观渲染-v4.jpg" alt="建筑外观渲染 / Arch Rendering · V4">
         <div class="project-overlay">
-          <h4 class="lang-zh" lang="zh-CN">建筑外观渲染 · V4</h4>
           <h4 class="lang-en" lang="en">Arch Rendering · V4</h4>
-          <p class="lang-zh" lang="zh-CN">杭州谨防 | 建筑表现</p>
+          <h4 class="lang-zh" lang="zh-CN">建筑外观渲染 · V4</h4>
           <p class="lang-en" lang="en">JFA | Arch Visualization</p>
+          <p class="lang-zh" lang="zh-CN">杭州谨防 | 建筑表现</p>
         </div>
       </div>
       <div class="project-card reveal reveal-delay-1" data-category="commercial" onclick="openLightbox(this)">
-        <span class="proj-tag"><span class="lang-zh" lang="zh-CN">概念建筑</span><span class="lang-en" lang="en">Concept</span></span>
+        <span class="proj-tag"><span class="lang-en" lang="en">Concept</span><span class="lang-zh" lang="zh-CN">概念建筑</span></span>
         <img loading="lazy" class="project-card-img" src="images/ai-works/ai-07-系列B-未来概念建筑-v4.jpg" alt="未来概念建筑 / Futuristic Concept · V4">
         <div class="project-overlay">
-          <h4 class="lang-zh" lang="zh-CN">未来概念建筑 · V4</h4>
           <h4 class="lang-en" lang="en">Futuristic Concept · V4</h4>
-          <p class="lang-zh" lang="zh-CN">杭州谨防 | 建筑概念探索</p>
+          <h4 class="lang-zh" lang="zh-CN">未来概念建筑 · V4</h4>
           <p class="lang-en" lang="en">JFA | Concept Exploration</p>
+          <p class="lang-zh" lang="zh-CN">杭州谨防 | 建筑概念探索</p>
         </div>
       </div>
       <div class="project-card reveal reveal-delay-2" data-category="hospitality" onclick="openLightbox(this)">
-        <span class="proj-tag"><span class="lang-zh" lang="zh-CN">景观设计</span><span class="lang-en" lang="en">Landscape</span></span>
+        <span class="proj-tag"><span class="lang-en" lang="en">Landscape</span><span class="lang-zh" lang="zh-CN">景观设计</span></span>
         <img loading="lazy" class="project-card-img" src="images/ai-works/ai-09-系列C-景观建筑融合-v2.jpg" alt="景观建筑融合 / Landscape Integration · V2">
         <div class="project-overlay">
-          <h4 class="lang-zh" lang="zh-CN">景观建筑融合 · V2</h4>
           <h4 class="lang-en" lang="en">Landscape Integration · V2</h4>
-          <p class="lang-zh" lang="zh-CN">杭州谨防 | 景观概念设计</p>
+          <h4 class="lang-zh" lang="zh-CN">景观建筑融合 · V2</h4>
           <p class="lang-en" lang="en">JFA | Landscape Concept</p>
+          <p class="lang-zh" lang="zh-CN">杭州谨防 | 景观概念设计</p>
         </div>
       </div>
     </div>
@@ -1226,37 +1241,37 @@ document.addEventListener('keydown', function(e) {
 <section class="process section" id="process">
   <div class="container">
     <div class="section-title text-center reveal">
-      <span class="lang-zh" lang="zh-CN">合作流程</span>
       <span class="lang-en" lang="en">Our Process</span>
+      <span class="lang-zh" lang="zh-CN">合作流程</span>
     </div>
     <p class="section-subtitle text-center reveal reveal-delay-1">
-      <span class="lang-zh" lang="zh-CN">科学高效的协作流程，确保每个项目高质量交付</span>
       <span class="lang-en" lang="en">A streamlined workflow that ensures quality delivery on every project</span>
+      <span class="lang-zh" lang="zh-CN">科学高效的协作流程，确保每个项目高质量交付</span>
     </p>
     <div class="process-steps">
       <div class="process-step reveal">
         <div class="step-number">01</div>
-        <h4><span class="lang-zh" lang="zh-CN">需求沟通</span><span class="lang-en" lang="en">Briefing</span></h4>
-        <p><span class="lang-zh" lang="zh-CN">深入了解项目需求、目标与约束条件</span>
-        <span class="lang-en" lang="en">Understand the vision, goals, and constraints</span></p>
+        <h4><span class="lang-en" lang="en">Briefing</span><span class="lang-zh" lang="zh-CN">需求沟通</span></h4>
+        <p><span class="lang-en" lang="en">Understand the vision, goals, and constraints</span>
+        <span class="lang-zh" lang="zh-CN">深入了解项目需求、目标与约束条件</span></p>
       </div>
       <div class="process-step reveal reveal-delay-1">
         <div class="step-number">02</div>
-        <h4><span class="lang-zh" lang="zh-CN">方案设计</span><span class="lang-en" lang="en">Concept Design</span></h4>
-        <p><span class="lang-zh" lang="zh-CN">多方案比选，确定最优设计方向</span>
-        <span class="lang-en" lang="en">Explore options, refine the best approach</span></p>
+        <h4><span class="lang-en" lang="en">Concept Design</span><span class="lang-zh" lang="zh-CN">方案设计</span></h4>
+        <p><span class="lang-en" lang="en">Explore options, refine the best approach</span>
+        <span class="lang-zh" lang="zh-CN">多方案比选，确定最优设计方向</span></p>
       </div>
       <div class="process-step reveal reveal-delay-2">
         <div class="step-number">03</div>
-        <h4><span class="lang-zh" lang="zh-CN">深化落地</span><span class="lang-en" lang="en">Development</span></h4>
-        <p><span class="lang-zh" lang="zh-CN">全专业协同深化，直至施工图完成</span>
-        <span class="lang-en" lang="en">Multi-discipline coordination to construction docs</span></p>
+        <h4><span class="lang-en" lang="en">Development</span><span class="lang-zh" lang="zh-CN">深化落地</span></h4>
+        <p><span class="lang-en" lang="en">Multi-discipline coordination to construction docs</span>
+        <span class="lang-zh" lang="zh-CN">全专业协同深化，直至施工图完成</span></p>
       </div>
       <div class="process-step reveal reveal-delay-3">
         <div class="step-number">04</div>
-        <h4><span class="lang-zh" lang="zh-CN">施工服务</span><span class="lang-en" lang="en">Construction</span></h4>
-        <p><span class="lang-zh" lang="zh-CN">全过程现场服务，确保设计完美落地</span>
-        <span class="lang-en" lang="en">On-site services to bring design to reality</span></p>
+        <h4><span class="lang-en" lang="en">Construction</span><span class="lang-zh" lang="zh-CN">施工服务</span></h4>
+        <p><span class="lang-en" lang="en">On-site services to bring design to reality</span>
+        <span class="lang-zh" lang="zh-CN">全过程现场服务，确保设计完美落地</span></p>
       </div>
     </div>
   </div>
@@ -1266,48 +1281,48 @@ document.addEventListener('keydown', function(e) {
 <section class="team section" id="team">
   <div class="container">
     <div class="section-title text-center reveal">
-      <span class="lang-zh" lang="zh-CN">团队</span>
       <span class="lang-en" lang="en">Our Team</span>
+      <span class="lang-zh" lang="zh-CN">团队</span>
     </div>
     <p class="section-subtitle text-center reveal reveal-delay-1">
-      <span class="lang-zh" lang="zh-CN">建筑设计、结构、室内、BIM 与项目管理 —— 四个专业团队协同完成从概念到落地的每一个环节</span>
       <span class="lang-en" lang="en">Architecture, structure, interiors, BIM and project management — four in-house disciplines working together from first concept to final handover.</span>
+      <span class="lang-zh" lang="zh-CN">建筑设计、结构、室内、BIM 与项目管理 —— 四个专业团队协同完成从概念到落地的每一个环节</span>
     </p>
     <div class="team-grid">
       <div class="team-card reveal">
         <div class="team-avatar"><div class="team-avatar-inner"><i class="fas fa-drafting-compass"></i></div></div>
-        <h4><span class="lang-zh" lang="zh-CN">建筑设计</span><span class="lang-en" lang="en">Architectural Design</span></h4>
-        <div class="team-role"><span class="lang-zh" lang="zh-CN">方案 · 初设 · 施工图</span><span class="lang-en" lang="en">Concept · Design · Detailing</span></div>
+        <h4><span class="lang-en" lang="en">Architectural Design</span><span class="lang-zh" lang="zh-CN">建筑设计</span></h4>
+        <div class="team-role"><span class="lang-en" lang="en">Concept · Design · Detailing</span><span class="lang-zh" lang="zh-CN">方案 · 初设 · 施工图</span></div>
         <p class="team-bio">
-          <span class="lang-zh" lang="zh-CN">由注册建筑师领衔，负责总体规划、方案创作与施工图深化，覆盖公共建筑、酒店文旅、医疗健康与住宅等类型。</span>
           <span class="lang-en" lang="en">Led by registered architects — master planning, schematic design and construction detailing across civic, hospitality, healthcare and residential work.</span>
+          <span class="lang-zh" lang="zh-CN">由注册建筑师领衔，负责总体规划、方案创作与施工图深化，覆盖公共建筑、酒店文旅、医疗健康与住宅等类型。</span>
         </p>
       </div>
       <div class="team-card reveal reveal-delay-1">
         <div class="team-avatar"><div class="team-avatar-inner"><i class="fas fa-hard-hat"></i></div></div>
-        <h4><span class="lang-zh" lang="zh-CN">结构与工程</span><span class="lang-en" lang="en">Structure &amp; Engineering</span></h4>
-        <div class="team-role"><span class="lang-zh" lang="zh-CN">结构 · 木结构 · 机电</span><span class="lang-en" lang="en">Structural · Timber · MEP</span></div>
+        <h4><span class="lang-en" lang="en">Structure &amp; Engineering</span><span class="lang-zh" lang="zh-CN">结构与工程</span></h4>
+        <div class="team-role"><span class="lang-en" lang="en">Structural · Timber · MEP</span><span class="lang-zh" lang="zh-CN">结构 · 木结构 · 机电</span></div>
         <p class="team-bio">
-          <span class="lang-zh" lang="zh-CN">承担结构体系选型与计算、木结构专项设计与机电配合，在结构与建造经济性之间找到最优解。</span>
           <span class="lang-en" lang="en">Structural system selection and analysis, timber-specialist design and MEP coordination — optimising between safety and buildability.</span>
+          <span class="lang-zh" lang="zh-CN">承担结构体系选型与计算、木结构专项设计与机电配合，在结构与建造经济性之间找到最优解。</span>
         </p>
       </div>
       <div class="team-card reveal reveal-delay-2">
         <div class="team-avatar"><div class="team-avatar-inner"><i class="fas fa-couch"></i></div></div>
-        <h4><span class="lang-zh" lang="zh-CN">室内与软装</span><span class="lang-en" lang="en">Interiors &amp; Furnishing</span></h4>
-        <div class="team-role"><span class="lang-zh" lang="zh-CN">室内 · 软装 · 门窗</span><span class="lang-en" lang="en">Interior · FF&amp;E · Joinery</span></div>
+        <h4><span class="lang-en" lang="en">Interiors &amp; Furnishing</span><span class="lang-zh" lang="zh-CN">室内与软装</span></h4>
+        <div class="team-role"><span class="lang-en" lang="en">Interior · FF&amp;E · Joinery</span><span class="lang-zh" lang="zh-CN">室内 · 软装 · 门窗</span></div>
         <p class="team-bio">
-          <span class="lang-zh" lang="zh-CN">负责室内空间设计、家具软装配置与门窗系统深化，把材料、灯光与细节统一到同一套设计语言。</span>
           <span class="lang-en" lang="en">Interior design, FF&amp;E specification and door/window systems — unifying material, light and detail into one design language.</span>
+          <span class="lang-zh" lang="zh-CN">负责室内空间设计、家具软装配置与门窗系统深化，把材料、灯光与细节统一到同一套设计语言。</span>
         </p>
       </div>
       <div class="team-card reveal reveal-delay-3">
         <div class="team-avatar"><div class="team-avatar-inner"><i class="fas fa-cubes"></i></div></div>
-        <h4><span class="lang-zh" lang="zh-CN">BIM 与项目管理</span><span class="lang-en" lang="en">BIM &amp; Project Management</span></h4>
-        <div class="team-role"><span class="lang-zh" lang="zh-CN">BIM · 造价 · 现场管理</span><span class="lang-en" lang="en">BIM · Cost · Site Delivery</span></div>
+        <h4><span class="lang-en" lang="en">BIM &amp; Project Management</span><span class="lang-zh" lang="zh-CN">BIM 与项目管理</span></h4>
+        <div class="team-role"><span class="lang-en" lang="en">BIM · Cost · Site Delivery</span><span class="lang-zh" lang="zh-CN">BIM · 造价 · 现场管理</span></div>
         <p class="team-bio">
-          <span class="lang-zh" lang="zh-CN">建立 BIM 模型、控制造价与工期，提供全过程现场服务，确保设计意图完整落地。</span>
           <span class="lang-en" lang="en">Building information modelling, cost and programme control, and full-stage site supervision so the design intent is delivered intact.</span>
+          <span class="lang-zh" lang="zh-CN">建立 BIM 模型、控制造价与工期，提供全过程现场服务，确保设计意图完整落地。</span>
         </p>
       </div>
     </div>
@@ -1320,12 +1335,12 @@ document.addEventListener('keydown', function(e) {
     <div class="contact-grid">
       <div class="contact-info reveal">
         <h2 class="section-title" style="color:#fff;">
-          <span class="lang-zh" lang="zh-CN">联系我们</span>
           <span class="lang-en" lang="en">Get In Touch</span>
+          <span class="lang-zh" lang="zh-CN">联系我们</span>
         </h2>
         <p class="section-subtitle" style="color:rgba(255,255,255,0.6);">
-          <span class="lang-zh" lang="zh-CN">无论是新项目合作、技术咨询还是行业交流，我们随时欢迎</span>
           <span class="lang-en" lang="en">Whether it's a new project, technical inquiry, or industry exchange — we're always ready to connect.</span>
+          <span class="lang-zh" lang="zh-CN">无论是新项目合作、技术咨询还是行业交流，我们随时欢迎</span>
         </p>
         <div class="contact-details">
           <div class="contact-item">
@@ -1338,7 +1353,7 @@ document.addEventListener('keydown', function(e) {
           <div class="contact-item">
             <i class="fas fa-phone"></i>
             <div>
-              <h4><span class="lang-zh" lang="zh-CN">电话</span><span class="lang-en" lang="en">Phone</span></h4>
+              <h4><span class="lang-en" lang="en">Phone</span><span class="lang-zh" lang="zh-CN">电话</span></h4>
               <p><a href="tel:+8615958117391" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,0.3);">+86 159 5811 7391</a></p>
             </div>
           </div>
@@ -1352,17 +1367,17 @@ document.addEventListener('keydown', function(e) {
           <div class="contact-item">
             <i class="fas fa-map-marker-alt"></i>
             <div>
-              <h4><span class="lang-zh" lang="zh-CN">地址</span><span class="lang-en" lang="en">Address</span></h4>
-              <p class="lang-zh" lang="zh-CN">中国 · 杭州</p>
+              <h4><span class="lang-en" lang="en">Address</span><span class="lang-zh" lang="zh-CN">地址</span></h4>
               <p class="lang-en" lang="en">Hangzhou, China</p>
+              <p class="lang-zh" lang="zh-CN">中国 · 杭州</p>
             </div>
           </div>
           <div class="contact-item">
             <i class="fas fa-globe"></i>
             <div>
-              <h4><span class="lang-zh" lang="zh-CN">服务范围</span><span class="lang-en" lang="en">Service Coverage</span></h4>
-              <p class="lang-zh" lang="zh-CN">全球项目 · 本地服务</p>
+              <h4><span class="lang-en" lang="en">Service Coverage</span><span class="lang-zh" lang="zh-CN">服务范围</span></h4>
               <p class="lang-en" lang="en">Global Reach · Local Delivery</p>
+              <p class="lang-zh" lang="zh-CN">全球项目 · 本地服务</p>
             </div>
           </div>
         </div>
@@ -1375,37 +1390,37 @@ document.addEventListener('keydown', function(e) {
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div class="form-group">
-              <label><span class="lang-zh" lang="zh-CN">姓名 *</span><span class="lang-en" lang="en">Name *</span></label>
+              <label><span class="lang-en" lang="en">Name *</span><span class="lang-zh" lang="zh-CN">姓名 *</span></label>
               <input type="text" name="name" required placeholder="Your name">
             </div>
             <div class="form-group">
-              <label><span class="lang-zh" lang="zh-CN">邮箱 *</span><span class="lang-en" lang="en">Email *</span></label>
+              <label><span class="lang-en" lang="en">Email *</span><span class="lang-zh" lang="zh-CN">邮箱 *</span></label>
               <input type="email" name="email" required placeholder="your@email.com">
             </div>
           </div>
           <div class="form-group">
-            <label><span class="lang-zh" lang="zh-CN">公司 / 机构</span><span class="lang-en" lang="en">Company</span></label>
+            <label><span class="lang-en" lang="en">Company</span><span class="lang-zh" lang="zh-CN">公司 / 机构</span></label>
             <input type="text" name="company" placeholder="Company name">
           </div>
           <div class="form-group">
-            <label><span class="lang-zh" lang="zh-CN">服务需求 *</span><span class="lang-en" lang="en">Service Needed *</span></label>
+            <label><span class="lang-en" lang="en">Service Needed *</span><span class="lang-zh" lang="zh-CN">服务需求 *</span></label>
             <select name="service" required>
-              <option value="" data-zh="请选择服务类型" data-en="Select a service">请选择服务类型</option>
-              <option value="architectural" data-zh="建筑设计" data-en="Architectural Design">建筑设计</option>
-              <option value="interior" data-zh="室内设计" data-en="Interior Design">室内设计</option>
-              <option value="landscape" data-zh="景观设计" data-en="Landscape Design">景观设计</option>
-              <option value="structural" data-zh="结构工程" data-en="Structural Engineering">结构工程</option>
-              <option value="bim" data-zh="BIM咨询" data-en="BIM Consulting">BIM咨询</option>
-              <option value="other" data-zh="其他" data-en="Other">其他</option>
+              <option value="" data-zh="请选择服务类型" data-en="Select a service">Select a service / 请选择服务类型</option>
+              <option value="architectural" data-zh="建筑设计" data-en="Architectural Design">Architectural Design / 建筑设计</option>
+              <option value="interior" data-zh="室内设计" data-en="Interior Design">Interior Design / 室内设计</option>
+              <option value="landscape" data-zh="景观设计" data-en="Landscape Design">Landscape Design / 景观设计</option>
+              <option value="structural" data-zh="结构工程" data-en="Structural Engineering">Structural Engineering / 结构工程</option>
+              <option value="bim" data-zh="BIM咨询" data-en="BIM Consulting">BIM Consulting / BIM咨询</option>
+              <option value="other" data-zh="其他" data-en="Other">Other / 其他</option>
             </select>
           </div>
           <div class="form-group">
-            <label><span class="lang-zh" lang="zh-CN">项目描述</span><span class="lang-en" lang="en">Project Details</span></label>
+            <label><span class="lang-en" lang="en">Project Details</span><span class="lang-zh" lang="zh-CN">项目描述</span></label>
             <textarea name="message" placeholder="Describe your project..."></textarea>
           </div>
           <button type="submit" class="form-submit">
-            <span class="lang-zh" lang="zh-CN">发送询盘</span>
             <span class="lang-en" lang="en">Send Inquiry</span>
+            <span class="lang-zh" lang="zh-CN">发送询盘</span>
             <i class="fas fa-paper-plane"></i>
           </button>
         </form>
@@ -1419,42 +1434,42 @@ document.addEventListener('keydown', function(e) {
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <h3><span class="lang-zh" lang="zh-CN">谨防建筑</span><span class="lang-en" lang="en">JFA</span></h3>
-        <p><span class="lang-zh" lang="zh-CN">全产业链建筑解决方案专家。用心设计，品质筑造。</span>
-        <span class="lang-en" lang="en">Full-chain building solution experts. Design with heart, build with quality. | JFA</span></p>
+        <h3><span class="lang-en" lang="en">JFA</span><span class="lang-zh" lang="zh-CN">谨防建筑</span></h3>
+        <p><span class="lang-en" lang="en">Full-chain building solution experts. Design with heart, build with quality. | JFA</span>
+        <span class="lang-zh" lang="zh-CN">全产业链建筑解决方案专家。用心设计，品质筑造。</span></p>
         <div class="footer-social">
           <a href="mailto:1179060110@qq.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           <a href="https://wa.me/8615958117391" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
       <div class="footer-col">
-        <h4><span class="lang-zh" lang="zh-CN">业务</span><span class="lang-en" lang="en">Services</span></h4>
-        <a href="#services"><span class="lang-zh" lang="zh-CN">建筑设计</span><span class="lang-en" lang="en">Architecture</span></a>
-        <a href="#services"><span class="lang-zh" lang="zh-CN">室内设计</span><span class="lang-en" lang="en">Interiors</span></a>
-        <a href="#services"><span class="lang-zh" lang="zh-CN">景观设计</span><span class="lang-en" lang="en">Landscape</span></a>
-        <a href="#services"><span class="lang-zh" lang="zh-CN">结构工程</span><span class="lang-en" lang="en">Structure</span></a>
-        <a href="#services"><span class="lang-zh" lang="zh-CN">BIM咨询</span><span class="lang-en" lang="en">BIM</span></a>
-        <a href="#services"><span class="lang-zh" lang="zh-CN">家具软装</span><span class="lang-en" lang="en">Furnishing</span></a>
-        <a href="#services"><span class="lang-zh" lang="zh-CN">门窗系统</span><span class="lang-en" lang="en">Door & Window</span></a>
+        <h4><span class="lang-en" lang="en">Services</span><span class="lang-zh" lang="zh-CN">业务</span></h4>
+        <a href="#services"><span class="lang-en" lang="en">Architecture</span><span class="lang-zh" lang="zh-CN">建筑设计</span></a>
+        <a href="#services"><span class="lang-en" lang="en">Interiors</span><span class="lang-zh" lang="zh-CN">室内设计</span></a>
+        <a href="#services"><span class="lang-en" lang="en">Landscape</span><span class="lang-zh" lang="zh-CN">景观设计</span></a>
+        <a href="#services"><span class="lang-en" lang="en">Structure</span><span class="lang-zh" lang="zh-CN">结构工程</span></a>
+        <a href="#services"><span class="lang-en" lang="en">BIM</span><span class="lang-zh" lang="zh-CN">BIM咨询</span></a>
+        <a href="#services"><span class="lang-en" lang="en">Furnishing</span><span class="lang-zh" lang="zh-CN">家具软装</span></a>
+        <a href="#services"><span class="lang-en" lang="en">Door & Window</span><span class="lang-zh" lang="zh-CN">门窗系统</span></a>
       </div>
       <div class="footer-col">
-        <h4><span class="lang-zh" lang="zh-CN">关于</span><span class="lang-en" lang="en">Company</span></h4>
-        <a href="#about"><span class="lang-zh" lang="zh-CN">公司介绍</span><span class="lang-en" lang="en">About Us</span></a>
-        <a href="#team"><span class="lang-zh" lang="zh-CN">核心团队</span><span class="lang-en" lang="en">Our Team</span></a>
-        <a href="#projects"><span class="lang-zh" lang="zh-CN">项目案例</span><span class="lang-en" lang="en">Projects</span></a>
-        <a href="#contact"><span class="lang-zh" lang="zh-CN">联系我们</span><span class="lang-en" lang="en">Contact</span></a>
+        <h4><span class="lang-en" lang="en">Company</span><span class="lang-zh" lang="zh-CN">关于</span></h4>
+        <a href="#about"><span class="lang-en" lang="en">About Us</span><span class="lang-zh" lang="zh-CN">公司介绍</span></a>
+        <a href="#team"><span class="lang-en" lang="en">Our Team</span><span class="lang-zh" lang="zh-CN">核心团队</span></a>
+        <a href="#projects"><span class="lang-en" lang="en">Projects</span><span class="lang-zh" lang="zh-CN">项目案例</span></a>
+        <a href="#contact"><span class="lang-en" lang="en">Contact</span><span class="lang-zh" lang="zh-CN">联系我们</span></a>
       </div>
       <div class="footer-col">
-        <h4><span class="lang-zh" lang="zh-CN">联系</span><span class="lang-en" lang="en">Contact</span></h4>
+        <h4><span class="lang-en" lang="en">Contact</span><span class="lang-zh" lang="zh-CN">联系</span></h4>
         <a href="mailto:1179060110@qq.com">1179060110@qq.com</a>
         <a href="tel:+8615958117391">+86 159 5811 7391</a>
         <a href="https://wa.me/8615958117391" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="#contact"><span class="lang-zh" lang="zh-CN">中国 · 杭州</span><span class="lang-en" lang="en">Hangzhou, China</span></a>
+        <a href="#contact"><span class="lang-en" lang="en">Hangzhou, China</span><span class="lang-zh" lang="zh-CN">中国 · 杭州</span></a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 杭州谨防建筑设计有限公司. <span class="lang-zh" lang="zh-CN">保留所有权利</span><span class="lang-en" lang="en">All rights reserved.</span></span>
-      <span><span class="lang-zh" lang="zh-CN">用心设计，品质筑造</span><span class="lang-en" lang="en">Design with heart, build with quality</span></span>
+      <span>&copy; 2026 杭州谨防建筑设计有限公司. <span class="lang-en" lang="en">All rights reserved.</span><span class="lang-zh" lang="zh-CN">保留所有权利</span></span>
+      <span><span class="lang-en" lang="en">Design with heart, build with quality</span><span class="lang-zh" lang="zh-CN">用心设计，品质筑造</span></span>
     </div>
   </div>
 </footer>
@@ -1587,7 +1602,8 @@ function applyLang(lang) {
     btn.setAttribute('aria-label', (lang === 'en') ? '切换到中文' : 'Switch to English');
   }
   document.querySelectorAll('select option[data-zh]').forEach(o => {
-    o.textContent = (lang === 'en') ? o.getAttribute('data-en') : o.getAttribute('data-zh');
+    const en = o.getAttribute('data-en'), zh = o.getAttribute('data-zh');
+    o.textContent = (lang === 'en') ? en : (en + ' / ' + zh);
   });
   try { localStorage.setItem('jfa-lang', lang); } catch (e) {}
 }
