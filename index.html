@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-lang="zh">
+<html lang="en" data-lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +46,14 @@
   "email": "1179060110@qq.com",
   "telephone": "+86-159-5811-7391",
   "address": {"@type":"PostalAddress","addressLocality":"杭州","addressRegion":"浙江","addressCountry":"CN"},
-  "areaServed": {"@type":"Place","name":"Worldwide"},
+  "areaServed": [
+    {"@type":"Place","name":"Worldwide"},
+    {"@type":"City","name":"杭州"},
+    {"@type":"City","name":"北京"},
+    {"@type":"City","name":"上海"},
+    {"@type":"City","name":"广州"},
+    {"@type":"City","name":"深圳"}
+  ],
   "knowsLanguage": ["zh-CN","en"],
   "knowsAbout": ["建筑设计","室内设计","景观设计","结构工程","BIM","工程管理","木结构建筑","家具软装","门窗系统"],
   "hasOfferCatalog": {
@@ -842,6 +849,9 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   .projects-grid { grid-template-columns:1fr; }
   .team-grid { grid-template-columns:1fr; }
   .stats-grid { grid-template-columns:repeat(2,1fr); gap:24px; }
+    /* 窄屏 hero 内容会顶到滚动提示上，直接隐藏提示并给底部留出余地 */
+    .scroll-indicator { display:none; }
+    .hero-content { padding-bottom:40px; }
   .process-steps { grid-template-columns:1fr; }
   .form-row { grid-template-columns:1fr; }
   .footer-grid { grid-template-columns:1fr; }
@@ -1113,7 +1123,8 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
       <button class="filter-btn" data-filter="residential">
         <span class="lang-en" lang="en">Residential</span><span class="lang-zh" lang="zh-CN">住宅设计</span>
       </button>
-       <div class="projects-grid">
+    </div>
+    <div class="projects-grid">
       <div class="project-card reveal" data-category="commercial">
         <span class="proj-tag"><span class="lang-en" lang="en">Commercial</span><span class="lang-zh" lang="zh-CN">商业建筑</span></span>
         <img loading="lazy" class="project-card-img" src="images/projects/project-restaurant-1.jpg" alt="生态文旅餐厅 / Eco-Tourism Restaurant">
@@ -1637,7 +1648,7 @@ async function handleFormSubmit(e) {
 // ===== 语言切换 / Language toggle =====
 function applyLang(lang) {
   document.documentElement.setAttribute('data-lang', lang);
-  document.documentElement.lang = (lang === 'en') ? 'en' : 'zh-CN';
+  document.documentElement.lang = 'en';   // English is the primary language in both modes
   const btn = document.getElementById('langToggle');
   if (btn) {
     btn.textContent = (lang === 'en') ? '中文' : 'EN';
