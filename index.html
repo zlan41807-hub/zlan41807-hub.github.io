@@ -1149,7 +1149,7 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
         <span class="proj-tag"><span class="lang-en" lang="en">Residential</span><span class="lang-zh" lang="zh-CN">高端住宅</span></span>
         <div class="proj-slider" id="residentialSlider">
           <div class="proj-slider-track">
-            <div class="proj-slide"><img loading="lazy" src="images/residential/residential-01-suburban-villa-carport.jpg" alt="现代简欧别墅 / Modern-Classic Villa"></div>
+            <div class="proj-slide"><img loading="eager" src="images/residential/residential-01-suburban-villa-carport.jpg" alt="现代简欧别墅 / Modern-Classic Villa"></div>
             <div class="proj-slide"><img loading="lazy" src="images/residential/residential-02-modern-cantilever.jpg" alt="悬挑住宅 / Cantilever House"></div>
             <div class="proj-slide"><img loading="lazy" src="images/residential/residential-03-modern-dusk-deck.jpg" alt="露台庭院住宅 / Deck Courtyard House"></div>
             <div class="proj-slide"><img loading="lazy" src="images/residential/residential-04-timber-cabin.jpg" alt="木构坡顶小屋 / Timber Gable Cabin"></div>
@@ -1720,6 +1720,27 @@ document.addEventListener('keydown', (e) => {
     if (Math.abs(dx) > 40) go(dx < 0 ? idx + 1 : idx - 1);
     x0 = null;
   });
+
+  // 其余图片位于 overflow:hidden 的滑轨里，惰性加载要等真正滑入才触发，
+  // 首次切换会出现空白帧；卡片接近视口时一次性预取。
+  function preload() {
+    slides.forEach(function (sl) {
+      var im = sl.querySelector('img');
+      if (!im || im.complete) return;
+      var p = new Image();
+      p.src = im.getAttribute('src');
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { io.disconnect(); preload(); }
+      });
+    }, { rootMargin: '250px' });
+    io.observe(slider);
+  } else {
+    preload();
+  }
 
   function start() { if (!timer) timer = setInterval(function () { go(idx + 1); }, 5000); }
   function stop() { if (timer) { clearInterval(timer); timer = null; } }
