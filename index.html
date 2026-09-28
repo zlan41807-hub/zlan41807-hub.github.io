@@ -427,6 +427,35 @@ p.lang-zh, h4.lang-zh { font-size: 0.72em !important; opacity: 0.62 !important; 
   z-index:1;
 }
 
+/* ===== 住宅卡片：图片左右滑动 ===== */
+.project-card-slider .project-overlay { z-index: 2; }
+.project-card-slider:hover .project-card-img { transform: none; }
+.project-card-slider .proj-tag { z-index: 6; }
+.proj-slider { position:absolute; inset:0; overflow:hidden; }
+.proj-slider-track { display:flex; height:100%; transition: transform 0.5s ease; will-change: transform; }
+.proj-slide { flex:0 0 100%; height:100%; }
+.proj-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+.proj-slider-btn {
+  position:absolute; top:50%; transform:translateY(-50%); z-index:5;
+  width:38px; height:38px; border:none; border-radius:50%; cursor:pointer;
+  background:rgba(20,20,28,0.45); color:#fff; font-size:0.95rem; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+  opacity:0.85; transition: var(--transition);
+}
+.proj-slider-btn:hover { background:rgba(20,20,28,0.75); opacity:1; }
+.proj-slider-btn.prev { left:12px; }
+.proj-slider-btn.next { right:12px; }
+.proj-slider-dots {
+  position:absolute; left:0; right:0; bottom:14px; z-index:5;
+  display:flex; justify-content:center; gap:7px;
+}
+.proj-slider-dots button {
+  width:9px; height:9px; padding:0; border:none; border-radius:50%; cursor:pointer;
+  background:rgba(255,255,255,0.55); box-shadow:0 0 0 1px rgba(0,0,0,0.15);
+  transition: var(--transition);
+}
+.proj-slider-dots button.active { background:var(--accent); transform:scale(1.15); }
+
 /* ===== Stats ===== */
 .stats {
   background: var(--primary);
@@ -1105,14 +1134,26 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
           <p class="lang-zh" lang="zh-CN">良渚 | 度假木屋建筑设计</p>
         </div>
       </div>
-      <div class="project-card reveal reveal-delay-2" data-category="residential">
+      <div class="project-card project-card-slider reveal reveal-delay-2" data-category="residential">
         <span class="proj-tag"><span class="lang-en" lang="en">Residential</span><span class="lang-zh" lang="zh-CN">高端住宅</span></span>
-        <img loading="lazy" class="project-card-img" src="images/projects/project-villa-1.jpg" alt="精品度假别墅 / Premium Resort Villa">
+        <div class="proj-slider" id="residentialSlider">
+          <div class="proj-slider-track">
+            <div class="proj-slide"><img loading="lazy" src="images/residential/residential-01-suburban-villa-carport.jpg" alt="现代简欧别墅 / Modern-Classic Villa"></div>
+            <div class="proj-slide"><img loading="lazy" src="images/residential/residential-02-modern-cantilever.jpg" alt="悬挑住宅 / Cantilever House"></div>
+            <div class="proj-slide"><img loading="lazy" src="images/residential/residential-03-modern-dusk-deck.jpg" alt="露台庭院住宅 / Deck Courtyard House"></div>
+            <div class="proj-slide"><img loading="lazy" src="images/residential/residential-04-timber-cabin.jpg" alt="木构坡顶小屋 / Timber Gable Cabin"></div>
+            <div class="proj-slide"><img loading="lazy" src="images/residential/residential-05-suburban-siding.jpg" alt="郊区独栋住宅 / Suburban Family House"></div>
+            <div class="proj-slide"><img loading="lazy" src="images/projects/project-villa-1.jpg" alt="精品度假别墅 / Premium Resort Villa"></div>
+          </div>
+          <button class="proj-slider-btn prev" type="button" aria-label="Previous image">&#10094;</button>
+          <button class="proj-slider-btn next" type="button" aria-label="Next image">&#10095;</button>
+          <div class="proj-slider-dots"></div>
+        </div>
         <div class="project-overlay">
-          <h4 class="lang-en" lang="en">Premium Resort Villa</h4>
-          <h4 class="lang-zh" lang="zh-CN">精品度假别墅</h4>
-          <p class="lang-en" lang="en">Luxury Residence | Arch & Landscape</p>
-          <p class="lang-zh" lang="zh-CN">高端住宅 | 别墅建筑与景观设计</p>
+          <h4 class="lang-en" lang="en">Residential Collection</h4>
+          <h4 class="lang-zh" lang="zh-CN">高端住宅系列</h4>
+          <p class="lang-en" lang="en">Residential | Typologies and Facade Studies</p>
+          <p class="lang-zh" lang="zh-CN">高端住宅 | 多类型住宅与立面方案设计</p>
         </div>
       </div>
       <div class="project-card reveal" data-category="commercial">
@@ -1207,56 +1248,7 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
           <p class="lang-zh" lang="zh-CN">杭州谨防 | 景观概念设计</p>
         </div>
       </div>
-      <div class="project-card reveal" data-category="residential">
-        <span class="proj-tag"><span class="lang-en" lang="en">Residential</span><span class="lang-zh" lang="zh-CN">住宅设计</span></span>
-        <img loading="lazy" class="project-card-img" src="images/residential/residential-01-suburban-villa-carport.jpg" alt="现代简欧别墅 / Modern-Classic Villa">
-        <div class="project-overlay">
-          <h4 class="lang-en" lang="en">Modern-Classic Villa</h4>
-          <h4 class="lang-zh" lang="zh-CN">现代简欧别墅</h4>
-          <p class="lang-en" lang="en">Detached Villa | Facade and Carport Design</p>
-          <p class="lang-zh" lang="zh-CN">独栋别墅 | 外立面与车廊设计</p>
-        </div>
-      </div>
-      <div class="project-card reveal-delay-1" data-category="residential">
-        <span class="proj-tag"><span class="lang-en" lang="en">Residential</span><span class="lang-zh" lang="zh-CN">住宅设计</span></span>
-        <img loading="lazy" class="project-card-img" src="images/residential/residential-02-modern-cantilever.jpg" alt="悬挑住宅 / Cantilever House">
-        <div class="project-overlay">
-          <h4 class="lang-en" lang="en">Cantilever House</h4>
-          <h4 class="lang-zh" lang="zh-CN">悬挑住宅</h4>
-          <p class="lang-en" lang="en">Modern Villa | Cantilever and External Stair</p>
-          <p class="lang-zh" lang="zh-CN">现代住宅 | 悬挑体量与室外楼梯</p>
-        </div>
-      </div>
-      <div class="project-card reveal-delay-2" data-category="residential">
-        <span class="proj-tag"><span class="lang-en" lang="en">Residential</span><span class="lang-zh" lang="zh-CN">住宅设计</span></span>
-        <img loading="lazy" class="project-card-img" src="images/residential/residential-03-modern-dusk-deck.jpg" alt="露台庭院住宅 / Deck Courtyard House">
-        <div class="project-overlay">
-          <h4 class="lang-en" lang="en">Deck Courtyard House</h4>
-          <h4 class="lang-zh" lang="zh-CN">露台庭院住宅</h4>
-          <p class="lang-en" lang="en">Modern Villa | Balcony and Deck Design</p>
-          <p class="lang-zh" lang="zh-CN">现代住宅 | 阳台与露台设计</p>
-        </div>
-      </div>
-      <div class="project-card reveal" data-category="residential">
-        <span class="proj-tag"><span class="lang-en" lang="en">Residential</span><span class="lang-zh" lang="zh-CN">住宅设计</span></span>
-        <img loading="lazy" class="project-card-img" src="images/residential/residential-04-timber-cabin.jpg" alt="木构坡顶小屋 / Timber Gable Cabin">
-        <div class="project-overlay">
-          <h4 class="lang-en" lang="en">Timber Gable Cabin</h4>
-          <h4 class="lang-zh" lang="zh-CN">木构坡顶小屋</h4>
-          <p class="lang-en" lang="en">Timber Cabin | Single-Storey Residence</p>
-          <p class="lang-zh" lang="zh-CN">木结构小屋 | 单层住宅设计</p>
-        </div>
-      </div>
-      <div class="project-card reveal-delay-1" data-category="residential">
-        <span class="proj-tag"><span class="lang-en" lang="en">Residential</span><span class="lang-zh" lang="zh-CN">住宅设计</span></span>
-        <img loading="lazy" class="project-card-img" src="images/residential/residential-05-suburban-siding.jpg" alt="郊区独栋住宅 / Suburban Family House">
-        <div class="project-overlay">
-          <h4 class="lang-en" lang="en">Suburban Family House</h4>
-          <h4 class="lang-zh" lang="zh-CN">郊区独栋住宅</h4>
-          <p class="lang-en" lang="en">Suburban House | Facade and Porch Design</p>
-          <p class="lang-zh" lang="zh-CN">郊区住宅 | 立面与门廊设计</p>
-        </div>
-      </div>
+      
     </div>
   </div>
 </section>
@@ -1676,6 +1668,54 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') document.getElementById('navLinks').classList.remove('open');
 });
+
+// ===== Residential project slider =====
+(function () {
+  var slider = document.getElementById('residentialSlider');
+  if (!slider) return;
+  var track = slider.querySelector('.proj-slider-track');
+  var slides = Array.prototype.slice.call(track.children);
+  var dotsWrap = slider.querySelector('.proj-slider-dots');
+  if (slides.length < 2) return;
+  var idx = 0, timer = null;
+
+  slides.forEach(function (_, n) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Image ' + (n + 1));
+    b.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); go(n); });
+    dotsWrap.appendChild(b);
+  });
+  var dots = Array.prototype.slice.call(dotsWrap.children);
+
+  function go(n) {
+    idx = (n + slides.length) % slides.length;
+    track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+    dots.forEach(function (d, k) { d.classList.toggle('active', k === idx); });
+  }
+  slider.querySelector('.prev').addEventListener('click', function (e) {
+    e.preventDefault(); e.stopPropagation(); go(idx - 1);
+  });
+  slider.querySelector('.next').addEventListener('click', function (e) {
+    e.preventDefault(); e.stopPropagation(); go(idx + 1);
+  });
+  go(0);
+
+  var x0 = null;
+  slider.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  slider.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) go(dx < 0 ? idx + 1 : idx - 1);
+    x0 = null;
+  });
+
+  function start() { if (!timer) timer = setInterval(function () { go(idx + 1); }, 5000); }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  slider.addEventListener('mouseenter', stop);
+  slider.addEventListener('mouseleave', start);
+  start();
+})();
 
 // ===== About Image Carousel =====
 (function() {
