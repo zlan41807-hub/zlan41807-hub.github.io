@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Detailed Estimate 详细估算 — 先算清楚造价，再决定出图 · JFA 谨防建筑</title>
-<meta name="description" content="JFA 详细估算：人工复核你的方案，给出工程造价估算、依据与不含范围。单独报告 ¥1,980；图纸前置包含估算 ¥6,800 / ¥8,800 含税。指示性估算，非固定工程总价。">
+<meta name="description" content="JFA 详细估算：人工复核你的方案，给出工程造价估算、依据与不含范围。单独报告 $299；图纸前置包含估算 $1,200 / $1,500 含税。指示性估算，非固定工程总价。">
 <meta name="keywords" content="详细估算,工程造价估算,建筑造价,图纸前置包,方案估算,建筑设计,杭州建筑设计公司,JFA,谨防建筑,detailed estimate,construction cost estimate,preliminary drawings,China architect">
 <meta name="author" content="杭州谨防建筑设计有限公司 / Hangzhou Jinfang Architectural Design Co., Ltd.">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -17,7 +17,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:url" content="https://jfadesign.pages.dev/estimate">
 <meta property="og:title" content="Detailed Estimate 详细估算 — 先算清楚造价，再决定出图">
-<meta property="og:description" content="人工复核你的方案，给出工程造价估算、依据与不含范围。单独报告 ¥1,980；图纸前置包含估算 ¥6,800 / ¥8,800。">
+<meta property="og:description" content="人工复核你的方案，给出工程造价估算、依据与不含范围。单独报告 $299；图纸前置包含估算 $1,200 / $1,500。">
 <meta property="og:image" content="https://jfadesign.pages.dev/images/projects/project-cabin-1.jpg">
 <meta property="og:image:alt" content="JFA 木结构建筑项目">
 <meta name="twitter:card" content="summary_large_image">
@@ -866,8 +866,8 @@ body.est-page { background: var(--bg-warm); }
 .est-label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 20px 0 10px; font-weight: 600; }
 .est-list { list-style: none; padding: 0; margin: 0; }
 .est-list li { position: relative; padding-left: 26px; margin-bottom: 9px; font-size: 14.5px; line-height: 1.65; color: var(--text-body); }
-.est-list li:before { content: "\2713"; position: absolute; left: 0; top: 0; color: #6FA97A; font-weight: 700; }
-.est-list.is-out li:before { content: "\2014"; color: #C08A7A; }
+.est-list li:before { content: "✓"; position: absolute; left: 0; top: 0; color: #6FA97A; font-weight: 700; }
+.est-list.is-out li:before { content: "—"; color: #C08A7A; }
 .est-list li .lang-zh { display: block; font-size: .88em; color: var(--text-light); margin-top: 2px; }
 .est-card .est-cta { margin-top: auto; padding-top: 22px; }
 .est-quiet { font-size: 13px; color: var(--text-light); margin-top: 12px; line-height: 1.7; }
@@ -942,6 +942,67 @@ body.est-page { background: var(--bg-warm); }
 .est-faq summary .lang-zh { line-height: 1.4; }
 .btn .lang-zh { margin-left: 6px; font-size: .86em; opacity: .8; }
 
+
+/* ===== pricing plans (reference layout, own palette) ===== */
+.est-pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 28px; align-items: stretch; }
+.est-plan {
+  background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 34px 34px 30px; display: flex; flex-direction: column; box-shadow: var(--shadow);
+}
+.est-plan.is-featured { background: #22303F; border-color: #22303F; color: #EDEAE4; }
+.est-plan-head { padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+.est-plan.is-featured .est-plan-head { border-color: rgba(237,234,228,.18); }
+.est-plan-price { margin: 0; font-size: 44px; line-height: 1.05; font-weight: 800; color: var(--text-dark); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.est-plan.is-featured .est-plan-price { color: #F4EFE6; }
+.est-plan-price small { font-size: 17px; font-weight: 700; margin-left: 8px; letter-spacing: .02em; color: var(--accent); }
+.est-plan.is-featured .est-plan-price small { color: #E8C88A; }
+.est-plan-price .lang-zh { display: block; font-size: .5em; font-weight: 700; margin-top: 6px; opacity: .5; letter-spacing: 0; }
+.est-plan-tax { margin: 10px 0 0; font-size: 13.5px; color: var(--text-light); }
+.est-plan.is-featured .est-plan-tax { color: rgba(237,234,228,.6); }
+.est-plan-tax .lang-zh { display: inline; margin-left: 6px; opacity: .9; }
+.est-plan-desc { margin: 22px 0 4px; font-size: 15.5px; line-height: 1.8; color: var(--text-body); }
+.est-plan.is-featured .est-plan-desc { color: rgba(237,234,228,.8); }
+.est-plan-desc .lang-zh { display: block; margin-top: 10px; font-size: .9em; color: var(--text-light); }
+.est-plan.is-featured .est-plan-desc .lang-zh { color: rgba(237,234,228,.6); }
+.est-spec { padding-top: 20px; margin-top: 20px; border-top: 1px solid var(--border); }
+.est-plan.is-featured .est-spec { border-color: rgba(237,234,228,.18); }
+.est-spec-label { margin: 0 0 8px; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--text-light); }
+.est-plan.is-featured .est-spec-label { color: rgba(237,234,228,.55); }
+.est-spec-label .lang-zh { letter-spacing: .04em; text-transform: none; margin-left: 8px; opacity: .85; font-weight: 500; }
+.est-spec-body { font-size: 14.5px; line-height: 1.75; color: var(--text-body); }
+.est-plan.is-featured .est-spec-body { color: rgba(237,234,228,.82); }
+.est-spec-body .lang-zh { display: block; margin-top: 7px; font-size: .9em; color: var(--text-light); }
+.est-plan.is-featured .est-spec-body .lang-zh { color: rgba(237,234,228,.6); }
+ul.est-ticks { list-style: none; margin: 0; padding: 0; }
+ul.est-ticks li { position: relative; padding-left: 26px; margin-bottom: 7px; }
+ul.est-ticks li:before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 700; }
+ul.est-ticks li.is-none { padding-left: 26px; color: var(--text-light); }
+ul.est-ticks li.is-none:before { content: "—"; color: #C08A7A; }
+.est-plan.is-featured ul.est-ticks li:before { color: #E8C88A; }
+.est-callout {
+  margin-top: 20px; padding: 16px 20px; border-radius: var(--radius);
+  background: rgba(232,200,138,.12); border: 1px solid rgba(232,200,138,.42);
+  font-size: 14.5px; line-height: 1.7; font-weight: 600; color: #F4EFE6;
+}
+.est-callout .lang-zh { display: block; margin-top: 6px; font-weight: 500; font-size: .9em; color: rgba(244,239,230,.7); }
+.est-plan-cta {
+  display: block; margin-top: auto; text-align: center; text-decoration: none;
+  padding: 17px 22px; border-radius: 999px; font-weight: 700; font-size: 15.5px; letter-spacing: .01em;
+  background: var(--accent); color: #2A2A2A; transition: var(--transition);
+}
+.est-plan-cta:hover { background: var(--accent-light); }
+.est-plan.is-featured .est-plan-cta { background: #E8C88A; color: #22303F; }
+.est-plan.is-featured .est-plan-cta:hover { background: #F2DCAE; }
+.est-plan-cta .lang-zh { display: block; font-size: .85em; font-weight: 600; margin-top: 3px; opacity: .88; }
+.est-plan .est-spec:last-of-type { margin-bottom: 28px; }
+.est-plan-note { margin: 12px 0 0; font-size: 12.5px; color: var(--text-light); text-align: center; }
+.est-plan.is-featured .est-plan-note { color: rgba(237,234,228,.55); }
+.est-plan-note .lang-zh { display: block; margin-top: 3px; }
+.est-plan .est-plan-cta + .est-plan-note { margin-top: 12px; }
+@media (max-width: 767px) {
+  .est-plan { padding: 26px 22px 24px; }
+  .est-plan-price { font-size: 36px; }
+}
 @media (max-width: 767px) {
   .est-hero { padding: calc(var(--nav-height) + 44px) 0 42px; }
   .est-section { padding: 52px 0; }
@@ -1025,12 +1086,12 @@ body.est-page { background: var(--bg-warm); }
       <span class="lang-zh" lang="zh-CN">我们人工复核你的方案，出一份报告：工程造价估算、这个数字的依据、不含在内的部分，以及还需要核实的事项 —— 让你用数据做决定，而不是靠猜。</span>
     </p>
     <div class="est-price-strip">
-      <div class="est-price-chip"><strong>¥1,980</strong><span class="lang-en" lang="en">Estimate report on its own</span><span class="lang-zh" lang="zh-CN">单独详细估算报告</span></div>
-      <div class="est-price-chip"><strong>¥6,800 / ¥8,800</strong><span class="lang-en" lang="en">Drawing package (estimate included)</span><span class="lang-zh" lang="zh-CN">图纸前置包（含估算）</span></div>
+      <div class="est-price-chip"><strong>$299 <small>USD</small></strong><span class="lang-en" lang="en">Estimate report on its own</span><span class="lang-zh" lang="zh-CN">单独详细估算报告</span></div>
+      <div class="est-price-chip"><strong>$1,200 / $1,500 <small>USD</small></strong><span class="lang-en" lang="en">Drawing package (estimate included)</span><span class="lang-zh" lang="zh-CN">图纸前置包（含估算）</span></div>
     </div>
     <p class="est-fineprint">
-      <span class="lang-en" lang="en">Prices in RMB, tax included. Nothing is paid on this page — the buttons below simply take you to the right place.</span>
-      <span class="lang-zh" lang="zh-CN">人民币含税价。本页不收款，下面的按钮只负责把你带到正确的地方。</span>
+      <span class="lang-en" lang="en">Prices in USD, tax included. Nothing is paid on this page — the buttons below simply take you to the right place.</span>
+      <span class="lang-zh" lang="zh-CN">美元含税价。本页不收款，下面的按钮只负责把你带到正确的地方。</span>
     </p>
   </div>
 </section>
@@ -1048,64 +1109,109 @@ body.est-page { background: var(--bg-warm); }
       </p>
     </div>
 
-    <div class="est-offers">
-      <div class="est-card">
-        <h3><span class="lang-en" lang="en">Detailed Estimate</span><span class="lang-zh" lang="zh-CN">详细估算报告</span></h3>
-        <!-- TODO 价格待确认 -->
-        <div class="price">¥1,980 <small class="lang-en" lang="en">per design</small><small class="lang-zh" lang="zh-CN">每个方案</small></div>
-        <div class="price-note"><span class="lang-en" lang="en">Tax included · reviewed by a person</span><span class="lang-zh" lang="zh-CN">含税 · 人工复核</span></div>
-        <p class="desc">
-          <span class="lang-en" lang="en">A reviewed report for one design: the estimated cost to build it and what that figure rests on, the scope you still have to budget for, and a clear read on your next move.</span>
-          <span class="lang-zh" lang="zh-CN">针对单个方案的人工复核报告：建造成本估算及其依据、你还需另行预算的范围，以及对你下一步的明确判断。</span>
+    <div class="est-pricing">
+      <article class="est-plan">
+        <header class="est-plan-head">
+          <p class="est-plan-price"><span class="lang-en" lang="en">$299<small>USD</small></span><span class="lang-zh" lang="zh-CN">299<small>美元</small></span></p>
+          <p class="est-plan-tax"><span class="lang-en" lang="en">All prices include tax.</span><span class="lang-zh" lang="zh-CN">价格含商品及服务税。</span></p>
+        </header>
+        <p class="est-plan-desc">
+          <span class="lang-en" lang="en">A reviewed report for the design you choose: the estimated cost and what it rests on, the scope outside it, and your next step — before you decide on drawings.</span>
+          <span class="lang-zh" lang="zh-CN">一份经人工审核的报告，针对你所选的设计：估算成本及其依据、范围之外还要另行预算的部分，以及你的下一步 —— 在你决定开始绘图之前。</span>
         </p>
-        <div class="est-label"><span class="lang-en" lang="en">What you get</span><span class="lang-zh" lang="zh-CN">包含</span></div>
-        <ul class="est-list">
-          <li><span class="lang-en" lang="en">Reviewed cost estimate, broken down by floor area</span><span class="lang-zh" lang="zh-CN">复核后的造价估算，按建筑面积分解</span></li>
-          <li><span class="lang-en" lang="en">The basis for every figure: structure type, wind/seismic zone, price basis and its date</span><span class="lang-zh" lang="zh-CN">每个数字的依据：结构体系、风荷载/抗震设防、价格基准及其日期</span></li>
-          <li><span class="lang-en" lang="en">The design version the estimate was built from</span><span class="lang-zh" lang="zh-CN">估算所依据的方案版本号</span></li>
-          <li><span class="lang-en" lang="en">A dimensioned floor plan with the window and door schedule</span><span class="lang-zh" lang="zh-CN">标注尺寸的平面图与门窗表</span></li>
-          <li><span class="lang-en" lang="en">Ordered scope: what we price, what others price</span><span class="lang-zh" lang="zh-CN">范围清单：我们计价的部分、第三方计价的部分</span></li>
-        </ul>
-        <div class="est-label"><span class="lang-en" lang="en">Not included</span><span class="lang-zh" lang="zh-CN">不含</span></div>
-        <ul class="est-list is-out">
-          <li><span class="lang-en" lang="en">The preliminary drawing set</span><span class="lang-zh" lang="zh-CN">前置图纸集</span></li>
-          <li><span class="lang-en" lang="en">Engineering design, approvals or a fixed construction price</span><span class="lang-zh" lang="zh-CN">结构设计、报建审批、固定总价承诺</span></li>
-        </ul>
-        <div class="est-cta">
-          <a class="btn btn-primary" href="index.html#contact"><span class="lang-en" lang="en">Start an estimate</span><span class="lang-zh" lang="zh-CN">发起估算</span></a>
-          <p class="est-quiet"><span class="lang-en" lang="en">Best when you want the numbers before deciding on drawings.</span><span class="lang-zh" lang="zh-CN">适合：想先看数字，再决定要不要出图。</span></p>
+        <div class="est-spec">
+          <p class="est-spec-label"><span class="lang-en" lang="en">Best time</span><span class="lang-zh" lang="zh-CN">最佳时机</span></p>
+          <div class="est-spec-body">
+            <span class="lang-en" lang="en">When you want to check the cost before committing to drawings.</span>
+            <span class="lang-zh" lang="zh-CN">在决定出图之前，你想先把费用核查清楚。</span>
+          </div>
         </div>
-      </div>
+        <div class="est-spec">
+          <p class="est-spec-label"><span class="lang-en" lang="en">Reviewed estimate</span><span class="lang-zh" lang="zh-CN">评估估算</span></p>
+          <div class="est-spec-body"><ul class="est-ticks">
+            <li><span class="lang-en" lang="en">A cost estimate reviewed by our team — with its pricing basis and assumptions stated</span><span class="lang-zh" lang="zh-CN">经我们团队审核的成本估算 —— 并写明计价基准与假设</span></li>
+            <li><span class="lang-en" lang="en">Broken down by floor area, with structure system and design loads identified</span><span class="lang-zh" lang="zh-CN">按建筑面积分解，标明结构体系与设计荷载</span></li>
+            <li><span class="lang-en" lang="en">The design version it was built from, and the date of the price basis</span><span class="lang-zh" lang="zh-CN">所依据的方案版本号，以及价格基准的日期</span></li>
+          </ul></div>
+        </div>
+        <div class="est-spec">
+          <p class="est-spec-label"><span class="lang-en" lang="en">Design &amp; site information</span><span class="lang-zh" lang="zh-CN">设计与场地信息</span></p>
+          <div class="est-spec-body"><ul class="est-ticks">
+            <li><span class="lang-en" lang="en">A dimensioned floor plan with the window and door schedule</span><span class="lang-zh" lang="zh-CN">标注尺寸的平面图与门窗表</span></li>
+            <li><span class="lang-en" lang="en">Your building shown placed on the plot</span><span class="lang-zh" lang="zh-CN">建筑在用地上的摆放位置示意</span></li>
+            <li><span class="lang-en" lang="en">A rendered image of your design</span><span class="lang-zh" lang="zh-CN">你的设计效果图</span></li>
+          </ul></div>
+        </div>
+        <div class="est-spec">
+          <p class="est-spec-label"><span class="lang-en" lang="en">Preliminary drawing set</span><span class="lang-zh" lang="zh-CN">初步绘图集</span></p>
+          <div class="est-spec-body"><ul class="est-ticks">
+            <li class="is-none"><span class="lang-en" lang="en">Not included</span><span class="lang-zh" lang="zh-CN">未包含</span></li>
+          </ul></div>
+        </div>
+        <div class="est-spec">
+          <p class="est-spec-label"><span class="lang-en" lang="en">Outside the scope</span><span class="lang-zh" lang="zh-CN">超出范围</span></p>
+          <div class="est-spec-body">
+            <span class="lang-en" lang="en">Engineering, structural design, approvals, a supply quotation or a fixed construction price.</span>
+            <span class="lang-zh" lang="zh-CN">结构设计、报建审批、供货报价或固定工程总价。</span>
+          </div>
+        </div>
+        <a class="est-plan-cta" href="index.html#contact"><span class="lang-en" lang="en">Choose my design to get the estimate</span><span class="lang-zh" lang="zh-CN">选择我的设计以获取估算</span></a>
+        <p class="est-plan-note"><span class="lang-en" lang="en">Tell us about your design — nothing is charged on this page.</span><span class="lang-zh" lang="zh-CN">请告诉我们你的设计 —— 本页不收取任何费用。</span></p>
+      </article>
 
-      <div class="est-card is-featured">
-        <h3><span class="lang-en" lang="en">Preliminary Package</span><span class="lang-zh" lang="zh-CN">图纸前置包</span></h3>
-        <!-- TODO 价格待确认 -->
-        <div class="price">¥6,800 <small class="lang-en" lang="en">standard</small><small class="lang-zh" lang="zh-CN">标准方案</small></div>
-        <div class="price">¥8,800 <small class="lang-en" lang="en">custom</small><small class="lang-zh" lang="zh-CN">定制方案</small></div>
-        <div class="price-note"><span class="lang-en" lang="en">Tax included · the Detailed Estimate comes inside</span><span class="lang-zh" lang="zh-CN">含税 · 详细估算已包含在内</span></div>
-        <p class="desc">
-          <span class="lang-en" lang="en">A full set of preliminary drawings prepared for your design on your site, with the same Detailed Estimate included — the stage you use for early project and planning discussions.</span>
-          <span class="lang-zh" lang="zh-CN">针对你的方案与场地编制的全套前置图纸，并包含同样一份详细估算 —— 用于早期方案沟通与报建洽谈。</span>
+      <article class="est-plan is-featured">
+        <header class="est-plan-head">
+          <p class="est-plan-price"><span class="lang-en" lang="en">$1,200<small>USD</small></span><span class="lang-zh" lang="zh-CN">1,200<small>美元</small></span></p>
+          <p class="est-plan-tax"><span class="lang-en" lang="en">Standard plan · all prices include tax.</span><span class="lang-zh" lang="zh-CN">标准方案 · 价格含商品及服务税。</span></p>
+          <p class="est-plan-price" style="margin-top:14px"><span class="lang-en" lang="en">$1,500<small>USD</small></span><span class="lang-zh" lang="zh-CN">1,500<small>美元</small></span></p>
+          <p class="est-plan-tax"><span class="lang-en" lang="en">Custom plan · all prices include tax.</span><span class="lang-zh" lang="zh-CN">定制方案 · 价格含商品及服务税。</span></p>
+        </header>
+        <p class="est-plan-desc">
+          <span class="lang-en" lang="en">Preliminary drawings, site plan, rendered image and the Detailed Estimate together, prepared for a nominated plot.</span>
+          <span class="lang-zh" lang="zh-CN">初步图纸、场地平面图、渲染图像和详细估算一起交付，为指定地块准备。</span>
         </p>
-        <div class="est-label"><span class="lang-en" lang="en">What you get</span><span class="lang-zh" lang="zh-CN">包含</span></div>
-        <ul class="est-list">
-          <li><span class="lang-en" lang="en">Everything in the Detailed Estimate, prepared from the version you submit</span><span class="lang-zh" lang="zh-CN">详细估算的全部内容，按你提交的版本编制</span></li>
-          <li><span class="lang-en" lang="en">Site plan and floor plans</span><span class="lang-zh" lang="zh-CN">总平面图与各层平面图</span></li>
-          <li><span class="lang-en" lang="en">Four elevations, in your chosen colours</span><span class="lang-zh" lang="zh-CN">四向立面图，按你选定的配色</span></li>
-          <li><span class="lang-en" lang="en">Window and door schedules, roof plan</span><span class="lang-zh" lang="zh-CN">门窗表、屋面图</span></li>
-          <li><span class="lang-en" lang="en">A rendered image and a shadow study</span><span class="lang-zh" lang="zh-CN">效果图与日照阴影分析</span></li>
-          <li><span class="lang-en" lang="en">The issued A3 set with a revision register</span><span class="lang-zh" lang="zh-CN">正式签发的 A3 图册，附版本记录表</span></li>
-        </ul>
-        <div class="est-label"><span class="lang-en" lang="en">Not included</span><span class="lang-zh" lang="zh-CN">不含</span></div>
-        <ul class="est-list is-out">
-          <li><span class="lang-en" lang="en">Construction drawings, certification or engineering</span><span class="lang-zh" lang="zh-CN">施工图、认证、结构计算</span></li>
-          <li><span class="lang-en" lang="en">A fixed construction price</span><span class="lang-zh" lang="zh-CN">固定工程总价承诺</span></li>
-        </ul>
-        <div class="est-cta">
-          <a class="btn btn-primary" href="index.html#contact"><span class="lang-en" lang="en">Start a package</span><span class="lang-zh" lang="zh-CN">发起图纸包</span></a>
-          <p class="est-quiet"><span class="lang-en" lang="en">Best when you are ready to document the design for early discussions.</span><span class="lang-zh" lang="zh-CN">适合：准备出图，用于前期沟通与报建洽谈。</span></p>
+        <div class="est-callout">
+          <span class="lang-en" lang="en">Your Detailed Estimate is included. You do not need to buy it separately first.</span>
+          <span class="lang-zh" lang="zh-CN">你的详细估算已包含在内 —— 不需要先单独购买。</span>
         </div>
-      </div>
+        <div class="est-spec">
+          <p class="est-spec-label"><span class="lang-en" lang="en">Best time</span><span class="lang-zh" lang="zh-CN">最佳时机</span></p>
+          <div class="est-spec-body">
+            <span class="lang-en" lang="en">When you are ready to document the design for early project and planning discussions.</span>
+            <span class="lang-zh" lang="zh-CN">你已经准备好为早期项目和规划讨论把设计记录下来了。</span>
+          </div>
+        </div>
+        <div class="est-spec">
+          <p class="est-spec-label"><span class="lang-en" lang="en">Reviewed estimate</span><span class="lang-zh" lang="zh-CN">评估估算</span></p>
+          <div class="est-spec-body"><ul class="est-ticks">
+            <li><span class="lang-en" lang="en">The same Detailed Estimate, prepared from the design version you submit</span><span class="lang-zh" lang="zh-CN">同样一份详细估算，基于你提交的设计版本准备</span></li>
+            <li><span class="lang-en" lang="en">Cost broken down by floor area, with the basis and assumptions stated</span><span class="lang-zh" lang="zh-CN">成本按建筑面积分解，并写明依据与假设</span></li>
+          </ul></div>
+        </div>
+        <div class="est-spec">
+          <p class="est-spec-label"><span class="lang-en" lang="en">Design &amp; site information</span><span class="lang-zh" lang="zh-CN">设计与场地信息</span></p>
+          <div class="est-spec-body"><ul class="est-ticks">
+            <li><span class="lang-en" lang="en">Site and floor plans, four elevations</span><span class="lang-zh" lang="zh-CN">场地和平面图、四个立面图</span></li>
+            <li><span class="lang-en" lang="en">Window and door layout schedule, roof plan</span><span class="lang-zh" lang="zh-CN">窗户和门的布局表、屋顶平面图</span></li>
+            <li><span class="lang-en" lang="en">Shadow study and rendered image — plus a location plan on larger blocks</span><span class="lang-zh" lang="zh-CN">阴影研究和渲染图像 —— 大地块另附地点平面图</span></li>
+          </ul></div>
+        </div>
+        <div class="est-spec">
+          <p class="est-spec-label"><span class="lang-en" lang="en">Preliminary drawing set</span><span class="lang-zh" lang="zh-CN">初步绘图集</span></p>
+          <div class="est-spec-body"><ul class="est-ticks">
+            <li><span class="lang-en" lang="en">The issued A3 set, with a revision register</span><span class="lang-zh" lang="zh-CN">发行的 A3 套装，带有修订登记表</span></li>
+          </ul></div>
+        </div>
+        <div class="est-spec">
+          <p class="est-spec-label"><span class="lang-en" lang="en">Outside the scope</span><span class="lang-zh" lang="zh-CN">超出范围</span></p>
+          <div class="est-spec-body">
+            <span class="lang-en" lang="en">Construction drawings, certification, engineering, a supply quotation or a fixed construction price — preliminary documents only.</span>
+            <span class="lang-zh" lang="zh-CN">施工图纸、认证、工程、供货报价或固定组装价 —— 仅限初步文件。</span>
+          </div>
+        </div>
+        <a class="est-plan-cta" href="index.html#contact"><span class="lang-en" lang="en">View the preliminary package</span><span class="lang-zh" lang="zh-CN">查看初步套餐</span></a>
+        <p class="est-plan-note"><span class="lang-en" lang="en">Tell us about your design — nothing is charged on this page.</span><span class="lang-zh" lang="zh-CN">请告诉我们你的设计 —— 本页不收取任何费用。</span></p>
+      </article>
     </div>
 
     <p class="est-quiet">
@@ -1273,7 +1379,7 @@ body.est-page { background: var(--bg-warm); }
     </div>
     <div class="est-steps">
       <div class="col">
-        <h3><span class="lang-en" lang="en">Detailed Estimate</span><span class="lang-zh" lang="zh-CN">详细估算报告</span> <small>¥1,980</small></h3>
+        <h3><span class="lang-en" lang="en">Detailed Estimate</span><span class="lang-zh" lang="zh-CN">详细估算报告</span> <small>$299</small></h3>
         <ol>
           <li><span class="lang-en" lang="en">Send us the design — a published one you like, or your own set of drawings.</span><span class="lang-zh" lang="zh-CN">把你的方案发给我们 —— 看中的现成设计，或你自己的图纸。</span></li>
           <li><span class="lang-en" lang="en">Answer a few short questions about the site. "Not sure" is a fine answer.</span><span class="lang-zh" lang="zh-CN">回答几个关于场地的简短问题。"不确定"也是有效答案。</span></li>
@@ -1282,7 +1388,7 @@ body.est-page { background: var(--bg-warm); }
         </ol>
       </div>
       <div class="col">
-        <h3><span class="lang-en" lang="en">Preliminary Package</span><span class="lang-zh" lang="zh-CN">图纸前置包</span> <small>¥6,800 / ¥8,800</small></h3>
+        <h3><span class="lang-en" lang="en">Preliminary Package</span><span class="lang-zh" lang="zh-CN">图纸前置包</span> <small>$1,200 / $1,500</small></h3>
         <ol>
           <li><span class="lang-en" lang="en">Tell us the design and the site it should be drawn for.</span><span class="lang-zh" lang="zh-CN">告诉我们要做的方案，以及要落在哪块地上。</span></li>
           <li><span class="lang-en" lang="en">We send you a placement link; you place the building and submit it.</span><span class="lang-zh" lang="zh-CN">我们给你一个定位链接；你完成摆放并提交。</span></li>
@@ -1292,8 +1398,8 @@ body.est-page { background: var(--bg-warm); }
       </div>
     </div>
     <p class="est-quiet">
-      <span class="lang-en" lang="en"><strong>Timing.</strong> Your report is emailed once the review is complete. We do not publish a turnaround time here — if you have a deadline, ask us before you order. <strong>Later changes.</strong> An updated estimate for a changed scheme or site is a revision (¥580). A revised drawing set follows our terms.</span>
-      <span class="lang-zh" lang="zh-CN"><strong>时间。</strong>复核完成后即以邮件发送报告。这里不承诺固定工期 —— 如果你有时间节点，下单前先问我们。<strong>后续修改。</strong>方案或场地变更后需要更新估算，按修订处理（¥580）；图纸集的修订按我们的条款执行。</span>
+      <span class="lang-en" lang="en"><strong>Timing.</strong> Your report is emailed once the review is complete. We do not publish a turnaround time here — if you have a deadline, ask us before you order. <strong>Later changes.</strong> An updated estimate for a changed scheme or site is a revision ($99). A revised drawing set follows our terms.</span>
+      <span class="lang-zh" lang="zh-CN"><strong>时间。</strong>复核完成后即以邮件发送报告。这里不承诺固定工期 —— 如果你有时间节点，下单前先问我们。<strong>后续修改。</strong>方案或场地变更后需要更新估算，按修订处理（$99）；图纸集的修订按我们的条款执行。</span>
     </p>
   </div>
 </section>
@@ -1333,7 +1439,7 @@ body.est-page { background: var(--bg-warm); }
       </details>
       <details>
         <summary><span class="lang-en" lang="en">What happens if I change the design afterwards?</span><span class="lang-zh" lang="zh-CN">之后改方案怎么办？</span></summary>
-        <div class="ans"><span class="lang-en" lang="en">What we issue relates to the version you submitted; later edits do not change it. An updated estimate for a changed scheme or site is a revision (¥580); a revised drawing set follows our terms and is not an automatic free update.</span><span class="lang-zh" lang="zh-CN">我们签发的只对应你提交的那一版，后续改动不会改变它。方案或场地变更后更新估算按修订处理（¥580）；图纸集的修订按我们的条款执行，不属于自动免费更新。</span></div>
+        <div class="ans"><span class="lang-en" lang="en">What we issue relates to the version you submitted; later edits do not change it. An updated estimate for a changed scheme or site is a revision ($99); a revised drawing set follows our terms and is not an automatic free update.</span><span class="lang-zh" lang="zh-CN">我们签发的只对应你提交的那一版，后续改动不会改变它。方案或场地变更后更新估算按修订处理（$99）；图纸集的修订按我们的条款执行，不属于自动免费更新。</span></div>
       </details>
       <details>
         <summary><span class="lang-en" lang="en">How current is the price basis?</span><span class="lang-zh" lang="zh-CN">价格基准有多新？</span></summary>
@@ -1356,13 +1462,13 @@ body.est-page { background: var(--bg-warm); }
     <div class="est-offers">
       <div class="est-card">
         <h3><span class="lang-en" lang="en">Detailed Estimate</span><span class="lang-zh" lang="zh-CN">详细估算</span></h3>
-        <div class="price">¥1,980</div>
+        <div class="price">$299 <small>USD</small></div>
         <p class="desc"><span class="lang-en" lang="en">A reviewed estimate and report for your design — before you decide on drawings.</span><span class="lang-zh" lang="zh-CN">在决定出图之前，先把造价和依据看清楚。</span></p>
         <div class="est-cta"><a class="btn btn-primary" href="index.html#contact"><span class="lang-en" lang="en">Start</span><span class="lang-zh" lang="zh-CN">发起</span></a></div>
       </div>
       <div class="est-card is-featured">
         <h3><span class="lang-en" lang="en">Preliminary Package</span><span class="lang-zh" lang="zh-CN">图纸前置包</span></h3>
-        <div class="price">¥6,800 <small>/ ¥8,800</small></div>
+        <div class="price">$1,200 <small>/ $1,500 USD</small></div>
         <p class="desc"><span class="lang-en" lang="en">Preliminary drawings and a rendered image, with the Detailed Estimate included.</span><span class="lang-zh" lang="zh-CN">前置图纸与效果图，并包含详细估算。</span></p>
         <div class="est-cta"><a class="btn btn-primary" href="index.html#contact"><span class="lang-en" lang="en">Start</span><span class="lang-zh" lang="zh-CN">发起</span></a></div>
       </div>
