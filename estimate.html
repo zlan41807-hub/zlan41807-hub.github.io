@@ -999,6 +999,141 @@ ul.est-ticks li.is-none:before { content: "—"; color: #C08A7A; }
 .est-plan.is-featured .est-plan-note { color: rgba(237,234,228,.55); }
 .est-plan-note .lang-zh { display: block; margin-top: 3px; }
 .est-plan .est-plan-cta + .est-plan-note { margin-top: 12px; }
+
+/* ===== A. question rows ===== */
+.est-q { display:grid; grid-template-columns:minmax(280px,0.9fr) minmax(320px,1.1fr); gap:34px; align-items:start;
+  padding:38px 0; border-top:1px solid var(--border); }
+.est-q:first-of-type { border-top:0; padding-top:6px; }
+.est-q-badge { width:38px; height:38px; border-radius:50%; border:2px solid var(--accent); color:var(--accent);
+  display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px; margin-bottom:14px; }
+.est-q h3 { font-family:var(--font-display); font-size:clamp(21px,2.4vw,28px); color:var(--text-dark); margin:0 0 8px; line-height:1.3; }
+.est-q h3 .lang-zh { display:block; font-size:.6em; color:var(--text-light); font-family:var(--font-cn); margin-top:8px; }
+.est-q .lede { color:var(--text-body); font-size:15.5px; line-height:1.8; margin:12px 0 0; }
+.est-q .lede .lang-zh { display:block; margin-top:8px; font-size:.9em; color:var(--text-light); }
+.est-q ul { list-style:none; margin:18px 0 0; padding:0; }
+.est-q ul li { position:relative; padding-left:20px; margin-bottom:9px; font-size:15px; color:var(--text-body); line-height:1.7; }
+.est-q ul li:before { content:"•"; position:absolute; left:2px; color:var(--accent); font-weight:700; }
+.est-q ul li .lang-zh { display:block; font-size:.9em; color:var(--text-light); margin-top:2px; }
+
+/* report card mock */
+.est-sheet { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+.est-sheet-bar { background:#22303F; color:#EDEAE4; padding:10px 16px; display:flex; justify-content:space-between;
+  align-items:center; font-size:12px; letter-spacing:.06em; }
+.est-sheet-bar b { color:var(--accent); letter-spacing:.1em; }
+.est-sheet-body { padding:22px 24px 20px; }
+.est-sheet-body h4 { font-size:20px; margin:14px 0 4px; color:var(--text-dark); font-family:var(--font-display); }
+.est-sheet-body .sub { font-size:12.5px; color:var(--text-light); margin:0 0 16px; }
+.est-sheet-kit { background:#1B2733; border-radius:10px; padding:16px 18px; color:#EDEAE4; margin:0 0 18px; }
+.est-sheet-kit .lab { font-size:11.5px; letter-spacing:.06em; color:#E8C88A; display:block; margin-bottom:6px; }
+.est-sheet-kit .amt { font-size:32px; font-weight:800; letter-spacing:-.02em; display:block; line-height:1.1; }
+.est-sheet-kit .note { font-size:12px; color:rgba(237,234,228,.66); display:block; margin-top:8px; line-height:1.6; }
+.est-sheet-rows { border-top:1px solid var(--border); }
+.est-sheet-rows div { display:flex; justify-content:space-between; gap:12px; padding:11px 0; border-bottom:1px solid var(--border); font-size:14px; color:var(--text-body); }
+.est-sheet-rows div span:last-child { color:var(--text-light); font-size:12.5px; white-space:nowrap; }
+.est-sheet-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 18px; }
+.est-sheet-grid div { border-bottom:1px solid var(--border); padding:11px 0; font-size:13.5px; color:var(--text-body); }
+.est-sheet-grid b { display:block; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-light); font-weight:700; margin-bottom:4px; }
+.est-sheet-cols { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.est-sheet-cols h5 { font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-light); margin:0 0 10px; }
+.est-sheet-cols ul { list-style:none; margin:0; padding:0; }
+.est-sheet-cols li { font-size:13px; color:var(--text-body); padding:5px 0; border-bottom:1px solid var(--border); line-height:1.5; }
+.est-sheet-cols .own li { background:rgba(212,163,115,.13); border-radius:6px; padding:7px 9px; border-bottom:0; margin-bottom:6px; font-weight:600; }
+.est-sheet-foot { font-size:11.5px; color:var(--text-light); margin:16px 0 0; line-height:1.7; }
+.est-tag2 { display:inline-block; font-size:11px; padding:2px 9px; border-radius:999px; font-weight:700; letter-spacing:.03em; }
+.est-tag2.ok { background:rgba(111,169,122,.16); color:#4C7F58; }
+.est-tag2.you { background:rgba(212,163,115,.2); color:#95693A; }
+.est-tag2.todo { background:rgba(192,138,122,.18); color:#92564A; }
+.est-callout2 { background:rgba(44,62,80,.05); border:1px solid var(--border); border-left:3px solid var(--primary);
+  border-radius:var(--radius); padding:22px 26px; margin-top:34px; }
+.est-callout2 h4 { margin:0 0 10px; font-size:15px; color:var(--text-dark); }
+.est-callout2 p { margin:0; font-size:14.5px; line-height:1.85; color:var(--text-body); }
+.est-callout2 p .lang-zh { display:block; margin-top:8px; font-size:.92em; color:var(--text-light); }
+
+/* ===== B. report viewer ===== */
+.est-view { display:grid; grid-template-columns:minmax(220px,300px) 1fr; gap:26px; align-items:start; }
+.est-view-list { border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--bg-white); }
+.est-view-list button { display:flex; gap:12px; width:100%; text-align:left; background:none; border:0; border-bottom:1px solid var(--border);
+  padding:13px 16px; font:inherit; font-size:14px; color:var(--text-body); cursor:pointer; transition:background .2s ease; }
+.est-view-list button:last-child { border-bottom:0; }
+.est-view-list button:hover { background:var(--bg-warm); }
+.est-view-list button.is-on { background:var(--accent); color:#2A2A2A; font-weight:700; }
+.est-view-list button .n { font-family:var(--font-display); opacity:.7; }
+.est-view-stage { position:relative; }
+.est-view-sheet { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-lg); overflow:hidden; }
+.est-view-head { background:#22303F; padding:12px 18px; display:flex; justify-content:space-between; align-items:center; }
+.est-view-head .sample { color:#E8C88A; font-size:12px; letter-spacing:.1em; text-transform:uppercase; }
+.est-view-head a { color:#EDEAE4; font-size:12.5px; text-decoration:none; border-bottom:1px solid rgba(237,234,228,.35); }
+.est-view-panel { padding:26px 30px 24px; min-height:360px; }
+.est-view-panel .who { display:flex; justify-content:space-between; font-size:12px; color:var(--text-light); letter-spacing:.04em; }
+.est-view-panel h4 { font-family:var(--font-display); font-size:26px; margin:16px 0 6px; color:var(--text-dark); }
+.est-view-nav { display:flex; align-items:center; justify-content:center; gap:18px; margin-top:16px; }
+.est-view-nav button { width:44px; height:44px; border-radius:50%; border:1px solid var(--border); background:var(--bg-white);
+  cursor:pointer; font-size:16px; color:var(--text-dark); transition:var(--transition); }
+.est-view-nav button:hover { border-color:var(--accent); color:var(--accent); }
+.est-view-nav .count { font-size:14px; color:var(--text-light); font-variant-numeric:tabular-nums; }
+
+/* ===== C. ordering cards ===== */
+.est-ord { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:26px; }
+.est-ord-card { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px 30px 26px; box-shadow:var(--shadow); }
+.est-ord-card.is-featured { background:#22303F; border-color:#22303F; color:#EDEAE4; }
+.est-ord-card .head { font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); font-weight:700; margin-bottom:20px; }
+.est-ord-card.is-featured .head { color:#E8C88A; }
+.est-ord-card ol { list-style:none; counter-reset:o; margin:0; padding:0; }
+.est-ord-card li { counter-increment:o; position:relative; padding-left:52px; margin-bottom:20px; }
+.est-ord-card li:before { content:counter(o); position:absolute; left:0; top:0; width:34px; height:34px; border-radius:50%;
+  border:2px solid var(--accent); color:var(--accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; }
+.est-ord-card li:last-child { margin-bottom:0; }
+.est-ord-card li b { display:block; font-size:15.5px; color:var(--text-dark); margin-bottom:5px; }
+.est-ord-card.is-featured li b { color:#F4EFE6; }
+.est-ord-card li span { font-size:14px; color:var(--text-body); line-height:1.7; display:block; }
+.est-ord-card.is-featured li span { color:rgba(237,234,228,.76); }
+.est-ord-card li .lang-zh { font-size:.9em; color:var(--text-light); margin-top:4px; }
+.est-ord-card.is-featured li .lang-zh { color:rgba(237,234,228,.58); }
+
+/* ===== D. two-column FAQ ===== */
+.est-faq2 { display:grid; grid-template-columns:minmax(240px,340px) 1fr; gap:44px; align-items:start; }
+.est-faq2 .rail { position:sticky; top:calc(var(--nav-height) + 24px); }
+.est-faq2 .rail .eyebrow { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:700; }
+.est-faq2 .rail h2 { font-family:var(--font-display); font-size:clamp(24px,3vw,34px); color:var(--text-dark); margin:10px 0 14px; line-height:1.25; }
+.est-faq2 .rail h2 .lang-zh { display:block; font-size:.58em; color:var(--text-light); font-family:var(--font-cn); margin-top:8px; }
+.est-faq2 .rail p { font-size:15px; color:var(--text-body); line-height:1.8; }
+.est-faq2 .rail p .lang-zh { display:block; margin-top:7px; font-size:.9em; color:var(--text-light); }
+.est-hl { background:linear-gradient(transparent 58%, rgba(212,163,115,.4) 58%); padding:0 2px; }
+
+/* ===== E. closing ===== */
+.est-final .eyebrow { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#E8C88A; font-weight:700; display:block; margin-bottom:12px; }
+.est-final h2 .est-hl { background:linear-gradient(transparent 58%, rgba(232,200,138,.32) 58%); }
+.est-plan.is-featured .est-badge { display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.04em;
+  background:#E8C88A; color:#22303F; border-radius:999px; padding:4px 12px; margin-bottom:12px; }
+@media (max-width: 900px) {
+  .est-q, .est-view, .est-faq2 { grid-template-columns:1fr; gap:24px; }
+  .est-faq2 .rail { position:static; }
+  .est-sheet-cols { grid-template-columns:1fr; }
+  .est-sheet-grid { grid-template-columns:1fr; }
+}
+
+.est-plan-eyebrow { font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:rgba(237,234,228,.6); font-weight:700; margin:0 0 8px; }
+.est-plan:not(.is-featured) .est-plan-eyebrow { color:var(--text-light); }
+.est-plans-wrap { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; margin-top:30px; }
+.est-final .est-plan-cta { margin-top:22px; }
+
+/* ===== closing cards use .est-plan: give it the missing element rules ===== */
+.est-plan h3 { font-family:var(--font-display); font-size:21px; line-height:1.3; margin:0 0 4px; color:var(--text-dark); }
+.est-plan h3 .lang-zh { display:block; font-size:.66em; color:var(--text-light); font-family:var(--font-cn); margin-top:6px; }
+.est-plan .price { font-size:34px; font-weight:800; color:var(--primary); margin:14px 0 2px; font-variant-numeric:tabular-nums; letter-spacing:-.01em; }
+.est-plan .price small { font-size:14px; font-weight:600; color:var(--text-light); margin-left:6px; letter-spacing:0; }
+.est-plan p.desc { color:var(--text-body); font-size:15px; line-height:1.75; margin:10px 0 0; }
+.est-plan p.desc .lang-zh { display:block; margin-top:7px; font-size:.9em; color:var(--text-light); }
+.est-plan.is-featured h3 { color:#F4EFE6; }
+.est-plan.is-featured h3 .lang-zh { color:rgba(237,234,228,.6); }
+.est-plan.is-featured .price { color:#F4EFE6; }
+.est-plan.is-featured .price small { color:#E8C88A; }
+.est-plan.is-featured p.desc { color:rgba(237,234,228,.8); }
+.est-plan.is-featured p.desc .lang-zh { color:rgba(237,234,228,.6); }
+.est-plan .est-badge { align-self:flex-start; }
+.est-badge .lang-zh { margin-left:6px; opacity:.82; }
+.est-final .est-hl { background:linear-gradient(transparent 56%, rgba(232,200,138,.45) 56%); }
+.est-view-list button .n { font-family:var(--font-en); font-weight:700; font-size:12px; opacity:.75; letter-spacing:.04em; }
 @media (max-width: 767px) {
   .est-plan { padding: 26px 22px 24px; }
   .est-plan-price { font-size: 36px; }
@@ -1234,100 +1369,124 @@ ul.est-ticks li.is-none:before { content: "—"; color: #C08A7A; }
       </p>
     </div>
 
-    <div class="est-qa">
-      <div class="est-qa-item">
-        <div class="num">01</div>
-        <h3><span class="lang-en" lang="en">What will it cost — and what is that based on?</span><span class="lang-zh" lang="zh-CN">要花多少钱，依据是什么？</span></h3>
-        <p>
-          <span class="lang-en" lang="en">The estimated cost to build the design you submitted, broken down by floor area, with every assumption stated beside the figure so you can see what would move it: structure system, design loads and zoning, and the date of the price basis used.</span>
-          <span class="lang-zh" lang="zh-CN">你提交方案的建造成本估算，按建筑面积分解；每一个假设都写在数字旁边，让你看得见"什么会改变这个数字"：结构体系、设计荷载与设防分区、以及所用价格基准的日期。</span>
-        </p>
-      </div>
-
-      <div class="est-qa-item">
-        <div class="num">02</div>
-        <h3><span class="lang-en" lang="en">What do I still have to arrange and budget for?</span><span class="lang-zh" lang="zh-CN">还有哪些要我另行安排和预算？</span></h3>
-        <p>
-          <span class="lang-en" lang="en">The estimate covers what we price. It lists — and deliberately does not put a number on — the scope your contractor and consultants price. That list is often the most useful page in the report, because it is where budgets actually break.</span>
-          <span class="lang-zh" lang="zh-CN">估算只覆盖我们计价的部分。报告会列出 —— 并且故意不报价 —— 由施工方和顾问单位计价的范围。这一页往往是最有用的一页，因为预算通常就是在这里失控的。</span>
-        </p>
-        <div class="est-two-col">
-          <div class="est-mini">
-            <h4><span class="lang-en" lang="en">Priced by JFA</span><span class="lang-zh" lang="zh-CN">JFA 计价</span></h4>
-            <ul>
-              <li><span class="lang-en" lang="en">The build cost estimate for your design</span><span class="lang-zh" lang="zh-CN">你方案的建设成本估算</span></li>
-              <li><span class="lang-en" lang="en">Stage one preliminary drawings, if you take them</span><span class="lang-zh" lang="zh-CN">如选择，则含前置图纸阶段费用</span></li>
-            </ul>
-          </div>
-          <div class="est-mini">
-            <h4><span class="lang-en" lang="en">Priced by others</span><span class="lang-zh" lang="zh-CN">第三方计价</span></h4>
-            <ul>
-              <li><span class="lang-en" lang="en">Survey, soil investigation, approvals and statutory fees</span><span class="lang-zh" lang="zh-CN">测绘、地质勘察、报建与规费</span></li>
-              <li><span class="lang-en" lang="en">Earthworks, site preparation, foundations or slab</span><span class="lang-zh" lang="zh-CN">土方、场地平整、基础或楼板</span></li>
-              <li><span class="lang-en" lang="en">Power, water, sewer and stormwater connections</span><span class="lang-zh" lang="zh-CN">电、水、排污、雨水接入</span></li>
-              <li><span class="lang-en" lang="en">Structural frame installation and roofing</span><span class="lang-zh" lang="zh-CN">主体安装与屋面工程</span></li>
-              <li><span class="lang-en" lang="en">Linings, insulation, ceilings, kitchen, bathrooms, laundry</span><span class="lang-zh" lang="zh-CN">内衬、保温、吊顶、厨房、卫浴、洗衣房</span></li>
-              <li><span class="lang-en" lang="en">Electrical and plumbing fit-out, finishes, decks, landscaping</span><span class="lang-zh" lang="zh-CN">水电安装、饰面、平台、景观</span></li>
-            </ul>
+    <div class="est-q-row">
+      <div class="est-q">
+        <div>
+          <div class="est-q-badge">01</div>
+          <h3><span class="lang-en" lang="en">What will it cost — and what is that based on?</span><span class="lang-zh" lang="zh-CN">要花多少钱，依据是什么？</span></h3>
+          <p class="lede"><span class="lang-en" lang="en">The estimated cost to build the design you submitted, broken down by floor area, with every assumption written beside the figure so you can see what would move it.</span><span class="lang-zh" lang="zh-CN">你提交方案的建造成本估算，按建筑面积分解；每一个假设都写在数字旁边，让你看得见什么会改变它。</span></p>
+          <ul>
+            <li><span class="lang-en" lang="en">Cost estimate reviewed by our team, tax included, split by floor area</span><span class="lang-zh" lang="zh-CN">经我们团队复核的造价估算，含税，按建筑面积分解</span></li>
+            <li><span class="lang-en" lang="en">The basis: structure system, design loads and zoning, and the date of the price basis</span><span class="lang-zh" lang="zh-CN">依据：结构体系、设计荷载与设防分区、价格基准的日期</span></li>
+            <li><span class="lang-en" lang="en">The design version it was built from</span><span class="lang-zh" lang="zh-CN">所依据的方案版本号</span></li>
+          </ul>
+        </div>
+        <div class="est-sheet">
+          <div class="est-sheet-bar"><b>JFA</b><span>Detailed Estimate · 详细估算</span></div>
+          <div class="est-sheet-body">
+            <p class="sub">Your design, costed. · 你的方案，已标价。</p>
+            <div class="est-sheet-kit">
+              <span class="lab">Sample · a published 180 m² design · 示例</span>
+              <span class="amt">US$342,000</span>
+              <span class="note">Indicative, tax included · ≈ US$1,900/m². Your report states the reviewed figure for your own design. · 指示性数字，含税；你的报告写的是你自己方案的复核数字。</span>
+            </div>
+            <div class="est-sheet-grid">
+              <div><b>Structure · 结构体系</b>Timber frame, engineered · 木结构，经结构计算</div>
+              <div><b>Loads · 荷载与设防</b>Baseline zone assumed · 假定基准分区</div>
+              <div><b>Price basis · 价格基准</b>Dated in the report · 报告中注明日期</div>
+              <div><b>Valid · 有效期</b>30 days from issue · 自签发起 30 天</div>
+            </div>
+            <p class="est-sheet-foot">Sample only · your report is built from the design version you submit. · 仅示例 · 你的报告按你提交的版本编制。</p>
           </div>
         </div>
-        <p>
-          <span class="lang-en" lang="en">Take the report to your contractor and your lender: they price that list, and the lender reviews the budget that results.</span>
-          <span class="lang-zh" lang="zh-CN">把报告拿给你的施工方和贷款方：他们为这份清单报价，贷款方据此复核预算。</span>
-        </p>
       </div>
 
-      <div class="est-qa-item">
-        <div class="num">03</div>
-        <h3><span class="lang-en" lang="en">What do we know, and what still needs checking?</span><span class="lang-zh" lang="zh-CN">哪些已知，哪些还必须核实？</span></h3>
+      <div class="est-q">
+        <div>
+          <div class="est-q-badge">02</div>
+          <h3><span class="lang-en" lang="en">What do I still have to arrange and budget for?</span><span class="lang-zh" lang="zh-CN">我还需要安排和预算哪些内容？</span></h3>
+          <p class="lede"><span class="lang-en" lang="en">We price our own scope. The report lists — and deliberately does not put a number on — the scope your contractor and consultants price. That list is often the most useful page in it, because it is where budgets break.</span><span class="lang-zh" lang="zh-CN">我们只为自己计价的范围报价。报告会列出 —— 并故意不给数字 —— 由施工方和顾问单位计价的范围。这一页往往最有用，因为预算通常就是在这里失控的。</span></p>
+          <ul>
+            <li><span class="lang-en" lang="en">What we price versus what others price</span><span class="lang-zh" lang="zh-CN">我们计价的部分 vs 第三方计价的部分</span></li>
+            <li><span class="lang-en" lang="en">Site, approvals and services — priced for your site</span><span class="lang-zh" lang="zh-CN">场地、报建与服务 —— 按你的场地计价</span></li>
+            <li><span class="lang-en" lang="en">Construction and fit-out — priced for your choices</span><span class="lang-zh" lang="zh-CN">建造与装修 —— 按你的选择计价</span></li>
+          </ul>
+        </div>
+        <div class="est-sheet">
+          <div class="est-sheet-bar"><b>JFA</b><span>Project budget · 项目预算</span></div>
+          <div class="est-sheet-body">
+            <p class="sub">The whole project, in view. · 整个项目，一眼看全。</p>
+            <div class="est-sheet-cols">
+              <div>
+                <h5>Priced by JFA · 我们计价</h5>
+                <ul class="own">
+                  <li>The cost estimate for your design — this report · 你方案的造价估算（本报告）</li>
+                  <li>Stage one preliminary drawings, if you choose them · 前置图纸阶段（如选择）</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Priced by others · 第三方</h5>
+                <ul>
+                  <li>Survey and boundaries · 测绘与边界</li>
+                  <li>Soil investigation · 地质勘察</li>
+                  <li>Approvals and statutory fees · 报建与规费</li>
+                  <li>Earthworks and site preparation · 土方与场地准备</li>
+                  <li>Foundations or slab · 基础或楼板</li>
+                  <li>Power, water, sewer, stormwater · 水电雨污接入</li>
+                  <li>Delivery, quoted once the site is confirmed · 运输（场地确认后报价）</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Priced by others · 第三方</h5>
+                <ul>
+                  <li>Erection of the frame · 主体安装</li>
+                  <li>Roofing and stormwater · 屋面与排水</li>
+                  <li>Window, door and skylight units · 门窗与天窗单元</li>
+                  <li>Linings, insulation, ceilings · 内衬、保温、吊顶</li>
+                  <li>Kitchen, bathrooms, laundry · 厨房、卫浴、洗衣房</li>
+                  <li>Electrical and plumbing fit-out · 电气与给排水安装</li>
+                  <li>Finishes, decks, landscaping · 饰面、平台、景观</li>
+                </ul>
+              </div>
+            </div>
+            <p class="est-sheet-foot">Take it to your contractor and your lender: they price this scope, and the lender reviews the budget that results. No total, by design. · 把这份清单交给施工方和贷款方：他们为它报价，贷款方据此复核预算。<strong>故意不给总数。</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="est-q">
+        <div>
+          <div class="est-q-badge">03</div>
+          <h3><span class="lang-en" lang="en">What do we know — and what still needs checking?</span><span class="lang-zh" lang="zh-CN">哪些已知，哪些还必须核实？</span></h3>
+          <p class="lede"><span class="lang-en" lang="en">Every fact carries its status and its source. What public records show, what you told us and what still needs a professional are kept strictly apart.</span><span class="lang-zh" lang="zh-CN">每一条信息都标明状态和来源。公开资料显示的、你告诉我们的、以及必须由专业人员处理的，严格分开。</span></p>
+          <ul>
+            <li><span class="lang-en" lang="en">Each item marked by status and source</span><span class="lang-zh" lang="zh-CN">每个项目都标注了状态和来源</span></li>
+            <li><span class="lang-en" lang="en">Unread or unmapped layers stated — never treated as clear</span><span class="lang-zh" lang="zh-CN">未读或未映射的图层会说明，绝不当作「没问题」</span></li>
+            <li><span class="lang-en" lang="en">What to resolve, provide and investigate next</span><span class="lang-zh" lang="zh-CN">接下来该解决、提供和调查的内容</span></li>
+          </ul>
+        </div>
+        <div class="est-sheet">
+          <div class="est-sheet-bar"><b>JFA</b><span>Where your project stands · 项目状态</span></div>
+          <div class="est-sheet-body">
+            <p class="sub">Known. Told. To check. · 已知。你所述。待核实。</p>
+            <div class="est-sheet-rows">
+              <div><span>Design loads · 设计荷载</span><span class="est-tag2 ok">Known · 已知</span></div>
+              <div><span>Footprint within the plot · 用地内占地</span><span class="est-tag2 ok">Known · 已知</span></div>
+              <div><span>Soil test · 地质勘察</span><span class="est-tag2 you">Told · 你所述</span></div>
+              <div><span>Flood and drainage · 内涝与排水</span><span class="est-tag2 todo">To check · 待核实</span></div>
+              <div><span>Easements and setbacks · 地役权与退线</span><span class="est-tag2 todo">To check · 待核实</span></div>
+              <div><span>Ground levels · 场地标高</span><span class="est-tag2 todo">To check · 待核实</span></div>
+            </div>
+            <p class="est-sheet-foot">"To check" means nobody has looked yet — never that there is nothing there. · 「待核实」的意思是还没人查过，绝不代表那里没有问题。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="est-callout2">
+        <h4><span class="lang-en" lang="en">What "reviewed by a person" means</span><span class="lang-zh" lang="zh-CN">「人工复核」具体指什么</span></h4>
         <p>
-          <span class="lang-en" lang="en">Every fact carries its source. What public records show, what you told us, and what still needs a professional are kept strictly apart — an answer you give is never presented as a verified site condition.</span>
-          <span class="lang-zh" lang="zh-CN">每一条信息都标明来源。公开资料显示的、你告诉我们的、以及必须由专业人员核实的，严格分开 —— 你提供的信息绝不会被写成"已核实的场地条件"。</span>
-        </p>
-        <table class="est-table">
-          <thead>
-            <tr>
-              <th><span class="lang-en" lang="en">Item</span><span class="lang-zh" lang="zh-CN">事项</span></th>
-              <th><span class="lang-en" lang="en">Status</span><span class="lang-zh" lang="zh-CN">状态</span></th>
-              <th><span class="lang-en" lang="en">Source / what it means</span><span class="lang-zh" lang="zh-CN">来源 / 含义</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="lang-en" lang="en">Design loads — wind / seismic</span><span class="lang-zh" lang="zh-CN">设计荷载 — 风 / 抗震</span></td>
-              <td><span class="est-tag ok">Known</span></td>
-              <td><span class="lang-en" lang="en">Baseline region identified from the location; assumed until the site is assessed</span><span class="lang-zh" lang="zh-CN">已按所在地识别基准分区；在场地评估前为假定值</span></td>
-            </tr>
-            <tr>
-              <td><span class="lang-en" lang="en">Building footprint within the plot</span><span class="lang-zh" lang="zh-CN">建筑在用地内的占地</span></td>
-              <td><span class="est-tag ok">Known</span></td>
-              <td><span class="lang-en" lang="en">From your placement on public mapping — not a survey</span><span class="lang-zh" lang="zh-CN">来自你在公开地图上的摆放位置 —— 非测绘成果</span></td>
-            </tr>
-            <tr>
-              <td><span class="lang-en" lang="en">Soil test</span><span class="lang-zh" lang="zh-CN">地质勘察</span></td>
-              <td><span class="est-tag you">Told</span></td>
-              <td><span class="lang-en" lang="en">Provided by you — recorded as told, not verified</span><span class="lang-zh" lang="zh-CN">由你提供 —— 记为"你所述"，未核实</span></td>
-            </tr>
-            <tr>
-              <td><span class="lang-en" lang="en">Flood / drainage findings</span><span class="lang-zh" lang="zh-CN">内涝 / 排水结论</span></td>
-              <td><span class="est-tag todo">To check</span></td>
-              <td><span class="lang-en" lang="en">Mapped layer read; the map not including your plot is not the same as your plot being clear</span><span class="lang-zh" lang="zh-CN">已查阅公开图层；"图层未覆盖你的地块"不等于"你的地块没问题"</span></td>
-            </tr>
-            <tr>
-              <td><span class="lang-en" lang="en">Easements, setbacks, plot ratio</span><span class="lang-zh" lang="zh-CN">地役权、退线、容积率</span></td>
-              <td><span class="est-tag todo">To check</span></td>
-              <td><span class="lang-en" lang="en">Public layer not yet read for this plot</span><span class="lang-zh" lang="zh-CN">该地块的公开图层尚未查阅</span></td>
-            </tr>
-            <tr>
-              <td><span class="lang-en" lang="en">Ground levels</span><span class="lang-zh" lang="zh-CN">场地标高</span></td>
-              <td><span class="est-tag todo">To check</span></td>
-              <td><span class="lang-en" lang="en">From public elevation data — a registered surveyor confirms</span><span class="lang-zh" lang="zh-CN">来自公开高程数据 —— 需持证测绘单位确认</span></td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="est-quiet">
-          <span class="lang-en" lang="en">"To check" means nobody has looked yet — never that there is nothing there.</span>
-          <span class="lang-zh" lang="zh-CN">"待核实"的意思是"还没人查过"，绝不代表"那里没有问题"。</span>
+          <span class="lang-en" lang="en">A member of our team reads the design, the pricing basis and what is still unknown before the report is issued, and holds it back if something needs fixing first. It gives you a clearer basis for a decision — not a promise of an all-in construction price. It is not checked or approved by a cost consultant, engineer, authority or lender, and we are not your contractor or certifier.</span>
+          <span class="lang-zh" lang="zh-CN">在报告签发前，我们的成员会审阅方案、计价依据和仍未明确的部分；发现问题会先退回。它让你有一个更清晰的决策依据 —— 而不是承诺一个全包工程总价。它未经造价咨询、结构工程师、主管部门或贷款方审核或批准，我们也不是你的施工方或认证方。</span>
         </p>
       </div>
     </div>
@@ -1346,17 +1505,22 @@ ul.est-ticks li.is-none:before { content: "—"; color: #C08A7A; }
         <span class="lang-zh" lang="zh-CN">十个部分，针对你的方案和场地编制。下面是结构 —— 你的那份是照你的方案做出来的，不是套模板。</span>
       </p>
     </div>
-    <div class="est-pages">
-      <div class="est-page-chip"><b>01</b><span><span class="lang-en" lang="en">Your building</span><span class="lang-zh" lang="zh-CN">你的建筑</span></span></div>
-      <div class="est-page-chip"><b>02</b><span><span class="lang-en" lang="en">Cost estimate, by floor area</span><span class="lang-zh" lang="zh-CN">造价估算（按面积）</span></span></div>
-      <div class="est-page-chip"><b>03</b><span><span class="lang-en" lang="en">Design specifications and colours</span><span class="lang-zh" lang="zh-CN">设计规格与配色</span></span></div>
-      <div class="est-page-chip"><b>04</b><span><span class="lang-en" lang="en">Estimate basis and assumptions</span><span class="lang-zh" lang="zh-CN">估算依据与假设</span></span></div>
-      <div class="est-page-chip"><b>05</b><span><span class="lang-en" lang="en">Floor plan and schedules</span><span class="lang-zh" lang="zh-CN">平面图与门窗表</span></span></div>
-      <div class="est-page-chip"><b>06</b><span><span class="lang-en" lang="en">Budget scope, split by who prices it</span><span class="lang-zh" lang="zh-CN">预算范围（按计价方拆分）</span></span></div>
-      <div class="est-page-chip"><b>07</b><span><span class="lang-en" lang="en">Your site</span><span class="lang-zh" lang="zh-CN">你的场地</span></span></div>
-      <div class="est-page-chip"><b>08</b><span><span class="lang-en" lang="en">Project status: known, told, to check</span><span class="lang-zh" lang="zh-CN">项目状态：已知 / 所述 / 待核实</span></span></div>
-      <div class="est-page-chip"><b>09</b><span><span class="lang-en" lang="en">Next steps, with what each resolves</span><span class="lang-zh" lang="zh-CN">下一步，及各自解决什么</span></span></div>
-      <div class="est-page-chip"><b>10</b><span><span class="lang-en" lang="en">Scope, terms and our role</span><span class="lang-zh" lang="zh-CN">范围、条款与我们的角色</span></span></div>
+    <div class="est-view">
+      <div class="est-view-list" id="estViewList" role="tablist" aria-label="Report sections"></div>
+      <div class="est-view-stage">
+        <div class="est-view-sheet">
+          <div class="est-view-head">
+            <span class="sample">Sample · 示例</span>
+            <a href="start.html"><span class="lang-en" lang="en">Enlarge sample</span><span class="lang-zh" lang="zh-CN">放大样张</span></a>
+          </div>
+          <div class="est-view-panel" id="estViewPanel"></div>
+        </div>
+        <div class="est-view-nav">
+          <button type="button" id="estPrev" aria-label="Previous page">&larr;</button>
+          <span class="count" id="estCount">01 / 10</span>
+          <button type="button" id="estNext" aria-label="Next page">&rarr;</button>
+        </div>
+      </div>
     </div>
     <p class="est-quiet">
       <span class="lang-en" lang="en">Two-storey schemes also carry an upper-floor plan. Larger plots also carry a location plan. Preliminary documents are for early project and planning discussions — they are not construction drawings and not for certification.</span>
@@ -1377,23 +1541,23 @@ ul.est-ticks li.is-none:before { content: "—"; color: #C08A7A; }
         <span class="lang-zh" lang="zh-CN">两份产品都按"你提交的那一版"编制 —— 之后的改动不会改变已经签发给你内容。</span>
       </p>
     </div>
-    <div class="est-steps">
-      <div class="col">
-        <h3><span class="lang-en" lang="en">Detailed Estimate</span><span class="lang-zh" lang="zh-CN">详细估算报告</span> <small>$199</small></h3>
+    <div class="est-ord">
+      <div class="est-ord-card">
+        <div class="head">Detailed Estimate · US$199</div>
         <ol>
-          <li><span class="lang-en" lang="en">Send us the design — a published one you like, or your own set of drawings.</span><span class="lang-zh" lang="zh-CN">把你的方案发给我们 —— 看中的现成设计，或你自己的图纸。</span></li>
-          <li><span class="lang-en" lang="en">Answer a few short questions about the site. "Not sure" is a fine answer.</span><span class="lang-zh" lang="zh-CN">回答几个关于场地的简短问题。"不确定"也是有效答案。</span></li>
-          <li><span class="lang-en" lang="en">We review the design, the pricing basis and what is still unknown.</span><span class="lang-zh" lang="zh-CN">我们复核方案、计价依据，以及尚未明确的部分。</span></li>
-          <li><span class="lang-en" lang="en">Your report is emailed as a PDF, valid 30 days from issue.</span><span class="lang-zh" lang="zh-CN">报告以 PDF 邮件发出，自签发之日起 30 天内有效。</span></li>
+          <li><b><span class="lang-en" lang="en">Send us your design</span><span class="lang-zh" lang="zh-CN">把你的设计发给我们</span></b><span><span class="lang-en" lang="en">A design of ours you like, or your own drawing set. No subscription needed.</span><span class="lang-zh" lang="zh-CN">你看中的我们的现成设计，或你自己的图纸。不需要订阅。</span></span></li>
+          <li><b><span class="lang-en" lang="en">If you have a site, place it on the site</span><span class="lang-zh" lang="zh-CN">如果有场地，就把它放上去</span></b><span><span class="lang-en" lang="en">No site yet? You can still order — the report explains what to look for when you choose one.</span><span class="lang-zh" lang="zh-CN">还没有场地？一样可以下单 —— 报告会说明选地时该注意什么。</span></span></li>
+          <li><b><span class="lang-en" lang="en">Answer a few short questions</span><span class="lang-zh" lang="zh-CN">回答几个简短问题</span></b><span><span class="lang-en" lang="en">About the plot: soil, power, water, drainage. "Not sure" is a fine answer.</span><span class="lang-zh" lang="zh-CN">关于场地：土壤、电力、水源、排水。「不确定」也是有效答案。</span></span></li>
+          <li><b><span class="lang-en" lang="en">We review it and email the report</span><span class="lang-zh" lang="zh-CN">我们复核后邮件发送报告</span></b><span><span class="lang-en" lang="en">A PDF valid 30 days from issue, built from the design recorded with your order.</span><span class="lang-zh" lang="zh-CN">一份自签发起 30 天有效的 PDF，按你订单中记录的设计版本编制。</span></span></li>
         </ol>
       </div>
-      <div class="col">
-        <h3><span class="lang-en" lang="en">Preliminary Package</span><span class="lang-zh" lang="zh-CN">图纸前置包</span> <small>$1,100 / $1,400</small></h3>
+      <div class="est-ord-card is-featured">
+        <div class="head">Preliminary Package · US$1,100 / US$1,400</div>
         <ol>
-          <li><span class="lang-en" lang="en">Tell us the design and the site it should be drawn for.</span><span class="lang-zh" lang="zh-CN">告诉我们要做的方案，以及要落在哪块地上。</span></li>
-          <li><span class="lang-en" lang="en">We send you a placement link; you place the building and submit it.</span><span class="lang-zh" lang="zh-CN">我们给你一个定位链接；你完成摆放并提交。</span></li>
-          <li><span class="lang-en" lang="en">Your submitted placement is the version we work from.</span><span class="lang-zh" lang="zh-CN">你提交的定位版本，就是我们据以工作的版本。</span></li>
-          <li><span class="lang-en" lang="en">We prepare and check the drawings and the estimate together, then email both.</span><span class="lang-zh" lang="zh-CN">我们把图纸和估算一起编制、一起校对，然后一并发送。</span></li>
+          <li><b><span class="lang-en" lang="en">Order for your design</span><span class="lang-zh" lang="zh-CN">为你的设计下单</span></b><span><span class="lang-en" lang="en">Our published designs have their own pages; your own design comes from the scheme you hold.</span><span class="lang-zh" lang="zh-CN">我们的现成设计各有页面；你自己的方案则来自你手上的图纸。</span></span></li>
+          <li><b><span class="lang-en" lang="en">We email you a placement link</span><span class="lang-zh" lang="zh-CN">我们邮件发送定位链接</span></b><span><span class="lang-en" lang="en">For the plot the package is drawn for.</span><span class="lang-zh" lang="zh-CN">针对这份图纸所对应的地块。</span></span></li>
+          <li><b><span class="lang-en" lang="en">You place the building and submit</span><span class="lang-zh" lang="zh-CN">你完成摆放并提交</span></b><span><span class="lang-en" lang="en">The placement you submit is the version we work from.</span><span class="lang-zh" lang="zh-CN">你提交的摆放版本，就是我们的工作版本。</span></span></li>
+          <li><b><span class="lang-en" lang="en">We prepare and check both</span><span class="lang-zh" lang="zh-CN">我们把两者一起编制并校对</span></b><span><span class="lang-en" lang="en">Drawings and the Detailed Estimate, both from the same submitted version — then emailed to you.</span><span class="lang-zh" lang="zh-CN">图纸与详细估算，均基于同一份提交版本 —— 然后邮件发送给你。</span></span></li>
         </ol>
       </div>
     </div>
@@ -1412,70 +1576,83 @@ ul.est-ticks li.is-none:before { content: "—"; color: #C08A7A; }
         <span class="lang-zh" lang="zh-CN">常见问题</span>
       </h2>
     </div>
-    <div class="est-faq">
-      <details>
-        <summary><span class="lang-en" lang="en">Do I need a finished design first?</span><span class="lang-zh" lang="zh-CN">必须先有完整方案吗？</span></summary>
-        <div class="ans"><span class="lang-en" lang="en">Yes — a chosen or created design is the basis for both products. You do not need to own the land first, and you do not need to have drawn anything yourself: picking one of our published designs counts as your design.</span><span class="lang-zh" lang="zh-CN">是 —— 两份产品都基于一个确定的方案。你不需要先拿到地，也不需要自己画：选用我们的现成设计就算作"你的方案"。</span></div>
-      </details>
-      <details>
-        <summary><span class="lang-en" lang="en">Must I buy the estimate before the drawings?</span><span class="lang-zh" lang="zh-CN">必须先买估算，才能买图纸包吗？</span></summary>
-        <div class="ans"><span class="lang-en" lang="en">No. The Preliminary Package includes the Detailed Estimate, prepared from the version you submit. Buying it first is optional.</span><span class="lang-zh" lang="zh-CN">不需要。图纸前置包本身就包含详细估算，按你提交的版本编制。先单独买只是可选项。</span></div>
-      </details>
-      <details>
-        <summary><span class="lang-en" lang="en">If I already bought the estimate, do I pay twice?</span><span class="lang-zh" lang="zh-CN">已经买过估算，再买图纸包会重复付费吗？</span></summary>
-        <div class="ans"><span class="lang-en" lang="en">The package costs the same either way — the estimate fee is not deducted. Instead we complete the estimate already in progress, or issue an updated one for the design you submit, at no further charge, so you hold one current report rather than two.</span><span class="lang-zh" lang="zh-CN">两种情况包价相同 —— 估算费用不会折抵。但我们会把已经在做的估算做完，或就你提交的方案免费更新一版，让你手上只有一份最新报告，而不是两份。</span></div>
-      </details>
-      <details>
-        <summary><span class="lang-en" lang="en">Is this a fixed construction price, or engineering?</span><span class="lang-zh" lang="zh-CN">这是固定总价或结构设计吗？</span></summary>
-        <div class="ans"><span class="lang-en" lang="en">No. The Detailed Estimate is an indicative cost estimate — not a supply quotation, not a fixed construction price and not an engineering certificate. Preliminary documents are for early project and planning discussions, not for construction or certification. Site-specific structural design comes later and the formal quotation follows it.</span><span class="lang-zh" lang="zh-CN">不是。详细估算是指示性造价估算 —— 不是供货报价、不是固定工程总价、也不是结构设计成果。前置图纸用于前期方案与报建洽谈，不能用于施工或认证。针对场地的结构计算在此之后，正式报价再随后。</span></div>
-      </details>
-      <details>
-        <summary><span class="lang-en" lang="en">What does "reviewed by a person" actually mean?</span><span class="lang-zh" lang="zh-CN">"人工复核"具体指什么？</span></summary>
-        <div class="ans"><span class="lang-en" lang="en">A member of our team reads the design, the pricing basis and what is still unknown before the report is issued, and holds it back if something needs fixing first. It gives you a clearer basis for a decision — it is not checked or approved by a cost consultant, engineer, authority or lender, and we are not your contractor or certifier.</span><span class="lang-zh" lang="zh-CN">在报告签发前，我们的成员会审阅方案、计价依据和仍未明确的部分；如果发现问题会先退回不签发。它让你有一个更清晰的决策依据 —— 但它未经造价咨询、结构工程师、主管部门或贷款方审核或批准，我们也不是你的施工方或认证方。</span></div>
-      </details>
-      <details>
-        <summary><span class="lang-en" lang="en">Can I order before I have the land?</span><span class="lang-zh" lang="zh-CN">还没拿到地可以下单吗？</span></summary>
-        <div class="ans"><span class="lang-en" lang="en">For the Detailed Estimate, yes — without a site the report covers what to look for when you choose one and leaves out the site pages. A Preliminary Package is drawn for the building on a nominated site, so you will need that address to place it.</span><span class="lang-zh" lang="zh-CN">估算可以 —— 没有场地时，报告会写"选地时该看什么"，并省略场地页。图纸前置包必须落在指定场地上，所以你需要有具体地址才能完成摆放。</span></div>
-      </details>
-      <details>
-        <summary><span class="lang-en" lang="en">What happens if I change the design afterwards?</span><span class="lang-zh" lang="zh-CN">之后改方案怎么办？</span></summary>
-        <div class="ans"><span class="lang-en" lang="en">What we issue relates to the version you submitted; later edits do not change it. An updated estimate for a changed scheme or site is a revision ($79); a revised drawing set follows our terms and is not an automatic free update.</span><span class="lang-zh" lang="zh-CN">我们签发的只对应你提交的那一版，后续改动不会改变它。方案或场地变更后更新估算按修订处理（$79）；图纸集的修订按我们的条款执行，不属于自动免费更新。</span></div>
-      </details>
-      <details>
-        <summary><span class="lang-en" lang="en">How current is the price basis?</span><span class="lang-zh" lang="zh-CN">价格基准有多新？</span></summary>
-        <div class="ans"><span class="lang-en" lang="en">Every report states the date of the price basis it used, and is valid 30 days from issue. Beyond that, material and labour prices may have moved — ask us to reissue before you rely on the figures.</span><span class="lang-zh" lang="zh-CN">每份报告都会写明所用价格基准的日期，并自签发之日起 30 天内有效。超过之后，材料与人工价格可能已经变动 —— 依赖这些数字之前，让我们重新签发。</span></div>
-      </details>
-    </div>
+    <div class="est-faq2">
+  <div class="rail">
+    <span class="eyebrow">Questions · 常见问题</span>
+    <h2><span class="lang-en" lang="en">Questions, answered.</span><span class="lang-zh" lang="zh-CN">问题，答案。</span></h2>
+    <p><span class="lang-en" lang="en">Not sure which fits? <a href="start.html">Tell us about your project</a> — a person reads every enquiry.</span>
+    <span class="lang-zh" lang="zh-CN">不确定选哪个？<a href="start.html">把你的项目告诉我们</a> —— 每一份申请都由真人查看。</span></p>
+  </div>
+  <div class="est-faq">
+    <details>
+      <summary><span class="lang-en" lang="en">Do I need a finished design first?</span><span class="lang-zh" lang="zh-CN">必须先有完整方案吗？</span></summary>
+      <div class="ans"><span class="lang-en" lang="en">Yes — a chosen or created design is the basis for both products. You do not need to own the land, subscribe to anything, or draw anything yourself: picking one of our published designs counts as your design.</span><span class="lang-zh" lang="zh-CN">是 —— 一个确定的方案是两份产品的基础。你不需要先拿到地、不需要订阅、也不需要自己画：选用我们的现成设计就算作「你的方案」。</span></div>
+    </details>
+    <details>
+      <summary><span class="lang-en" lang="en">Must I buy the estimate before the drawings?</span><span class="lang-zh" lang="zh-CN">必须先买估算，才能买图纸包吗？</span></summary>
+      <div class="ans"><span class="lang-en" lang="en">No. The Preliminary Package includes the Detailed Estimate, prepared from the version you submit. Buying it first is optional.</span><span class="lang-zh" lang="zh-CN">不需要。图纸前置包本身就包含详细估算，按你提交的版本编制。先单独买只是可选项。</span></div>
+    </details>
+    <details>
+      <summary><span class="lang-en" lang="en">Why buy the estimate on its own at all?</span><span class="lang-zh" lang="zh-CN">那为什么要单独买估算？</span></summary>
+      <div class="ans"><span class="lang-en" lang="en">When you want to check the cost and its basis before you decide whether to spend on preliminary documents at all. Some projects stop or change direction at that point — and that is useful.</span><span class="lang-zh" lang="zh-CN">当你想在决定是否投入前置文件之前，先把费用及其依据核查清楚。有些项目就是在这一步停住或调整方向的 —— 这本身就是价值。</span></div>
+    </details>
+    <details>
+      <summary><span class="lang-en" lang="en">What is the difference between US$1,100 and US$1,400?</span><span class="lang-zh" lang="zh-CN">1,100 和 1,400 美元有什么区别？</span></summary>
+      <div class="ans"><span class="lang-en" lang="en">The design you start from — not the quality of the documents. Both get the same drawing set and the same Detailed Estimate. Standard documents one of our published designs, with changes limited to existing window and door sizes, colours and its placement on your plot. Custom documents your own finished scheme, or a published design changed beyond that.</span><span class="lang-zh" lang="zh-CN">差的是「从哪份方案出发」，不是图纸质量 —— 两者交付同一套图纸和同一份详细估算。标准方案对应我们的现成设计，改动限于既有门窗尺寸、配色和在场地上的摆放；定制方案对应你自己的成型方案，或改动超出上述范围的现成设计。</span></div>
+    </details>
+    <details>
+      <summary><span class="lang-en" lang="en">Does a package include designing my building?</span><span class="lang-zh" lang="zh-CN">套餐包含设计我的房子吗？</span></summary>
+      <div class="ans"><span class="lang-en" lang="en">No. It documents a finished scheme. Design and drawing are separate services — you can do the design yourself, or we can prepare it from your brief as a separate engagement. Ask us about it in the same enquiry.</span><span class="lang-zh" lang="zh-CN">不包含。它记录的是一个已经成型的方案。设计与出图是两项服务 —— 你可以自己完成设计，也可以把它作为单独委托交给我们。可以在同一次申报里问我们。</span></div>
+    </details>
+    <details>
+      <summary><span class="lang-en" lang="en">Do I need a subscription?</span><span class="lang-zh" lang="zh-CN">我需要订阅吗？</span></summary>
+      <div class="ans"><span class="lang-en" lang="en">No. Nothing on this site requires a subscription to order. If you ask us to develop a scheme for you, that is a separate service with its own fee, quoted before we start.</span><span class="lang-zh" lang="zh-CN">不需要。本站任何产品下单都不需要订阅。如果你要我们为你把方案做出来，那是一项单独服务，有单独费用，开始前会先报给你。</span></div>
+    </details>
+    <details>
+      <summary><span class="lang-en" lang="en">What happens if I change the design afterwards?</span><span class="lang-zh" lang="zh-CN">之后改方案怎么办？</span></summary>
+      <div class="ans"><span class="lang-en" lang="en">What we issue relates to the version you submitted; later edits do not change it. An updated estimate for a changed scheme or site is a revision (US$79). A revised drawing set follows our terms and is not an automatic free update.</span><span class="lang-zh" lang="zh-CN">我们签发的只对应你提交的那一版，后续改动不会改变它。方案或场地变更后更新估算按修订处理（US$79）；图纸集的修订按我们的条款执行，不属于自动免费更新。</span></div>
+    </details>
+    <details>
+      <summary><span class="lang-en" lang="en">How current is the price basis?</span><span class="lang-zh" lang="zh-CN">价格基准有多新？</span></summary>
+      <div class="ans"><span class="lang-en" lang="en">Every report states the date of the price basis it used, and is valid 30 days from issue. Beyond that, material and labour prices may have moved — ask us to reissue before you rely on the figures.</span><span class="lang-zh" lang="zh-CN">每份报告都会写明所用价格基准的日期，并自签发起 30 天内有效。超过之后，材料与人工价格可能已经变动 —— 依赖这些数字之前，让我们重新签发。</span></div>
+    </details>
+  </div>
+</div>
   </div>
 </section>
 
 <section class="est-section est-final">
   <div class="container">
+    <span class="eyebrow"><span class="lang-en" lang="en">Your next step</span><span class="lang-zh" lang="zh-CN">你的下一步</span></span>
     <h2>
-      <span class="lang-en" lang="en">Check the cost first — or go straight to drawings.</span>
-      <span class="lang-zh" lang="zh-CN">先看造价，或直接出图。</span>
+      <span class="lang-en" lang="en">Check the cost first, or go <span class="est-hl">straight to drawings</span>.</span>
+      <span class="lang-zh" lang="zh-CN">先核对费用，或者<span class="est-hl">直接看图纸</span>。</span>
     </h2>
     <p>
-      <span class="lang-en" lang="en">Either way the estimate is prepared by a person for your design. With a package, it comes included.</span>
-      <span class="lang-zh" lang="zh-CN">无论哪条路，估算都由人工针对你的方案编制；选择图纸包，它已包含在内。</span>
+      <span class="lang-en" lang="en">Either way your Detailed Estimate is reviewed by a person. Inside a package it comes included.</span>
+      <span class="lang-zh" lang="zh-CN">无论哪种情况，你的详细估算都会由人工复核。选择图纸包，它已包含在内。</span>
     </p>
-    <div class="est-offers">
-      <div class="est-card">
+    <div class="est-plans-wrap">
+      <article class="est-plan">
+        <p class="est-plan-eyebrow">Check the cost · 先核实费用</p>
         <h3><span class="lang-en" lang="en">Detailed Estimate</span><span class="lang-zh" lang="zh-CN">详细估算</span></h3>
         <div class="price">$199 <small>USD</small></div>
-        <p class="desc"><span class="lang-en" lang="en">A reviewed estimate and report for your design — before you decide on drawings.</span><span class="lang-zh" lang="zh-CN">在决定出图之前，先把造价和依据看清楚。</span></p>
-        <div class="est-cta"><a class="btn btn-primary" href="start.html"><span class="lang-en" lang="en">Start</span><span class="lang-zh" lang="zh-CN">发起</span></a></div>
-      </div>
-      <div class="est-card is-featured">
+        <p class="desc"><span class="lang-en" lang="en">A reviewed estimate and report for your design — before you spend anything on drawings.</span><span class="lang-zh" lang="zh-CN">在决定出图之前，先把造价和依据看清楚。</span></p>
+        <a class="est-plan-cta" href="start.html"><span class="lang-en" lang="en">Start my estimate &rarr;</span><span class="lang-zh" lang="zh-CN">开始我的估算 &rarr;</span></a>
+      </article>
+      <article class="est-plan is-featured">
+        <span class="est-badge"><span class="lang-en" lang="en">Estimate included</span><span class="lang-zh" lang="zh-CN">估算已包含</span></span>
+        <p class="est-plan-eyebrow">Ready for drawings · 准备出图</p>
         <h3><span class="lang-en" lang="en">Preliminary Package</span><span class="lang-zh" lang="zh-CN">图纸前置包</span></h3>
-        <div class="price">$1,100 <small>/ $1,400 USD</small></div>
-        <p class="desc"><span class="lang-en" lang="en">Preliminary drawings and a rendered image, with the Detailed Estimate included.</span><span class="lang-zh" lang="zh-CN">前置图纸与效果图，并包含详细估算。</span></p>
-        <div class="est-cta"><a class="btn btn-primary" href="start.html"><span class="lang-en" lang="en">Start</span><span class="lang-zh" lang="zh-CN">发起</span></a></div>
-      </div>
+        <div class="price">$1,100 <small>USD standard</small></div>
+        <div class="price" style="font-size:26px">$1,400 <small>USD custom</small></div>
+        <p class="desc"><span class="lang-en" lang="en">Preliminary drawings, site plan and rendered image — with your Detailed Estimate included.</span><span class="lang-zh" lang="zh-CN">初步图纸、场地平面图和渲染图像 —— 并包含你的详细估算。</span></p>
+        <a class="est-plan-cta" href="start.html"><span class="lang-en" lang="en">Start my package &rarr;</span><span class="lang-zh" lang="zh-CN">开始我的图纸包 &rarr;</span></a>
+      </article>
     </div>
     <p class="est-quiet">
-      <span class="lang-en" lang="en">Not sure which fits? <a href="start.html">Tell us about your project</a> — a person reads every enquiry.</span>
-      <span class="lang-zh" lang="zh-CN">不确定选哪个？<a href="start.html">把你的项目告诉我们</a> —— 每一份申请都由真人查看。</span>
+      <span class="lang-en" lang="en">Not sure which fits? <a href="start.html">Ask a real person</a> — tell us about the project and we will say which one you actually need.</span>
+      <span class="lang-zh" lang="zh-CN">不确定哪种更合适？<a href="start.html">问问真人</a> —— 把你的项目告诉我们，我们会告诉你到底该选哪个。</span>
     </p>
   </div>
 </section>
@@ -1570,7 +1747,93 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') document.getElementById('navLinks').classList.remove('open');
+
 });
+/* ===== ten-page sample report viewer ===== */
+(function () {
+  var PAGES = [
+    ['01','Your building','你的建筑','p01'],
+    ['02','Cost estimate','造价估算','p02'],
+    ['03','Design specifications','设计规格','p03'],
+    ['04','Estimate basis and assumptions','估算依据与假设','p04'],
+    ['05','Floor plan and schedules','平面图与门窗表','p05'],
+    ['06','Budget scope','预算范围','p06'],
+    ['07','Your site','你的场地','p07'],
+    ['08','Project status','项目状态','p08'],
+    ['09','Next steps','下一步','p09'],
+    ['10','Scope and terms','范围与条款','p10']
+  ];
+  var row = function (a, b) { return '<div><span>' + a + '</span><span>' + b + '</span></div>'; };
+  var inc = function (items) { return '<div class="est-sheet-rows">' + items.join('') + '</div>'; };
+  var BODIES = {
+    p01: '<p class="sub">A reviewed render of your design, with the design version recorded. · 你的设计效果图，并记录方案版本。</p>'
+       + inc([row('Design version · 方案版本','Recorded · 已记录'), row('Storeys · 层数','Recorded · 已记录'), row('Render · 效果图','Included · 包含范围')]),
+    p02: '<p class="sub">Supply scope only, tax included. · 仅计价范围内的供应，含税。</p>'
+       + inc([row('Structural frame · 结构框架','Included · 包含范围'), row('Roof sheeting · 屋面','Included · 包含范围'),
+              row('Wall cladding · 墙体覆层','Included · 包含范围'), row('Flashings · 泛水','Included · 包含范围'),
+              row('Specified inclusions · 指定包含项','Included · 包含范围')])
+       + '<p class="est-sheet-foot">Your report shows the reviewed total and a breakdown by floor area. · 你的报告显示复核后的总量和按面积划分的细分。</p>',
+    p03: '<p class="sub">Specifications as drawn for your scheme. · 按你方案编制的规格。</p>'
+       + inc([row('Envelope · 外围护','Footprint, height, roof form · 占地、高度、屋面形式'),
+              row('Colours · 配色','Named with codes · 带色号'),
+              row('Windows and doors · 门窗','Types and sizes · 类型与尺寸'),
+              row('Fixtures · 五金洁具','Grouped by room · 按房间分组')]),
+    p04: '<p class="sub">What each figure rests on. · 每个数字建立在什么之上。</p>'
+       + inc([row('Structure system · 结构体系','Stated · 已注明'), row('Loads and zoning · 荷载与设防','Baseline assumed · 假定基准'),
+              row('Price basis · 价格基准','Dated · 注有日期'), row('Validity · 有效期','30 days from issue · 自签发 30 天')]),
+    p05: '<p class="sub">Dimensioned plan with the opening schedule. · 标注尺寸的平面图与门窗表。</p>'
+       + inc([row('Floor plan · 平面图','Dimensioned · 标注尺寸'), row('Window schedule · 门窗表','Marks, types, sizes · 编号、类型、尺寸'),
+              row('Upper floor · 上层平面','Two-storey schemes · 两层方案'),
+              row('Location plan · 位置图','Larger plots · 大地块')]),
+    p06: '<p class="sub">Split by who prices it. No total, by design. · 按计价方拆分。故意不给总数。</p>'
+       + inc([row('Priced by us · 我们计价','This estimate, and drawings if chosen · 本估算及图纸（如选择）'),
+              row('Site, approvals, services · 场地、报建、接入','To be priced for your site · 按场地计价'),
+              row('Construction and fit-out · 建造与装修','To be priced for your choices · 按你的选择计价')]),
+    p07: '<p class="sub">What the public record shows about your plot. · 公开资料显示的你的地块信息。</p>'
+       + inc([row('Footprint within the plot · 用地内占地','From public mapping · 来自公开地图'),
+              row('Easements and setbacks · 地役权与退线','Status stated · 状态已注明'),
+              row('Ground levels · 场地标高','Needs surveyor confirmation · 需测绘确认')]),
+    p08: '<p class="sub">Known. Told. To check. · 已知。你所述。待核实。</p>'
+       + inc([row('Design loads · 设计荷载','<span class="est-tag2 ok">Known · 已知</span>'),
+              row('Soil test · 地质勘察','<span class="est-tag2 you">Told · 你所述</span>'),
+              row('Flood and drainage · 内涝与排水','<span class="est-tag2 todo">To check · 待核实</span>')]),
+    p09: '<p class="sub">Which step resolves what. · 每一步解决什么问题。</p>'
+       + inc([row('Survey · 测绘','Resolves levels and boundaries · 解决标高与边界'),
+              row('Soil investigation · 地质勘察','Resolves foundation design · 解决基础设计'),
+              row('Approvals · 报建','Resolves what you may build · 解决你能建什么')]),
+    p10: '<p class="sub">Scope, terms and our role. · 范围、条款与我们的角色。</p>'
+       + inc([row('Nature of the document · 文件性质','Indicative estimate · 指示性估算'),
+              row('Validity · 有效期','30 days from issue · 自签发 30 天'),
+              row('What we are not · 我们不是什么','Not your contractor, certifier or approval authority · 不是你的施工方、认证方或审批机关')])
+  };
+  var list = document.getElementById('estViewList');
+  var panel = document.getElementById('estViewPanel');
+  var count = document.getElementById('estCount');
+  if (!list || !panel) return;
+  var i = 1;
+  function render() {
+    var p = PAGES[i];
+    count.textContent = p[0] + ' / 10';
+    panel.innerHTML =
+      '<div class="who"><span>JFA &middot; Hangzhou Jinfang Architectural Design</span><span>Detailed Estimate · 详细估算</span></div>' +
+      '<h4>' + p[1] + ' · ' + p[2] + '</h4>' +
+      (BODIES[p[3]] || '') +
+      '<p class="est-sheet-foot">Sample · content varies with your project. · 示例 · 内容因项目而异。</p>';
+    Array.prototype.forEach.call(list.children, function (b, k) { b.classList.toggle('is-on', k === i); });
+  }
+  PAGES.forEach(function (p, k) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('role', 'tab');
+    b.innerHTML = '<span class="n">' + p[0] + '</span><span><span class="lang-en">' + p[1] + '</span><span class="lang-zh">' + p[2] + '</span></span>';
+    b.addEventListener('click', function () { i = k; render(); });
+    list.appendChild(b);
+  });
+  document.getElementById('estPrev').addEventListener('click', function () { i = (i + 9) % 10; render(); });
+  document.getElementById('estNext').addEventListener('click', function () { i = (i + 1) % 10; render(); });
+  render();
+  applyLang(document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh');
+})();
 </script>
 
 </body>
