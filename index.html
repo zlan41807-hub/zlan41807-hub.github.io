@@ -860,97 +860,6 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   .floating-cta { bottom:16px; right:16px; }
   .floating-cta-btn { width:48px; height:48px; font-size:1.1rem; }
 }
-
-/* ===== hero module ===== */
-.hero-fine { margin:18px 0 0; font-size:13.5px; color:rgba(255,255,255,.55); letter-spacing:.01em; }
-.hero-fine .lang-zh { display:block; margin-top:4px; font-size:.94em; }
-.hero-sketch { display:block; max-width:400px; margin:20px 0 0; padding:16px 20px; border-radius:14px;
-  background:rgba(255,255,255,.07); border:1px solid rgba(212,163,115,.35); text-decoration:none; transition:var(--transition); }
-.hero-sketch:hover { background:rgba(255,255,255,.12); border-color:var(--accent); }
-.hero-sketch-q { display:inline; font-size:15px; font-weight:700; color:#fff; }
-.hero-sketch-a { display:inline; font-size:15px; font-weight:700; color:var(--accent); margin-left:8px; }
-.hero-sketch-note { display:block; margin-top:6px; font-size:12.5px; color:rgba(255,255,255,.55); line-height:1.6; }
-.hero-sketch-note .lang-zh { display:block; margin-top:3px; }
-.hero-photo { position:relative; width:100%; max-width:520px; }
-.hero-photo > img { width:100%; height:460px; object-fit:cover; border-radius:20px; display:block;
-  box-shadow:0 30px 70px rgba(0,0,0,.45); }
-.hero-photo-tag { position:absolute; top:16px; right:16px; display:inline-flex; align-items:center; gap:7px;
-  background:rgba(34,48,63,.82); color:#E8C88A; font-size:12px; padding:7px 13px; border-radius:999px;
-  border:1px solid rgba(232,200,138,.35); backdrop-filter:blur(6px); }
-.hero-photo-tag .lang-zh { display:inline; margin-left:6px; opacity:.9; }
-.hero-plan { position:absolute; left:-46px; bottom:-40px; width:290px; margin:0; padding:14px 14px 10px;
-  background:#F7F5F1; border-radius:14px; box-shadow:0 24px 50px rgba(0,0,0,.4); }
-.hero-plan .jfa-plan { width:100%; height:auto; display:block; border-radius:6px; }
-.hero-plan figcaption { margin-top:9px; font-size:11px; color:#8A8A9A; line-height:1.5; }
-.hero-plan figcaption .lang-zh { display:block; margin-top:3px; }
-.hero-steps { position:relative; z-index:2; max-width:var(--max-width); margin:-32px auto 0; padding:0 24px; }
-.hero-steps-inner { background:#fff; border-radius:18px; box-shadow:0 18px 44px rgba(0,0,0,.22);
-  display:grid; grid-template-columns:repeat(5,1fr); padding:24px 18px; }
-.hs { position:relative; text-align:center; }
-.hs:not(:last-child):after { content:""; position:absolute; top:17px; left:50%; width:100%; height:1px; background:#E5E0D8; }
-.hs-n { position:relative; z-index:1; display:inline-flex; width:34px; height:34px; border-radius:50%; background:#fff;
-  border:1.5px solid #D8D2C7; color:#8A8A9A; align-items:center; justify-content:center; font-weight:700; font-size:14px; }
-.hs.is-on .hs-n { background:var(--accent); border-color:var(--accent); color:#22303F; }
-.hs-t { display:block; margin-top:10px; font-size:12.5px; font-weight:600; color:#1A1A2E; }
-.hs-t .lang-zh { display:block; margin-top:3px; font-size:.9em; color:#8A8A9A; font-weight:500; }
-
-/* ===== drawing & built viewer ===== */
-.pv { padding:96px 0 84px; background:var(--bg-warm); }
-.pv-head { max-width:780px; margin:0 auto 30px; text-align:center; }
-.pv-kicker { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:700; }
-.pv-head h2 { font-family:var(--font-display); font-size:clamp(24px,3.2vw,38px); margin:12px 0 0; color:var(--text-dark); line-height:1.24; }
-.pv-head h2 .lang-zh { display:block; font-size:.58em; color:var(--text-light); font-family:var(--font-cn); margin-top:9px; }
-.pv-hl { background:var(--accent); color:#22303F; padding:0 7px; }
-.pv-head p { margin:16px 0 0; font-size:16px; line-height:1.85; color:var(--text-body); }
-.pv-head p .lang-zh { display:block; margin-top:9px; font-size:.9em; color:var(--text-light); }
-.pv-toggle { display:flex; justify-content:center; gap:10px; margin-bottom:26px; }
-.pv-toggle button { display:inline-flex; align-items:center; gap:9px; font:inherit; font-size:14.5px; font-weight:600;
-  padding:11px 20px; border-radius:999px; cursor:pointer; background:var(--bg-white); border:1px solid var(--border);
-  color:var(--text-body); transition:var(--transition); }
-.pv-toggle button .lang-zh { opacity:.75; font-weight:500; }
-.pv-toggle button.is-on { background:var(--primary); border-color:var(--primary); color:#fff; }
-.pv-toggle button.is-on .lang-zh { opacity:.9; }
-.pv-frame { max-width:1020px; margin:0 auto; border-radius:16px; overflow:hidden; background:#22303F;
-  box-shadow:0 30px 70px rgba(0,0,0,.28); }
-.pv-chrome { display:flex; align-items:center; gap:14px; padding:11px 16px; background:#1B2733; border-bottom:1px solid rgba(237,234,228,.12); }
-.pv-dots { display:inline-flex; gap:6px; }
-.pv-dots i { width:10px; height:10px; border-radius:50%; background:rgba(237,234,228,.25); display:block; }
-.pv-url { flex:1; font-size:12.5px; color:rgba(237,234,228,.6); background:rgba(255,255,255,.06);
-  border-radius:999px; padding:5px 14px; }
-.pv-url .lang-zh { display:inline; margin-left:5px; }
-.pv-badge { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#E8C88A;
-  border:1px solid rgba(232,200,138,.35); border-radius:999px; padding:4px 11px; }
-.pv-badge .lang-zh { display:inline; margin-left:5px; text-transform:none; letter-spacing:0; }
-.pv-body { position:relative; background:#F7F5F1; }
-.pv-view { display:none; }
-.pv-view.is-on { display:block; }
-.pv-plan { width:100%; height:auto; display:block; }
-.pv-view img { width:100%; height:520px; object-fit:cover; display:block; }
-.pv-float { position:absolute; left:24px; bottom:24px; width:270px; background:#fff; border-radius:14px;
-  box-shadow:0 20px 44px rgba(0,0,0,.25); padding:16px 18px 15px; }
-.pv-float-lab { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-light); font-weight:700; }
-.pv-float-lab .lang-zh { display:inline; margin-left:6px; text-transform:none; letter-spacing:0; }
-.pv-float-amt { display:block; margin:8px 0 10px; font-size:25px; font-weight:800; color:var(--primary); font-variant-numeric:tabular-nums; }
-.pv-float-amt small { font-size:12.5px; font-weight:600; color:var(--text-light); margin-left:6px; }
-.pv-float-amt small .lang-zh { display:inline; margin-left:4px; }
-.pv-float a { display:inline-block; font-size:13.5px; font-weight:700; color:var(--accent); text-decoration:none;
-  border-bottom:2px solid currentColor; padding-bottom:2px; }
-.pv-float a .lang-zh { display:inline; margin-left:6px; opacity:.85; }
-.pv-caption { max-width:900px; margin:22px auto 0; text-align:center; font-size:13px; line-height:1.8; color:var(--text-light); }
-.pv-caption .lang-zh { display:block; margin-top:6px; }
-.pv-cta { text-align:center; margin-top:30px; }
-.pv-btn { display:inline-block; padding:15px 30px; border-radius:999px; background:var(--accent); color:#22303F;
-  font-weight:700; font-size:15.5px; text-decoration:none; transition:var(--transition); }
-.pv-btn:hover { background:var(--accent-light); }
-.pv-btn .lang-zh { display:inline; margin-left:8px; font-size:.86em; opacity:.85; }
-@media (max-width: 1023px) {
-  .hero-plan { left:12px; bottom:-32px; width:230px; }
-  .hero-photo > img { height:360px; }
-  .hero-steps-inner { grid-template-columns:repeat(5,1fr); padding:18px 10px; }
-  .hs-t { font-size:11px; }
-  .pv-view img { height:340px; }
-  .pv-float { position:static; width:auto; margin:0; border-radius:0; box-shadow:none; }
-}
 </style>
 </head>
 <body>
@@ -1042,148 +951,28 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
           <span class="lang-zh" lang="zh-CN">联系我们</span>
           <i class="fas fa-arrow-right"></i>
         </a>
-        <a href="designs.html" class="btn btn-white-outline">
-          <span class="lang-en" lang="en">Design series</span>
-          <span class="lang-zh" lang="zh-CN">设计系列</span>
+        <a href="#projects" class="btn btn-white-outline">
+          <span class="lang-en" lang="en">View Projects</span>
+          <span class="lang-zh" lang="zh-CN">查看案例</span>
         </a>
       </div>
-      <p class="hero-fine">
-        <span class="lang-en" lang="en">Free first conversation &middot; Detailed Estimate US$199 &middot; package from US$1,100</span>
-        <span class="lang-zh" lang="zh-CN">首次沟通免费 &middot; 详细估算 US$199 &middot; 图纸包起 US$1,100</span>
-      </p>
-      <a class="hero-sketch" href="start.html">
-        <span class="hero-sketch-q"><span class="lang-en" lang="en">Have a sketch?</span><span class="lang-zh" lang="zh-CN">有草图？</span></span>
-        <span class="hero-sketch-a"><span class="lang-en" lang="en">Send it to us &rarr;</span><span class="lang-zh" lang="zh-CN">把它交给我们 &rarr;</span></span>
-        <span class="hero-sketch-note"><span class="lang-en" lang="en">We turn it into something that can be built and priced</span><span class="lang-zh" lang="zh-CN">我们把它变成可施工、可报价的方案</span></span>
-      </a>
     </div>
-    <div class="hero-visual">
-      <div class="hero-photo">
-        <img src="images/projects/project-cabin-1.jpg" alt="JFA 木结构建筑项目 / JFA timber building project" fetchpriority="high">
-        <span class="hero-photo-tag"><i class="fas fa-cube"></i><span class="lang-en" lang="en">Drawing and render come from one model</span><span class="lang-zh" lang="zh-CN">图纸与效果图出自同一套模型</span></span>
-        <figure class="hero-plan">
-          <svg class="jfa-plan" viewBox="0 0 340 246" role="img" aria-label="Floor plan diagram">
-        <rect x="0" y="0" width="340" height="246" fill="#F7F5F1"/>
-        <g stroke="#C9C4BA" stroke-width="1">
-          <line x1="46" y1="16" x2="46" y2="224"/><line x1="268" y1="16" x2="268" y2="224"/>
-          <line x1="28" y1="40" x2="286" y2="40"/><line x1="28" y1="204" x2="286" y2="204"/>
-        </g>
-        <g stroke="#8A8A9A" stroke-width="1">
-          <line x1="46" y1="34" x2="46" y2="18"/><line x1="268" y1="34" x2="268" y2="18"/>
-          <line x1="40" y1="40" x2="26" y2="40"/><line x1="40" y1="204" x2="26" y2="204"/>
-        </g>
-        <text x="157" y="30" font-size="9.5" fill="#6B6B78" text-anchor="middle" font-family="Inter, sans-serif">7.0 m</text>
-        <text x="21" y="126" font-size="9.5" fill="#6B6B78" text-anchor="middle" transform="rotate(-90 21 126)" font-family="Inter, sans-serif">13.0 m</text>
-        <g fill="#22303F" stroke="#22303F">
-          <rect x="46" y="40" width="222" height="164" fill="#FFFFFF" stroke-width="4"/>
-          <line x1="150" y1="40" x2="150" y2="122" stroke-width="2.4"/>
-          <line x1="150" y1="122" x2="268" y2="122" stroke-width="2.4"/>
-          <line x1="206" y1="122" x2="206" y2="204" stroke-width="2.4"/>
-        </g>
-        <g stroke="#FFFFFF" stroke-width="5">
-          <line x1="120" y1="122" x2="150" y2="122"/><line x1="150" y1="150" x2="150" y2="176"/>
-        </g>
-        <g fill="#8A8A9A" font-size="8" font-family="Inter, sans-serif">
-          <text x="70" y="128">LIVING</text><text x="70" y="138">起居</text>
-          <text x="168" y="86">BEDROOM</text><text x="168" y="96">主卧</text>
-          <text x="168" y="166">BATH</text><text x="168" y="176">卫浴</text>
-          <text x="224" y="166">KITCHEN</text><text x="224" y="176">厨房</text>
-        </g>
-        <g stroke="#D4A373" stroke-width="2" opacity="0.9">
-          <line x1="46" y1="216" x2="150" y2="216"/><line x1="150" y1="216" x2="268" y2="216"/>
-        </g>
-        <text x="157" y="234" font-size="9" fill="#95693A" text-anchor="middle" font-family="Inter, sans-serif">7.0 × 13.0 m · 91 m² GROUND FLOOR / 首层平面</text>
-      </svg>
-          <figcaption><span class="lang-en" lang="en">The same building on paper — illustrative plan</span><span class="lang-zh" lang="zh-CN">同一栋建筑的图纸 —— 示意平面</span></figcaption>
-        </figure>
+    <div class="hero-visual reveal reveal-delay-2">
+      <div class="hero-shape">
+        <div class="hero-shape-inner"></div>
+        <div class="hero-line"></div>
+        <div class="hero-line2"></div>
+        <div class="hero-shape-center">
+          <i class="fas fa-drafting-compass"></i>
+        </div>
       </div>
     </div>
   </div>
-
   <div class="scroll-indicator">
     <span class="lang-en" lang="en">Scroll Down</span><span class="lang-zh" lang="zh-CN">向下滚动</span>
     <div class="scroll-line"></div>
   </div>
 </section>
-<div class="hero-steps">
-    <div class="hero-steps-inner">
-      <div class="hs is-on"><span class="hs-n">1</span><span class="hs-t"><span class="lang-en" lang="en">Design</span><span class="lang-zh" lang="zh-CN">设计</span></span></div>
-      <div class="hs"><span class="hs-n">2</span><span class="hs-t"><span class="lang-en" lang="en">Detailed Estimate</span><span class="lang-zh" lang="zh-CN">详细估算</span></span></div>
-      <div class="hs"><span class="hs-n">3</span><span class="hs-t"><span class="lang-en" lang="en">Preliminary Package</span><span class="lang-zh" lang="zh-CN">图纸前置包</span></span></div>
-      <div class="hs"><span class="hs-n">4</span><span class="hs-t"><span class="lang-en" lang="en">Engineering</span><span class="lang-zh" lang="zh-CN">结构工程</span></span></div>
-      <div class="hs"><span class="hs-n">5</span><span class="hs-t"><span class="lang-en" lang="en">Build</span><span class="lang-zh" lang="zh-CN">施工交付</span></span></div>
-    </div>
-  </div>
-
-
-<section class="pv" id="plan-view">
-  <div class="container">
-    <div class="pv-head">
-      <span class="pv-kicker"><span class="lang-en" lang="en">Drawing &amp; built</span><span class="lang-zh" lang="zh-CN">图纸与建成</span></span>
-      <h2><span class="lang-en" lang="en">Draw the plan. <span class="pv-hl">Watch it stand up.</span></span><span class="lang-zh" lang="zh-CN">画出平面，<span class="pv-hl">看它立起来</span>。</span></h2>
-      <p><span class="lang-en" lang="en">Plans, elevations and the finished building come from one model — so what you approve is what gets priced, documented and built.</span><span class="lang-zh" lang="zh-CN">平面、立面和建成实景出自同一套模型 —— 你确认的那一版，就是被报价、被出图、被建造的那一版。</span></p>
-    </div>
-    <div class="pv-toggle" role="tablist" aria-label="Views">
-      <button type="button" class="is-on" data-view="plan" role="tab"><i class="fas fa-ruler-combined"></i><span class="lang-en" lang="en">Floor plan</span><span class="lang-zh" lang="zh-CN">平面图</span></button>
-      <button type="button" data-view="built" role="tab"><i class="fas fa-cube"></i><span class="lang-en" lang="en">Built</span><span class="lang-zh" lang="zh-CN">建成实景</span></button>
-    </div>
-    <div class="pv-frame">
-      <div class="pv-chrome">
-        <span class="pv-dots"><i></i><i></i><i></i></span>
-        <span class="pv-url">jfadesign.pages.dev &middot; <span class="lang-en" lang="en">drawing preview</span><span class="lang-zh" lang="zh-CN">图纸预览</span></span>
-        <span class="pv-badge"><span class="lang-en" lang="en">Static preview</span><span class="lang-zh" lang="zh-CN">静态预览</span></span>
-      </div>
-      <div class="pv-body">
-        <div class="pv-view is-on" data-view="plan"><svg class="pv-plan" viewBox="0 0 340 246" role="img" aria-label="Floor plan diagram">
-        <rect x="0" y="0" width="340" height="246" fill="#F7F5F1"/>
-        <g stroke="#C9C4BA" stroke-width="1">
-          <line x1="46" y1="16" x2="46" y2="224"/><line x1="268" y1="16" x2="268" y2="224"/>
-          <line x1="28" y1="40" x2="286" y2="40"/><line x1="28" y1="204" x2="286" y2="204"/>
-        </g>
-        <g stroke="#8A8A9A" stroke-width="1">
-          <line x1="46" y1="34" x2="46" y2="18"/><line x1="268" y1="34" x2="268" y2="18"/>
-          <line x1="40" y1="40" x2="26" y2="40"/><line x1="40" y1="204" x2="26" y2="204"/>
-        </g>
-        <text x="157" y="30" font-size="9.5" fill="#6B6B78" text-anchor="middle" font-family="Inter, sans-serif">7.0 m</text>
-        <text x="21" y="126" font-size="9.5" fill="#6B6B78" text-anchor="middle" transform="rotate(-90 21 126)" font-family="Inter, sans-serif">13.0 m</text>
-        <g fill="#22303F" stroke="#22303F">
-          <rect x="46" y="40" width="222" height="164" fill="#FFFFFF" stroke-width="4"/>
-          <line x1="150" y1="40" x2="150" y2="122" stroke-width="2.4"/>
-          <line x1="150" y1="122" x2="268" y2="122" stroke-width="2.4"/>
-          <line x1="206" y1="122" x2="206" y2="204" stroke-width="2.4"/>
-        </g>
-        <g stroke="#FFFFFF" stroke-width="5">
-          <line x1="120" y1="122" x2="150" y2="122"/><line x1="150" y1="150" x2="150" y2="176"/>
-        </g>
-        <g fill="#8A8A9A" font-size="8" font-family="Inter, sans-serif">
-          <text x="70" y="128">LIVING</text><text x="70" y="138">起居</text>
-          <text x="168" y="86">BEDROOM</text><text x="168" y="96">主卧</text>
-          <text x="168" y="166">BATH</text><text x="168" y="176">卫浴</text>
-          <text x="224" y="166">KITCHEN</text><text x="224" y="176">厨房</text>
-        </g>
-        <g stroke="#D4A373" stroke-width="2" opacity="0.9">
-          <line x1="46" y1="216" x2="150" y2="216"/><line x1="150" y1="216" x2="268" y2="216"/>
-        </g>
-        <text x="157" y="234" font-size="9" fill="#95693A" text-anchor="middle" font-family="Inter, sans-serif">7.0 × 13.0 m · 91 m² GROUND FLOOR / 首层平面</text>
-      </svg></div>
-        <div class="pv-view" data-view="built">
-          <img src="images/residential/residential-04-timber-cabin.jpg" alt="木构坡顶小屋 / Timber Gable Cabin" decoding="async">
-        </div>
-        <div class="pv-float">
-          <span class="pv-float-lab"><span class="lang-en" lang="en">Example &middot; gable cabin</span><span class="lang-zh" lang="zh-CN">示例 &middot; 木构坡顶小屋</span></span>
-          <span class="pv-float-amt">US$1,100 <small><span class="lang-en" lang="en">preliminary package</span><span class="lang-zh" lang="zh-CN">图纸前置包</span></small></span>
-          <a href="estimate.html"><span class="lang-en" lang="en">Get the Detailed Estimate &rarr;</span><span class="lang-zh" lang="zh-CN">获取详细估算 &rarr;</span></a>
-        </div>
-      </div>
-    </div>
-    <p class="pv-caption">
-      <span class="lang-en" lang="en">Both views describe the same design; the plan is an illustrative diagram, the photograph is a concept render from JFA's own series. Not construction documents.</span>
-      <span class="lang-zh" lang="zh-CN">两种视角描述的是同一个设计；平面为示意图形，照片为 JFA 自有系列的概念渲染。均非施工文件。</span>
-    </p>
-    <div class="pv-cta"><a class="pv-btn" href="designs.html"><span class="lang-en" lang="en">Explore the design series &rarr;</span><span class="lang-zh" lang="zh-CN">浏览设计系列 &rarr;</span></a></div>
-  </div>
-</section>
-
 
 <!-- ===== About ===== -->
 <section class="about section" id="about">
@@ -1993,20 +1782,6 @@ document.addEventListener('keydown', (e) => {
     idx = (idx + 1) % imgs.length;
     imgs[idx].classList.add('active');
   }, 3500);
-})();
-
-/* ===== drawing & built viewer ===== */
-(function () {
-  var btns = document.querySelectorAll('.pv-toggle button');
-  var views = document.querySelectorAll('.pv-view');
-  if (!btns.length) return;
-  Array.prototype.forEach.call(btns, function (b) {
-    b.addEventListener('click', function () {
-      var v = b.getAttribute('data-view');
-      Array.prototype.forEach.call(btns, function (x) { x.classList.toggle('is-on', x === b); });
-      Array.prototype.forEach.call(views, function (x) { x.classList.toggle('is-on', x.getAttribute('data-view') === v); });
-    });
-  });
 })();
 </script>
 
