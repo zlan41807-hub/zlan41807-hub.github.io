@@ -1134,6 +1134,55 @@ ul.est-ticks li.is-none:before { content: "—"; color: #C08A7A; }
 .est-badge .lang-zh { margin-left:6px; opacity:.82; }
 .est-final .est-hl { background:linear-gradient(transparent 56%, rgba(232,200,138,.45) 56%); }
 .est-view-list button .n { font-family:var(--font-en); font-weight:700; font-size:12px; opacity:.75; letter-spacing:.04em; }
+
+/* ===== closing CTA: centred, dark + bright pair, text-link CTAs ===== */
+.est-final { text-align:center; }
+.est-final-head { max-width:860px; margin:0 auto; }
+.est-final h2 { font-size:clamp(28px,4.2vw,48px); line-height:1.18; margin:14px 0 0; }
+.est-final-head p { margin:20px auto 0; max-width:660px; color:rgba(243,241,236,.78); }
+.est-final-head p .lang-zh { display:block; margin-top:8px; font-size:.9em; opacity:.78; }
+.est-plans-wrap { max-width:1020px; margin:44px auto 0; display:grid; grid-template-columns:1fr 1fr; gap:26px; text-align:left; }
+.est-final .est-plan { background:rgba(255,255,255,.045); border:1px solid rgba(237,234,228,.2); border-radius:24px;
+  padding:30px 32px 28px; box-shadow:none; }
+.est-final .est-plan-eyebrow { color:rgba(237,234,228,.62); font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; margin:0 0 10px; }
+.est-final .est-plan-eyebrow .lang-zh { display:inline; margin-left:6px; letter-spacing:.02em; text-transform:none; opacity:.9; font-weight:500; }
+.est-final .est-plan h3 { color:#F4EFE6; font-size:26px; margin:0; }
+.est-final .est-plan h3 .lang-zh { color:rgba(237,234,228,.62); font-size:.6em; margin-top:6px; }
+.est-final .est-plan p.desc { color:rgba(237,234,228,.8); margin-top:16px; }
+.est-final .est-plan p.desc .lang-zh { color:rgba(237,234,228,.6); }
+.est-final-price { font-size:25px; font-weight:800; letter-spacing:-.01em; margin:14px 0 0; color:#F4EFE6; font-variant-numeric:tabular-nums; }
+.est-final-price + .est-final-price { margin-top:4px; }
+.est-final-price span { font-size:14px; font-weight:600; opacity:.62; margin-left:8px; letter-spacing:0; }
+.est-final .est-plan.is-featured { background:var(--accent); border-color:var(--accent); position:relative; }
+.est-final .est-plan.is-featured .est-plan-eyebrow,
+.est-final .est-plan.is-featured h3,
+.est-final .est-plan.is-featured h3 .lang-zh,
+.est-final .est-plan.is-featured .est-final-price,
+.est-final .est-plan.is-featured .est-final-price span,
+.est-final .est-plan.is-featured p.desc,
+.est-final .est-plan.is-featured p.desc .lang-zh { color:#22303F; }
+.est-final .est-plan.is-featured .est-plan-eyebrow,
+.est-final .est-plan.is-featured p.desc .lang-zh { opacity:.72; }
+.est-final .est-badge { position:absolute; top:24px; right:24px; margin:0; background:#22303F; color:#E8C88A;
+  align-self:auto; font-size:11.5px; padding:5px 12px; }
+.est-final .est-badge .lang-zh { margin-left:5px; opacity:.85; }
+.est-final-link { display:inline-block; margin-top:26px; font-size:15.5px; font-weight:700; color:#F4EFE6;
+  text-decoration:none; border-bottom:2px solid currentColor; padding-bottom:3px; }
+.est-final .est-plan.is-featured .est-final-link { color:#22303F; }
+.est-final-link:hover { opacity:.72; }
+.est-final-link .lang-zh { margin-left:8px; opacity:.85; font-weight:600; }
+.est-final-foot { margin:34px auto 0; max-width:800px; font-size:14.5px; line-height:1.8; color:rgba(243,241,236,.72); }
+.est-final-foot a { color:#E8C88A; text-decoration:none; border-bottom:1px solid rgba(232,200,138,.5); }
+.est-final-foot .lang-zh { display:block; margin-top:8px; }
+
+/* highlighted phrase: solid gold fill with dark text, like the reference */
+.est-final h2 .est-hl { background:var(--accent); color:#22303F; padding:0 7px; }
+/* a flex item is blockified, so the underline ran the full card width */
+.est-final-link { display:inline-block; align-self:flex-start; }
+/* the site's global rule makes .lang-zh a block; keep it inline next to the price */
+.est-final p.est-final-price .lang-zh { display:inline; margin-left:7px; }
+.est-final-price .lang-en { margin-left:0; }
+@media (max-width: 820px) { .est-plans-wrap { grid-template-columns:1fr; max-width:560px; } }
 @media (max-width: 767px) {
   .est-plan { padding: 26px 22px 24px; }
   .est-plan-price { font-size: 36px; }
@@ -1623,36 +1672,41 @@ ul.est-ticks li.is-none:before { content: "—"; color: #C08A7A; }
 
 <section class="est-section est-final">
   <div class="container">
-    <span class="eyebrow"><span class="lang-en" lang="en">Your next step</span><span class="lang-zh" lang="zh-CN">你的下一步</span></span>
-    <h2>
-      <span class="lang-en" lang="en">Check the cost first, or go <span class="est-hl">straight to drawings</span>.</span>
-      <span class="lang-zh" lang="zh-CN">先核对费用，或者<span class="est-hl">直接看图纸</span>。</span>
-    </h2>
-    <p>
-      <span class="lang-en" lang="en">Either way your Detailed Estimate is reviewed by a person. Inside a package it comes included.</span>
-      <span class="lang-zh" lang="zh-CN">无论哪种情况，你的详细估算都会由人工复核。选择图纸包，它已包含在内。</span>
-    </p>
+    <div class="est-final-head">
+      <span class="eyebrow"><span class="lang-en" lang="en">Your next step</span><span class="lang-zh" lang="zh-CN">你的下一步</span></span>
+      <h2>
+        <span class="lang-en" lang="en">Check the cost first, or go <span class="est-hl">straight to drawings</span>.</span>
+        <span class="lang-zh" lang="zh-CN">先核对费用，或者<span class="est-hl">直接看图纸</span>。</span>
+      </h2>
+      <p>
+        <span class="lang-en" lang="en">Either way your Detailed Estimate is reviewed by a person. Inside a package it comes included.</span>
+        <span class="lang-zh" lang="zh-CN">无论哪种情况，你的详细估算都会由人工复核。选择图纸包，它已包含在内。</span>
+      </p>
+    </div>
+
     <div class="est-plans-wrap">
       <article class="est-plan">
-        <p class="est-plan-eyebrow">Check the cost · 先核实费用</p>
+        <p class="est-plan-eyebrow"><span class="lang-en" lang="en">Check the cost</span><span class="lang-zh" lang="zh-CN">先核实费用</span></p>
         <h3><span class="lang-en" lang="en">Detailed Estimate</span><span class="lang-zh" lang="zh-CN">详细估算</span></h3>
-        <div class="price">$199 <small>USD</small></div>
-        <p class="desc"><span class="lang-en" lang="en">A reviewed estimate and report for your design — before you spend anything on drawings.</span><span class="lang-zh" lang="zh-CN">在决定出图之前，先把造价和依据看清楚。</span></p>
-        <a class="est-plan-cta" href="start.html"><span class="lang-en" lang="en">Start my estimate &rarr;</span><span class="lang-zh" lang="zh-CN">开始我的估算 &rarr;</span></a>
+        <p class="est-final-price">US$199 <span><span class="lang-en" lang="en">tax included</span><span class="lang-zh" lang="zh-CN">含税</span></span></p>
+        <p class="desc"><span class="lang-en" lang="en">Before you spend anything on drawings, get a reviewed estimate of what your design will cost and what that figure rests on.</span><span class="lang-zh" lang="zh-CN">在决定出图之前，先拿到一份经复核的估价：你的方案要花多少钱，以及这个数字建立在什么之上。</span></p>
+        <a class="est-final-link" href="start.html"><span class="lang-en" lang="en">Start my estimate &rarr;</span><span class="lang-zh" lang="zh-CN">开始我的估算 &rarr;</span></a>
       </article>
+
       <article class="est-plan is-featured">
         <span class="est-badge"><span class="lang-en" lang="en">Estimate included</span><span class="lang-zh" lang="zh-CN">估算已包含</span></span>
-        <p class="est-plan-eyebrow">Ready for drawings · 准备出图</p>
+        <p class="est-plan-eyebrow"><span class="lang-en" lang="en">Ready for drawings</span><span class="lang-zh" lang="zh-CN">准备出图</span></p>
         <h3><span class="lang-en" lang="en">Preliminary Package</span><span class="lang-zh" lang="zh-CN">图纸前置包</span></h3>
-        <div class="price">$1,100 <small>USD standard</small></div>
-        <div class="price" style="font-size:26px">$1,400 <small>USD custom</small></div>
-        <p class="desc"><span class="lang-en" lang="en">Preliminary drawings, site plan and rendered image — with your Detailed Estimate included.</span><span class="lang-zh" lang="zh-CN">初步图纸、场地平面图和渲染图像 —— 并包含你的详细估算。</span></p>
-        <a class="est-plan-cta" href="start.html"><span class="lang-en" lang="en">Start my package &rarr;</span><span class="lang-zh" lang="zh-CN">开始我的图纸包 &rarr;</span></a>
+        <p class="est-final-price">US$1,100 <span><span class="lang-en" lang="en">standard</span><span class="lang-zh" lang="zh-CN">标准方案</span></span></p>
+        <p class="est-final-price">US$1,400 <span><span class="lang-en" lang="en">custom</span><span class="lang-zh" lang="zh-CN">定制方案</span></span></p>
+        <p class="desc"><span class="lang-en" lang="en">Preliminary drawings, site plan and rendered image &mdash; with your Detailed Estimate included.</span><span class="lang-zh" lang="zh-CN">初步图纸、场地平面图和渲染图像 —— 并包含你的详细估算。</span></p>
+        <a class="est-final-link" href="start.html"><span class="lang-en" lang="en">Start my package &rarr;</span><span class="lang-zh" lang="zh-CN">开始我的图纸包 &rarr;</span></a>
       </article>
     </div>
-    <p class="est-quiet">
-      <span class="lang-en" lang="en">Not sure which fits? <a href="start.html">Ask a real person</a> — tell us about the project and we will say which one you actually need.</span>
-      <span class="lang-zh" lang="zh-CN">不确定哪种更合适？<a href="start.html">问问真人</a> —— 把你的项目告诉我们，我们会告诉你到底该选哪个。</span>
+
+    <p class="est-final-foot">
+      <span class="lang-en" lang="en">Not sure which fits? <a href="start.html">Tell us about your project</a> &mdash; a person reads every enquiry and will say which one you actually need.</span>
+      <span class="lang-zh" lang="zh-CN">不确定哪种更合适？<a href="start.html">把你的项目告诉我们</a> —— 每一份申请都由真人查看，我们会告诉你到底该选哪个。</span>
     </p>
   </div>
 </section>
