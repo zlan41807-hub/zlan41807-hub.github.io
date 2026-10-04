@@ -1274,7 +1274,9 @@ document.addEventListener('keydown', function (e) {
   function show(i) {
     panels.forEach(function (p, k) { p.hidden = (k !== i); });
     bar.style.width = ((i + 1) / 2 * 100) + '%';
-    ind.textContent = (i + 1) + ' / 2';
+    ind.textContent = (i >= 2)
+      ? '<span class="lang-en">Complete</span><span class="lang-zh">已完成</span>'
+      : ((i + 1) + ' / 2');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function missing(step) {
