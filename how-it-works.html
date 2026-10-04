@@ -936,6 +936,37 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
 .hiw-final h2 .lang-zh { display:block; font-size:.56em; opacity:.72; margin-top:10px; font-family:var(--font-cn); }
 .hiw-final p { max-width:660px; margin:20px auto 0; color:rgba(243,241,236,.8); line-height:1.85; }
 .hiw-final p .lang-zh { display:block; margin-top:9px; font-size:.9em; opacity:.75; }
+
+/* ===== what we make — phase-grouped catalogue ===== */
+.hiw-cat-group { margin-top:48px; }
+.hiw-cat-group:first-child { margin-top:0; }
+.hiw-cat-head { display:flex; align-items:center; gap:16px; }
+.hiw-cat-n { flex:0 0 auto; width:38px; height:38px; border-radius:50%; background:var(--accent); color:#22303F;
+  display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; }
+.hiw-cat-title { font-family:var(--font-display); font-size:23px; color:var(--text-dark); white-space:nowrap; }
+.hiw-cat-title .lang-zh { margin-left:10px; font-size:.6em; color:var(--text-light); font-family:var(--font-cn); }
+.hiw-cat-head:after { content:""; flex:1 1 auto; height:1px; background:var(--border); }
+.hiw-cat-sub { margin:14px 0 24px; font-size:15px; line-height:1.8; color:var(--text-body); max-width:820px; }
+.hiw-cat-sub .lang-zh { display:block; margin-top:5px; font-size:.92em; color:var(--text-light); }
+.hiw-cat-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:24px; }
+.hiw-card { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg);
+  overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; }
+.hiw-card-visual { height:196px; background:#EDEAE4; overflow:hidden; }
+.hiw-card-visual img { width:100%; height:100%; object-fit:cover; display:block; }
+.hiw-card-doc { height:196px; background:#EFEDE8; display:flex; align-items:center; justify-content:center; padding:20px; }
+.hiw-card-doc .hiw-doc { width:100%; max-width:320px; }
+.hiw-card-body { padding:22px 24px 24px; display:flex; flex-direction:column; flex:1; }
+.hiw-card-eyebrow { margin:0 0 8px; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-light); font-weight:700; }
+.hiw-card-body h3 { margin:0 0 14px; font-size:19px; color:var(--text-dark); }
+.hiw-card-body h3 .lang-zh { display:block; font-size:.7em; color:var(--text-light); font-family:var(--font-cn); margin-top:6px; }
+.hiw-chip { align-self:flex-start; background:var(--accent); color:#22303F; font-weight:800; font-size:14px;
+  padding:7px 15px; border-radius:8px; }
+.hiw-chip .lang-zh { margin-left:8px; font-weight:700; opacity:.8; font-size:.9em; }
+.hiw-card-list { list-style:none; margin:18px 0 0; padding:0; }
+.hiw-card-list li { position:relative; padding-left:22px; margin-bottom:9px; font-size:14px; line-height:1.6; color:var(--text-body); }
+.hiw-card-list li:before { content:"✓"; position:absolute; left:0; color:#6FA97A; font-weight:700; }
+.hiw-card-list li:last-child { margin-bottom:0; }
+.hiw-card-list li .lang-zh { display:block; font-size:.9em; color:var(--text-light); margin-top:2px; }
 @media (max-width: 900px) {
   .hiw-panel-top { grid-template-columns:1fr; }
   .hiw-panel-visual { border-right:0; border-bottom:1px solid rgba(237,234,228,.14); }
@@ -1045,29 +1076,129 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
 
 <section class="hiw-section">
   <div class="container">
-    <div class="hiw-head is-left">
-      <span class="hiw-kicker"><span class="lang-en" lang="en">The outputs</span><span class="lang-zh" lang="zh-CN">交付物</span></span>
-      <h2><span class="lang-en" lang="en">What you hold at the end of each one.</span><span class="lang-zh" lang="zh-CN">每个阶段结束时你手上有什么。</span></h2>
-      <p><span class="lang-en" lang="en">A process is only as real as what it produces. Not a promise — the actual document, set or building.</span><span class="lang-zh" lang="zh-CN">流程的价值取决于它产出了什么。不是承诺 —— 而是那份实际的报告、那套图、那栋房子。</span></p>
+    <div class="hiw-head">
+      <span class="hiw-kicker"><span class="lang-en" lang="en">What we make</span><span class="lang-zh" lang="zh-CN">我们的产出</span></span>
+      <h2><span class="lang-en" lang="en">We make <span class="hiw-hl">everything</span>.</span><span class="lang-zh" lang="zh-CN">我们做的<span class="hiw-hl">全部东西</span>。</span></h2>
+      <p><span class="lang-en" lang="en">A process is only as real as what it produces. Here is every output, grouped by phase: what is in it, where it comes from and what it costs — so you can buy exactly the step you need, and not before you need it.</span><span class="lang-zh" lang="zh-CN">流程的价值取决于它产出了什么。下面按阶段列出每一项产出：里面有什么、从哪里来、多少钱 —— 让你精确地只买需要的那一步，而不是在需要之前就买下。</span></p>
     </div>
-    <div class="hiw-out">
-      <article class="hiw-out-card">
-        <p class="hiw-out-tag"><span class="lang-en" lang="en">01 · Free</span><span class="lang-zh" lang="zh-CN">01 · 免费</span></p>
-        <h3><span class="lang-en" lang="en">Your scope</span><span class="lang-zh" lang="zh-CN">你的范围</span></h3>
-        <p><span class="lang-en" lang="en">A written scope, a programme and a fee — the three things every later decision depends on. Free, and yours to keep even if you go elsewhere.</span><span class="lang-zh" lang="zh-CN">一份书面的范围、工期和费用 —— 之后每一个决定都建立在这三样上。免费，即使你最后找了别人也归你。</span></p>
-      </article><article class="hiw-out-card">
-        <p class="hiw-out-tag"><span class="lang-en" lang="en">02 · US$199</span><span class="lang-zh" lang="zh-CN">02 · US$199</span></p>
-        <h3><span class="lang-en" lang="en">The Detailed Estimate</span><span class="lang-zh" lang="zh-CN">详细估算报告</span></h3>
-        <p><span class="lang-en" lang="en">A reviewed estimate: the cost, the basis of every figure, the scope outside it, and one clear next decision. Ten sections, valid 30 days.</span><span class="lang-zh" lang="zh-CN">一份经复核的估价：造价、每个数字的依据、范围之外的部分，以及一个明确的下一步。十个部分，30 天有效。</span></p>
-      </article><article class="hiw-out-card">
-        <p class="hiw-out-tag"><span class="lang-en" lang="en">03 · from US$1,100</span><span class="lang-zh" lang="zh-CN">03 · 起 US$1,100</span></p>
-        <h3><span class="lang-en" lang="en">The preliminary set</span><span class="lang-zh" lang="zh-CN">前置图纸集</span></h3>
-        <p><span class="lang-en" lang="en">The issued A3 set — site plan, floors, four elevations, roof plan, schedules and a shadow study — with a site-fit check and a revision register. Yours to keep whatever you decide next.</span><span class="lang-zh" lang="zh-CN">正式签发的 A3 图册 —— 总平、平面、四向立面、屋面图、门窗表与日照分析 —— 附落地校核与版本记录。无论你下一步怎么决定，它都归你。</span></p>
-      </article><article class="hiw-out-card">
-        <p class="hiw-out-tag"><span class="lang-en" lang="en">05 · Quoted</span><span class="lang-zh" lang="zh-CN">05 · 报价</span></p>
-        <h3><span class="lang-en" lang="en">A building</span><span class="lang-zh" lang="zh-CN">一栋建筑</span></h3>
-        <p><span class="lang-en" lang="en">Priced against the fixed revision, built by your contractor, and documented the whole way so the finished building and the drawings remain the same building.</span><span class="lang-zh" lang="zh-CN">依据定稿版本报价、由你的施工方建造，并且全过程留痕 —— 让建成的房子和图纸始终是同一个房子。</span></p>
-      </article>
+    <div class="hiw-cat">
+      <div class="hiw-cat-group">
+        <div class="hiw-cat-head"><span class="hiw-cat-n">1</span><span class="hiw-cat-title"><span class="lang-en" lang="en">Explore &amp; design</span><span class="lang-zh" lang="zh-CN">探索与设计</span></span></div>
+        <p class="hiw-cat-sub"><span class="lang-en" lang="en">Start free. Sort the brief out first, then decide whether to spend on design and drawings.</span><span class="lang-zh" lang="zh-CN">自由开始。先把需求聊清楚，再决定要不要投入设计和图纸。</span></p>
+        <div class="hiw-cat-cards">
+        <article class="hiw-card">
+          <div class="hiw-card-visual"><img src="images/projects/project-cabin-1.jpg" alt="Free consultation" loading="lazy"></div>
+          <div class="hiw-card-body">
+            <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">Initial conversation</span><span class="lang-zh" lang="zh-CN">初步沟通</span></p>
+            <h3><span class="lang-en" lang="en">Free consultation</span><span class="lang-zh" lang="zh-CN">免费咨询</span></h3>
+            <span class="hiw-chip"><span class="lang-en" lang="en">Free</span><span class="lang-zh" lang="zh-CN">免费</span></span>
+            <ul class="hiw-card-list"><li><span class="lang-en" lang="en">One pass over the brief — use, storeys, timing</span><span class="lang-zh" lang="zh-CN">一次需求梳理 —— 用途、层数、时间</span></li><li><span class="lang-en" lang="en">A first read on the site conditions</span><span class="lang-zh" lang="zh-CN">场地条件的初步判断</span></li><li><span class="lang-en" lang="en">A stated scope, programme and fee basis</span><span class="lang-zh" lang="zh-CN">范围、工期与费用的口径</span></li></ul>
+          </div>
+        </article>
+        <article class="hiw-card">
+          <div class="hiw-card-visual"><img src="images/ai-works/ai-06-系列A-建筑外观渲染-v4.jpg" alt="Scheme design" loading="lazy"></div>
+          <div class="hiw-card-body">
+            <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">JFA design service</span><span class="lang-zh" lang="zh-CN">JFA 设计服务</span></p>
+            <h3><span class="lang-en" lang="en">Scheme design</span><span class="lang-zh" lang="zh-CN">方案设计</span></h3>
+            <span class="hiw-chip"><span class="lang-en" lang="en">Quoted per project</span><span class="lang-zh" lang="zh-CN">按项目报价</span></span>
+            <ul class="hiw-card-list"><li><span class="lang-en" lang="en">Plans and massing</span><span class="lang-zh" lang="zh-CN">平面与体量方案</span></li><li><span class="lang-en" lang="en">Exterior rendered images</span><span class="lang-zh" lang="zh-CN">外观效果图</span></li><li><span class="lang-en" lang="en">Structure and material selection</span><span class="lang-zh" lang="zh-CN">结构体系与材料选型</span></li></ul>
+          </div>
+        </article>
+        </div>
+      </div>
+      <div class="hiw-cat-group">
+        <div class="hiw-cat-head"><span class="hiw-cat-n">2</span><span class="hiw-cat-title"><span class="lang-en" lang="en">Detailed estimate</span><span class="lang-zh" lang="zh-CN">详细估算</span></span></div>
+        <p class="hiw-cat-sub"><span class="lang-en" lang="en">If the money question is the only one keeping you up, this one answers it on its own.</span><span class="lang-zh" lang="zh-CN">如果最让你睡不着的只是「钱」这一个问题，买它一个就够了。</span></p>
+        <div class="hiw-cat-cards">
+        <article class="hiw-card">
+          <div class="hiw-card-doc"><div class="hiw-doc"><div class="bar"><span>JFA</span><span>DETAILED ESTIMATE</span></div><h5>Detailed Estimate</h5><p class="sub">Ten sections &middot; valid 30 days</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">US$199</span></div></div>
+          <div class="hiw-card-body">
+            <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">This site</span><span class="lang-zh" lang="zh-CN">本网站</span></p>
+            <h3><span class="lang-en" lang="en">Detailed Estimate report</span><span class="lang-zh" lang="zh-CN">详细估算报告</span></h3>
+            <span class="hiw-chip"><span class="lang-en" lang="en">US$199</span></span>
+            <ul class="hiw-card-list"><li><span class="lang-en" lang="en">Cost broken down by floor area</span><span class="lang-zh" lang="zh-CN">按建筑面积分解的造价估算</span></li><li><span class="lang-en" lang="en">The basis of every figure and the price-basis date</span><span class="lang-zh" lang="zh-CN">每个数字的依据与价格基准日期</span></li><li><span class="lang-en" lang="en">A ten-section report, valid 30 days from issue</span><span class="lang-zh" lang="zh-CN">十页报告，自签发 30 天有效</span></li></ul>
+          </div>
+        </article>
+        </div>
+      </div>
+      <div class="hiw-cat-group">
+        <div class="hiw-cat-head"><span class="hiw-cat-n">3</span><span class="hiw-cat-title"><span class="lang-en" lang="en">Preliminary package</span><span class="lang-zh" lang="zh-CN">图纸前置包</span></span></div>
+        <p class="hiw-cat-sub"><span class="lang-en" lang="en">Turn the scheme into something you can put in front of an authority, a builder and your bank.</span><span class="lang-zh" lang="zh-CN">把方案变成能拿去谈审批、谈施工、谈贷款的东西。</span></p>
+        <div class="hiw-cat-cards">
+        <article class="hiw-card">
+          <div class="hiw-card-doc"><div class="hiw-doc"><div class="bar"><span>JFA</span><span>PRELIMINARY SET</span></div><h5>Preliminary drawing set</h5><p class="sub">Site &middot; floors &middot; elevations &middot; schedules</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">US$1,100</span></div></div>
+          <div class="hiw-card-body">
+            <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">This site</span><span class="lang-zh" lang="zh-CN">本网站</span></p>
+            <h3><span class="lang-en" lang="en">Preliminary set &middot; standard</span><span class="lang-zh" lang="zh-CN">前置图纸集 · 标准</span></h3>
+            <span class="hiw-chip"><span class="lang-en" lang="en">US$1,100</span></span>
+            <ul class="hiw-card-list"><li><span class="lang-en" lang="en">Site plan, floor plans, four elevations, roof plan</span><span class="lang-zh" lang="zh-CN">总平、各层平面、四向立面、屋面图</span></li><li><span class="lang-en" lang="en">Window and door schedules, shadow study</span><span class="lang-zh" lang="zh-CN">门窗表与日照阴影分析</span></li><li><span class="lang-en" lang="en">Detailed Estimate inside, with a revision register</span><span class="lang-zh" lang="zh-CN">含详细估算，附版本记录表</span></li></ul>
+          </div>
+        </article>
+        <article class="hiw-card">
+          <div class="hiw-card-visual"><img src="images/residential/residential-03-modern-dusk-deck.jpg" alt="Preliminary set &middot; custom" loading="lazy"></div>
+          <div class="hiw-card-body">
+            <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">This site</span><span class="lang-zh" lang="zh-CN">本网站</span></p>
+            <h3><span class="lang-en" lang="en">Preliminary set &middot; custom</span><span class="lang-zh" lang="zh-CN">前置图纸集 · 定制</span></h3>
+            <span class="hiw-chip"><span class="lang-en" lang="en">US$1,400</span></span>
+            <ul class="hiw-card-list"><li><span class="lang-en" lang="en">Your own finished scheme, documented</span><span class="lang-zh" lang="zh-CN">你自己已完成的成型方案，正式出图</span></li><li><span class="lang-en" lang="en">Or a published design changed beyond the allowance</span><span class="lang-zh" lang="zh-CN">或现成设计的大幅改动</span></li><li><span class="lang-en" lang="en">The same drawing set — and the estimate included</span><span class="lang-zh" lang="zh-CN">同一套图纸 —— 同样含估算</span></li></ul>
+          </div>
+        </article>
+        </div>
+      </div>
+      <div class="hiw-cat-group">
+        <div class="hiw-cat-head"><span class="hiw-cat-n">4</span><span class="hiw-cat-title"><span class="lang-en" lang="en">Structural engineering</span><span class="lang-zh" lang="zh-CN">结构工程</span></span></div>
+        <p class="hiw-cat-sub"><span class="lang-en" lang="en">Produced together with the drawings after the site investigation, so nothing contradicts.</span><span class="lang-zh" lang="zh-CN">场地勘察之后和图纸一起出，互相不打架。</span></p>
+        <div class="hiw-cat-cards">
+        <article class="hiw-card">
+          <div class="hiw-card-doc"><div class="hiw-doc"><div class="bar"><span>JFA</span><span>STRUCTURAL SET</span></div><h5>Structural design set</h5><p class="sub">Loads &middot; members &middot; connections</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">Quoted per project</span></div></div>
+          <div class="hiw-card-body">
+            <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">Coordinated by JFA</span><span class="lang-zh" lang="zh-CN">JFA 统筹</span></p>
+            <h3><span class="lang-en" lang="en">Site-specific structural design</span><span class="lang-zh" lang="zh-CN">场地专项结构设计</span></h3>
+            <span class="hiw-chip"><span class="lang-en" lang="en">Quoted per project</span><span class="lang-zh" lang="zh-CN">按项目报价</span></span>
+            <ul class="hiw-card-list"><li><span class="lang-en" lang="en">Loads and zoning resolved onto members</span><span class="lang-zh" lang="zh-CN">荷载与设防分区落实到具体构件</span></li><li><span class="lang-en" lang="en">Connection details and foundations</span><span class="lang-zh" lang="zh-CN">连接节点与基础做法</span></li><li><span class="lang-en" lang="en">Kept on the same revision as the drawings and the price</span><span class="lang-zh" lang="zh-CN">与图纸、规格、报价保持同一版本</span></li></ul>
+          </div>
+        </article>
+        </div>
+      </div>
+      <div class="hiw-cat-group">
+        <div class="hiw-cat-head"><span class="hiw-cat-n">5</span><span class="hiw-cat-title"><span class="lang-en" lang="en">Quote &amp; approvals</span><span class="lang-zh" lang="zh-CN">报价与报建</span></span></div>
+        <p class="hiw-cat-sub"><span class="lang-en" lang="en">A figure you can take to the bank, and a file that stands up to questions.</span><span class="lang-zh" lang="zh-CN">一个能拿给银行和主管部门的数字，一套经得起追问的文件。</span></p>
+        <div class="hiw-cat-cards">
+        <article class="hiw-card">
+          <div class="hiw-card-doc"><div class="hiw-doc"><div class="bar"><span>JFA</span><span>FORMAL QUOTATION</span></div><h5>Formal quotation</h5><p class="sub">Issued against a named revision</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">Against the fixed revision</span></div></div>
+          <div class="hiw-card-body">
+            <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">JFA formal quote</span><span class="lang-zh" lang="zh-CN">JFA 正式报价</span></p>
+            <h3><span class="lang-en" lang="en">Written quotation</span><span class="lang-zh" lang="zh-CN">书面报价单</span></h3>
+            <span class="hiw-chip"><span class="lang-en" lang="en">Against the fixed revision</span><span class="lang-zh" lang="zh-CN">依据定稿版本</span></span>
+            <ul class="hiw-card-list"><li><span class="lang-en" lang="en">Every item counted from the documents, not estimated</span><span class="lang-zh" lang="zh-CN">每一项从文件里数出来，不是从估算推出来</span></li><li><span class="lang-en" lang="en">Scope and validity stated</span><span class="lang-zh" lang="zh-CN">标明覆盖范围与有效期</span></li><li><span class="lang-en" lang="en">Sits alongside a contractor's quote for comparison</span><span class="lang-zh" lang="zh-CN">可与施工方报价并列对比</span></li></ul>
+          </div>
+        </article>
+        <article class="hiw-card">
+          <div class="hiw-card-doc"><div class="hiw-doc"><div class="bar"><span>JFA</span><span>APPROVAL SET</span></div><h5>Approval submission set</h5><p class="sub">Prepared to be questioned</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">Statutory fees are separate</span></div></div>
+          <div class="hiw-card-body">
+            <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">Approval submission</span><span class="lang-zh" lang="zh-CN">报建文件</span></p>
+            <h3><span class="lang-en" lang="en">Approval submission set</span><span class="lang-zh" lang="zh-CN">报建文件集</span></h3>
+            <span class="hiw-chip"><span class="lang-en" lang="en">Statutory fees are separate</span><span class="lang-zh" lang="zh-CN">规费另计</span></span>
+            <ul class="hiw-card-list"><li><span class="lang-en" lang="en">Prepared so a reviewer's questions can be answered from the file</span><span class="lang-zh" lang="zh-CN">按经得起追问的方式编制</span></li><li><span class="lang-en" lang="en">Every technical query answered by us</span><span class="lang-zh" lang="zh-CN">技术问询由我们答复</span></li><li><span class="lang-en" lang="en">The lodged revision and the issued set stay identical</span><span class="lang-zh" lang="zh-CN">申报版本与签发版本保持一致</span></li></ul>
+          </div>
+        </article>
+        </div>
+      </div>
+      <div class="hiw-cat-group">
+        <div class="hiw-cat-head"><span class="hiw-cat-n">6</span><span class="hiw-cat-title"><span class="lang-en" lang="en">Construction &amp; handover</span><span class="lang-zh" lang="zh-CN">施工与交付</span></span></div>
+        <p class="hiw-cat-sub"><span class="lang-en" lang="en">The building that goes up and the drawings you paid for stay the same building.</span><span class="lang-zh" lang="zh-CN">建成的房子和你看过的图纸，始终是同一个房子。</span></p>
+        <div class="hiw-cat-cards">
+        <article class="hiw-card">
+          <div class="hiw-card-visual"><img src="images/residential/residential-04-timber-cabin.jpg" alt="Site support &amp; hand-over" loading="lazy"></div>
+          <div class="hiw-card-body">
+            <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">Your contractor builds</span><span class="lang-zh" lang="zh-CN">你的施工方实施</span></p>
+            <h3><span class="lang-en" lang="en">Site support &amp; hand-over</span><span class="lang-zh" lang="zh-CN">施工配合与交付</span></h3>
+            <span class="hiw-chip"><span class="lang-en" lang="en">Priced by your contractor</span><span class="lang-zh" lang="zh-CN">由施工方报价</span></span>
+            <ul class="hiw-card-list"><li><span class="lang-en" lang="en">Shop drawings and substitutions reviewed</span><span class="lang-zh" lang="zh-CN">深化图与替代做法审核</span></li><li><span class="lang-en" lang="en">Site questions answered as they appear</span><span class="lang-zh" lang="zh-CN">现场技术问题答疑</span></li><li><span class="lang-en" lang="en">Changes recorded as revisions, never absorbed silently</span><span class="lang-zh" lang="zh-CN">变更按修订记录，不悄悄消化掉</span></li></ul>
+          </div>
+        </article>
+        </div>
+      </div>
     </div>
   </div>
 </section>
