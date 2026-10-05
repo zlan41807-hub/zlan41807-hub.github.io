@@ -860,6 +860,89 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   .floating-cta { bottom:16px; right:16px; }
   .floating-cta-btn { width:48px; height:48px; font-size:1.1rem; }
 }
+
+/* ===== merged services + team ===== */
+.services.merged .st-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(440px,1fr)); gap:26px; margin-top:44px; }
+.st-card { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg);
+  padding:28px 30px 24px; box-shadow:var(--shadow); display:flex; flex-direction:column; }
+.st-head { display:flex; align-items:center; gap:16px; }
+.st-avatar { flex:0 0 auto; width:54px; height:54px; border-radius:14px; background:rgba(212,163,115,.14);
+  display:flex; align-items:center; justify-content:center; color:var(--accent); font-size:20px; }
+.st-card h3 { margin:0; font-size:19px; color:var(--text-dark); }
+.st-card h3 .lang-zh { display:inline; margin-left:8px; font-size:.78em; color:var(--text-light); font-family:var(--font-cn); }
+.st-role { margin:6px 0 0; font-size:13px; color:var(--text-light); }
+.st-role .lang-zh { display:inline; margin-left:7px; }
+.st-bio { margin:16px 0 0; font-size:14.5px; line-height:1.8; color:var(--text-body); }
+.st-bio .lang-zh { display:block; margin-top:7px; font-size:.92em; color:var(--text-light); }
+.st-services { margin-top:20px; padding-top:16px; border-top:1px solid var(--border); }
+.st-label { margin:0 0 12px; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-light); font-weight:700; }
+.st-label .lang-zh { display:inline; margin-left:7px; letter-spacing:.02em; text-transform:none; opacity:.9; }
+.st-services ul { list-style:none; margin:0; padding:0; }
+.st-services li { display:flex; gap:12px; padding:9px 0; border-bottom:1px dashed var(--border); }
+.st-services li:last-child { border-bottom:0; }
+.st-services li > i { flex:0 0 auto; width:18px; text-align:center; color:var(--accent); margin-top:3px; font-size:13px; }
+.st-s { display:block; }
+.st-s b { display:block; font-size:14.5px; color:var(--text-dark); font-weight:600; }
+.st-s b .lang-zh { display:inline; margin-left:7px; font-size:.9em; color:var(--text-light); font-weight:500; }
+.st-s-desc { display:block; margin-top:3px; font-size:13.5px; line-height:1.7; color:var(--text-body); }
+.st-s-desc .lang-zh { display:block; margin-top:2px; font-size:.94em; color:var(--text-light); }
+
+/* ===== sketch module ===== */
+.sks { background:var(--bg-warm); padding:88px 0 80px; }
+.sks-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:52px; align-items:center; }
+.sks-kicker { position:relative; display:inline-block; font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--accent); font-weight:700; padding-top:16px; }
+.sks-kicker:before { content:""; position:absolute; top:0; left:0; width:34px; height:2px; background:var(--accent); }
+.sks-kicker .lang-zh { display:inline; margin-left:8px; letter-spacing:.02em; text-transform:none; }
+.sks h2 { font-family:var(--font-display); font-size:clamp(28px,3.6vw,46px); line-height:1.16; margin:16px 0 0; color:var(--text-dark); }
+.sks h2 .lang-zh { display:block; font-size:.55em; color:var(--text-light); font-family:var(--font-cn); margin-top:11px; }
+.sks-hl { background:var(--accent); color:#22303F; padding:0 7px; }
+.sks-sub { margin:18px 0 0; font-size:17px; color:var(--primary); font-weight:600; }
+.sks-sub .lang-zh { display:block; margin-top:6px; font-size:.92em; color:var(--text-light); font-weight:500; }
+.sks-body { margin:14px 0 0; font-size:15px; line-height:1.85; color:var(--text-body); }
+.sks-body .lang-zh { display:block; margin-top:8px; font-size:.92em; color:var(--text-light); }
+.sks-price { margin:20px 0 0; font-size:24px; font-weight:800; color:var(--primary); font-variant-numeric:tabular-nums; }
+.sks-price span { font-size:13.5px; font-weight:600; color:var(--text-light); margin-left:8px; }
+.sks-price span .lang-zh { display:inline; margin-left:5px; }
+.sks-note { margin:8px 0 0; font-size:13.5px; line-height:1.7; color:var(--text-light); }
+.sks-note .lang-zh { display:block; margin-top:4px; }
+.sks-cta { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+.sks-btn { display:inline-block; padding:14px 26px; border-radius:999px; background:var(--accent); color:#22303F;
+  font-weight:700; font-size:15px; text-decoration:none; transition:var(--transition); }
+.sks-btn:hover { background:var(--accent-light); }
+.sks-btn.is-ghost { background:transparent; border:1px solid var(--border); color:var(--text-dark); }
+.sks-btn.is-ghost:hover { border-color:var(--accent); color:#95693A; }
+.sks-btn .lang-zh { display:inline; margin-left:7px; font-size:.86em; opacity:.85; }
+.sks-ticks { list-style:none; margin:20px 0 0; padding:0; }
+.sks-ticks li { position:relative; padding-left:22px; margin-bottom:8px; font-size:14px; color:var(--text-body); }
+.sks-ticks li:before { content:"✓"; position:absolute; left:0; color:#6FA97A; font-weight:700; }
+.sks-ticks li .lang-zh { display:inline; margin-left:7px; color:var(--text-light); font-size:.92em; }
+.sks-visual img { width:100%; height:430px; object-fit:cover; border-radius:20px; display:block; box-shadow:0 26px 60px rgba(0,0,0,.24); }
+.sks-chain { display:flex; align-items:center; justify-content:center; gap:18px; margin-top:52px; flex-wrap:wrap; }
+.sks-step { margin:0; width:270px; }
+.sks-thumb { background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); }
+.sks-thumb svg { width:100%; height:auto; display:block; }
+.sks-thumb.is-photo img { width:100%; height:196px; object-fit:cover; display:block; }
+.sks-step figcaption { margin-top:10px; text-align:center; font-size:13px; font-weight:600; color:var(--text-dark); }
+.sks-step figcaption .lang-zh { display:inline; margin-left:6px; color:var(--text-light); font-weight:500; }
+.sks-arrow { color:var(--accent); font-size:18px; }
+.sks-caption { max-width:860px; margin:26px auto 0; text-align:center; font-size:12.5px; line-height:1.75; color:var(--text-light); }
+.sks-caption .lang-zh { display:block; margin-top:5px; }
+.sks-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:44px; }
+.sks-steps article { border-top:2px solid var(--border); padding-top:20px; }
+.sks-n { display:inline-flex; width:32px; height:32px; border-radius:50%; border:1.5px solid var(--accent); color:#95693A;
+  align-items:center; justify-content:center; font-weight:700; font-size:14px; }
+.sks-steps h3 { margin:14px 0 8px; font-size:18px; color:var(--text-dark); }
+.sks-steps h3 .lang-zh { display:inline; margin-left:7px; font-size:.8em; color:var(--text-light); }
+.sks-steps p { margin:0; font-size:14.5px; line-height:1.8; color:var(--text-body); }
+.sks-steps p .lang-zh { display:block; margin-top:6px; font-size:.92em; color:var(--text-light); }
+@media (max-width: 1023px) {
+  .services.merged .st-grid { grid-template-columns:1fr; }
+  .sks-grid { grid-template-columns:1fr; gap:30px; }
+  .sks-visual img { height:300px; }
+  .sks-step { width:220px; }
+  .sks-steps { grid-template-columns:1fr; gap:20px; }
+}
 </style>
 </head>
 <body>
@@ -1034,70 +1117,155 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
 </section>
 
 <!-- ===== Services ===== -->
-<section class="services section" id="services">
+<section class="services section merged" id="services">
   <div class="container">
     <div class="section-title text-center reveal">
-      <span class="lang-en" lang="en">Core Services</span>
-      <span class="lang-zh" lang="zh-CN">核心业务</span>
+      <span class="lang-en" lang="en">Services &amp; Team</span>
+      <span class="lang-zh" lang="zh-CN">业务与团队</span>
     </div>
     <p class="section-subtitle text-center reveal reveal-delay-1">
-      <span class="lang-en" lang="en">Eight core business segments covering the full building lifecycle — from concept to completion</span>
-      <span class="lang-zh" lang="zh-CN">覆盖建筑全产业链的八大核心业务板块，从创意到落地一站式交付</span>
+      <span class="lang-en" lang="en">Four in-house disciplines covering eight service areas — the same team from first concept to handover, so nothing falls between the gaps.</span>
+      <span class="lang-zh" lang="zh-CN">四支自有专业团队，覆盖八大业务板块 —— 从概念到交付始终是同一支团队，避免专业之间出现断层。</span>
     </p>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-icon"><i class="fas fa-building"></i></div>
-        <h3><span class="lang-en" lang="en">Architectural Design</span><span class="lang-zh" lang="zh-CN">建筑设计</span></h3>
-        <p><span class="lang-en" lang="en">From concept to construction documents — mixed-use, hospitality, office, and cultural projects.</span>
-        <span class="lang-zh" lang="zh-CN">从概念方案到施工图设计，涵盖城市综合体、酒店、办公、文化建筑等多种类型。</span></p>
-      </div>
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon"><i class="fas fa-couch"></i></div>
-        <h3><span class="lang-en" lang="en">Interior Design</span><span class="lang-zh" lang="zh-CN">室内设计</span></h3>
-        <p><span class="lang-en" lang="en">Commercial, workplace, and luxury residential interiors that blend function with human experience.</span>
-        <span class="lang-zh" lang="zh-CN">商业空间、办公环境与高端住宅室内设计，融合功能美学与人性化体验。</span></p>
-      </div>
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon"><i class="fas fa-tree"></i></div>
-        <h3><span class="lang-en" lang="en">Landscape Design</span><span class="lang-zh" lang="zh-CN">景观设计</span></h3>
-        <p><span class="lang-en" lang="en">Urban public spaces, parks, commercial landscapes, and residential communities.</span>
-        <span class="lang-zh" lang="zh-CN">城市公共空间、公园绿地、商业景观与居住区景观的全方位设计服务。</span></p>
-      </div>
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
-        <h3><span class="lang-en" lang="en">Structural Engineering</span><span class="lang-zh" lang="zh-CN">结构工程</span></h3>
-        <p><span class="lang-en" lang="en">Advanced structural analysis and design — super-tall, long-span, and complex geometries.</span>
-        <span class="lang-zh" lang="zh-CN">高难度结构分析与设计，涵盖超高层、大跨度、复杂异形结构等创新方案。</span></p>
-      </div>
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon"><i class="fas fa-cubes"></i></div>
-        <h3><span class="lang-en" lang="en">BIM Consulting</span><span class="lang-zh" lang="zh-CN">BIM咨询</span></h3>
-        <p><span class="lang-en" lang="en">Multi-discipline BIM, clash detection, construction simulation, and digital delivery.</span>
-        <span class="lang-zh" lang="zh-CN">全专业BIM建模、碰撞检测、施工模拟与数字化交付，提升项目协作效率。</span></p>
-      </div>
-      <div class="service-card reveal reveal-delay-3">
-        <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
-        <h3><span class="lang-en" lang="en">Project Management</span><span class="lang-zh" lang="zh-CN">工程管理</span></h3>
-        <p><span class="lang-en" lang="en">End-to-end project management — budget, schedule, and quality control.</span>
-        <span class="lang-zh" lang="zh-CN">全流程项目管理服务，从预算控制、进度管理到质量监督，确保项目高效交付。</span></p>
-      </div>
-      <!-- 家具软装 -->
-      <div class="service-card reveal">
-        <div class="service-icon"><i class="fas fa-chair"></i></div>
-        <h3><span class="lang-en" lang="en">Furnishing & Decoration</span><span class="lang-zh" lang="zh-CN">家具软装</span></h3>
-        <p><span class="lang-en" lang="en">Integrated furnishing solutions — custom furniture, curtains, lighting, and accessories that harmonize with architectural space.</span>
-        <span class="lang-zh" lang="zh-CN">整体软装方案设计、定制家具选配、窗帘布艺、灯具饰品一站式配置，打造与建筑完美融合的空间美学。</span></p>
-      </div>
-      <!-- 门窗系统 -->
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon"><i class="fas fa-door-open"></i></div>
-        <h3><span class="lang-en" lang="en">Door & Window Systems</span><span class="lang-zh" lang="zh-CN">门窗系统</span></h3>
-        <p><span class="lang-en" lang="en">Full range of door & window systems — thermal break, curtain wall, smart windows — balancing energy efficiency, safety, and aesthetics.</span>
-        <span class="lang-zh" lang="zh-CN">断桥铝门窗、系统门窗、幕墙门窗、智能门窗系统等全系列设计与供应，兼顾节能、安全与美学。</span></p>
-      </div>
+    <div class="st-grid" id="team">
+      <article class="st-card reveal">
+        <div class="st-head">
+          <div class="st-avatar"><i class="fas fa-drafting-compass"></i></div>
+          <div>
+            <h3><span class="lang-en" lang="en">Architectural Design</span><span class="lang-zh" lang="zh-CN">建筑设计</span></h3>
+            <p class="st-role"><span class="lang-en" lang="en">Concept &middot; Design &middot; Detailing</span><span class="lang-zh" lang="zh-CN">方案 · 初设 · 施工图</span></p>
+          </div>
+        </div>
+        <p class="st-bio"><span class="lang-en" lang="en">Led by registered architects — master planning, schematic design and construction detailing across civic, hospitality, healthcare and residential work.</span><span class="lang-zh" lang="zh-CN">由注册建筑师领衔，负责总体规划、方案创作与施工图深化，覆盖公共建筑、酒店文旅、医疗健康与住宅等类型。</span></p>
+        <div class="st-services">
+          <p class="st-label"><span class="lang-en" lang="en">Delivers</span><span class="lang-zh" lang="zh-CN">覆盖业务</span></p>
+          <ul><li><i class="fas fa-building"></i><span class="st-s"><b><span class="lang-en" lang="en">Architectural Design</span><span class="lang-zh" lang="zh-CN">建筑设计</span></b><span class="st-s-desc"><span class="lang-en" lang="en">From concept to construction documents — mixed-use, hospitality, office and cultural projects.</span><span class="lang-zh" lang="zh-CN">从概念方案到施工图设计，涵盖城市综合体、酒店、办公、文化建筑等多种类型。</span></span></span></li><li><i class="fas fa-tree"></i><span class="st-s"><b><span class="lang-en" lang="en">Landscape Design</span><span class="lang-zh" lang="zh-CN">景观设计</span></b><span class="st-s-desc"><span class="lang-en" lang="en">Urban public spaces, parks, commercial landscapes and residential communities.</span><span class="lang-zh" lang="zh-CN">城市公共空间、公园绿地、商业景观与居住区景观的全方位设计服务。</span></span></span></li></ul>
+        </div>
+      </article>
+      <article class="st-card reveal">
+        <div class="st-head">
+          <div class="st-avatar"><i class="fas fa-hard-hat"></i></div>
+          <div>
+            <h3><span class="lang-en" lang="en">Structure &amp; Engineering</span><span class="lang-zh" lang="zh-CN">结构与工程</span></h3>
+            <p class="st-role"><span class="lang-en" lang="en">Structural &middot; Timber &middot; MEP</span><span class="lang-zh" lang="zh-CN">结构 · 木结构 · 机电</span></p>
+          </div>
+        </div>
+        <p class="st-bio"><span class="lang-en" lang="en">Structural system selection and analysis, timber-specialist design and MEP coordination — optimising between safety and buildability.</span><span class="lang-zh" lang="zh-CN">承担结构体系选型与计算、木结构专项设计与机电配合，在结构与建造经济性之间找到最优解。</span></p>
+        <div class="st-services">
+          <p class="st-label"><span class="lang-en" lang="en">Delivers</span><span class="lang-zh" lang="zh-CN">覆盖业务</span></p>
+          <ul><li><i class="fas fa-drafting-compass"></i><span class="st-s"><b><span class="lang-en" lang="en">Structural Engineering</span><span class="lang-zh" lang="zh-CN">结构工程</span></b><span class="st-s-desc"><span class="lang-en" lang="en">Structural analysis and design — including long-span, complex and timber-first systems.</span><span class="lang-zh" lang="zh-CN">结构分析与设计，涵盖大跨度、复杂体系以及以木结构为主的结构方案。</span></span></span></li></ul>
+        </div>
+      </article>
+      <article class="st-card reveal">
+        <div class="st-head">
+          <div class="st-avatar"><i class="fas fa-couch"></i></div>
+          <div>
+            <h3><span class="lang-en" lang="en">Interiors &amp; Furnishing</span><span class="lang-zh" lang="zh-CN">室内与软装</span></h3>
+            <p class="st-role"><span class="lang-en" lang="en">Interior &middot; FF&amp;E &middot; Openings</span><span class="lang-zh" lang="zh-CN">室内 · 软装 · 门窗</span></p>
+          </div>
+        </div>
+        <p class="st-bio"><span class="lang-en" lang="en">Interior design, FF&amp;E specification and door/window systems — unifying material, light and detail into one design language.</span><span class="lang-zh" lang="zh-CN">负责室内空间设计、家具软装配置与门窗系统深化，把材料、灯光与细节统一到同一套设计语言。</span></p>
+        <div class="st-services">
+          <p class="st-label"><span class="lang-en" lang="en">Delivers</span><span class="lang-zh" lang="zh-CN">覆盖业务</span></p>
+          <ul><li><i class="fas fa-couch"></i><span class="st-s"><b><span class="lang-en" lang="en">Interior Design</span><span class="lang-zh" lang="zh-CN">室内设计</span></b><span class="st-s-desc"><span class="lang-en" lang="en">Commercial, workplace and residential interiors that blend function with human experience.</span><span class="lang-zh" lang="zh-CN">商业空间、办公环境与高端住宅室内设计，融合功能美学与人性化体验。</span></span></span></li><li><i class="fas fa-chair"></i><span class="st-s"><b><span class="lang-en" lang="en">Furnishing &amp; Decoration</span><span class="lang-zh" lang="zh-CN">家具软装</span></b><span class="st-s-desc"><span class="lang-en" lang="en">Custom furniture, curtains, lighting and accessories configured as one scheme.</span><span class="lang-zh" lang="zh-CN">整体软装方案、定制家具选配、窗帘布艺与灯具饰品的一站式配置。</span></span></span></li><li><i class="fas fa-door-open"></i><span class="st-s"><b><span class="lang-en" lang="en">Door &amp; Window Systems</span><span class="lang-zh" lang="zh-CN">门窗系统</span></b><span class="st-s-desc"><span class="lang-en" lang="en">Thermal-break, curtain-wall and smart openings — balancing energy, safety and looks.</span><span class="lang-zh" lang="zh-CN">断桥铝、幕墙与智能门窗系统，兼顾节能、安全与美学。</span></span></span></li></ul>
+        </div>
+      </article>
+      <article class="st-card reveal">
+        <div class="st-head">
+          <div class="st-avatar"><i class="fas fa-cubes"></i></div>
+          <div>
+            <h3><span class="lang-en" lang="en">BIM &amp; Project Management</span><span class="lang-zh" lang="zh-CN">BIM 与项目管理</span></h3>
+            <p class="st-role"><span class="lang-en" lang="en">BIM &middot; Cost &middot; Site Delivery</span><span class="lang-zh" lang="zh-CN">BIM · 造价 · 现场管理</span></p>
+          </div>
+        </div>
+        <p class="st-bio"><span class="lang-en" lang="en">Building information modelling, cost and programme control, and full-stage site service so the design intent is delivered intact.</span><span class="lang-zh" lang="zh-CN">建立 BIM 模型、控制造价与工期，提供全过程现场服务，确保设计意图完整落地。</span></p>
+        <div class="st-services">
+          <p class="st-label"><span class="lang-en" lang="en">Delivers</span><span class="lang-zh" lang="zh-CN">覆盖业务</span></p>
+          <ul><li><i class="fas fa-cubes"></i><span class="st-s"><b><span class="lang-en" lang="en">BIM Consulting</span><span class="lang-zh" lang="zh-CN">BIM咨询</span></b><span class="st-s-desc"><span class="lang-en" lang="en">Multi-discipline BIM, clash detection, construction simulation and digital delivery.</span><span class="lang-zh" lang="zh-CN">全专业 BIM 建模、碰撞检测、施工模拟与数字化交付。</span></span></span></li><li><i class="fas fa-hard-hat"></i><span class="st-s"><b><span class="lang-en" lang="en">Project Management</span><span class="lang-zh" lang="zh-CN">工程管理</span></b><span class="st-s-desc"><span class="lang-en" lang="en">End-to-end management — budget, programme and quality control.</span><span class="lang-zh" lang="zh-CN">全流程项目管理：预算控制、进度管理与质量监督。</span></span></span></li></ul>
+        </div>
+      </article>
     </div>
   </div>
 </section>
+
+<section class="sks section">
+  <div class="container">
+    <div class="sks-grid">
+      <div class="sks-copy">
+        <span class="sks-kicker"><span class="lang-en" lang="en">From a sketch</span><span class="lang-zh" lang="zh-CN">从一个草图开始</span></span>
+        <h2><span class="lang-en" lang="en">From a sketch to <span class="sks-hl">something buildable</span>.</span><span class="lang-zh" lang="zh-CN">从一张草图，到<span class="sks-hl">能施工的方案</span>。</span></h2>
+        <p class="sks-sub"><span class="lang-en" lang="en">You bring the idea. <strong>We do the modelling.</strong></span><span class="lang-zh" lang="zh-CN">你带着想法。<strong>我们做建模与出图。</strong></span></p>
+        <p class="sks-body">
+          <span class="lang-en" lang="en">Send us the sketch and we turn it into a proper scheme: drawn plans, elevations and a rendered view, with an indicative cost so you can see whether the idea stands up before you commit to construction documents.</span>
+          <span class="lang-zh" lang="zh-CN">把草图发给我们，我们把它做成正式方案：平面、立面与效果图，并附一份造价估算 —— 让你在投入施工图之前，先看清这个想法站不站得住。</span>
+        </p>
+        <p class="sks-price">Quoted per project <span><span class="lang-en" lang="en">one-off &middot; tax included</span><span class="lang-zh" lang="zh-CN">一次性服务 · 含税</span></span></p>
+        <p class="sks-note"><span class="lang-en" lang="en">Not sure yet? Start with the US$199 Detailed Estimate and decide after you see the numbers.</span><span class="lang-zh" lang="zh-CN">还没想好？先用 US$199 的详细估算把成本看清楚，再决定。</span></p>
+        <div class="sks-cta">
+          <a class="sks-btn" href="start.html"><span class="lang-en" lang="en">Send us your sketch &rarr;</span><span class="lang-zh" lang="zh-CN">发送你的草图 &rarr;</span></a>
+          <a class="sks-btn is-ghost" href="how-it-works.html"><span class="lang-en" lang="en">See how it works</span><span class="lang-zh" lang="zh-CN">看看流程怎么走</span></a>
+        </div>
+        <ul class="sks-ticks">
+          <li><span class="lang-en" lang="en">Two rounds of revision included</span><span class="lang-zh" lang="zh-CN">包含两轮修订</span></li>
+          <li><span class="lang-en" lang="en">No subscription needed to review the design</span><span class="lang-zh" lang="zh-CN">查看方案无需订阅</span></li>
+          <li><span class="lang-en" lang="en">If the sketch cannot support a scheme, we say so rather than bill you</span><span class="lang-zh" lang="zh-CN">草图若不足以支撑方案，我们会直说，而不是硬接</span></li>
+        </ul>
+      </div>
+      <div class="sks-visual">
+        <img src="images/projects/project-cabin-1.jpg" alt="JFA project / JFA 项目" loading="lazy">
+      </div>
+    </div>
+
+    <div class="sks-chain">
+      <figure class="sks-step"><div class="sks-thumb"><svg class="sk-sketch" viewBox="0 0 340 246" role="img" aria-label="Hand sketch illustration">
+        <rect x="0" y="0" width="340" height="246" fill="#FBFAF7"/>
+        <g fill="none" stroke="#4A4A5A" stroke-width="1.6" stroke-linecap="round" opacity="0.82">
+          <path d="M48 58 C120 52 200 56 280 54 C282 112 279 168 281 196 C210 199 122 197 50 198 C47 152 50 104 48 58"/>
+          <path d="M52 62 C124 57 202 60 276 58"/>
+          <path d="M152 57 C150 100 153 150 151 196"/>
+          <path d="M151 122 C196 119 240 121 279 119"/>
+          <path d="M208 121 C206 150 209 174 207 196"/>
+          <path d="M62 92 C84 88 106 91 128 89"/><path d="M62 156 C84 152 106 155 128 153"/>
+          <path d="M176 74 C216 71 248 73 268 71"/>
+          <path d="M54 214 C140 210 214 213 280 211"/>
+          <path d="M96 118 C112 114 128 117 144 115"/>
+        </g>
+        <g fill="none" stroke="#B9A48C" stroke-width="1.1" opacity="0.9">
+          <path d="M36 44 C120 40 210 42 292 40"/><path d="M36 44 L36 208"/><path d="M292 40 L292 204"/>
+          <path d="M40 120 C96 112 200 122 126 108"/>
+        </g>
+        <g fill="#8A8A9A" font-size="9" font-family="Inter, sans-serif"><text x="164" y="34" text-anchor="middle">~7.0 m</text>
+        <text x="26" y="130" text-anchor="middle" transform="rotate(-90 26 130)">~13.0 m</text></g>
+        <text x="170" y="232" font-size="9" fill="#8A8A9A" text-anchor="middle" font-family="Inter, sans-serif">Illustration / 示意草图</text>
+      </svg></div><figcaption><span class="lang-en" lang="en">Your sketch</span><span class="lang-zh" lang="zh-CN">你的草图</span></figcaption></figure>
+      <span class="sks-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+      <figure class="sks-step"><div class="sks-thumb"><svg class="sk-plan" viewBox="0 0 340 246" role="img" aria-label="Floor plan diagram">
+        <rect x="0" y="0" width="340" height="246" fill="#F7F5F1"/>
+        <g stroke="#C9C4BA" stroke-width="1"><line x1="46" y1="16" x2="46" y2="224"/><line x1="268" y1="16" x2="268" y2="224"/>
+        <line x1="28" y1="40" x2="286" y2="40"/><line x1="28" y1="204" x2="286" y2="204"/></g>
+        <g fill="#22303F" stroke="#22303F"><rect x="46" y="40" width="222" height="164" fill="#FFFFFF" stroke-width="4"/>
+        <line x1="150" y1="40" x2="150" y2="122" stroke-width="2.4"/><line x1="150" y1="122" x2="268" y2="122" stroke-width="2.4"/>
+        <line x1="206" y1="122" x2="206" y2="204" stroke-width="2.4"/></g>
+        <g stroke="#FFFFFF" stroke-width="5"><line x1="120" y1="122" x2="150" y2="122"/><line x1="150" y1="150" x2="150" y2="176"/></g>
+        <g fill="#8A8A9A" font-size="8" font-family="Inter, sans-serif"><text x="70" y="128">LIVING</text><text x="70" y="138">起居</text>
+        <text x="168" y="86">BEDROOM</text><text x="168" y="96">主卧</text><text x="168" y="166">BATH</text><text x="168" y="176">卫浴</text>
+        <text x="224" y="166">KITCHEN</text><text x="224" y="176">厨房</text></g>
+        <text x="157" y="234" font-size="9" fill="#95693A" text-anchor="middle" font-family="Inter, sans-serif">7.0 × 13.0 m · 91 m²</text>
+      </svg></div><figcaption><span class="lang-en" lang="en">Drawn plan</span><span class="lang-zh" lang="zh-CN">正式平面</span></figcaption></figure>
+      <span class="sks-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+      <figure class="sks-step"><div class="sks-thumb is-photo"><img src="images/residential/residential-04-timber-cabin.jpg" alt="建成效果 / built result" decoding="async"></div><figcaption><span class="lang-en" lang="en">Built result</span><span class="lang-zh" lang="zh-CN">建成效果</span></figcaption></figure>
+    </div>
+    <p class="sks-caption"><span class="lang-en" lang="en">The sketch is an illustration drawn for this page, not a client's drawing; the plan and the photograph describe the same design.</span><span class="lang-zh" lang="zh-CN">草图为本页绘制的示意插图，非客户原件；平面与照片描述的是同一个设计。</span></p>
+
+    <div class="sks-steps">
+      <article><span class="sks-n">1</span><h3><span class="lang-en" lang="en">The idea</span><span class="lang-zh" lang="zh-CN">理念</span></h3><p><span class="lang-en" lang="en">A sketch, a wish list and a budget — enough for us to know what you are actually asking for.</span><span class="lang-zh" lang="zh-CN">一张草图、一份需求清单、一个预算 —— 足够让我们明白你到底想要什么。</span></p></article>
+      <article><span class="sks-n">2</span><h3><span class="lang-en" lang="en">The scheme</span><span class="lang-zh" lang="zh-CN">方案</span></h3><p><span class="lang-en" lang="en">Your idea becomes drawn plans, elevations and a rendered view — with the cost stated beside it.</span><span class="lang-zh" lang="zh-CN">你的想法变成平面、立面和效果图 —— 旁边配上造价数字。</span></p></article>
+      <article><span class="sks-n">3</span><h3><span class="lang-en" lang="en">The building</span><span class="lang-zh" lang="zh-CN">建成</span></h3><p><span class="lang-en" lang="en">Approve it and we document it for approval, pricing and construction; the file and the building stay one design.</span><span class="lang-zh" lang="zh-CN">确认后我们按报建、报价与施工的要求出图；文件和建成的房子始终是同一个设计。</span></p></article>
+    </div>
+  </div>
+</section>
+
+
 
 <!-- ===== Projects ===== -->
 <section class="projects section" id="projects">
@@ -1334,56 +1502,8 @@ document.addEventListener('keydown', function(e) {
 </section>
 
 <!-- ===== Team ===== -->
-<section class="team section" id="team">
-  <div class="container">
-    <div class="section-title text-center reveal">
-      <span class="lang-en" lang="en">Our Team</span>
-      <span class="lang-zh" lang="zh-CN">团队</span>
-    </div>
-    <p class="section-subtitle text-center reveal reveal-delay-1">
-      <span class="lang-en" lang="en">Architecture, structure, interiors, BIM and project management — four in-house disciplines working together from first concept to final handover.</span>
-      <span class="lang-zh" lang="zh-CN">建筑设计、结构、室内、BIM 与项目管理 —— 四个专业团队协同完成从概念到落地的每一个环节</span>
-    </p>
-    <div class="team-grid">
-      <div class="team-card reveal">
-        <div class="team-avatar"><div class="team-avatar-inner"><i class="fas fa-drafting-compass"></i></div></div>
-        <h4><span class="lang-en" lang="en">Architectural Design</span><span class="lang-zh" lang="zh-CN">建筑设计</span></h4>
-        <div class="team-role"><span class="lang-en" lang="en">Concept · Design · Detailing</span><span class="lang-zh" lang="zh-CN">方案 · 初设 · 施工图</span></div>
-        <p class="team-bio">
-          <span class="lang-en" lang="en">Led by registered architects — master planning, schematic design and construction detailing across civic, hospitality, healthcare and residential work.</span>
-          <span class="lang-zh" lang="zh-CN">由注册建筑师领衔，负责总体规划、方案创作与施工图深化，覆盖公共建筑、酒店文旅、医疗健康与住宅等类型。</span>
-        </p>
-      </div>
-      <div class="team-card reveal reveal-delay-1">
-        <div class="team-avatar"><div class="team-avatar-inner"><i class="fas fa-hard-hat"></i></div></div>
-        <h4><span class="lang-en" lang="en">Structure &amp; Engineering</span><span class="lang-zh" lang="zh-CN">结构与工程</span></h4>
-        <div class="team-role"><span class="lang-en" lang="en">Structural · Timber · MEP</span><span class="lang-zh" lang="zh-CN">结构 · 木结构 · 机电</span></div>
-        <p class="team-bio">
-          <span class="lang-en" lang="en">Structural system selection and analysis, timber-specialist design and MEP coordination — optimising between safety and buildability.</span>
-          <span class="lang-zh" lang="zh-CN">承担结构体系选型与计算、木结构专项设计与机电配合，在结构与建造经济性之间找到最优解。</span>
-        </p>
-      </div>
-      <div class="team-card reveal reveal-delay-2">
-        <div class="team-avatar"><div class="team-avatar-inner"><i class="fas fa-couch"></i></div></div>
-        <h4><span class="lang-en" lang="en">Interiors &amp; Furnishing</span><span class="lang-zh" lang="zh-CN">室内与软装</span></h4>
-        <div class="team-role"><span class="lang-en" lang="en">Interior · FF&amp;E · Joinery</span><span class="lang-zh" lang="zh-CN">室内 · 软装 · 门窗</span></div>
-        <p class="team-bio">
-          <span class="lang-en" lang="en">Interior design, FF&amp;E specification and door/window systems — unifying material, light and detail into one design language.</span>
-          <span class="lang-zh" lang="zh-CN">负责室内空间设计、家具软装配置与门窗系统深化，把材料、灯光与细节统一到同一套设计语言。</span>
-        </p>
-      </div>
-      <div class="team-card reveal reveal-delay-3">
-        <div class="team-avatar"><div class="team-avatar-inner"><i class="fas fa-cubes"></i></div></div>
-        <h4><span class="lang-en" lang="en">BIM &amp; Project Management</span><span class="lang-zh" lang="zh-CN">BIM 与项目管理</span></h4>
-        <div class="team-role"><span class="lang-en" lang="en">BIM · Cost · Site Delivery</span><span class="lang-zh" lang="zh-CN">BIM · 造价 · 现场管理</span></div>
-        <p class="team-bio">
-          <span class="lang-en" lang="en">Building information modelling, cost and programme control, and full-stage site supervision so the design intent is delivered intact.</span>
-          <span class="lang-zh" lang="zh-CN">建立 BIM 模型、控制造价与工期，提供全过程现场服务，确保设计意图完整落地。</span>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- team merged into #services -->
+
 
 <!-- ===== Contact ===== -->
 <section class="contact section" id="contact">
