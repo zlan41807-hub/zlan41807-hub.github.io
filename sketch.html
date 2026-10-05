@@ -942,7 +942,7 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
 @media (max-width: 1023px) {
   .services.merged .st-grid { grid-template-columns:1fr; }
   .sks-grid { grid-template-columns:1fr; gap:30px; }
-  .sks-visual img { height:300px; }
+  .sks-c-stage { height:300px; }
   .sks-step { width:220px; }
   .sks-steps { grid-template-columns:1fr; gap:20px; }
 }
@@ -1121,6 +1121,31 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   .nav-links.open a .lang-zh { display: inline; }
   .nav-toggle { display: flex; }
 }
+
+/* ===== Sketch page: hero carousel ===== */
+.sks-visual.sks-carousel { position:relative; }
+.sks-c-stage { position:relative; height:430px; border-radius:20px; overflow:hidden;
+  box-shadow:0 26px 60px rgba(0,0,0,.24); background:#E8E4DC; }
+.sks-c-slide { position:absolute; inset:0; margin:0; opacity:0; transition:opacity .9s ease; }
+.sks-c-slide.is-on { opacity:1; }
+.sks-c-slide img { width:100%; height:100%; object-fit:cover; display:block; border-radius:0; box-shadow:none; }
+.sks-c-count { position:absolute; top:14px; right:14px; z-index:3; font-size:11.5px; font-weight:700;
+  letter-spacing:.06em; padding:5px 11px; border-radius:999px; background:rgba(34,48,63,.72); color:#fff;
+  font-variant-numeric:tabular-nums; }
+/* controls sit in one bar at the bottom centre, clear of the floating contact buttons */
+.sks-c-bar { position:absolute; left:50%; bottom:16px; transform:translateX(-50%); z-index:3;
+  display:flex; align-items:center; gap:14px; padding:6px 12px; border-radius:999px;
+  background:rgba(34,48,63,.55); }
+.sks-c-nav { width:30px; height:30px; padding:0; border:0; border-radius:50%; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; font-size:12px;
+  background:rgba(255,255,255,.92); color:#22303F; transition:var(--transition); }
+.sks-c-nav:hover { background:#fff; color:#95693A; }
+.sks-c-dots { display:flex; align-items:center; gap:7px; }
+.sks-c-dots button { width:8px; height:8px; padding:0; border:0; border-radius:50%; cursor:pointer;
+  background:rgba(255,255,255,.5); transition:var(--transition); }
+.sks-c-dots button.is-on { width:20px; border-radius:999px; background:var(--accent); }
+.sks-c-dots button:hover { background:rgba(255,255,255,.92); }
+.sks-carousel:focus-visible { outline:2px solid var(--accent); outline-offset:4px; border-radius:20px; }
 </style>
 </head>
 <body>
@@ -1212,9 +1237,23 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
           <li><span><span class="lang-en" lang="en">Reviewed by a person before any drawing starts</span><span class="lang-zh" lang="zh-CN">开工前由人工先复核一遍</span></span></li>
         </ul>
       </div>
-      <div class="sks-visual">
-        <img src="images/projects/project-cabin-1.jpg" alt="JFA project / JFA 项目" decoding="async">
-      </div>
+      <div class="sks-visual sks-carousel" id="sksCarousel" role="group" aria-roledescription="carousel" aria-label="JFA projects / JFA 项目" tabindex="0">
+  <div class="sks-c-stage">
+    <figure class="sks-c-slide is-on"><img src="images/projects/project-cabin-1.jpg" alt="森林度假木屋 / Forest Retreat Cabin" decoding="async"></figure>
+    <figure class="sks-c-slide"><img src="images/residential/residential-03-modern-dusk-deck.jpg" alt="露台庭院住宅 / Deck Courtyard House" decoding="async"></figure>
+    <figure class="sks-c-slide"><img src="images/projects/project-restaurant-1.jpg" alt="生态文旅餐厅 / Eco-Tourism Restaurant" decoding="async"></figure>
+    <figure class="sks-c-slide"><img src="images/residential/residential-02-modern-cantilever.jpg" alt="悬挑住宅 / Cantilever House" decoding="async"></figure>
+    <figure class="sks-c-slide"><img src="images/projects/project-villa-1.jpg" alt="精品度假别墅 / Premium Resort Villa" decoding="async"></figure>
+  </div>
+  <span class="sks-c-count" id="sksCCount" aria-hidden="true">01 / 05</span>
+  <div class="sks-c-bar">
+    <button class="sks-c-nav is-prev" id="sksCPrev" type="button" aria-label="上一张 / Previous image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+    <div class="sks-c-dots" id="sksCDots" role="tablist" aria-label="选择图片 / Choose an image">
+      <button type="button" role="tab" aria-label="第 1 张 / Image 1"></button><button type="button" role="tab" aria-label="第 2 张 / Image 2"></button><button type="button" role="tab" aria-label="第 3 张 / Image 3"></button><button type="button" role="tab" aria-label="第 4 张 / Image 4"></button><button type="button" role="tab" aria-label="第 5 张 / Image 5"></button>
+    </div>
+    <button class="sks-c-nav is-next" id="sksCNext" type="button" aria-label="下一张 / Next image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+  </div>
+</div>
     </div>
 
     <div class="sks-chain">
@@ -1712,6 +1751,52 @@ document.addEventListener('keydown', (e) => {
   window.addEventListener('pointermove', function (e) { if (dragging) fromEvent(e); });
   window.addEventListener('pointerup', function () { dragging = false; });
   paint();
+})();
+
+// sketch page: hero photo carousel
+(function () {
+  var root = document.getElementById('sksCarousel');
+  if (!root) return;
+  var slides = [].slice.call(root.querySelectorAll('.sks-c-slide'));
+  if (slides.length < 2) return;
+  var dots = [].slice.call(root.querySelectorAll('.sks-c-dots button'));
+  var count = document.getElementById('sksCCount');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pad = function (n) { return ('0' + n).slice(-2); };
+  var i = 0, timer = null;
+  function show(n) {
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function (s, k) { s.classList.toggle('is-on', k === i); });
+    dots.forEach(function (d, k) {
+      d.classList.toggle('is-on', k === i);
+      d.setAttribute('aria-selected', k === i ? 'true' : 'false');
+    });
+    if (count) count.textContent = pad(i + 1) + ' / ' + pad(slides.length);
+  }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  function start() { if (reduce) return; stop(); timer = setInterval(function () { show(i + 1); }, 5200); }
+  function go(n) { show(n); start(); }
+  dots.forEach(function (d, k) { d.addEventListener('click', function () { go(k); }); });
+  var prev = document.getElementById('sksCPrev'), next = document.getElementById('sksCNext');
+  if (prev) prev.addEventListener('click', function () { go(i - 1); });
+  if (next) next.addEventListener('click', function () { go(i + 1); });
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  root.addEventListener('focusin', stop);
+  root.addEventListener('focusout', start);
+  root.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(i - 1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(i + 1); }
+  });
+  var x0 = null;
+  root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  root.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var d = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(d) > 40) go(i + (d < 0 ? 1 : -1));
+  });
+  show(0);
+  start();
 })();
 </script>
 
