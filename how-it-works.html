@@ -1003,6 +1003,25 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   .nav-links.open a .lang-zh { display: inline; }
   .nav-toggle { display: flex; }
 }
+
+/* ===== How-it-works: card image carousel ===== */
+.hiw-card-visual.hiw-carousel { position:relative; }
+.hiw-c-slide { position:absolute; inset:0; margin:0; opacity:0; transition:opacity .7s ease; }
+.hiw-c-slide.is-on { opacity:1; }
+.hiw-c-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+.hiw-c-bar { position:absolute; left:50%; bottom:10px; transform:translateX(-50%); z-index:3;
+  display:flex; align-items:center; gap:10px; padding:4px 9px; border-radius:999px;
+  background:rgba(34,48,63,.5); }
+.hiw-c-nav { width:22px; height:22px; padding:0; border:0; border-radius:50%; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; font-size:9px;
+  background:rgba(255,255,255,.92); color:#22303F; transition:var(--transition); }
+.hiw-c-nav:hover { background:#fff; color:#95693A; }
+.hiw-c-dots { display:flex; align-items:center; gap:6px; }
+.hiw-c-dots button { width:7px; height:7px; padding:0; border:0; border-radius:50%; cursor:pointer;
+  background:rgba(255,255,255,.5); transition:var(--transition); }
+.hiw-c-dots button.is-on { width:16px; border-radius:999px; background:var(--accent); }
+.hiw-c-dots button:hover { background:rgba(255,255,255,.92); }
+.hiw-carousel:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
 </style>
 </head>
 <body class="hiw-page">
@@ -1116,7 +1135,20 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
         <p class="hiw-cat-sub"><span class="lang-en" lang="en">Start free. Sort the brief out first, then decide whether to spend on design and drawings.</span><span class="lang-zh" lang="zh-CN">自由开始。先把需求聊清楚，再决定要不要投入设计和图纸。</span></p>
         <div class="hiw-cat-cards">
         <article class="hiw-card">
-          <div class="hiw-card-visual"><img src="images/projects/project-cabin-1.jpg" alt="Free consultation" loading="lazy"></div>
+          <div class="hiw-card-visual hiw-carousel" data-hiw-carousel tabindex="0" role="group" aria-roledescription="carousel" aria-label="JFA project photographs / JFA 项目照片">
+  <figure class="hiw-c-slide is-on"><img src="images/projects/project-cabin-1.jpg" alt="森林度假木屋 / Forest Retreat Cabin" decoding="async"></figure>
+  <figure class="hiw-c-slide"><img src="images/residential/residential-05-suburban-siding.jpg" alt="郊区独栋住宅 / Suburban Family House" loading="lazy" decoding="async"></figure>
+  <figure class="hiw-c-slide"><img src="images/projects/project-cabin-2.jpg" alt="森林度假木屋景观 / Cabin Landscape" loading="lazy" decoding="async"></figure>
+  <div class="hiw-c-bar">
+    <button class="hiw-c-nav is-prev" type="button" aria-label="上一张 / Previous image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+    <div class="hiw-c-dots" role="tablist" aria-label="选择图片 / Choose an image">
+      <button type="button" role="tab" aria-label="第 1 张 / Image 1"></button>
+      <button type="button" role="tab" aria-label="第 2 张 / Image 2"></button>
+      <button type="button" role="tab" aria-label="第 3 张 / Image 3"></button>
+    </div>
+    <button class="hiw-c-nav is-next" type="button" aria-label="下一张 / Next image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+  </div>
+</div>
           <div class="hiw-card-body">
             <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">Initial conversation</span><span class="lang-zh" lang="zh-CN">初步沟通</span></p>
             <h3><span class="lang-en" lang="en">Free consultation</span><span class="lang-zh" lang="zh-CN">免费咨询</span></h3>
@@ -1125,7 +1157,20 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
           </div>
         </article>
         <article class="hiw-card">
-          <div class="hiw-card-visual"><img src="images/ai-works/ai-06-系列A-建筑外观渲染-v4.jpg" alt="Scheme design" loading="lazy"></div>
+          <div class="hiw-card-visual hiw-carousel" data-hiw-carousel tabindex="0" role="group" aria-roledescription="carousel" aria-label="JFA project photographs / JFA 项目照片">
+  <figure class="hiw-c-slide is-on"><img src="images/ai-works/ai-06-系列A-建筑外观渲染-v4.jpg" alt="建筑外观渲染 / Arch Rendering · V4" decoding="async"></figure>
+  <figure class="hiw-c-slide"><img src="images/ai-works/ai-07-系列B-未来概念建筑-v4.jpg" alt="未来概念建筑 / Futuristic Concept · V4" loading="lazy" decoding="async"></figure>
+  <figure class="hiw-c-slide"><img src="images/ai-works/ai-09-系列C-景观建筑融合-v2.jpg" alt="景观建筑融合 / Landscape Integration · V2" loading="lazy" decoding="async"></figure>
+  <div class="hiw-c-bar">
+    <button class="hiw-c-nav is-prev" type="button" aria-label="上一张 / Previous image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+    <div class="hiw-c-dots" role="tablist" aria-label="选择图片 / Choose an image">
+      <button type="button" role="tab" aria-label="第 1 张 / Image 1"></button>
+      <button type="button" role="tab" aria-label="第 2 张 / Image 2"></button>
+      <button type="button" role="tab" aria-label="第 3 张 / Image 3"></button>
+    </div>
+    <button class="hiw-c-nav is-next" type="button" aria-label="下一张 / Next image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+  </div>
+</div>
           <div class="hiw-card-body">
             <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">JFA design service</span><span class="lang-zh" lang="zh-CN">JFA 设计服务</span></p>
             <h3><span class="lang-en" lang="en">Scheme design</span><span class="lang-zh" lang="zh-CN">方案设计</span></h3>
@@ -1164,7 +1209,20 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
           </div>
         </article>
         <article class="hiw-card">
-          <div class="hiw-card-visual"><img src="images/residential/residential-03-modern-dusk-deck.jpg" alt="Preliminary set &middot; custom" loading="lazy"></div>
+          <div class="hiw-card-visual hiw-carousel" data-hiw-carousel tabindex="0" role="group" aria-roledescription="carousel" aria-label="JFA project photographs / JFA 项目照片">
+  <figure class="hiw-c-slide is-on"><img src="images/residential/residential-03-modern-dusk-deck.jpg" alt="露台庭院住宅 / Deck Courtyard House" decoding="async"></figure>
+  <figure class="hiw-c-slide"><img src="images/residential/residential-01-suburban-villa-carport.jpg" alt="现代简欧别墅 / Modern-Classic Villa" loading="lazy" decoding="async"></figure>
+  <figure class="hiw-c-slide"><img src="images/residential/residential-02-modern-cantilever.jpg" alt="悬挑住宅 / Cantilever House" loading="lazy" decoding="async"></figure>
+  <div class="hiw-c-bar">
+    <button class="hiw-c-nav is-prev" type="button" aria-label="上一张 / Previous image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+    <div class="hiw-c-dots" role="tablist" aria-label="选择图片 / Choose an image">
+      <button type="button" role="tab" aria-label="第 1 张 / Image 1"></button>
+      <button type="button" role="tab" aria-label="第 2 张 / Image 2"></button>
+      <button type="button" role="tab" aria-label="第 3 张 / Image 3"></button>
+    </div>
+    <button class="hiw-c-nav is-next" type="button" aria-label="下一张 / Next image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+  </div>
+</div>
           <div class="hiw-card-body">
             <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">This site</span><span class="lang-zh" lang="zh-CN">本网站</span></p>
             <h3><span class="lang-en" lang="en">Preliminary set &middot; custom</span><span class="lang-zh" lang="zh-CN">前置图纸集 · 定制</span></h3>
@@ -1218,7 +1276,20 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
         <p class="hiw-cat-sub"><span class="lang-en" lang="en">The building that goes up and the drawings you paid for stay the same building.</span><span class="lang-zh" lang="zh-CN">建成的房子和你看过的图纸，始终是同一个房子。</span></p>
         <div class="hiw-cat-cards">
         <article class="hiw-card">
-          <div class="hiw-card-visual"><img src="images/residential/residential-04-timber-cabin.jpg" alt="Site support &amp; hand-over" loading="lazy"></div>
+          <div class="hiw-card-visual hiw-carousel" data-hiw-carousel tabindex="0" role="group" aria-roledescription="carousel" aria-label="JFA project photographs / JFA 项目照片">
+  <figure class="hiw-c-slide is-on"><img src="images/residential/residential-04-timber-cabin.jpg" alt="木构坡顶小屋 / Timber Gable Cabin" decoding="async"></figure>
+  <figure class="hiw-c-slide"><img src="images/projects/project-villa-1.jpg" alt="精品度假别墅 / Premium Resort Villa" loading="lazy" decoding="async"></figure>
+  <figure class="hiw-c-slide"><img src="images/projects/project-restaurant-3.jpg" alt="生态文旅餐厅 / Eco-Tourism Restaurant" loading="lazy" decoding="async"></figure>
+  <div class="hiw-c-bar">
+    <button class="hiw-c-nav is-prev" type="button" aria-label="上一张 / Previous image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+    <div class="hiw-c-dots" role="tablist" aria-label="选择图片 / Choose an image">
+      <button type="button" role="tab" aria-label="第 1 张 / Image 1"></button>
+      <button type="button" role="tab" aria-label="第 2 张 / Image 2"></button>
+      <button type="button" role="tab" aria-label="第 3 张 / Image 3"></button>
+    </div>
+    <button class="hiw-c-nav is-next" type="button" aria-label="下一张 / Next image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+  </div>
+</div>
           <div class="hiw-card-body">
             <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">Your contractor builds</span><span class="lang-zh" lang="zh-CN">你的施工方实施</span></p>
             <h3><span class="lang-en" lang="en">Site support &amp; hand-over</span><span class="lang-zh" lang="zh-CN">施工配合与交付</span></h3>
@@ -1469,6 +1540,43 @@ document.addEventListener('keydown', function (e) {
   render();
 })();
 
+
+// how-it-works: card image carousels
+(function () {
+  var roots = document.querySelectorAll('[data-hiw-carousel]');
+  Array.prototype.forEach.call(roots, function (root) {
+    var slides = root.querySelectorAll('.hiw-c-slide');
+    if (slides.length < 2) return;
+    var dots = root.querySelectorAll('.hiw-c-dots button');
+    var i = 0;
+    function show(n) {
+      i = (n + slides.length) % slides.length;
+      Array.prototype.forEach.call(slides, function (s, k) { s.classList.toggle('is-on', k === i); });
+      Array.prototype.forEach.call(dots, function (d, k) {
+        d.classList.toggle('is-on', k === i);
+        d.setAttribute('aria-selected', k === i ? 'true' : 'false');
+      });
+    }
+    Array.prototype.forEach.call(dots, function (d, k) {
+      d.addEventListener('click', function () { show(k); });
+    });
+    var p = root.querySelector('.hiw-c-nav.is-prev'), nx = root.querySelector('.hiw-c-nav.is-next');
+    if (p) p.addEventListener('click', function () { show(i - 1); });
+    if (nx) nx.addEventListener('click', function () { show(i + 1); });
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); show(i - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); show(i + 1); }
+    });
+    var x0 = null;
+    root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var d = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(d) > 30) show(i + (d < 0 ? 1 : -1));
+    });
+    show(0);
+  });
+})();
 </script>
 
 </body>
