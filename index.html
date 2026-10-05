@@ -164,8 +164,8 @@ p .lang-zh, h1 .lang-zh, h2 .lang-zh, h3 .lang-zh, h4 .lang-zh,
   line-height: 1.5;
 }
 /* 导航链接并排（英文在前） */
-.nav-links a { gap: 6px; }
-.nav-links a .lang-zh { display: inline; font-size: 0.7em; opacity: 0.55; }
+.nav-links a { gap: 5px; white-space: nowrap; }
+.nav-links a .lang-zh { display: inline; font-size: 0.62em; opacity: 0.55; margin-left: 3px; }
 /* 按钮并排 */
 .btn .lang-zh { display: inline; font-size: 0.8em; opacity: 0.7; }
 /* Hero badge并排 */
@@ -254,9 +254,9 @@ p.lang-zh, h4.lang-zh { font-size: 0.72em !important; opacity: 0.62 !important; 
   color: var(--text-light); letter-spacing: 1px;
   display: block; margin-top: -2px;
 }
-.nav-links { display:flex; align-items:center; gap:32px; }
+.nav-links { display:flex; align-items:center; gap:22px; }
 .nav-links a {
-  font-size: 0.9rem; font-weight: 500; color: var(--text-body);
+  font-size: 0.85rem; font-weight: 500; color: var(--text-body);
   position:relative; padding:4px 0;
 }
 .nav-links a::after {
@@ -889,7 +889,31 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
 .st-s-desc .lang-zh { display:block; margin-top:2px; font-size:.94em; color:var(--text-light); }
 @media (max-width: 1023px) {
   .services.merged .st-grid { grid-template-columns:1fr; }
-}</style>
+}
+/* ===== Navigation: eight items must fit ===== */
+/* Between this width and the menu breakpoint the Chinese sub-labels step aside,
+   so the row keeps one line instead of wrapping mid-label. */
+@media (max-width: 1160px) {
+  .nav-links a .lang-zh { display: none; }
+}
+@media (max-width: 1000px) {
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 0.76rem; }
+}
+/* The menu takes over earlier than before, because eight items no longer fit. */
+@media (max-width: 880px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column; gap: 14px;
+    position: absolute; top: var(--nav-height); left: 0; right: 0;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(20px);
+    padding: 24px; border-bottom: 1px solid var(--border);
+  }
+  .nav-links.open a .lang-zh { display: inline; }
+  .nav-toggle { display: flex; }
+}
+</style>
 </head>
 <body>
 
