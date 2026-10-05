@@ -943,7 +943,153 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   .sks-step { width:220px; }
   .sks-steps { grid-template-columns:1fr; gap:20px; }
 }
-</style>
+
+/* ===== Sketch-to-scheme module (extended) ===== */
+.sks h2.sks-h2 { font-family:var(--font-display); font-size:clamp(24px,3vw,36px); line-height:1.2;
+  margin:0 0 10px; color:var(--text-dark); text-align:center; }
+.sks h2.sks-h2 .lang-zh { display:block; margin-top:8px; font-size:.6em; color:var(--text-light);
+  font-family:var(--font-cn); font-weight:400; }
+.sks-lede { max-width:790px; margin:0 auto; text-align:center; font-size:15px; line-height:1.8; color:var(--text-body); }
+.sks-lede .lang-zh { display:block; margin-top:6px; font-size:.94em; color:var(--text-light); }
+.sks-block { margin-top:62px; }
+
+/* how it works — four steps */
+.sks-how { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:34px; }
+.sks-how article { background:#fff; border:1px solid var(--border); border-radius:16px; padding:26px 24px 22px;
+  box-shadow:var(--shadow); display:flex; flex-direction:column; }
+.sks-how h3 { margin:14px 0 10px; font-size:17px; line-height:1.35; color:var(--text-dark); }
+.sks-how h3 .lang-zh { display:block; margin-top:5px; font-size:.78em; color:var(--text-light); font-weight:500; }
+.sks-how p { margin:0; font-size:14px; line-height:1.8; color:var(--text-body); }
+.sks-how p .lang-zh { display:block; margin-top:6px; font-size:.94em; color:var(--text-light); }
+.sks-badge { margin-top:auto; padding-top:16px; font-size:11.5px; font-weight:700; letter-spacing:.05em;
+  text-transform:uppercase; color:#95693A; }
+.sks-badge .lang-zh { display:inline; margin-left:6px; text-transform:none; letter-spacing:0; font-weight:600;
+  color:var(--text-light); }
+
+/* compare viewer */
+.sks-cmp { max-width:920px; margin:34px auto 0; }
+.sks-cmp-inner { position:relative; border-radius:18px; overflow:hidden; border:1px solid var(--border);
+  box-shadow:var(--shadow); aspect-ratio:340/246; background:#fff; cursor:ew-resize; touch-action:none; }
+.sks-cmp-layer { position:absolute; inset:0; }
+.sks-cmp-layer svg { width:100%; height:100%; display:block; }
+.sks-cmp-layer.is-sketch { clip-path:inset(0 calc(100% - var(--sks-cut,50%)) 0 0); }
+.sks-cmp-handle { position:absolute; top:0; bottom:0; left:var(--sks-cut,50%); width:2px; background:var(--accent);
+  transform:translateX(-1px); pointer-events:none; }
+.sks-cmp-handle span { position:absolute; top:50%; left:50%; width:38px; height:38px; margin:-19px 0 0 -19px;
+  border-radius:50%; background:var(--accent); color:#22303F; display:flex; align-items:center; justify-content:center;
+  font-size:12px; font-weight:700; box-shadow:0 6px 18px rgba(0,0,0,.24); }
+.sks-cmp-tag { position:absolute; bottom:12px; font-size:10.5px; font-weight:700; letter-spacing:.06em;
+  text-transform:uppercase; padding:5px 11px; border-radius:999px; background:rgba(34,48,63,.84); color:#fff; }
+.sks-cmp-tag.is-l { left:12px; }
+.sks-cmp-tag.is-r { right:12px; }
+.sks-cmp input[type=range] { width:100%; margin:16px 0 0; accent-color:#C4975A; }
+.sks-cmp-cap { margin:12px auto 0; max-width:770px; text-align:center; font-size:12.5px; line-height:1.75;
+  color:var(--text-light); }
+.sks-cmp-cap .lang-zh { display:block; margin-top:5px; }
+
+/* what you get */
+.sks-get-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:34px; }
+.sks-get-card { background:#fff; border:1px solid var(--border); border-radius:14px; padding:24px 22px;
+  box-shadow:var(--shadow); }
+.sks-get-card > i { color:var(--accent); font-size:19px; }
+.sks-get-card h3 { margin:12px 0 9px; font-size:16px; line-height:1.35; color:var(--text-dark); }
+.sks-get-card h3 .lang-zh { display:block; margin-top:4px; font-size:.8em; color:var(--text-light); font-weight:500; }
+.sks-get-card p { margin:0; font-size:14px; line-height:1.8; color:var(--text-body); }
+.sks-get-card p .lang-zh { display:block; margin-top:6px; font-size:.94em; color:var(--text-light); }
+
+/* optional next steps */
+.sks-next { margin-top:62px; background:#22303F; border-radius:20px; padding:46px 42px; }
+.sks .sks-next h2.sks-h2 { color:#fff; }
+.sks .sks-next h2.sks-h2 .lang-zh { color:rgba(255,255,255,.6); }
+.sks .sks-next .sks-lede { color:rgba(255,255,255,.8); }
+.sks-next-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:32px; }
+.sks-next-card { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:14px;
+  padding:24px 22px; display:flex; flex-direction:column; }
+.sks-next-card h3 { margin:0 0 8px; font-size:16px; line-height:1.35; color:#fff; }
+.sks-next-card h3 .lang-zh { display:block; margin-top:4px; font-size:.8em; color:rgba(255,255,255,.6); font-weight:500; }
+.sks-next-price { margin:0 0 12px; font-size:22px; font-weight:800; color:var(--accent);
+  font-variant-numeric:tabular-nums; }
+.sks-next-price small { font-size:12px; font-weight:600; color:rgba(255,255,255,.62); margin-left:7px; }
+.sks-next-card p { margin:0 0 18px; font-size:13.5px; line-height:1.75; color:rgba(255,255,255,.78); }
+.sks-next-card p .lang-zh { display:block; margin-top:5px; color:rgba(255,255,255,.6); }
+.sks-next-card a { margin-top:auto; align-self:flex-start; display:inline-block; color:var(--accent); font-weight:700;
+  font-size:14px; text-decoration:none; border-bottom:1px solid rgba(212,163,115,.5); padding-bottom:2px; }
+.sks-next-card a .lang-zh { display:inline; margin-left:6px; font-size:.86em; color:rgba(255,255,255,.6); }
+
+/* send us your sketch */
+.sks-send { max-width:960px; margin:62px auto 0; background:#fff; border:1px solid var(--border);
+  border-radius:20px; padding:42px 46px; box-shadow:var(--shadow); }
+.sks-send-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:36px; align-items:start; }
+.sks-send h2.sks-h2 { text-align:left; }
+.sks-assure { list-style:none; margin:22px 0 0; padding:0; }
+.sks-assure li { position:relative; padding-left:24px; margin-bottom:11px; font-size:14px; line-height:1.7;
+  color:var(--text-body); }
+.sks-assure li:before { content:"✓"; position:absolute; left:0; color:#6FA97A; font-weight:700; }
+.sks-assure li .lang-zh { display:block; margin-top:3px; color:var(--text-light); font-size:.93em; }
+.sks-notin { margin-top:6px; padding:22px 24px; background:var(--bg-warm); border-radius:12px; }
+.sks-notin h4 { margin:0 0 12px; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:#95693A; }
+.sks-notin h4 .lang-zh { display:inline; margin-left:6px; letter-spacing:0; text-transform:none; color:var(--text-light); }
+.sks-notin ul { list-style:none; margin:0; padding:0; }
+.sks-notin li { position:relative; padding-left:18px; margin-bottom:10px; font-size:13px; line-height:1.7;
+  color:var(--text-body); }
+.sks-notin li:before { content:"—"; position:absolute; left:0; color:var(--text-light); }
+.sks-notin li .lang-zh { display:block; margin-top:3px; color:var(--text-light); font-size:.94em; }
+
+/* FAQ */
+.sks-faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px 20px; margin-top:34px; align-items:start; }
+.sks-qa { background:#fff; border:1px solid var(--border); border-radius:12px; padding:4px 20px;
+  box-shadow:var(--shadow); }
+.sks-qa summary { cursor:pointer; list-style:none; padding:16px 30px 16px 0; font-size:15px; line-height:1.45;
+  font-weight:700; color:var(--text-dark); position:relative; }
+.sks-qa summary::-webkit-details-marker { display:none; }
+.sks-qa summary:after { content:"+"; position:absolute; right:0; top:13px; font-size:21px; line-height:1;
+  color:var(--accent); font-weight:400; }
+.sks-qa[open] summary:after { content:"–"; }
+.sks-qa summary .lang-zh { display:block; margin-top:4px; font-size:.82em; color:var(--text-light); font-weight:500; }
+.sks-qa .sks-a { padding:15px 0 18px; border-top:1px solid var(--border); font-size:14px; line-height:1.85;
+  color:var(--text-body); }
+.sks-qa .sks-a .lang-zh { display:block; margin-top:7px; color:var(--text-light); }
+
+/* closing */
+.sks-final { margin-top:62px; background:#22303F; border-radius:20px; padding:54px 44px; text-align:center; }
+.sks .sks-final h2 { font-family:var(--font-display); font-size:clamp(26px,3.2vw,40px); line-height:1.18;
+  color:#fff; margin:0; }
+.sks .sks-final h2 .lang-zh { display:block; margin-top:10px; font-size:.56em; color:rgba(255,255,255,.62);
+  font-family:var(--font-cn); font-weight:400; }
+.sks .sks-final p { max-width:730px; margin:18px auto 0; font-size:15px; line-height:1.8; color:rgba(255,255,255,.8); }
+.sks .sks-final p .lang-zh { display:block; margin-top:6px; color:rgba(255,255,255,.62); }
+.sks-final .sks-price-line { margin:24px auto 0; font-size:13.5px; font-weight:700; color:var(--accent); }
+.sks-final .sks-price-line .lang-zh { display:inline; margin-left:7px; font-weight:600; color:rgba(255,255,255,.6); }
+.sks .sks-final .sks-cta { justify-content:center; margin-top:26px; }
+.sks .sks-final .sks-btn.is-ghost { border-color:rgba(255,255,255,.34); color:#fff; }
+.sks .sks-final .sks-btn.is-ghost:hover { border-color:var(--accent); color:var(--accent); }
+
+@media (max-width:980px) {
+  .sks-how, .sks-get-grid, .sks-next-grid { grid-template-columns:1fr 1fr; }
+  .sks-send-grid, .sks-faq-grid { grid-template-columns:1fr; }
+  .sks-send h2.sks-h2 { text-align:center; }
+}
+@media (max-width:620px) {
+  .sks-how, .sks-get-grid, .sks-next-grid { grid-template-columns:1fr; }
+  .sks-next, .sks-send, .sks-final { padding:32px 22px; }
+  .sks-block { margin-top:48px; }
+}
+
+/* ===== sketch module: fixes ===== */
+.sks .sks-send .sks-lede { text-align:left; margin:0; }
+.sks-cmp-tag .lang-zh { display:inline; margin-left:6px; text-transform:none; letter-spacing:0;
+  font-weight:600; font-size:.92em; opacity:.75; }
+.sks-next-card p.sks-next-price .lang-zh { display:inline; margin-top:0; margin-left:7px; color:rgba(255,255,255,.62); }
+.sks-cmp input[type=range] { -webkit-appearance:none; appearance:none; height:4px; border-radius:999px;
+  background:var(--border); outline:none; }
+.sks-cmp input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:18px; height:18px;
+  border-radius:50%; background:var(--accent); border:2px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,.25);
+  cursor:ew-resize; }
+.sks-cmp input[type=range]::-moz-range-track { height:4px; border-radius:999px; background:var(--border); }
+.sks-cmp input[type=range]::-moz-range-thumb { width:18px; height:18px; border-radius:50%; background:var(--accent);
+  border:2px solid #fff; cursor:ew-resize; }
+
+.sks-next-card .sks-next-price small { display:block; margin:7px 0 0; font-size:11.5px; }</style>
 </head>
 <body>
 
@@ -1187,82 +1333,7 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   </div>
 </section>
 
-<section class="sks section">
-  <div class="container">
-    <div class="sks-grid">
-      <div class="sks-copy">
-        <span class="sks-kicker"><span class="lang-en" lang="en">From a sketch</span><span class="lang-zh" lang="zh-CN">从一个草图开始</span></span>
-        <h2><span class="lang-en" lang="en">From a sketch to <span class="sks-hl">something buildable</span>.</span><span class="lang-zh" lang="zh-CN">从一张草图，到<span class="sks-hl">能施工的方案</span>。</span></h2>
-        <p class="sks-sub"><span class="lang-en" lang="en">You bring the idea. <strong>We do the modelling.</strong></span><span class="lang-zh" lang="zh-CN">你带着想法。<strong>我们做建模与出图。</strong></span></p>
-        <p class="sks-body">
-          <span class="lang-en" lang="en">Send us the sketch and we turn it into a proper scheme: drawn plans, elevations and a rendered view, with an indicative cost so you can see whether the idea stands up before you commit to construction documents.</span>
-          <span class="lang-zh" lang="zh-CN">把草图发给我们，我们把它做成正式方案：平面、立面与效果图，并附一份造价估算 —— 让你在投入施工图之前，先看清这个想法站不站得住。</span>
-        </p>
-        <p class="sks-price">Quoted per project <span><span class="lang-en" lang="en">one-off &middot; tax included</span><span class="lang-zh" lang="zh-CN">一次性服务 · 含税</span></span></p>
-        <p class="sks-note"><span class="lang-en" lang="en">Not sure yet? Start with the US$199 Detailed Estimate and decide after you see the numbers.</span><span class="lang-zh" lang="zh-CN">还没想好？先用 US$199 的详细估算把成本看清楚，再决定。</span></p>
-        <div class="sks-cta">
-          <a class="sks-btn" href="start.html"><span class="lang-en" lang="en">Send us your sketch &rarr;</span><span class="lang-zh" lang="zh-CN">发送你的草图 &rarr;</span></a>
-          <a class="sks-btn is-ghost" href="how-it-works.html"><span class="lang-en" lang="en">See how it works</span><span class="lang-zh" lang="zh-CN">看看流程怎么走</span></a>
-        </div>
-        <ul class="sks-ticks">
-          <li><span class="lang-en" lang="en">Two rounds of revision included</span><span class="lang-zh" lang="zh-CN">包含两轮修订</span></li>
-          <li><span class="lang-en" lang="en">No subscription needed to review the design</span><span class="lang-zh" lang="zh-CN">查看方案无需订阅</span></li>
-          <li><span class="lang-en" lang="en">If the sketch cannot support a scheme, we say so rather than bill you</span><span class="lang-zh" lang="zh-CN">草图若不足以支撑方案，我们会直说，而不是硬接</span></li>
-        </ul>
-      </div>
-      <div class="sks-visual">
-        <img src="images/projects/project-cabin-1.jpg" alt="JFA project / JFA 项目" loading="lazy">
-      </div>
-    </div>
 
-    <div class="sks-chain">
-      <figure class="sks-step"><div class="sks-thumb"><svg class="sk-sketch" viewBox="0 0 340 246" role="img" aria-label="Hand sketch illustration">
-        <rect x="0" y="0" width="340" height="246" fill="#FBFAF7"/>
-        <g fill="none" stroke="#4A4A5A" stroke-width="1.6" stroke-linecap="round" opacity="0.82">
-          <path d="M48 58 C120 52 200 56 280 54 C282 112 279 168 281 196 C210 199 122 197 50 198 C47 152 50 104 48 58"/>
-          <path d="M52 62 C124 57 202 60 276 58"/>
-          <path d="M152 57 C150 100 153 150 151 196"/>
-          <path d="M151 122 C196 119 240 121 279 119"/>
-          <path d="M208 121 C206 150 209 174 207 196"/>
-          <path d="M62 92 C84 88 106 91 128 89"/><path d="M62 156 C84 152 106 155 128 153"/>
-          <path d="M176 74 C216 71 248 73 268 71"/>
-          <path d="M54 214 C140 210 214 213 280 211"/>
-          <path d="M96 118 C112 114 128 117 144 115"/>
-        </g>
-        <g fill="none" stroke="#B9A48C" stroke-width="1.1" opacity="0.9">
-          <path d="M36 44 C120 40 210 42 292 40"/><path d="M36 44 L36 208"/><path d="M292 40 L292 204"/>
-          <path d="M40 120 C96 112 200 122 126 108"/>
-        </g>
-        <g fill="#8A8A9A" font-size="9" font-family="Inter, sans-serif"><text x="164" y="34" text-anchor="middle">~7.0 m</text>
-        <text x="26" y="130" text-anchor="middle" transform="rotate(-90 26 130)">~13.0 m</text></g>
-        <text x="170" y="232" font-size="9" fill="#8A8A9A" text-anchor="middle" font-family="Inter, sans-serif">Illustration / 示意草图</text>
-      </svg></div><figcaption><span class="lang-en" lang="en">Your sketch</span><span class="lang-zh" lang="zh-CN">你的草图</span></figcaption></figure>
-      <span class="sks-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
-      <figure class="sks-step"><div class="sks-thumb"><svg class="sk-plan" viewBox="0 0 340 246" role="img" aria-label="Floor plan diagram">
-        <rect x="0" y="0" width="340" height="246" fill="#F7F5F1"/>
-        <g stroke="#C9C4BA" stroke-width="1"><line x1="46" y1="16" x2="46" y2="224"/><line x1="268" y1="16" x2="268" y2="224"/>
-        <line x1="28" y1="40" x2="286" y2="40"/><line x1="28" y1="204" x2="286" y2="204"/></g>
-        <g fill="#22303F" stroke="#22303F"><rect x="46" y="40" width="222" height="164" fill="#FFFFFF" stroke-width="4"/>
-        <line x1="150" y1="40" x2="150" y2="122" stroke-width="2.4"/><line x1="150" y1="122" x2="268" y2="122" stroke-width="2.4"/>
-        <line x1="206" y1="122" x2="206" y2="204" stroke-width="2.4"/></g>
-        <g stroke="#FFFFFF" stroke-width="5"><line x1="120" y1="122" x2="150" y2="122"/><line x1="150" y1="150" x2="150" y2="176"/></g>
-        <g fill="#8A8A9A" font-size="8" font-family="Inter, sans-serif"><text x="70" y="128">LIVING</text><text x="70" y="138">起居</text>
-        <text x="168" y="86">BEDROOM</text><text x="168" y="96">主卧</text><text x="168" y="166">BATH</text><text x="168" y="176">卫浴</text>
-        <text x="224" y="166">KITCHEN</text><text x="224" y="176">厨房</text></g>
-        <text x="157" y="234" font-size="9" fill="#95693A" text-anchor="middle" font-family="Inter, sans-serif">7.0 × 13.0 m · 91 m²</text>
-      </svg></div><figcaption><span class="lang-en" lang="en">Drawn plan</span><span class="lang-zh" lang="zh-CN">正式平面</span></figcaption></figure>
-      <span class="sks-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
-      <figure class="sks-step"><div class="sks-thumb is-photo"><img src="images/residential/residential-04-timber-cabin.jpg" alt="建成效果 / built result" decoding="async"></div><figcaption><span class="lang-en" lang="en">Built result</span><span class="lang-zh" lang="zh-CN">建成效果</span></figcaption></figure>
-    </div>
-    <p class="sks-caption"><span class="lang-en" lang="en">The sketch is an illustration drawn for this page, not a client's drawing; the plan and the photograph describe the same design.</span><span class="lang-zh" lang="zh-CN">草图为本页绘制的示意插图，非客户原件；平面与照片描述的是同一个设计。</span></p>
-
-    <div class="sks-steps">
-      <article><span class="sks-n">1</span><h3><span class="lang-en" lang="en">The idea</span><span class="lang-zh" lang="zh-CN">理念</span></h3><p><span class="lang-en" lang="en">A sketch, a wish list and a budget — enough for us to know what you are actually asking for.</span><span class="lang-zh" lang="zh-CN">一张草图、一份需求清单、一个预算 —— 足够让我们明白你到底想要什么。</span></p></article>
-      <article><span class="sks-n">2</span><h3><span class="lang-en" lang="en">The scheme</span><span class="lang-zh" lang="zh-CN">方案</span></h3><p><span class="lang-en" lang="en">Your idea becomes drawn plans, elevations and a rendered view — with the cost stated beside it.</span><span class="lang-zh" lang="zh-CN">你的想法变成平面、立面和效果图 —— 旁边配上造价数字。</span></p></article>
-      <article><span class="sks-n">3</span><h3><span class="lang-en" lang="en">The building</span><span class="lang-zh" lang="zh-CN">建成</span></h3><p><span class="lang-en" lang="en">Approve it and we document it for approval, pricing and construction; the file and the building stay one design.</span><span class="lang-zh" lang="zh-CN">确认后我们按报建、报价与施工的要求出图；文件和建成的房子始终是同一个设计。</span></p></article>
-    </div>
-  </div>
-</section>
 
 
 
@@ -1503,6 +1574,211 @@ document.addEventListener('keydown', function(e) {
 <!-- ===== Team ===== -->
 <!-- team merged into #services -->
 
+
+<!-- ===== Contact ===== -->
+<section class="sks section" id="sketch">
+  <div class="container">
+    <div class="sks-grid">
+      <div class="sks-copy">
+        <span class="sks-kicker"><span><span class="lang-en" lang="en">From a sketch</span><span class="lang-zh" lang="zh-CN">从一个草图开始</span></span></span>
+        <h2><span><span class="lang-en" lang="en">From a sketch to <span class="sks-hl">something buildable</span>.</span><span class="lang-zh" lang="zh-CN">从一张草图，到<span class="sks-hl">能施工的方案</span>。</span></span></h2>
+        <p class="sks-sub"><span><span class="lang-en" lang="en">You bring the idea. <strong>We do the modelling.</strong></span><span class="lang-zh" lang="zh-CN">你带着想法。<strong>我们做建模与出图。</strong></span></span></p>
+        <p class="sks-body">
+          <span><span class="lang-en" lang="en">Send us the sketch and we turn it into a proper scheme: drawn plans, elevations and a rendered view, with an indicative cost so you can see whether the idea stands up before you commit to construction documents.</span><span class="lang-zh" lang="zh-CN">把草图发给我们，我们把它做成正式方案：平面、立面与效果图，并附一份造价参考 —— 让你在投入施工图之前，先看清这个想法站不站得住。</span></span>
+        </p>
+        <p class="sks-price">Quoted per project <span><span><span class="lang-en" lang="en">one-off &middot; tax included</span><span class="lang-zh" lang="zh-CN">一次性服务 · 含税</span></span></span></p>
+        <p class="sks-note"><span><span class="lang-en" lang="en">Not sure yet? Start with the US$199 Detailed Estimate and decide after you see the numbers.</span><span class="lang-zh" lang="zh-CN">还没想好？先用 US$199 的详细估算把成本看清楚，再决定。</span></span></p>
+        <div class="sks-cta">
+          <a class="sks-btn" href="start.html"><span><span class="lang-en" lang="en">Send us your sketch &rarr;</span><span class="lang-zh" lang="zh-CN">发送你的草图 &rarr;</span></span></a>
+          <a class="sks-btn is-ghost" href="how-it-works.html"><span><span class="lang-en" lang="en">See how it works</span><span class="lang-zh" lang="zh-CN">看看流程怎么走</span></span></a>
+        </div>
+        <ul class="sks-ticks">
+          <li><span><span class="lang-en" lang="en">Two rounds of revision included</span><span class="lang-zh" lang="zh-CN">包含两轮修订</span></span></li>
+          <li><span><span class="lang-en" lang="en">Nothing to install and no subscription</span><span class="lang-zh" lang="zh-CN">不用装软件、不用订阅</span></span></li>
+          <li><span><span class="lang-en" lang="en">If the sketch cannot support a scheme, we say so rather than bill you</span><span class="lang-zh" lang="zh-CN">草图若不足以支撑方案，我们会直说，而不是硬接</span></span></li>
+          <li><span><span class="lang-en" lang="en">Reviewed by a person before any drawing starts</span><span class="lang-zh" lang="zh-CN">开工前由人工先复核一遍</span></span></li>
+        </ul>
+      </div>
+      <div class="sks-visual">
+        <img src="images/projects/project-cabin-1.jpg" alt="JFA project / JFA 项目" decoding="async">
+      </div>
+    </div>
+
+    <div class="sks-chain">
+      <figure class="sks-step"><div class="sks-thumb"><svg class="sk-sketch" viewBox="0 0 340 246" role="img" aria-label="Hand sketch illustration">
+        <rect x="0" y="0" width="340" height="246" fill="#FBFAF7"/>
+        <g fill="none" stroke="#4A4A5A" stroke-width="1.6" stroke-linecap="round" opacity="0.82">
+          <path d="M48 58 C120 52 200 56 280 54 C282 112 279 168 281 196 C210 199 122 197 50 198 C47 152 50 104 48 58"/>
+          <path d="M52 62 C124 57 202 60 276 58"/>
+          <path d="M152 57 C150 100 153 150 151 196"/>
+          <path d="M151 122 C196 119 240 121 279 119"/>
+          <path d="M208 121 C206 150 209 174 207 196"/>
+          <path d="M62 92 C84 88 106 91 128 89"/><path d="M62 156 C84 152 106 155 128 153"/>
+          <path d="M176 74 C216 71 248 73 268 71"/>
+          <path d="M54 214 C140 210 214 213 280 211"/>
+          <path d="M96 118 C112 114 128 117 144 115"/>
+        </g>
+        <g fill="none" stroke="#B9A48C" stroke-width="1.1" opacity="0.9">
+          <path d="M36 44 C120 40 210 42 292 40"/><path d="M36 44 L36 208"/><path d="M292 40 L292 204"/>
+          <path d="M40 120 C96 112 200 122 126 108"/>
+        </g>
+        <g fill="#8A8A9A" font-size="9" font-family="Inter, sans-serif"><text x="164" y="34" text-anchor="middle">~7.0 m</text>
+        <text x="26" y="130" text-anchor="middle" transform="rotate(-90 26 130)">~13.0 m</text></g>
+        <text x="170" y="232" font-size="9" fill="#8A8A9A" text-anchor="middle" font-family="Inter, sans-serif">Illustration / 示意草图</text>
+      </svg></div><figcaption><span><span class="lang-en" lang="en">Your sketch</span><span class="lang-zh" lang="zh-CN">你的草图</span></span></figcaption></figure>
+      <span class="sks-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+      <figure class="sks-step"><div class="sks-thumb"><svg class="sk-plan" viewBox="0 0 340 246" role="img" aria-label="Floor plan diagram">
+        <rect x="0" y="0" width="340" height="246" fill="#F7F5F1"/>
+        <g stroke="#C9C4BA" stroke-width="1"><line x1="46" y1="16" x2="46" y2="224"/><line x1="268" y1="16" x2="268" y2="224"/>
+        <line x1="28" y1="40" x2="286" y2="40"/><line x1="28" y1="204" x2="286" y2="204"/></g>
+        <g fill="#22303F" stroke="#22303F"><rect x="46" y="40" width="222" height="164" fill="#FFFFFF" stroke-width="4"/>
+        <line x1="150" y1="40" x2="150" y2="122" stroke-width="2.4"/><line x1="150" y1="122" x2="268" y2="122" stroke-width="2.4"/>
+        <line x1="206" y1="122" x2="206" y2="204" stroke-width="2.4"/></g>
+        <g stroke="#FFFFFF" stroke-width="5"><line x1="120" y1="122" x2="150" y2="122"/><line x1="150" y1="150" x2="150" y2="176"/></g>
+        <g fill="#8A8A9A" font-size="8" font-family="Inter, sans-serif"><text x="70" y="128">LIVING</text><text x="70" y="138">起居</text>
+        <text x="168" y="86">BEDROOM</text><text x="168" y="96">主卧</text><text x="168" y="166">BATH</text><text x="168" y="176">卫浴</text>
+        <text x="224" y="166">KITCHEN</text><text x="224" y="176">厨房</text></g>
+        <text x="157" y="234" font-size="9" fill="#95693A" text-anchor="middle" font-family="Inter, sans-serif">7.0 × 13.0 m · 91 m²</text>
+      </svg></div><figcaption><span><span class="lang-en" lang="en">Drawn scheme</span><span class="lang-zh" lang="zh-CN">正式方案</span></span></figcaption></figure>
+      <span class="sks-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+      <figure class="sks-step"><div class="sks-thumb is-photo"><img src="images/residential/residential-04-timber-cabin.jpg" alt="建成效果 / built result" decoding="async"></div><figcaption><span><span class="lang-en" lang="en">Built result</span><span class="lang-zh" lang="zh-CN">建成效果</span></span></figcaption></figure>
+    </div>
+    <p class="sks-caption"><span><span class="lang-en" lang="en">The sketch is an illustration drawn for this page, not a client drawing; the scheme and the photograph describe the same design.</span><span class="lang-zh" lang="zh-CN">草图为本页绘制的示意插图，非客户原件；方案与照片描述的是同一个设计。</span></span></p>
+
+    <div class="sks-block">
+      <h2 class="sks-h2"><span><span class="lang-en" lang="en">How it works</span><span class="lang-zh" lang="zh-CN">从一张草图到方案，怎么走</span></span></h2>
+      <p class="sks-lede"><span><span class="lang-en" lang="en">Four steps, and you can stop at any of them.</span><span class="lang-zh" lang="zh-CN">四步，任何一步都可以停下来。</span></span></p>
+      <div class="sks-how">
+      <article><span class="sks-n">1</span><h3><span><span class="lang-en" lang="en">Send us your sketch</span><span class="lang-zh" lang="zh-CN">把你的草图发给我们</span></span></h3><p><span><span class="lang-en" lang="en">A photo of a paper sketch is enough, and a plan from another designer works too. Rough is fine — we do not need a drawing.</span><span class="lang-zh" lang="zh-CN">手机拍一张纸上的草图就够，别家设计师的平面也可以用。粗糙没关系，我们不需要成图。</span></span></p><p class="sks-badge"><span><span class="lang-en" lang="en">Rough is fine</span><span class="lang-zh" lang="zh-CN">粗糙没关系</span></span></p></article>
+      <article><span class="sks-n">2</span><h3><span><span class="lang-en" lang="en">We check it before you commit</span><span class="lang-zh" lang="zh-CN">我们先判断可行性</span></span></h3><p><span><span class="lang-en" lang="en">We look at the site, the rules that apply and whether the idea can be built at all. If it cannot, we say so before you spend more.</span><span class="lang-zh" lang="zh-CN">我们先看场地、适用的规范和结构上能否成立。如果做不了，我们会在你继续花钱之前直说。</span></span></p><p class="sks-badge"><span><span class="lang-en" lang="en">Reviewed first</span><span class="lang-zh" lang="zh-CN">先审后做</span></span></p></article>
+      <article><span class="sks-n">3</span><h3><span><span class="lang-en" lang="en">The scheme, then two rounds</span><span class="lang-zh" lang="zh-CN">出方案，然后两轮修订</span></span></h3><p><span><span class="lang-en" lang="en">Plans, elevations and a rendered view, with an indicative cost beside them. Two rounds of changes are included — each round is one list, sent together.</span><span class="lang-zh" lang="zh-CN">平面、立面与效果图，旁边配上造价参考。含两轮修改，每轮请把意见一次性列齐。</span></span></p><p class="sks-badge"><span><span class="lang-en" lang="en">Two rounds included</span><span class="lang-zh" lang="zh-CN">含两轮修订</span></span></p></article>
+      <article><span class="sks-n">4</span><h3><span><span class="lang-en" lang="en">Next steps, only if you want</span><span class="lang-zh" lang="zh-CN">后续按需推进</span></span></h3><p><span><span class="lang-en" lang="en">Most people stop here and take the scheme to a contractor. Construction documents and a full cost check are separate and optional.</span><span class="lang-zh" lang="zh-CN">大多数人到此为止，拿着方案去找施工方。施工图与完整造价核对是另外的、可选项。</span></span></p><p class="sks-badge"><span><span class="lang-en" lang="en">Estimate US$199</span><span class="lang-zh" lang="zh-CN">详细估算 US$199</span></span></p></article>
+      </div>
+    </div>
+
+    <div class="sks-block">
+      <h2 class="sks-h2"><span><span class="lang-en" lang="en">Your sketch, drawn out properly</span><span class="lang-zh" lang="zh-CN">你的草图，被认真画出来</span></span></h2>
+      <p class="sks-lede"><span><span class="lang-en" lang="en">Drag across the frame to compare the sketch with the scheme drawn from it.</span><span class="lang-zh" lang="zh-CN">拖动画面中间的滑块，对比草图与据此绘制的方案。</span></span></p>
+      <div class="sks-cmp">
+        <div class="sks-cmp-inner" id="sksCmp">
+          <div class="sks-cmp-layer is-plan"><svg class="sk-plan" viewBox="0 0 340 246" role="img" aria-label="Floor plan diagram">
+        <rect x="0" y="0" width="340" height="246" fill="#F7F5F1"/>
+        <g stroke="#C9C4BA" stroke-width="1"><line x1="46" y1="16" x2="46" y2="224"/><line x1="268" y1="16" x2="268" y2="224"/>
+        <line x1="28" y1="40" x2="286" y2="40"/><line x1="28" y1="204" x2="286" y2="204"/></g>
+        <g fill="#22303F" stroke="#22303F"><rect x="46" y="40" width="222" height="164" fill="#FFFFFF" stroke-width="4"/>
+        <line x1="150" y1="40" x2="150" y2="122" stroke-width="2.4"/><line x1="150" y1="122" x2="268" y2="122" stroke-width="2.4"/>
+        <line x1="206" y1="122" x2="206" y2="204" stroke-width="2.4"/></g>
+        <g stroke="#FFFFFF" stroke-width="5"><line x1="120" y1="122" x2="150" y2="122"/><line x1="150" y1="150" x2="150" y2="176"/></g>
+        <g fill="#8A8A9A" font-size="8" font-family="Inter, sans-serif"><text x="70" y="128">LIVING</text><text x="70" y="138">起居</text>
+        <text x="168" y="86">BEDROOM</text><text x="168" y="96">主卧</text><text x="168" y="166">BATH</text><text x="168" y="176">卫浴</text>
+        <text x="224" y="166">KITCHEN</text><text x="224" y="176">厨房</text></g>
+        
+      </svg></div>
+          <div class="sks-cmp-layer is-sketch"><svg class="sk-sketch" viewBox="0 0 340 246" role="img" aria-label="Hand sketch illustration">
+        <rect x="0" y="0" width="340" height="246" fill="#FBFAF7"/>
+        <g fill="none" stroke="#4A4A5A" stroke-width="1.6" stroke-linecap="round" opacity="0.82">
+          <path d="M48 58 C120 52 200 56 280 54 C282 112 279 168 281 196 C210 199 122 197 50 198 C47 152 50 104 48 58"/>
+          <path d="M52 62 C124 57 202 60 276 58"/>
+          <path d="M152 57 C150 100 153 150 151 196"/>
+          <path d="M151 122 C196 119 240 121 279 119"/>
+          <path d="M208 121 C206 150 209 174 207 196"/>
+          <path d="M62 92 C84 88 106 91 128 89"/><path d="M62 156 C84 152 106 155 128 153"/>
+          <path d="M176 74 C216 71 248 73 268 71"/>
+          <path d="M54 214 C140 210 214 213 280 211"/>
+          <path d="M96 118 C112 114 128 117 144 115"/>
+        </g>
+        <g fill="none" stroke="#B9A48C" stroke-width="1.1" opacity="0.9">
+          <path d="M36 44 C120 40 210 42 292 40"/><path d="M36 44 L36 208"/><path d="M292 40 L292 204"/>
+          <path d="M40 120 C96 112 200 122 126 108"/>
+        </g>
+        <g fill="#8A8A9A" font-size="9" font-family="Inter, sans-serif"><text x="164" y="34" text-anchor="middle">~7.0 m</text>
+        <text x="26" y="130" text-anchor="middle" transform="rotate(-90 26 130)">~13.0 m</text></g>
+        
+      </svg></div>
+          <div class="sks-cmp-handle" aria-hidden="true"><span>&#8596;</span></div>
+          <span class="sks-cmp-tag is-l"><span><span class="lang-en" lang="en">Sketch</span><span class="lang-zh" lang="zh-CN">草图</span></span></span>
+          <span class="sks-cmp-tag is-r"><span><span class="lang-en" lang="en">Drawn scheme</span><span class="lang-zh" lang="zh-CN">正式方案</span></span></span>
+        </div>
+        <input type="range" min="0" max="100" value="50" step="1" id="sksRange" aria-label="Compare the sketch and the drawn scheme / 对比草图与方案">
+        <p class="sks-cmp-cap"><span><span class="lang-en" lang="en">Both views describe the same design, a 7.0 &times; 13.0 m cabin of about 91 m&sup2;. The sketch is an illustration drawn for this page, not a client drawing.</span><span class="lang-zh" lang="zh-CN">两个视图描述的是同一个设计 —— 约 7.0 × 13.0 米、约 91 平方米的小屋。草图为本页绘制的示意插图，非客户原件。</span></span></p>
+      </div>
+    </div>
+
+    <div class="sks-block">
+      <h2 class="sks-h2"><span><span class="lang-en" lang="en">What you get</span><span class="lang-zh" lang="zh-CN">你会得到什么</span></span></h2>
+      <p class="sks-lede"><span><span class="lang-en" lang="en">Your idea as a drawn, costed scheme — handed over in files you keep.</span><span class="lang-zh" lang="zh-CN">你的想法变成一套画好、算过钱的方案 —— 以文件形式交付，归你所有。</span></span></p>
+      <div class="sks-get-grid">
+      <article class="sks-get-card"><i class="fas fa-pen-ruler" aria-hidden="true"></i><h3><span><span class="lang-en" lang="en">Modelled for you</span><span class="lang-zh" lang="zh-CN">我们替你建模</span></span></h3><p><span><span class="lang-en" lang="en">There is no software to learn and no CAD skill needed — we build and keep the model.</span><span class="lang-zh" lang="zh-CN">不用学软件，也不需要会 CAD —— 模型由我们建立和保管。</span></span></p></article>
+      <article class="sks-get-card"><i class="fas fa-cube" aria-hidden="true"></i><h3><span><span class="lang-en" lang="en">3D views and floor plans</span><span class="lang-zh" lang="zh-CN">三维视图与平面图</span></span></h3><p><span><span class="lang-en" lang="en">Walk through it on screen and read the plan beside it. The on-screen plan is a scheme drawing, not the issued construction set.</span><span class="lang-zh" lang="zh-CN">可以在屏幕上走一遍，旁边配平面图。屏幕上的平面是方案图，不等于正式签发的施工图集。</span></span></p></article>
+      <article class="sks-get-card"><i class="fas fa-mobile-screen" aria-hidden="true"></i><h3><span><span class="lang-en" lang="en">Readable on a phone</span><span class="lang-zh" lang="zh-CN">手机上也能看</span></span></h3><p><span><span class="lang-en" lang="en">Everything arrives as ordinary files, so it opens on a phone, a tablet or a laptop — nothing to install.</span><span class="lang-zh" lang="zh-CN">所有内容都是普通文件，手机、平板、电脑都能打开 —— 不需要安装任何东西。</span></span></p></article>
+      <article class="sks-get-card"><i class="fas fa-scale-balanced" aria-hidden="true"></i><h3><span><span class="lang-en" lang="en">Cost as you change it</span><span class="lang-zh" lang="zh-CN">改了就重算造价</span></span></h3><p><span><span class="lang-en" lang="en">Each round comes back with a revised indicative cost, so you can see what a change does to the budget.</span><span class="lang-zh" lang="zh-CN">每一轮都会附上更新后的造价参考，让你看清这个改动对预算的影响。</span></span></p></article>
+      <article class="sks-get-card"><i class="fas fa-envelope-open-text" aria-hidden="true"></i><h3><span><span class="lang-en" lang="en">Handed over by email</span><span class="lang-zh" lang="zh-CN">邮件交付</span></span></h3><p><span><span class="lang-en" lang="en">The drawings, the views and the cost note come by email, and the files are yours to keep and to pass on.</span><span class="lang-zh" lang="zh-CN">图纸、视图与造价说明通过邮件发给你，文件归你保管，也可以直接转交给别人。</span></span></p></article>
+      </div>
+    </div>
+
+    <div class="sks-next">
+      <h2 class="sks-h2"><span><span class="lang-en" lang="en">Ready to take it further?</span><span class="lang-zh" lang="zh-CN">想继续往下走？</span></span></h2>
+      <p class="sks-lede"><span><span class="lang-en" lang="en">These are optional and priced separately — the sketch-to-scheme service stands on its own.</span><span class="lang-zh" lang="zh-CN">这些都是可选项，单独计价 —— 草图转方案本身是独立完整的一单。</span></span></p>
+      <div class="sks-next-grid">
+      <article class="sks-next-card"><h3><span><span class="lang-en" lang="en">Detailed Estimate</span><span class="lang-zh" lang="zh-CN">详细估算</span></span></h3><p class="sks-next-price">US$199<small><span class="lang-en" lang="en">tax included</span><span class="lang-zh" lang="zh-CN">含税</span></small></p><p><span><span class="lang-en" lang="en">A reviewed cost report on its own, before you spend anything on drawings.</span><span class="lang-zh" lang="zh-CN">在图纸上花钱之前，先拿到一份人工复核的造价报告。</span></span></p><a href="estimate.html"><span><span class="lang-en" lang="en">Read the estimate page</span><span class="lang-zh" lang="zh-CN">看估算页</span></span></a></article>
+      <article class="sks-next-card"><h3><span><span class="lang-en" lang="en">Preliminary Package</span><span class="lang-zh" lang="zh-CN">图纸前置包</span></span></h3><p class="sks-next-price">US$1,100 / US$1,400<small><span class="lang-en" lang="en">standard / custom</span><span class="lang-zh" lang="zh-CN">标准 / 定制</span></small></p><p><span><span class="lang-en" lang="en">Preliminary drawings, site plan and rendered image — with the Detailed Estimate included.</span><span class="lang-zh" lang="zh-CN">初步图纸、总平面与效果图 —— 并已包含详细估算。</span></span></p><a href="estimate.html"><span><span class="lang-en" lang="en">See what is included</span><span class="lang-zh" lang="zh-CN">看看包含什么</span></span></a></article>
+      <article class="sks-next-card"><h3><span><span class="lang-en" lang="en">Revision</span><span class="lang-zh" lang="zh-CN">修订</span></span></h3><p class="sks-next-price">US$79<small><span class="lang-en" lang="en">per revision</span><span class="lang-zh" lang="zh-CN">每次</span></small></p><p><span><span class="lang-en" lang="en">For an updated estimate after a scheme or site change; drawing-set revisions follow our terms.</span><span class="lang-zh" lang="zh-CN">方案或场地变更后更新估算时使用；图纸集的修订按我们的条款执行。</span></span></p><a href="estimate.html"><span><span class="lang-en" lang="en">Our terms in short</span><span class="lang-zh" lang="zh-CN">简要条款</span></span></a></article>
+      </div>
+    </div>
+
+    <div class="sks-send">
+      <div class="sks-send-grid">
+        <div>
+          <h2 class="sks-h2"><span><span class="lang-en" lang="en">Send us your sketch.</span><span class="lang-zh" lang="zh-CN">把草图发给我们。</span></span></h2>
+          <p class="sks-lede"><span><span class="lang-en" lang="en">Tell us what you want and attach what you have — a phone photo is fine. A person reads it before any drawing starts.</span><span class="lang-zh" lang="zh-CN">说说你想要什么，把手里的东西发过来 —— 手机照片就行。开工前会由人工先看一遍。</span></span></p>
+          <ul class="sks-assure">
+            <li><span><span class="lang-en" lang="en">A person reads it before any drawing starts.</span><span class="lang-zh" lang="zh-CN">开工前由人工先看一遍。</span></span></li>
+            <li><span><span class="lang-en" lang="en">Two rounds of revision included.</span><span class="lang-zh" lang="zh-CN">含两轮修订。</span></span></li>
+            <li><span><span class="lang-en" lang="en">If it cannot be drawn properly, we say so.</span><span class="lang-zh" lang="zh-CN">如果没法正经画出来，我们会直说。</span></span></li>
+            <li><span><span class="lang-en" lang="en">Ordinary files — no software, no subscription.</span><span class="lang-zh" lang="zh-CN">普通文件 —— 不用软件，不用订阅。</span></span></li>
+          </ul>
+          <div class="sks-cta">
+            <a class="sks-btn" href="start.html"><span><span class="lang-en" lang="en">Send us your sketch &rarr;</span><span class="lang-zh" lang="zh-CN">发送你的草图 &rarr;</span></span></a>
+            <a class="sks-btn is-ghost" href="mailto:1179060110@qq.com"><span><span class="lang-en" lang="en">Email us instead</span><span class="lang-zh" lang="zh-CN">直接发邮件</span></span></a>
+          </div>
+        </div>
+        <div class="sks-notin">
+          <h4><span><span class="lang-en" lang="en">Not included</span><span class="lang-zh" lang="zh-CN">不包含在内</span></span></h4>
+          <ul>
+            <li><span><span class="lang-en" lang="en">A different concept or a new layout — quoted separately before any work starts.</span><span class="lang-zh" lang="zh-CN">换概念或换布局 —— 开工前单独报价。</span></span></li>
+            <li><span><span class="lang-en" lang="en">Statutory approvals and site-specific structural design — carried out and quoted by others.</span><span class="lang-zh" lang="zh-CN">报建审批与针对场地的结构设计 —— 由承担单位实施并报价。</span></span></li>
+            <li><span><span class="lang-en" lang="en">A full construction drawing set — optional, priced separately.</span><span class="lang-zh" lang="zh-CN">完整施工图集 —— 可选项，单独计价。</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sks-block">
+      <h2 class="sks-h2"><span><span class="lang-en" lang="en">Questions, answered.</span><span class="lang-zh" lang="zh-CN">常见问题，一次说清。</span></span></h2>
+      <p class="sks-lede"><span><span class="lang-en" lang="en">Still unsure? Ask us directly — one of the four teams will answer.</span><span class="lang-zh" lang="zh-CN">还有疑问？直接问我们 —— 四支团队里会有人回答你。</span></span></p>
+      <div class="sks-faq-grid">
+      <details class="sks-qa"><summary><span><span class="lang-en" lang="en">What can I send?</span><span class="lang-zh" lang="zh-CN">我可以发什么？</span></span></summary><div class="sks-a"><span><span class="lang-en" lang="en">A phone photo of a hand sketch is enough, and a plan from another designer works too. PDF, JPG and PNG all open. If all you have is a description, send that and we will tell you whether it is enough to start.</span><span class="lang-zh" lang="zh-CN">手机拍的手绘草图就够，别家设计师的平面也可以。PDF、JPG、PNG 都能打开。如果只有文字描述，也可以先发过来，我们会告诉你够不够开始。</span></span></div></details>
+      <details class="sks-qa"><summary><span><span class="lang-en" lang="en">Do I need any software?</span><span class="lang-zh" lang="zh-CN">我需要装什么软件吗？</span></span></summary><div class="sks-a"><span><span class="lang-en" lang="en">No. We build and keep the model. What you receive are ordinary files, so nothing needs installing on your side.</span><span class="lang-zh" lang="zh-CN">不需要。模型由我们建立和保管。你收到的都是普通文件，你那边不用装任何东西。</span></span></div></details>
+      <details class="sks-qa"><summary><span><span class="lang-en" lang="en">Is this a redesign?</span><span class="lang-zh" lang="zh-CN">这算是重新设计吗？</span></span></summary><div class="sks-a"><span><span class="lang-en" lang="en">No. We draw the idea you bring, and we tell you where it has to change to work. A different concept, a replacement layout or a substantial change is a separate design commission, quoted before any work starts.</span><span class="lang-zh" lang="zh-CN">不是。我们画的是你带来的想法，并告诉你哪些地方必须调整才能成立。换概念、换布局或大改动属于另一个设计委托，开工前单独报价。</span></span></div></details>
+      <details class="sks-qa"><summary><span><span class="lang-en" lang="en">What if my idea cannot be built?</span><span class="lang-zh" lang="zh-CN">如果我的想法建不了呢？</span></span></summary><div class="sks-a"><span><span class="lang-en" lang="en">We say so before you spend money on drawings, and we tell you which constraint stops it — usually the site, the planning rules or the structure. Knowing that early is worth something on its own.</span><span class="lang-zh" lang="zh-CN">我们会在你为图纸花钱之前就说清，并告诉你是哪个条件卡住了 —— 通常是场地、报建规则或结构。早一点知道这件事本身就有价值。</span></span></div></details>
+      <details class="sks-qa"><summary><span><span class="lang-en" lang="en">What counts as one round of revision?</span><span class="lang-zh" lang="zh-CN">一轮修订是怎么算的？</span></span></summary><div class="sks-a"><span><span class="lang-en" lang="en">One consolidated list of changes, sent together, staying inside the scheme you have already approved. Two rounds are included. Anything after that is handled as a revision.</span><span class="lang-zh" lang="zh-CN">一次性把所有修改意见列齐发来，并且限定在已确认的方案范围内。含两轮。此后的改动按修订处理。</span></span></div></details>
+      <details class="sks-qa"><summary><span><span class="lang-en" lang="en">What do I actually end up owning?</span><span class="lang-zh" lang="zh-CN">最后我拿到的是什么？</span></span></summary><div class="sks-a"><span><span class="lang-en" lang="en">The scheme drawings, the rendered views and the cost note, as files, by email. They are yours to keep and to hand to a contractor or an approval consultant.</span><span class="lang-zh" lang="zh-CN">方案图纸、效果图和造价说明，以文件形式邮件发给你。文件归你保管，可以直接交给施工方或报建顾问。</span></span></div></details>
+      <details class="sks-qa"><summary><span><span class="lang-en" lang="en">Does this mean my building is approved or engineered?</span><span class="lang-zh" lang="zh-CN">这等于报建通过或结构算过了吗？</span></span></summary><div class="sks-a"><span><span class="lang-en" lang="en">No. This stage checks whether the idea works as a design. Statutory approvals and site-specific structural design are separate, and are quoted by whoever carries them out.</span><span class="lang-zh" lang="zh-CN">不等于。这个阶段只判断想法作为设计是否成立。报建审批和针对场地的结构设计是另外的事，由实际承担的一方报价。</span></span></div></details>
+      <details class="sks-qa"><summary><span><span class="lang-en" lang="en">How current is the cost figure?</span><span class="lang-zh" lang="zh-CN">造价数字有多新？</span></span></summary><div class="sks-a"><span><span class="lang-en" lang="en">Every note states the date it was prepared, the basis it rests on and what is excluded. It is an order-of-magnitude figure for decisions, not a fixed price from a contractor.</span><span class="lang-zh" lang="zh-CN">每一份说明都会写明编制日期、依据和未包含的内容。它是用于决策的量级数字，不是施工方的固定报价。</span></span></div></details>
+      </div>
+    </div>
+
+    <div class="sks-final">
+      <h2><span><span class="lang-en" lang="en">Start with a sketch.</span><span class="lang-zh" lang="zh-CN">从一张草图开始。</span></span></h2>
+      <p><span><span class="lang-en" lang="en">You bring the idea; we do the modelling — and if it cannot work, we tell you before you pay.</span><span class="lang-zh" lang="zh-CN">你带想法来，我们做建模 —— 如果做不了，我们会在你付钱之前说清。</span></span></p>
+      <p class="sks-price-line"><span><span class="lang-en" lang="en">US$199 estimate &middot; packages US$1,100 / US$1,400 &middot; all prices in USD, tax included</span><span class="lang-zh" lang="zh-CN">详细估算 US$199 · 图纸前置包 US$1,100 / US$1,400 · 价格均以美元计，含税</span></span></p>
+      <div class="sks-cta">
+        <a class="sks-btn" href="start.html"><span><span class="lang-en" lang="en">Send us your sketch &rarr;</span><span class="lang-zh" lang="zh-CN">发送你的草图 &rarr;</span></span></a>
+        <a class="sks-btn is-ghost" href="how-it-works.html"><span><span class="lang-en" lang="en">See how it works</span><span class="lang-zh" lang="zh-CN">看看流程怎么走</span></span></a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ===== Contact ===== -->
 <section class="contact section" id="contact">
@@ -1901,6 +2177,27 @@ document.addEventListener('keydown', (e) => {
     idx = (idx + 1) % imgs.length;
     imgs[idx].classList.add('active');
   }, 3500);
+})();
+
+// sketch-to-scheme compare viewer
+(function () {
+  var inner = document.getElementById('sksCmp');
+  var range = document.getElementById('sksRange');
+  if (!inner || !range) return;
+  function paint() { inner.style.setProperty('--sks-cut', range.value + '%'); }
+  function fromEvent(e) {
+    var r = inner.getBoundingClientRect();
+    var cx = e.touches ? e.touches[0].clientX : e.clientX;
+    var pct = (cx - r.left) / r.width * 100;
+    range.value = Math.round(Math.max(0, Math.min(100, pct)));
+    paint();
+  }
+  var dragging = false;
+  range.addEventListener('input', paint);
+  inner.addEventListener('pointerdown', function (e) { dragging = true; fromEvent(e); e.preventDefault(); });
+  window.addEventListener('pointermove', function (e) { if (dragging) fromEvent(e); });
+  window.addEventListener('pointerup', function () { dragging = false; });
+  paint();
 })();
 </script>
 
