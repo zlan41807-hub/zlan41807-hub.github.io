@@ -910,6 +910,12 @@ body.st-page { background: #1B2733; }
   .nav-links.open a .lang-zh { display: inline; }
   .nav-toggle { display: flex; }
 }
+
+/* The design filter hides cards by setting the hidden attribute, but a class rule
+   that sets display (such as .dz-card { display:flex }) outranks the browser's own
+   [hidden] rule, so the cards never left the screen while the counter did change.
+   Put the attribute back in charge. */
+[hidden] { display: none !important; }
 </style>
 </head>
 <body class="st-page">
