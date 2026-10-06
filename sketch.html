@@ -970,7 +970,10 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   color:var(--text-light); }
 
 /* compare viewer */
-.sks-cmp { max-width:920px; margin:34px auto 0; }
+/* the frame carries a whole dimensioned drawing, so it takes the full
+   container width: at 920px the 13.0 m dimension line and the axis
+   bubbles were too small to read, and the slider hides half of each view */
+.sks-cmp { max-width:1150px; margin:46px auto 0; }
 .sks-cmp-inner { position:relative; border-radius:18px; overflow:hidden; border:1px solid var(--border);
   box-shadow:var(--shadow); aspect-ratio:340/246; background:#fff; cursor:ew-resize; touch-action:none; }
 .sks-cmp-layer { position:absolute; inset:0; }
@@ -981,12 +984,12 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
 .sks-cmp-handle span { position:absolute; top:50%; left:50%; width:38px; height:38px; margin:-19px 0 0 -19px;
   border-radius:50%; background:var(--accent); color:#22303F; display:flex; align-items:center; justify-content:center;
   font-size:12px; font-weight:700; box-shadow:0 6px 18px rgba(0,0,0,.24); }
-.sks-cmp-tag { position:absolute; bottom:12px; font-size:10.5px; font-weight:700; letter-spacing:.06em;
+.sks-cmp-tag { position:absolute; bottom:14px; font-size:10.5px; font-weight:700; letter-spacing:.06em;
   text-transform:uppercase; padding:5px 11px; border-radius:999px; background:rgba(34,48,63,.84); color:#fff; }
 .sks-cmp-tag.is-l { left:12px; }
 .sks-cmp-tag.is-r { right:12px; }
-.sks-cmp input[type=range] { width:100%; margin:16px 0 0; accent-color:#C4975A; }
-.sks-cmp-cap { margin:12px auto 0; max-width:770px; text-align:center; font-size:12.5px; line-height:1.75;
+.sks-cmp input[type=range] { width:100%; margin:20px 0 0; accent-color:#C4975A; }
+.sks-cmp-cap { margin:14px auto 0; max-width:900px; text-align:center; font-size:12.5px; line-height:1.75;
   color:var(--text-light); }
 .sks-cmp-cap .lang-zh { display:block; margin-top:5px; }
 
