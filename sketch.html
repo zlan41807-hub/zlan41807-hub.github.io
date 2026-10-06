@@ -446,14 +446,14 @@ p.lang-zh, h4.lang-zh { font-size: 0.72em !important; opacity: 0.62 !important; 
 .proj-slide { flex:0 0 100%; height:100%; }
 .proj-slide img { width:100%; height:100%; object-fit:cover; display:block; }
 .proj-slider-btn {
-  position:absolute; top:50%; transform:translateY(-50%); z-index:1000;
+  position:absolute; top:12px; z-index:1000;
   width:38px; height:38px; border:none; border-radius:50%; cursor:pointer;
   background:rgba(20,20,28,0.45); color:#fff; font-size:0.95rem; line-height:1;
   display:flex; align-items:center; justify-content:center;
   opacity:0.85; transition: var(--transition);
 }
 .proj-slider-btn:hover { background:rgba(20,20,28,0.75); opacity:1; }
-.proj-slider-btn.prev { left:12px; }
+.proj-slider-btn.prev { left:auto; right:52px; }
 .proj-slider-btn.next { right:12px; }
 .proj-slider-dots {
   position:absolute; left:0; right:0; bottom:14px; z-index:1000;
@@ -1101,7 +1101,7 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
 /* ===== Navigation: eight items must fit ===== */
 /* Between this width and the menu breakpoint the Chinese sub-labels step aside,
    so the row keeps one line instead of wrapping mid-label. */
-@media (max-width: 1160px) {
+@media (max-width: 1120px) {
   .nav-links a .lang-zh { display: none; }
 }
 @media (max-width: 1000px) {
@@ -1199,12 +1199,10 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
     <div class="nav-links" id="navLinks">
       <a href="index.html#about"><span class="lang-en" lang="en">About</span><span class="lang-zh" lang="zh-CN">关于</span></a>
       <a href="index.html#services"><span class="lang-en" lang="en">Services &amp; Team</span><span class="lang-zh" lang="zh-CN">业务与团队</span></a>
-      <a href="index.html#projects"><span class="lang-en" lang="en">Projects</span><span class="lang-zh" lang="zh-CN">案例</span></a>
             <a href="estimate.html"><span class="lang-en" lang="en">Estimate</span><span class="lang-zh" lang="zh-CN">估算</span></a>
       <a href="how-it-works.html"><span class="lang-en" lang="en">Process</span><span class="lang-zh" lang="zh-CN">流程</span></a>
       <a href="designs.html"><span class="lang-en" lang="en">Designs</span><span class="lang-zh" lang="zh-CN">设计</span></a>
       <a href="sketch.html" class="is-current" aria-current="page"><span class="lang-en" lang="en">Sketch</span><span class="lang-zh" lang="zh-CN">速写设计</span></a>
-      <a href="index.html#contact"><span class="lang-en" lang="en">Contact</span><span class="lang-zh" lang="zh-CN">联系</span></a>
     </div>
     <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
     <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu">
