@@ -1,4 +1,5 @@
 // Public configuration only. No credentials.
-// apiBase is the public HTTPS tunnel that fronts the loopback customer-service gateway.
-// If the tunnel URL changes, update apiBase here and redeploy, or set enabled:false (the widget then shows the offline notice).
-window.JFA_CHAT_CONFIG = Object.freeze({enabled: true, apiBase: "https://rebates-gordon-infrastructure-yesterday.trycloudflare.com"});
+// apiBase is the permanent public HTTPS address of the customer-service backend
+// (ngrok free fixed domain; the visitor never sees it). Keep the ngrok-skip-browser-warning
+// header in jfa-chat.js: without it ngrok serves its interstitial page instead of our JSON.
+window.JFA_CHAT_CONFIG = Object.freeze({enabled: true, apiBase: "https://moustache-antitoxic-deliverer.ngrok-free.dev"});

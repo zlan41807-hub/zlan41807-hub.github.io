@@ -51,7 +51,7 @@
     const controller = new AbortController(), timer = setTimeout(() => controller.abort(), 110000);
     try {
       const res = await fetch(base + path, {method:"POST", mode:"cors", credentials:"omit", redirect:"error", cache:"no-store", referrerPolicy:"no-referrer", signal:controller.signal,
-        headers:{"Content-Type":"application/json", ...(auth ? {Authorization:"Bearer " + auth} : {})}, body:JSON.stringify(body)});
+        headers:{"Content-Type":"application/json", "ngrok-skip-browser-warning":"true", ...(auth ? {Authorization:"Bearer " + auth} : {})}, body:JSON.stringify(body)});
       if (!res.ok) { const err = new Error("HTTP " + res.status); err.status = res.status; throw err; }
       return await res.json();
     } finally { clearTimeout(timer); }
