@@ -18,7 +18,7 @@
     zh.lang = "zh-CN"; zh.className = "jfa-chat-zh";
     n.replaceChildren(en, zh);
   };
-  const toggle = el("button", "jfa-chat-toggle", "AI Chat / 客服人员");
+  const toggle = el("button", "jfa-chat-toggle", "Chat with us / 客服人员");
   toggle.type = "button"; toggle.setAttribute("aria-expanded", "false"); toggle.setAttribute("aria-controls", "jfa-chat-panel");
   const panel = el("section", "jfa-chat-panel"); panel.hidden = true; panel.setAttribute("aria-label", "JFA AI customer service");
   const header = el("header"), title = el("strong", "", "JFA Design Assistant / 设计助手"), close = el("button", "jfa-chat-close", "×");
