@@ -4,7 +4,7 @@
 #jfa-chat-panel * {box-sizing:border-box}
 #jfa-chat-panel header {display:flex;align-items:center;justify-content:space-between;gap:8px}
 #jfa-chat-close {border:0;background:transparent;font:24px system-ui;cursor:pointer;min-width:36px;min-height:36px}
-#jfa-chat-log {overflow:auto;min-height:90px;max-height:min(470px,48dvh);overflow-wrap:anywhere;white-space:pre-wrap}
+#jfa-chat-log {overflow:auto;min-height:200px;max-height:min(470px,48dvh);overflow-wrap:anywhere;white-space:pre-wrap}
 #jfa-chat-log p {margin:8px 0;padding:8px;border-radius:8px;background:#f3f1ee;font:inherit}
 #jfa-chat-panel form {display:flex;flex-direction:column;gap:8px}
 #jfa-chat-panel textarea {width:100%;min-height:88px;resize:vertical;max-height:220px;border:1px solid #bbb;border-radius:6px;padding:8px;font:16px system-ui}
@@ -31,6 +31,6 @@
   /* The floating WhatsApp/Email column is fixed to the bottom-right. Lift the panel above it so the
      panel can use nearly the whole screen width instead of stopping 104px short of the right edge. */
   #jfa-chat-panel {left:12px;right:12px;bottom:140px;padding:16px;width:auto;max-height:calc(100dvh - 168px);font-size:14px}
-  #jfa-chat-log {max-height:min(400px,42dvh)}
+  #jfa-chat-log {min-height:150px;max-height:min(400px,42dvh)}
   #jfa-chat-panel textarea {min-height:76px}
 }
