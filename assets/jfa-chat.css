@@ -1,16 +1,16 @@
 #jfa-chat-toggle {position:fixed;left:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:1001;border:0;border-radius:28px;padding:12px 18px;background:var(--accent,#805e3b);color:white;font:600 14px system-ui;cursor:pointer;box-shadow:0 3px 16px #0003;max-width:calc(100vw - 110px)}
-#jfa-chat-panel {position:fixed;left:16px;bottom:76px;width:min(360px,calc(100vw - 104px));max-height:calc(100dvh - 100px);z-index:1002;display:flex;flex-direction:column;gap:10px;padding:16px;background:#fff;color:#242424;border:1px solid #ddd;border-radius:14px;box-shadow:0 8px 40px #0003;font:14px/1.5 system-ui;box-sizing:border-box;overflow:auto}
+#jfa-chat-panel {position:fixed;left:16px;bottom:76px;width:min(460px,calc(100vw - 104px));max-height:min(780px,calc(100dvh - 124px));z-index:1002;display:flex;flex-direction:column;gap:12px;padding:20px;background:#fff;color:#242424;border:1px solid #ddd;border-radius:16px;box-shadow:0 10px 46px #0003;font:15px/1.55 system-ui;box-sizing:border-box;overflow:auto}
 #jfa-chat-panel[hidden] {display:none!important}
 #jfa-chat-panel * {box-sizing:border-box}
 #jfa-chat-panel header {display:flex;align-items:center;justify-content:space-between;gap:8px}
 #jfa-chat-close {border:0;background:transparent;font:24px system-ui;cursor:pointer;min-width:36px;min-height:36px}
-#jfa-chat-log {overflow:auto;min-height:40px;max-height:34dvh;overflow-wrap:anywhere;white-space:pre-wrap}
+#jfa-chat-log {overflow:auto;min-height:90px;max-height:min(470px,48dvh);overflow-wrap:anywhere;white-space:pre-wrap}
 #jfa-chat-log p {margin:8px 0;padding:8px;border-radius:8px;background:#f3f1ee;font:inherit}
 #jfa-chat-panel form {display:flex;flex-direction:column;gap:8px}
-#jfa-chat-panel textarea {width:100%;min-height:68px;resize:vertical;max-height:160px;border:1px solid #bbb;border-radius:6px;padding:8px;font:16px system-ui}
+#jfa-chat-panel textarea {width:100%;min-height:88px;resize:vertical;max-height:220px;border:1px solid #bbb;border-radius:6px;padding:8px;font:16px system-ui}
 #jfa-chat-panel button[type=submit] {padding:10px;border:0;border-radius:6px;background:var(--accent,#805e3b);color:#fff;cursor:pointer}
 #jfa-chat-panel :disabled {cursor:not-allowed;opacity:.6}
-#jfa-chat-status {margin:0;font-size:12px;overflow-wrap:anywhere}
+#jfa-chat-status {margin:0;font-size:13px;overflow-wrap:anywhere}
 #jfa-chat-toggle:focus-visible,#jfa-chat-panel :focus-visible {outline:3px solid #2673ba;outline-offset:3px}
 @media(max-width:360px) {#jfa-chat-panel {left:8px;width:calc(100vw - 88px);padding:10px}#jfa-chat-toggle {left:8px}}
 
@@ -21,6 +21,16 @@
 #jfa-chat-panel {bottom:92px}
 #jfa-chat-panel button[type=submit] {background:var(--primary,#2C3E50);font-size:14px;font-weight:600}
 
-#jfa-chat-contacts {margin:0;font-size:13px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+#jfa-chat-contacts {margin:0;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
 #jfa-chat-contacts a {color:var(--primary,#2C3E50);font-weight:600;text-decoration:underline;padding:4px 0}
 #jfa-chat-contacts[hidden] {display:none!important}
+
+/* Narrow screens: the panel may use nearly the whole width but always stops 104px short of the
+   right edge, which is where the floating WhatsApp/Email buttons live. */
+@media(max-width:560px){
+  /* The floating WhatsApp/Email column is fixed to the bottom-right. Lift the panel above it so the
+     panel can use nearly the whole screen width instead of stopping 104px short of the right edge. */
+  #jfa-chat-panel {left:12px;right:12px;bottom:140px;padding:16px;width:auto;max-height:calc(100dvh - 168px);font-size:14px}
+  #jfa-chat-log {max-height:min(400px,42dvh)}
+  #jfa-chat-panel textarea {min-height:76px}
+}
