@@ -47,7 +47,7 @@
   close.addEventListener("click", hide);
   panel.addEventListener("keydown", e => { if (e.key === "Escape") hide(); });
   const line = (who, text) => { log.append(el("p", "", who + text)); log.scrollTop = log.scrollHeight; };
-  async function request(path, body, auth) {
+  async function requestOnce(path, body, auth) {
     const controller = new AbortController(), timer = setTimeout(() => controller.abort(), 110000);
     try {
       const res = await fetch(base + path, {method:"POST", mode:"cors", credentials:"omit", redirect:"error", cache:"no-store", referrerPolicy:"no-referrer", signal:controller.signal,
@@ -55,6 +55,21 @@
       if (!res.ok) { const err = new Error("HTTP " + res.status); err.status = res.status; throw err; }
       return await res.json();
     } finally { clearTimeout(timer); }
+  }
+  // One retry, only for a failure that produced no HTTP response at all (status is
+  // undefined) and was not an abort. Safe: the gateway locks a session while it is
+  // answering, so a duplicate attempt is rejected rather than answered twice.
+  async function request(path, body, auth) {
+    try {
+      return await requestOnce(path, body, auth);
+    } catch (err) {
+      if (err && err.status === undefined && err.name !== "AbortError") {
+        status.textContent = "Connection is unstable - retrying\u2026 / \u8fde\u63a5\u4e0d\u7a33\u5b9a\uff0c\u6b63\u5728\u91cd\u8bd5\u2026";
+        await new Promise(r => setTimeout(r, 1200));
+        return await requestOnce(path, body, auth);
+      }
+      throw err;
+    }
   }
   form.addEventListener("submit", async e => {
     e.preventDefault(); const message = input.value.trim(); if (!base || busy || !message || message.length > 2000) return;
@@ -67,7 +82,9 @@
       line("JFA AI / 设计助手: ", answer.text); status.textContent = "AI guidance only. Our team will confirm project details. / AI 答复仅供参考，项目细节由团队确认。";
     } catch (err) {
       if (err.status === 401) token = "";
-      status.textContent = err.status === 429 ? "Chat limit reached. Please try later or contact us via WhatsApp. / 请求过多或今日额度已用完，请稍后或联系 WhatsApp。" : "Chat is temporarily unavailable. Please use WhatsApp or email; your request was not retried. / 暂时无法连接，未自动重试，请通过 WhatsApp 或邮件联系。";
+      status.textContent = err.status === 429
+        ? "Too many requests right now. Please try again in a minute, or contact us on WhatsApp or email. / \u8bf7\u6c42\u8fc7\u4e8e\u9891\u7e41\u6216\u4eca\u65e5\u989d\u5ea6\u5df2\u6ee1\uff0c\u8bf7\u7a0d\u540e\u518d\u8bd5\uff0c\u6216\u901a\u8fc7 WhatsApp / \u90ae\u4ef6\u8054\u7cfb\u6211\u4eec\u3002"
+        : "Connection interrupted. Please try again - if it keeps failing, use WhatsApp or email. / \u8fde\u63a5\u4e2d\u65ad\uff0c\u8bf7\u518d\u8bd5\u4e00\u6b21\uff1b\u82e5\u4ecd\u4e0d\u884c\uff0c\u8bf7\u901a\u8fc7 WhatsApp \u6216\u90ae\u4ef6\u8054\u7cfb\u6211\u4eec\u3002";
     } finally { busy = false; send.disabled = input.disabled = false; }
   });
 })();
