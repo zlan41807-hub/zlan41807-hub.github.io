@@ -18,16 +18,16 @@
     zh.lang = "zh-CN"; zh.className = "jfa-chat-zh";
     n.replaceChildren(en, zh);
   };
-  const toggle = el("button", "jfa-chat-toggle", "Chat with us / 客服人员");
+  const toggle = el("button", "jfa-chat-toggle", "Chat with us");
   toggle.type = "button"; toggle.setAttribute("aria-expanded", "false"); toggle.setAttribute("aria-controls", "jfa-chat-panel");
   const panel = el("section", "jfa-chat-panel"); panel.hidden = true; panel.setAttribute("aria-label", "JFA AI customer service");
-  const header = el("header"), title = el("strong", "", "JFA Design Assistant / 设计助手"), close = el("button", "jfa-chat-close", "×");
-  close.type = "button"; close.setAttribute("aria-label", "Close chat / 关闭对话"); header.append(title, close);
+  const header = el("header"), title = el("strong", "", "JFA Design Assistant"), close = el("button", "jfa-chat-close", "×");
+  close.type = "button"; close.setAttribute("aria-label", "Close chat"); header.append(title, close);
   const log = el("div", "jfa-chat-log"); log.setAttribute("role", "log"); log.setAttribute("aria-live", "polite");
-  const status = el("p", "jfa-chat-status", base ? "AI answers may be inaccurate. Do not share sensitive data. / 请勿提供敏感信息。" : "AI chat is not connected yet. Please contact us via WhatsApp or email. / AI 客服尚未开通，请通过 WhatsApp 或邮件联系。");
+  const status = el("p", "jfa-chat-status", base ? "AI answers may be inaccurate. Do not share sensitive data." : "AI chat is not connected yet. Please contact us via WhatsApp or email.");
   status.setAttribute("role", "status");
-  const form = el("form"), label = el("label", "", "Your message / 你的问题"), input = el("textarea", "jfa-chat-input"), send = el("button", "", "Send / 发送");
-  input.placeholder = "Ask about design, pricing or your project… / 咨询设计、报价或项目";
+  const form = el("form"), label = el("label", "", "Your message"), input = el("textarea", "jfa-chat-input"), send = el("button", "", "Send");
+  input.placeholder = "Ask about design, pricing or your project…";
   label.htmlFor = input.id; input.maxLength = 2000; input.required = true; send.type = "submit";
   input.disabled = send.disabled = !base;
   [toggle, title, status, label, send].forEach(bilingual);
@@ -37,7 +37,7 @@
   const link = (href, text, external) => { const a = el("a", "", text); a.href = href; if (external) { a.target = "_blank"; a.rel = "noopener"; } return a; };
   contacts.append(link("https://wa.me/8615958117391", "WhatsApp", true), document.createTextNode(" · "),
     link("mailto:1179060110@qq.com", "Email", false), document.createTextNode(" · "),
-    link("start.html", "Start a project / 项目申报", false));
+    link("start.html", "Start a project", false));
   form.append(label, input, send); panel.append(header, log, status, contacts, form);
   const syncContacts = () => { contacts.hidden = !!base; };
   syncContacts();
@@ -73,13 +73,13 @@
   }
   form.addEventListener("submit", async e => {
     e.preventDefault(); const message = input.value.trim(); if (!base || busy || !message || message.length > 2000) return;
-    busy = true; send.disabled = input.disabled = true; status.textContent = "Thinking… / 正在回复…";
+    busy = true; send.disabled = input.disabled = true; status.textContent = "Thinking…";
     try {
       if (!token) { const session = await request("/api/session", {}); if (typeof session.token !== "string" || !/^[A-Za-z0-9_-]{43}$/.test(session.token)) throw new Error("invalid session"); token = session.token; }
-      line("You / 你: ", message); input.value = "";
+      line("You", message); input.value = "";
       const answer = await request("/api/chat", {message}, token);
       if (typeof answer.text !== "string" || answer.text.length > 8000) throw new Error("invalid response");
-      line("JFA AI / 设计助手: ", answer.text); status.textContent = "AI guidance only. Our team will confirm project details. / AI 答复仅供参考，项目细节由团队确认。";
+      line("JFA AI", answer.text); status.textContent = "AI guidance only. Our team will confirm project details.";
     } catch (err) {
       if (err.status === 401) token = "";
       status.textContent = err.status === 429
