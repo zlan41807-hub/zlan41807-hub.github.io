@@ -1,0 +1,95 @@
+/* JFA shared surfaces. Loaded last on all six pages.
+   Explicit component themes, not a universal recolour. The repeated body class
+   matches the legacy bilingual !important rules; nested surfaces reset tokens. */
+:root {
+  --jfa-navy: #22303f;
+  --jfa-paper: #ffffff;
+  --jfa-near-white: #f6f7f8;
+  --jfa-edge: #dce2e7;
+  --jfa-card-shadow: 0 4px 18px rgba(34,48,63,.065);
+  --bg-warm: var(--jfa-near-white);
+  --bg-white: var(--jfa-paper);
+  --radius: 12px;
+  --radius-lg: 12px;
+}
+html body.jfa-read { background-color: var(--jfa-near-white); }
+
+/* Shared geometry; images, overlay layers, layouts and interaction states stay intact. */
+html body.jfa-read :is(.service-card,.team-card,.st-card,.est-card,.est-plan,.est-ord-card,
+.est-sheet,.est-view-sheet,.est-qa-item,.est-mini,.hiw-card,.hiw-out-card,.hiw-lane,
+.hiw-money,.hiw-panel,.hiw-doc,.dz-card,.dz-strip-inner,.dz-hero-plan,.dz-sketch,
+.sks-get-card,.sks-next-card,.sks-next,.sks-final,.sks-how article,.sks-send,.sks-qa,
+.sks-thumb,.sks-cmp-inner,.sks-c-stage,.pv-frame,.contact-form,.dz-steps-grid article) {
+  border-radius: 12px;
+  border: 1px solid var(--jfa-edge);
+  box-shadow: var(--jfa-card-shadow);
+}
+
+/* Light cards are explicit theme boundaries, even when nested in navy sections. */
+html body.jfa-read :is(.service-card,.team-card,.st-grid > .st-card,.est-card,.est-plan,
+.est-ord-card,.est-sheet,.est-view-sheet,.est-qa-item,.est-mini,.hiw-card,.hiw-out-card,
+.hiw-lane,.hiw-money,.hiw-doc,.dz-card,.dz-strip-inner,.dz-hero-plan,.sks-get-card,
+.dz-steps-grid article) {
+  --jfa-ink: #26323d;
+  --jfa-muted: #4f5a65;
+  background-color: var(--jfa-paper);
+  color: var(--jfa-ink);
+}
+
+/* Navy modules retain their image/gradient backgrounds. */
+html body.jfa-read :is(.hero,.stats,.contact,.est-hero,.hiw-hero,.dz-hero,
+.est-final,.hiw-final,.hiw-section.is-dark,.sks-next,.sks-final,
+.est-plan.is-featured,.est-ord-card.is-featured,.st-shell .st-card,
+.est-sheet-bar,.est-sheet-kit,.est-view-head) {
+  --jfa-ink: #f3f5f7;
+  --jfa-muted: #dce4eb;
+  color: var(--jfa-ink);
+}
+html body.jfa-read :is(.est-plan.is-featured,.est-ord-card.is-featured,.st-shell .st-card,
+.sks-next,.sks-final) { background-color: var(--jfa-navy); border-color: #536170; }
+html body.jfa-read :is(.sks-next-card,.hiw-panel,.contact-form,.est-final .est-plan:not(.is-featured)) {
+  --jfa-ink: #f3f5f7;
+  --jfa-muted: #dce4eb;
+  background-color: rgba(255,255,255,.045);
+  border-color: #536170;
+}
+
+/* Nested light/gold surfaces reset their own theme instead of inheriting white text. */
+html body.jfa-read :is(.est-final .est-plan.is-featured,.est-plan-cta,.est-badge,
+.est-final h2 .est-hl,.hiw-hl,.dz-hl,.hiw-chip,.hiw-tabs button.is-on,
+.btn-primary,.form-submit,.st-btn:not(.is-ghost),.hiw-btn:not(.is-ghost),
+.dz-btn:not(.is-ghost),.sks-btn:not(.is-ghost)) {
+  --jfa-ink: #22303f;
+  --jfa-muted: #22303f;
+  color: var(--jfa-ink);
+}
+html body.jfa-read .est-final .est-plan.is-featured { background-color: var(--accent); }
+html body.jfa-read .est-final .est-badge { --jfa-ink: #f3f5f7; --jfa-muted: #dce4eb; }
+html body.jfa-read .dz-hero-plan { --jfa-ink: #26323d; --jfa-muted: #4f5a65; }
+
+/* Only text in named components participates; no wildcard or SVG/image recolouring.
+   Variables resolve at each element, so a white document inside a dark panel stays dark-on-light. */
+html body.jfa-read.jfa-read.jfa-read :is(.hero,.stats,.contact,.est-hero,.hiw-hero,.dz-hero,
+.est-final,.hiw-final,.hiw-section.is-dark,.sks-next,.sks-final,.est-plan,.est-ord-card,
+.st-shell .st-card,.hiw-doc,.dz-hero-plan,.est-sheet-bar,.est-sheet-kit,.est-view-head)
+:is(p,li,label,h1,h2,h3,h4,.lang-en,.lang-zh,figcaption) {
+  color: var(--jfa-ink) !important;
+}
+html body.jfa-read.jfa-read.jfa-read :is(.hero,.stats,.contact,.est-hero,.hiw-hero,.dz-hero,
+.est-final,.hiw-final,.hiw-section.is-dark,.sks-next,.sks-final,.est-plan,.est-ord-card,
+.st-shell .st-card,.hiw-doc,.dz-hero-plan,.est-sheet-bar,.est-sheet-kit,.est-view-head) .lang-zh {
+  color: var(--jfa-muted) !important;
+}
+html body.jfa-read.jfa-read.jfa-read :is(.est-plan-cta,.btn-primary,.form-submit,
+.st-btn:not(.is-ghost),.hiw-btn:not(.is-ghost),.dz-btn:not(.is-ghost),.sks-btn:not(.is-ghost))
+:is(.lang-zh,.lang-en) { color: #22303f !important; }
+html body.jfa-read.jfa-read.jfa-read .dz-hero .dz-btn.is-ghost { color: #f3f5f7; }
+html body.jfa-read.jfa-read.jfa-read .st-shell .st-field :is(input,select,textarea) { color: #f3f5f7; }
+
+/* Start uses the shared near-white page, with a separate navy form card. */
+html body.jfa-read.jfa-read.jfa-read :is(.st-hero,.st-legal) :is(h1,p,a,.lang-en,.lang-zh) { color: #26323d !important; }
+html body.jfa-read.jfa-read.jfa-read .st-hero .st-eyebrow { color: #6e4b29; }
+html body.jfa-read.jfa-read.jfa-read .st-field :is(input,textarea)::placeholder { color: #b8c4ce; opacity: 1; }
+html body.jfa-read.jfa-read.jfa-read .dz-filter.is-on .lang-zh { color: #f3f5f7 !important; }
+html body.jfa-read.jfa-read.jfa-read :is(.pv-chrome,.pv-tabs button.is-on) :is(.lang-zh,.lang-en) { color: #dce4eb !important; }
+html body.jfa-read.jfa-read.jfa-read .sks-cmp-tag .lang-zh { color: #f3f5f7 !important; }
