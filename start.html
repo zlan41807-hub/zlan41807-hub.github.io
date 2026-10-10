@@ -916,12 +916,149 @@ body.st-page { background: #1B2733; }
    [hidden] rule, so the cards never left the screen while the counter did change.
    Put the attribute back in charge. */
 [hidden] { display: none !important; }
+
+/* ================================================================
+   JFA readability & spacing system (single source of truth)
+   English leads. Chinese stays readable and grouped tight to its English.
+   Modules are separated by real space.
+   ================================================================ */
+:root { --jfa-body: 17px; --jfa-zh: 16px; --jfa-small: 14px; --jfa-module: clamp(52px, 7vw, 96px); }
+html body { font-size: var(--jfa-body); line-height: 1.65; color: #26323d; }
+html body p, html body li, html body label, html body input, html body select,
+html body textarea, html body .section-subtitle, html body .about-text p,
+html body .service-card p, html body .process-step p, html body .team-bio,
+html body .est-list, html body .est-qa-item p, html body .est-faq .ans,
+html body .hiw-card-body, html body .hiw-card-list, html body .dz-story,
+html body .sks-body, html body .sks-get-card p {
+  font-size: var(--jfa-body); line-height: 1.65; color: #26323d; }
+html body small, html body .eyebrow, html body .label, html body .meta,
+html body .fine, html body .note, html body .disclaimer { font-size: var(--jfa-small); line-height: 1.5; }
+html body .lang-zh, html body p.lang-zh, html body h4.lang-zh,
+html body .lang-en + .lang-zh, html body .lang-zh + .lang-en {
+  opacity: 1 !important; color: #4f5a65 !important; margin-top: 4px !important; }
+/* Chinese legibility floor: every inline Chinese label is at least this size,
+   so no legacy 0.6em/0.72em rule can shrink it into illegibility. Headings scale
+   proportionally from their own large parent instead. */
+html body .lang-zh, html body p.lang-zh, html body h4.lang-zh {
+  font-size: var(--jfa-zh) !important; line-height: 1.72 !important; }
+html body h1 .lang-zh, html body h2 .lang-zh, html body h3 .lang-zh,
+html body .section-title .lang-zh, html body .hero h1 .lang-zh {
+  font-size: .58em !important; line-height: 1.35 !important; }
+html body .nav-links a .lang-zh { font-size: 12px !important; line-height: 1.3 !important; margin-left: 4px !important; }
+html body .hero-scroll .lang-zh, html body .scroll-indicator .lang-zh,
+html body .hero-badge .lang-zh, html body .project-overlay .lang-zh,
+html body .filter-btn .lang-zh, html body .btn .lang-zh {
+  font-size: var(--jfa-small) !important; line-height: 1.45 !important; }
+html body .section-title, html body .section-subtitle, html body .section-head,
+html body .sec-head, html body .head-copy, html body .stats, html body .stat-label,
+html body .about-text, html body .service-card p, html body .team-bio,
+html body .process-step p, html body .est-qa-item p, html body .est-list,
+html body .hiw-card-body, html body .hiw-card-list, html body .dz-story,
+html body .sks-body, html body .form-group, html body .form-field,
+html body .contact-item, html body .footer-col { text-align: left; }
+html body .service-card, html body .team-card, html body .est-card,
+html body .est-plan, html body .hiw-card, html body .dz-card,
+html body .sks-get-card, html body .sks-next-card, html body .form-card { border-radius: 12px; }
+html body .section-subtitle { color: #52606d; }
+@media (max-width: 700px) {
+  html body { font-size: 16px; line-height: 1.68; }
+  html body p, html body li, html body label, html body input, html body select,
+  html body textarea, html body .section-subtitle, html body .about-text p,
+  html body .service-card p, html body .process-step p, html body .team-bio,
+  html body .est-list, html body .hiw-card-body, html body .hiw-card-list,
+  html body .dz-story, html body .sks-body, html body .sks-get-card p { font-size: 16px; }
+  html body .lang-zh, html body p.lang-zh, html body h4.lang-zh { font-size: 15.5px !important; }
+  html body h1 .lang-zh, html body h2 .lang-zh, html body h3 .lang-zh,
+  html body .section-title .lang-zh, html body .hero h1 .lang-zh { font-size: .62em !important; }
+}
+
+/* 320px safety: no horizontal overflow on the narrowest common phone. */
+@media (max-width: 360px) {
+  html body .container { padding-left: 16px; padding-right: 16px; }
+  html body h1 { font-size: clamp(26px, 8.5vw, 34px) !important; line-height: 1.22 !important; }
+  html body h2 { font-size: clamp(21px, 6.6vw, 27px) !important; line-height: 1.25 !important; }
+  html body .hero-stats, html body .stats-grid, html body .projects-grid,
+  html body .service-grid, html body .team-grid, html body .est-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Very narrow phones (<=380px): clamp the merged services/team grid and its cards. */
+@media (max-width: 380px) {
+  html body .container { padding-left: 14px; padding-right: 14px; }
+  html body .st-grid, html body .service-grid, html body .est-grid,
+  html body .hiw-grid, html body .dz-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  html body .st-card, html body .service-card, html body .est-card,
+  html body .hiw-card, html body .dz-card { width: 100%; max-width: 100%; padding-left: 16px; padding-right: 16px; }
+  html body .st-card *, html body .service-card *, html body .est-card *,
+  html body .hiw-card *, html body .dz-card * { min-width: 0; overflow-wrap: anywhere; }
+  html body img, html body video, html body iframe { max-width: 100%; }
+}
+
+/* Dark surfaces (navy statistics band, contact block, footer, hero image) need light text,
+   including the Chinese line: the shared dark-grey Chinese colour is for light backgrounds. */
+html body .stats .lang-zh, html body .contact .lang-zh, html body footer .lang-zh,
+html body .hero .lang-zh, html body .is-dark .lang-zh, html body .hiw-section.is-dark .lang-zh {
+  color: rgba(255, 255, 255, .84) !important; }
+html body .stats p, html body .stat-label, html body .contact p, html body .contact-item,
+html body .hero p, html body .hero-desc { color: rgba(255, 255, 255, .88) !important; }
+html body footer p, html body footer .footer-col a, html body footer .footer-bottom span {
+  color: rgba(255, 255, 255, .78) !important; }
+html body .stats .lang-zh { color: rgba(255, 255, 255, .8) !important; }
+
+/* Footer sits on the darkest surface and carries legacy high-specificity Chinese rules,
+   so match their weight: light colour plus the same 16px legibility floor. */
+html body footer .footer-col a .lang-zh, html body footer .footer-col .lang-zh,
+html body footer .footer-col span.lang-zh, html body footer .footer-bottom .lang-zh,
+html body footer .lang-brand .lang-zh, html body footer .lang-zh {
+  color: rgba(255, 255, 255, .82) !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  opacity: 1 !important; }
+html body footer .footer-col h4 .lang-zh { font-size: 14px !important; color: rgba(255, 255, 255, .7) !important; }
+
+/* Specificity-proof legibility floor. Legacy per-context .lang-zh rules use up to three
+   class selectors with !important; repeating the body class matches and beats them, so the
+   floor and the light-on-dark colours always win regardless of source order. */
+html body.jfa-read.jfa-read.jfa-read .lang-zh,
+html body.jfa-read.jfa-read.jfa-read p.lang-zh,
+html body.jfa-read.jfa-read.jfa-read h4.lang-zh {
+  font-size: var(--jfa-zh) !important; line-height: 1.7 !important; opacity: 1 !important; }
+html body.jfa-read.jfa-read.jfa-read .stats .lang-zh,
+html body.jfa-read.jfa-read.jfa-read .contact .lang-zh,
+html body.jfa-read.jfa-read.jfa-read .hero .lang-zh,
+html body.jfa-read.jfa-read.jfa-read .is-dark .lang-zh,
+html body.jfa-read.jfa-read.jfa-read footer .lang-zh { color: rgba(255, 255, 255, .84) !important; }
+html body.jfa-read.jfa-read.jfa-read h1 .lang-zh,
+html body.jfa-read.jfa-read.jfa-read h2 .lang-zh,
+html body.jfa-read.jfa-read.jfa-read h3 .lang-zh { font-size: .58em !important; line-height: 1.35 !important; }
+html body.jfa-read.jfa-read.jfa-read .nav-links a .lang-zh { font-size: 12px !important; }
+@media (max-width: 700px) {
+  html body.jfa-read.jfa-read.jfa-read .lang-zh,
+  html body.jfa-read.jfa-read.jfa-read p.lang-zh,
+  html body.jfa-read.jfa-read.jfa-read h4.lang-zh { font-size: 15.5px !important; }
+  html body.jfa-read.jfa-read.jfa-read h1 .lang-zh,
+  html body.jfa-read.jfa-read.jfa-read h2 .lang-zh,
+  html body.jfa-read.jfa-read.jfa-read h3 .lang-zh { font-size: .62em !important; }
+}
+
+/* Only display headings scale their Chinese down proportionally; card-level headings keep a
+   readable 14px, and the footer brand line gets the light 15px treatment too. */
+html body.jfa-read.jfa-read.jfa-read h3 .lang-zh,
+html body.jfa-read.jfa-read.jfa-read h4 .lang-zh { font-size: 14px !important; line-height: 1.5 !important; }
+html body.jfa-read.jfa-read.jfa-read .service-card h3 .lang-zh,
+html body.jfa-read.jfa-read.jfa-read .st-card h3 .lang-zh,
+html body.jfa-read.jfa-read.jfa-read .team-card h3 .lang-zh,
+html body.jfa-read.jfa-read.jfa-read .hiw-card h3 .lang-zh,
+html body.jfa-read.jfa-read.jfa-read .dz-card h3 .lang-zh,
+html body.jfa-read.jfa-read.jfa-read .est-card h3 .lang-zh { font-size: 14px !important; }
+html body.jfa-read.jfa-read.jfa-read footer h3 .lang-zh,
+html body.jfa-read.jfa-read.jfa-read footer .footer-brand .lang-zh,
+html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !important; color: rgba(255,255,255,.86) !important; }
 </style>
 <link rel="stylesheet" href="assets/jfa-chat.css?v=1">
 <script defer src="assets/jfa-chat-config.js?v=1"></script>
 <script defer src="assets/jfa-chat.js?v=1"></script>
 </head>
-<body class="st-page">
+<body class="jfa-read" class="st-page">
 <nav class="nav" id="navbar">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
