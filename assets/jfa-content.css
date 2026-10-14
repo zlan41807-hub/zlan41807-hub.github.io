@@ -1,0 +1,38 @@
+/* Content-only editorial hierarchy; retain source copy and all photographs. */
+html body.content-page .lang-zh, .content-page .jfa-chat-zh { display: none !important; }
+.content-page { --content-ink: #293746; --content-muted: #52606c; --content-surface: #f6f4f0; }
+html body.content-page .content-heading { padding-top: calc(var(--nav-height) + 40px); }
+.content-heading p { margin: 0; color: var(--content-muted); font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+html body.content-page #about { padding-top: 16px; padding-bottom: 64px; }
+html body.content-page #about .container { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 20px 56px; align-items: start; }
+html body.content-page #about .section-title { grid-column: 1; text-align: start; margin: 0; font-size: clamp(2.2rem,4vw,3.5rem) !important; line-height: 1.15; letter-spacing: -.02em; }
+html body.content-page #about .section-title::after { margin-inline-start: 0; }
+html body.content-page #about .section-subtitle { grid-column: 1; text-align: start; margin: 0; max-width: 65ch; color: var(--content-ink); font-size: 1.125rem !important; line-height: 1.6 !important; }
+.content-page #about .about-grid { display: contents; }
+html body.content-page #about .about-text { grid-column: 1; min-width: 0; }
+html body.content-page #about .about-text p { font-size: 1rem !important; line-height: 1.65 !important; color: var(--content-muted); max-width: 65ch; text-wrap: pretty; margin-bottom: 20px; }
+html body.content-page #about .about-image { grid-column: 2; grid-row: 1 / span 3; width: 100%; height: auto; min-height: 0; aspect-ratio: 4 / 5; max-height: 620px; border-radius: 12px; overflow: hidden; }
+.content-page #about .about-image img { outline: 1px solid #0000001a; outline-offset: -1px; object-fit: cover; }
+html body.content-page #about .btn { margin-top: 4px !important; min-height: 48px; border-radius: 6px; }
+html body.content-page .carousel-next { inset: auto 16px 16px auto; width: 48px; height: 48px; padding: 0; border-radius: 50%; background: #fff; color: var(--content-ink); border: 1px solid #fff; box-shadow: 0 3px 12px #0003; font-size: 1.5rem; }
+.content-page .floating-cta { display: none; }
+html body.content-page #jfa-chat-toggle { left: auto; right: 20px; bottom: 16px; font-size: 13px; padding: 10px 16px; min-height: 44px; }
+html body.content-page #jfa-chat-panel { left: auto; right: 20px; bottom: 76px; width: min(480px,calc(100% - 40px)); }
+.content-page .footer { padding-bottom: 90px; }
+@media(max-width:880px) {
+ html body.content-page .content-heading { padding-top: calc(var(--nav-height) + 24px); }
+ html body.content-page #about .container { display: flex; flex-direction: column; gap: 20px; }
+ html body.content-page #about .about-image { aspect-ratio: 4 / 3; max-height: none; }
+ html body.content-page #about { padding-bottom: 40px; }
+ html body.content-page #jfa-chat-toggle { right: 12px; bottom: 12px; }
+}
+@media(prefers-reduced-motion:no-preference) { .content-page .carousel-next:active { transform:scale(.96);transition:transform 150ms ease-out; } }
+
+/* Keep the supporting chat action in flow, never over project imagery. */
+html body.content-page #jfa-chat-toggle { position: static; margin: 8px 0 0 12px; display: inline-flex; vertical-align: middle; background: #fff; color: var(--content-ink); border: 1px solid var(--content-muted); box-shadow: none; border-radius: 6px; }
+html body.content-page #about .container { row-gap: 20px; grid-template-rows: auto auto 1fr; }
+html body.content-page #about .reveal { opacity: 1; transform: none; }
+html body.content-page #about .btn-primary { background: var(--content-ink); color: #fff; }
+html body.content-page #about .about-text .lang-en { opacity: 1; color: inherit; }
+
+html body.content-page #about .btn-primary .lang-en { color: #fff !important; opacity: 1 !important; }

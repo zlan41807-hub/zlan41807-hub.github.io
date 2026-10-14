@@ -1,0 +1,13 @@
+/* Separate welcome navigation from the existing slideshow controls. */
+.welcome-transfer { position: relative; z-index: 4; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 18px; width: fit-content; max-width: calc(100% - 32px); margin: 0 auto 28px; padding: 12px 16px; background: #111e2c; color: #fff; border: 1px solid #8592a1; border-radius: 12px; font-size: 14px; }
+.welcome-transfer a { color: #fff; text-decoration: underline; text-underline-offset: 4px; font-weight: 600; }
+.welcome-transfer button { background: #f3e4cb; color: #172330; border: 0; border-radius: 6px; padding: 10px 14px; min-height: 44px; font: inherit; cursor: pointer; }
+.welcome-transfer [hidden] { display: none; }
+.welcome-transfer .lang-zh { margin-left: 6px; }
+.welcome-transfer :focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+body.welcome-page .hero-carousel { padding-top: calc(var(--nav-height) + 20px); }
+.content-heading { padding-top: calc(var(--nav-height) + 48px); padding-bottom: 0; }
+.content-heading h1 { font-family: var(--font-heading, serif); font-size: clamp(2rem,5vw,3.5rem); }
+.content-heading .lang-zh { font-size: .5em; }
+.content-page #about { padding-top: 48px; }
+@media (max-width: 600px) { .welcome-transfer { gap: 8px; padding: 10px; font-size: 13px; } .welcome-transfer a { flex-basis: 100%; text-align: center; } }
