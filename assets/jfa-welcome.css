@@ -6,6 +6,13 @@
 .welcome-transfer .lang-zh { margin-left: 6px; }
 .welcome-transfer :focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
 body.welcome-page .hero-carousel { padding-top: calc(var(--nav-height) + 20px); }
+/* Navbar brand composition, scaled as one unit; original SVG geometry and colors retained. */
+.welcome-page .hero-brand { display: flex; align-items: center; gap: .4464em; width: fit-content; max-width: 100%; margin-bottom: 28px; font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; color: #fff; }
+.welcome-page .hero-brand-icon { width: 1.7857em; height: 1.7857em; flex: 0 0 auto; filter: drop-shadow(0 1px 1px rgba(255,255,255,.55)); }
+.welcome-page .hero-brand-wordmark { min-width: 0; text-align: left; }
+.welcome-page .hero-brand-name { display: block; line-height: 1.5; }
+.welcome-page .hero-brand-sub { display: block; margin-top: -.0893em; font-size: .5em; line-height: 1.5; font-weight: 400; letter-spacing: .0893em; white-space: nowrap; color: #fff; }
+@media (max-width: 768px) { .welcome-page .hero-brand { margin-inline: auto; } }
 .content-heading { padding-top: calc(var(--nav-height) + 48px); padding-bottom: 0; }
 .content-heading h1 { font-family: var(--font-heading, serif); font-size: clamp(2rem,5vw,3.5rem); }
 .content-heading .lang-zh { font-size: .5em; }
