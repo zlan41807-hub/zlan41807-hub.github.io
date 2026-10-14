@@ -53,7 +53,7 @@
   --font-display: 'Playfair Display', 'Songti SC', 'SimSun', Georgia, serif;
   --max-width: 1200px;
   --nav-height: 72px;
-  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition: color .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease, opacity .2s ease, transform .2s ease;
 }
 
 /* ===== Reset & Base ===== */
@@ -567,7 +567,7 @@ p.lang-zh, h4.lang-zh { font-size: 0.72em !important; opacity: 0.62 !important; 
 }
 
 /* ===== Process ===== */
-/* 
+/*
   position: absolute; top: 12px; left: 12px; z-index: 3;
   padding: 3px 10px; border-radius: 4px;
   background: rgba(196,151,90,0.25);
@@ -1367,6 +1367,71 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
 <script defer src="assets/jfa-chat-config.js?v=1"></script>
 <script defer src="assets/jfa-chat.js?v=1"></script>
 <link rel="stylesheet" href="assets/jfa-surfaces.css">
+<link rel="stylesheet" href="assets/jfa-interactions.css">
+<script defer src="assets/jfa-interactions.js"></script>
+
+<style id="jfa-audited-contrast">
+/* Measured text contrast fixes; preserve existing surfaces and imagery. */
+html body article:nth-child(1) > .est-plan-head > .est-plan-price > .lang-en[lang="en"] > small,
+html body .est-section:nth-child(2) > .container > .est-quiet,
+html body .est-section:nth-child(2) > .container > .est-quiet > .lang-en[lang="en"],
+html body .est-section:nth-child(2) > .container > .est-quiet > .lang-en[lang="en"] > strong,
+html body .est-q:nth-child(1) > div:nth-child(1) > .est-q-badge,
+html body .est-q:nth-child(1) > .est-sheet > .est-sheet-body > .sub,
+html body .est-sheet-grid > div:nth-child(1) > b,
+html body div:nth-child(2) > b,
+html body div:nth-child(3) > b,
+html body div:nth-child(4) > b,
+html body .est-q:nth-child(1) > .est-sheet > .est-sheet-body > .est-sheet-foot,
+html body .est-q:nth-child(2) > div:nth-child(1) > .est-q-badge,
+html body .est-q:nth-child(2) > .est-sheet > .est-sheet-body > .sub,
+html body div:nth-child(1) > h5,
+html body div:nth-child(2) > h5,
+html body div:nth-child(3) > h5,
+html body .est-q:nth-child(2) > .est-sheet > .est-sheet-body > .est-sheet-foot,
+html body .est-q:nth-child(3) > div:nth-child(1) > .est-q-badge,
+html body .est-q:nth-child(3) > .est-sheet > .est-sheet-body > .sub,
+html body div:nth-child(1) > .ok.est-tag2,
+html body div:nth-child(2) > .ok.est-tag2,
+html body .you,
+html body div:nth-child(4) > .todo.est-tag2,
+html body div:nth-child(5) > .todo.est-tag2,
+html body div:nth-child(6) > .todo.est-tag2,
+html body .est-q:nth-child(3) > .est-sheet > .est-sheet-body > .est-sheet-foot,
+html body button[role="tab"][type="button"]:nth-child(1) > .n,
+html body .is-on > .n,
+html body button[role="tab"][type="button"]:nth-child(3) > .n,
+html body button[role="tab"][type="button"]:nth-child(4) > .n,
+html body button[role="tab"][type="button"]:nth-child(5) > .n,
+html body button[role="tab"][type="button"]:nth-child(6) > .n,
+html body button[role="tab"][type="button"]:nth-child(7) > .n,
+html body button[role="tab"][type="button"]:nth-child(8) > .n,
+html body button[role="tab"][type="button"]:nth-child(9) > .n,
+html body button[role="tab"][type="button"]:nth-child(10) > .n,
+html body .who > span:nth-child(1),
+html body .who > span:nth-child(2),
+html body #estViewPanel > .est-sheet-rows > div:nth-child(1) > span:nth-child(2),
+html body #estViewPanel > .est-sheet-rows > div:nth-child(2) > span:nth-child(2),
+html body #estViewPanel > .est-sheet-rows > div:nth-child(3) > span:nth-child(2),
+html body #estViewPanel > .est-sheet-rows > div:nth-child(4) > span:nth-child(2),
+html body #estViewPanel > .est-sheet-rows > div:nth-child(5) > span:nth-child(2),
+html body .est-sheet-foot:nth-child(5),
+html body .est-sheet-foot:nth-child(6),
+html body #estCount,
+html body .est-section:nth-child(4) > .container > .est-quiet > .lang-en[lang="en"],
+html body .est-ord-card:nth-child(1) > .head,
+html body .is-alt.est-section:nth-child(5) > .container > .est-quiet,
+html body .is-alt.est-section:nth-child(5) > .container > .est-quiet > .lang-en[lang="en"],
+html body .is-alt.est-section:nth-child(5) > .container > .est-quiet > .lang-en[lang="en"] > strong:nth-child(1),
+html body .lang-en[lang="en"] > strong:nth-child(2),
+html body .rail > .eyebrow,
+html body .is-featured > .est-plan-eyebrow > .lang-en[lang="en"],
+html body .est-final-price:nth-child(4) > span > .lang-en[lang="en"],
+html body .est-final-price:nth-child(5) > span > .lang-en[lang="en"],
+html body .est-disclaimer,
+html body .est-disclaimer > .lang-en[lang="en"],
+html body .est-disclaimer > .lang-en[lang="en"] > strong { color: #4f5a65 !important; }
+</style>
 </head>
 <body class="jfa-read" class="est-page">
 <nav class="nav" id="navbar">
@@ -1410,7 +1475,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
       </div>
       <div>
         <span class="lang-en" lang="en">JFA</span>
-        
+
         <span class="nav-logo-sub">JFA · ARCHITECTURE</span>
       </div>
     </a>
@@ -1422,7 +1487,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
       <a href="sketch.html"><span class="lang-en" lang="en">Sketch</span></a>
     </div>
     <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
-    <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu">
+    <button class="nav-toggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -1434,11 +1499,11 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
     <span class="est-eyebrow">Detailed Estimate · </span>
     <h1>
       <span class="lang-en" lang="en">Your design is ready.<br>Know the cost before you commit.</span>
-      
+
     </h1>
     <p class="est-lede">
       <span class="lang-en" lang="en">Our team reviews your scheme by hand and issues a report: the estimated construction cost, what that figure rests on, what sits outside it, and what still needs checking — so you can decide with numbers instead of guesses.</span>
-      
+
     </p>
     <div class="est-price-strip">
       <div class="est-price-chip"><strong>$199 <small>USD</small></strong><span class="lang-en" lang="en">Estimate report on its own</span></div>
@@ -1446,7 +1511,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
     </div>
     <p class="est-fineprint">
       <span class="lang-en" lang="en">Prices in USD, tax included. Nothing is paid on this page — the buttons below simply take you to the right place.</span>
-      
+
     </p>
   </div>
 </section>
@@ -1456,11 +1521,11 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
     <div class="est-section-head">
       <h2>
         <span class="lang-en" lang="en">How far do you want to take it?</span>
-        
+
       </h2>
       <p>
         <span class="lang-en" lang="en">Start with a JFA design or your own scheme. Choose the report to answer the cost question, or the package when you are ready to discuss the project further.</span>
-        
+
       </p>
     </div>
 
@@ -1472,13 +1537,13 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
         </header>
         <p class="est-plan-desc">
           <span class="lang-en" lang="en">A reviewed report for the design you choose: the estimated cost and what it rests on, the scope outside it, and your next step — before you decide on drawings.</span>
-          
+
         </p>
         <div class="est-spec">
           <p class="est-spec-label"><span class="lang-en" lang="en">Best time</span></p>
           <div class="est-spec-body">
             <span class="lang-en" lang="en">When you want to check the cost before committing to drawings.</span>
-            
+
           </div>
         </div>
         <div class="est-spec">
@@ -1507,7 +1572,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
           <p class="est-spec-label"><span class="lang-en" lang="en">Outside the scope</span></p>
           <div class="est-spec-body">
             <span class="lang-en" lang="en">Engineering, structural design, approvals, a supply quotation or a fixed construction price.</span>
-            
+
           </div>
         </div>
         <a class="est-plan-cta" href="start.html"><span class="lang-en" lang="en">Choose my design to get the estimate</span></a>
@@ -1523,17 +1588,17 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
         </header>
         <p class="est-plan-desc">
           <span class="lang-en" lang="en">Preliminary drawings, site plan, rendered image and the Detailed Estimate together, prepared for a nominated plot.</span>
-          
+
         </p>
         <div class="est-callout">
           <span class="lang-en" lang="en">Your Detailed Estimate is included. You do not need to buy it separately first.</span>
-          
+
         </div>
         <div class="est-spec">
           <p class="est-spec-label"><span class="lang-en" lang="en">Best time</span></p>
           <div class="est-spec-body">
             <span class="lang-en" lang="en">When you are ready to document the design for early project and planning discussions.</span>
-            
+
           </div>
         </div>
         <div class="est-spec">
@@ -1561,7 +1626,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
           <p class="est-spec-label"><span class="lang-en" lang="en">Outside the scope</span></p>
           <div class="est-spec-body">
             <span class="lang-en" lang="en">Construction drawings, certification, engineering, a supply quotation or a fixed construction price — preliminary documents only.</span>
-            
+
           </div>
         </div>
         <a class="est-plan-cta" href="start.html"><span class="lang-en" lang="en">View the preliminary package</span></a>
@@ -1581,11 +1646,11 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
     <div class="est-section-head">
       <h2>
         <span class="lang-en" lang="en">Three questions the review answers</span>
-        
+
       </h2>
       <p>
         <span class="lang-en" lang="en">A number on its own is not much use. What matters is what it rests on, what it excludes, and what nobody has checked yet.</span>
-        
+
       </p>
     </div>
 
@@ -1706,7 +1771,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
         <h4><span class="lang-en" lang="en">What "reviewed by a person" means</span></h4>
         <p>
           <span class="lang-en" lang="en">A member of our team reads the design, the pricing basis and what is still unknown before the report is issued, and holds it back if something needs fixing first. It gives you a clearer basis for a decision — not a promise of an all-in construction price. It is not checked or approved by a cost consultant, engineer, authority or lender, and we are not your contractor or certifier.</span>
-          
+
         </p>
       </div>
     </div>
@@ -1718,11 +1783,11 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
     <div class="est-section-head">
       <h2>
         <span class="lang-en" lang="en">What the report contains</span>
-        
+
       </h2>
       <p>
         <span class="lang-en" lang="en">Ten sections, written for your design and your site. Below is the structure — yours is built from your own scheme, not a template.</span>
-        
+
       </p>
     </div>
     <div class="est-view">
@@ -1744,7 +1809,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
     </div>
     <p class="est-quiet">
       <span class="lang-en" lang="en">Two-storey schemes also carry an upper-floor plan. Larger plots also carry a location plan. Preliminary documents are for early project and planning discussions — they are not construction drawings and not for certification.</span>
-      
+
     </p>
   </div>
 </section>
@@ -1754,11 +1819,11 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
     <div class="est-section-head">
       <h2>
         <span class="lang-en" lang="en">How it works</span>
-        
+
       </h2>
       <p>
         <span class="lang-en" lang="en">Both products are prepared from the version you submit — later edits do not change what was issued to you.</span>
-        
+
       </p>
     </div>
     <div class="est-ord">
@@ -1793,7 +1858,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
     <div class="est-section-head">
       <h2>
         <span class="lang-en" lang="en">Questions</span>
-        
+
       </h2>
     </div>
     <div class="est-faq2">
@@ -1851,7 +1916,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
       </h2>
       <p>
         <span class="lang-en" lang="en">Either way your Detailed Estimate is reviewed by a person. Inside a package it comes included.</span>
-        
+
       </p>
     </div>
 
@@ -1941,9 +2006,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
   </div>
 </footer>
 <script>
-function toggleNav() {
-  document.getElementById('navLinks').classList.toggle('open');
-}
+
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('navbar');
   if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
@@ -1954,8 +2017,8 @@ function applyLang(lang) {
   document.documentElement.lang = 'en';
   const btn = document.getElementById('langToggle');
   if (btn) {
-    btn.textContent = (lang === 'en') ? '' : 'EN';
-    btn.setAttribute('aria-label', (lang === 'en') ? '' : 'Switch to English');
+    btn.textContent = (lang === 'en') ? 'EN' : 'EN';
+    btn.setAttribute('aria-label', (lang === 'en') ? 'Switch display mode' : 'Switch to English');
   }
   try { localStorage.setItem('jfa-lang', lang); } catch (e) {}
 }
@@ -1968,15 +2031,8 @@ function applyLang(lang) {
   });
   applyLang(saved === 'en' ? 'en' : (saved === 'zh' ? 'zh' : 'zh'));
 })();
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.getElementById('navLinks').classList.remove('open');
-  });
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') document.getElementById('navLinks').classList.remove('open');
 
-});
+
 /* ===== ten-page sample report viewer ===== */
 (function () {
   var PAGES = [

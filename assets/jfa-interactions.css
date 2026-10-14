@@ -1,0 +1,76 @@
+/* Interaction and rhythm tokens shared by all six main pages. */
+:root { --jfa-control-radius: 8px; --jfa-focus: #145f9c; --jfa-control-edge: #788694; }
+html { scroll-padding-top: calc(var(--nav-height, 80px) + 20px); }
+body :is(h1,h2,h3,h4) { text-wrap: balance; }
+body p { text-wrap: pretty; }
+body :is(input,select,textarea,button) { font-family: inherit; }
+body :is(input,select,textarea) { font-size: 1rem !important; }
+body :is(.btn,.btn-primary,.btn-outline,.st-btn,.hiw-btn,.dz-btn,.sks-btn,.form-submit,.est-plan-cta) { border-radius: var(--jfa-control-radius); min-height: 44px; }
+body :is(.form-group,.st-field) :is(input,select,textarea) { border-color: var(--jfa-control-edge); }
+:focus-visible { outline: 3px solid var(--jfa-focus) !important; outline-offset: 4px; box-shadow: 0 0 0 3px #fff !important; }
+[hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip-link { position: fixed; inset: 10px auto auto 16px; transform: translateY(-200%); padding: 12px 18px; background: #fff; color: #22303f; z-index: 100001; border-radius: 8px; }
+.skip-link:focus { transform: none; }
+body .nav-toggle { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; border-radius: 8px; }
+body .nav-links a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
+body .project-card { border-radius: 12px; isolation: isolate; }
+.project-open { position: absolute; inset: 0; z-index: 4; cursor: zoom-in; border: 0; background: transparent; border-radius: inherit; }
+.project-open:focus-visible { outline-offset: -6px; outline-color: #fff !important; box-shadow: inset 0 0 0 9px #22303f !important; }
+body .project-overlay { pointer-events: none; background: linear-gradient(transparent,rgba(10,19,29,.94)); }
+body .project-card img { outline: 1px solid rgba(0,0,0,.1); outline-offset: -1px; }
+.project-enlarge,.carousel-next { position: absolute; z-index: 6; top: 12px; right: 12px; min-height: 44px; padding: 8px 12px; border: 1px solid #788694; border-radius: 8px; background: #22303f; color: #fff; cursor: pointer; }
+body .proj-slider-btn { width: 44px; height: 44px; top: 50%; z-index: 7; }
+body .proj-slider-dots { gap: 0; }
+body .proj-slider-dots button { width: 24px; height: 24px; padding: 6px; border: 6px solid transparent; background-clip: content-box; }
+body .filter-btn { min-height: 44px; }
+body dialog.ai-lightbox { position: fixed; inset: 0; margin: auto; padding: 16px; width: min(1120px, calc(100% - 32px)); max-width: none; height: fit-content; max-height: calc(100dvh - 32px); border: 1px solid #536170; border-radius: 12px; background: #16212d; color: #fff; overflow: auto; overscroll-behavior: contain; opacity: 1; visibility: visible; transform: none; }
+body dialog.ai-lightbox:not([open]) { display: none; }
+body dialog.ai-lightbox[open] { display: flex; flex-direction: column; gap: 12px; }
+body dialog.ai-lightbox::backdrop { background: rgba(8,14,22,.88); }
+.lightbox-toolbar { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: .875rem; }
+body .ai-lightbox .ai-lightbox-close { position: static; width: 44px; height: 44px; flex-shrink: 0; border: 1px solid #788694; border-radius: 8px; color: #fff; background: #22303f; font-size: 2rem; line-height: 1; cursor: pointer; }
+body .ai-lightbox img { width: 100%; max-width: 100%; max-height: calc(100dvh - 200px); object-fit: contain; border-radius: 4px; }
+body .ai-lightbox p { margin: 0; color: #fff !important; line-height: 1.5; font-size: 1rem; }
+@media (max-width: 880px) {
+  body .nav-links.open { max-height: calc(100dvh - var(--nav-height,80px)); overflow-y: auto; overscroll-behavior: contain; gap: 4px; padding: 12px 24px 24px; box-shadow: 0 12px 24px rgba(34,48,63,.12); }
+  body .nav-links a { display: flex; align-items: center; min-height: 44px; width: 100%; }
+}
+@media (max-width: 400px) {
+  body .project-overlay { padding: 16px; }
+  body .project-overlay p { line-height: 1.4; }
+  body .project-card-slider .project-overlay { padding-bottom: 42px; }
+}
+@media (hover: none) {
+  body :is(.project-card,.service-card,.st-card,.floating-cta-btn):hover { transform: none; }
+  body .project-card:hover img { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  html.js .reveal { opacity: 1 !important; transform: none !important; }
+  body :is(.hero-shape,.hero-shape-inner,.scroll-indicator,.floating-cta-btn):hover { transform: none !important; }
+}
+/* Business-page rhythm: shared with homepage chrome, not its slideshow. */
+:root { --jfa-intro-space: 64px; --jfa-section-space: 72px; }
+html body.jfa-read :is(.est-hero,.hiw-hero,.dz-hero,.st-hero) { padding-top: calc(var(--nav-height,72px) + var(--jfa-intro-space)); }
+html body.jfa-read .sks { padding-top: calc(var(--nav-height,72px) + var(--jfa-intro-space)); }
+html body.jfa-read :is(.est-hero,.hiw-hero,.dz-hero,.st-hero,.sks) h1 { font-family: var(--font-display); font-size: clamp(32px,4vw,52px); font-weight: 600; line-height: 1.18; letter-spacing: -.01em; margin-block: 16px 24px; }
+html body.jfa-read :is(.hiw-hl,.dz-hl,.sks-hl) { box-decoration-break: clone; -webkit-box-decoration-break: clone; padding-inline: 7px; }
+html body.jfa-read :is(.hiw-actions,.dz-actions,.sks-cta) { gap: 12px; margin-top: 28px; }
+html body.jfa-read :is(.hiw-btn,.dz-btn,.sks-btn,.st-btn) { min-height: 48px; padding: 12px 24px; font-size: 1rem; line-height: 1.5; }
+@media (max-width: 767px) {
+  :root { --jfa-intro-space: 40px; --jfa-section-space: 48px; }
+  html body.jfa-read .sks h1 { font-size: 28px; }
+  html body.jfa-read .st-hero { padding-top: calc(var(--nav-height,72px) + 24px); }
+  html body.jfa-read :is(.hiw-actions,.dz-actions,.sks-cta) > a { width: 100%; text-align: center; }
+}
+/* Audited numbered controls: opacity must not weaken text contrast. */
+html body.jfa-read .n { opacity: 1 !important; }
+html body.jfa-read button.is-on .n { color: #22303f !important; }
+html body.jfa-read .hiw-tabs button:not(.is-on) .n { color: #f3f5f7 !important; }
+html body.jfa-read .est-plan.is-featured .est-plan-eyebrow,
+html body.jfa-read .est-plan.is-featured .est-plan-eyebrow .lang-en,
+html body.jfa-read .est-final-price span,
+html body.jfa-read .est-final-price span .lang-en { opacity: 1 !important; color: #22303f !important; }
+@media (forced-colors: active) { :focus-visible { outline-color: Highlight !important; } .project-open { border: 1px solid ButtonText; } }

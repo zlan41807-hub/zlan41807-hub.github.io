@@ -97,7 +97,7 @@
   --font-display: 'Playfair Display', 'Songti SC', 'SimSun', Georgia, serif;
   --max-width: 1200px;
   --nav-height: 72px;
-  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition: color .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease, opacity .2s ease, transform .2s ease;
 }
 
 /* ===== Reset & Base ===== */
@@ -612,7 +612,7 @@ p.lang-zh, h4.lang-zh { font-size: 0.72em !important; opacity: 0.62 !important; 
 }
 
 /* ===== Process ===== */
-/* 
+/*
   position: absolute; top: 12px; left: 12px; z-index: 3;
   padding: 3px 10px; border-radius: 4px;
   background: rgba(196,151,90,0.25);
@@ -1067,6 +1067,29 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
 <script defer src="assets/jfa-chat-config.js?v=1"></script>
 <script defer src="assets/jfa-chat.js?v=1"></script>
 <link rel="stylesheet" href="assets/jfa-surfaces.css">
+<link rel="stylesheet" href="assets/jfa-interactions.css">
+<script defer src="assets/jfa-interactions.js"></script>
+<link rel="stylesheet" href="assets/jfa-hero.css">
+<script defer src="assets/jfa-hero.js"></script>
+
+<style id="jfa-audited-contrast">
+/* Measured text contrast fixes; preserve existing surfaces and imagery. */
+html body p:nth-child(1) > .lang-en[lang="en"] > .highlight-text,
+html body p:nth-child(2) > .lang-en[lang="en"] > .highlight-text,
+html body article:nth-child(1) > .st-head > div:nth-child(2) > .st-role > .lang-en[lang="en"],
+html body article:nth-child(1) > .st-services > .st-label > .lang-en[lang="en"],
+html body article:nth-child(2) > .st-head > div:nth-child(2) > .st-role > .lang-en[lang="en"],
+html body article:nth-child(2) > .st-services > .st-label > .lang-en[lang="en"],
+html body article:nth-child(3) > .st-head > div:nth-child(2) > .st-role > .lang-en[lang="en"],
+html body article:nth-child(3) > .st-services > .st-label > .lang-en[lang="en"],
+html body article:nth-child(4) > .st-head > div:nth-child(2) > .st-role > .lang-en[lang="en"],
+html body article:nth-child(4) > .st-services > .st-label > .lang-en[lang="en"],
+html body button[data-filter="all"] > .lang-en[lang="en"],
+html body .process-step.reveal:nth-child(1) > .step-number,
+html body .process-step.reveal-delay-1.reveal > .step-number,
+html body .process-step.reveal-delay-2.reveal > .step-number,
+html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !important; }
+</style>
 </head>
 <body class="jfa-read">
 
@@ -1112,7 +1135,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
       </div>
       <div>
         <span class="lang-en" lang="en">JFA</span>
-        
+
         <span class="nav-logo-sub">JFA · ARCHITECTURE</span>
       </div>
     </a>
@@ -1124,21 +1147,31 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
       <a href="sketch.html"><span class="lang-en" lang="en">Sketch</span></a>
     </div>
     <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
-    <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu">
+    <button class="nav-toggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
 <!-- ===== Hero ===== -->
-<section class="hero" id="home">
-  <div class="hero-grid"></div>
+<section class="hero hero-carousel" id="home" aria-roledescription="carousel" aria-label="Featured architecture">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 3: Modern-Classic Villa">
+      <img src="images/residential/residential-01-suburban-villa-carport.jpg" alt="Modern-Classic Villa" fetchpriority="high">
+    </div>
+    <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 3: Forest Retreat Cabin" aria-hidden="true">
+      <img src="images/projects/project-cabin-1.jpg" alt="Forest Retreat Cabin">
+    </div>
+    <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="3 of 3: Premium Resort Villa" aria-hidden="true">
+      <img src="images/projects/project-villa-1.jpg" alt="Premium Resort Villa">
+    </div>
+  </div>
   <div class="hero-content">
     <div class="hero-text">
       <div class="hero-badge reveal">
         <i class="fas fa-building"></i>
         <span class="lang-en" lang="en">JFA · Hangzhou</span>
-        
+
       </div>
       <h1 class="hero-title reveal reveal-delay-1">
         <span class="lang-en" lang="en">Building <span class="highlight">Infinite</span> Possibilities</span>
@@ -1146,35 +1179,33 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
       </h1>
       <p class="hero-desc reveal reveal-delay-2">
         <span class="lang-en" lang="en">Full-chain architectural services from concept to completion. We blend professional craftsmanship with global vision, delivering excellence for every project.</span>
-        
+
       </p>
       <div class="hero-actions reveal reveal-delay-3">
         <a href="#contact" class="btn btn-primary">
           <span class="lang-en" lang="en">Contact Us</span>
-          
+
           <i class="fas fa-arrow-right"></i>
         </a>
         <a href="#projects" class="btn btn-white-outline">
           <span class="lang-en" lang="en">View Projects</span>
-          
+
         </a>
       </div>
     </div>
-    <div class="hero-visual reveal reveal-delay-2">
-      <div class="hero-shape">
-        <div class="hero-shape-inner"></div>
-        <div class="hero-line"></div>
-        <div class="hero-line2"></div>
-        <div class="hero-shape-center">
-          <i class="fas fa-drafting-compass"></i>
-        </div>
-      </div>
+  </div>
+  <div class="hero-carousel-controls" hidden>
+    <button type="button" class="hero-rotation" aria-controls="heroSlides">Pause slideshow</button>
+    <button type="button" class="hero-prev" aria-label="Previous hero image" aria-controls="heroSlides">&#8592;</button>
+    <div class="hero-dots" role="group" aria-label="Choose hero image">
+      <button type="button" aria-label="Show image 1: Modern-Classic Villa" aria-current="true" aria-controls="heroSlides"></button>
+      <button type="button" aria-label="Show image 2: Forest Retreat Cabin" aria-controls="heroSlides"></button>
+      <button type="button" aria-label="Show image 3: Premium Resort Villa" aria-controls="heroSlides"></button>
     </div>
+    <button type="button" class="hero-next" aria-label="Next hero image" aria-controls="heroSlides">&#8594;</button>
+    <span class="hero-count" aria-hidden="true">01 / 03</span>
   </div>
-  <div class="scroll-indicator">
-    <span class="lang-en" lang="en">Scroll Down</span>
-    <div class="scroll-line"></div>
-  </div>
+  <p class="sr-only hero-status" role="status"></p>
 </section>
 
 <!-- ===== About ===== -->
@@ -1182,11 +1213,11 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
   <div class="container">
     <div class="section-title text-center reveal">
       <span class="lang-en" lang="en">About Us</span>
-      
+
     </div>
     <p class="section-subtitle text-center reveal reveal-delay-1">
       <span class="lang-en" lang="en">Hangzhou Jinfang Architectural Design Co., Ltd. is a full-chain building solution provider dedicated to delivering integrated architectural excellence</span>
-      
+
     </p>
     <div class="about-grid">
       <div class="about-text reveal">
@@ -1196,7 +1227,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
         </span></p>
         <a href="#contact" class="btn btn-primary" style="margin-top:12px;">
           <span class="lang-en" lang="en">Learn More</span>
-          
+
           <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -1241,11 +1272,11 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
   <div class="container">
     <div class="section-title text-center reveal">
       <span class="lang-en" lang="en">Services &amp; Team</span>
-      
+
     </div>
     <p class="section-subtitle text-center reveal reveal-delay-1">
       <span class="lang-en" lang="en">Four in-house disciplines. One coordinated team from concept to handover.</span>
-      
+
     </p>
     <div class="st-grid" id="team">
       <article class="st-card reveal">
@@ -1317,11 +1348,11 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
   <div class="container">
     <div class="section-title text-center reveal">
       <span class="lang-en" lang="en">Featured Projects</span>
-      
+
     </div>
     <p class="section-subtitle text-center reveal reveal-delay-1">
       <span class="lang-en" lang="en">Every project is a promise. Let our work speak for itself.</span>
-      
+
     </p>
     <div class="projects-filter reveal">
       <button class="filter-btn active" data-filter="all">
@@ -1341,24 +1372,24 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
       </button>
     </div>
     <div class="projects-grid">
-      <div class="project-card reveal" data-category="commercial" onclick="openLightbox(this)">
+      <div class="project-card reveal" data-category="commercial"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
         <span class="proj-tag"><span class="lang-en" lang="en">Commercial</span></span>
         <img loading="lazy" class="project-card-img" src="images/projects/project-restaurant-1.jpg" alt=" / Eco-Tourism Restaurant">
         <div class="project-overlay">
           <h4 class="lang-en" lang="en">Eco-Tourism Restaurant</h4>
-          
+
           <p class="lang-en" lang="en">Lishui, Zhejiang | Facade Design</p>
-          
+
         </div>
       </div>
-      <div class="project-card reveal reveal-delay-1" data-category="hospitality" onclick="openLightbox(this)">
+      <div class="project-card reveal reveal-delay-1" data-category="hospitality"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
         <span class="proj-tag"><span class="lang-en" lang="en">Hospitality</span></span>
         <img loading="lazy" class="project-card-img" src="images/projects/project-cabin-1.jpg" alt=" / Forest Retreat Cabin">
         <div class="project-overlay">
           <h4 class="lang-en" lang="en">Forest Retreat Cabin</h4>
-          
+
           <p class="lang-en" lang="en">Liangzhu | Cabin Architecture</p>
-          
+
         </div>
       </div>
       <div class="project-card project-card-slider reveal reveal-delay-2" data-category="residential">
@@ -1378,144 +1409,126 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
         </div>
         <div class="project-overlay">
           <h4 class="lang-en" lang="en">Residential Collection</h4>
-          
+
           <p class="lang-en" lang="en">Residential | Typologies and Facade Studies</p>
-          
+
         </div>
       </div>
-      <div class="project-card reveal" data-category="commercial" onclick="openLightbox(this)">
+      <div class="project-card reveal" data-category="commercial"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
         <span class="proj-tag"><span class="lang-en" lang="en">Commercial</span></span>
         <img loading="lazy" class="project-card-img" src="images/projects/project-restaurant-2.jpg" alt=" / Restaurant Interior">
         <div class="project-overlay">
           <h4 class="lang-en" lang="en">Restaurant Interior</h4>
-          
+
           <p class="lang-en" lang="en">Lishui, Zhejiang | Interior Design</p>
-          
+
         </div>
       </div>
-      <div class="project-card reveal reveal-delay-1" data-category="healthcare" onclick="openLightbox(this)">
+      <div class="project-card reveal reveal-delay-1" data-category="healthcare"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
         <span class="proj-tag"><span class="lang-en" lang="en">Healthcare</span></span>
         <img loading="lazy" class="project-card-img" src="images/projects/project-dental-1.jpg" alt=" / Dental Clinic Chain">
         <div class="project-overlay">
           <h4 class="lang-en" lang="en">Dental Clinic Chain</h4>
-          
+
           <p class="lang-en" lang="en">Hangzhou | Medical Interior Design</p>
-          
+
         </div>
       </div>
-      <div class="project-card reveal reveal-delay-2" data-category="hospitality" onclick="openLightbox(this)">
+      <div class="project-card reveal reveal-delay-2" data-category="hospitality"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
         <span class="proj-tag"><span class="lang-en" lang="en">Hospitality</span></span>
         <img loading="lazy" class="project-card-img" src="images/projects/project-cabin-2.jpg" alt=" / Cabin Landscape">
         <div class="project-overlay">
           <h4 class="lang-en" lang="en">Cabin Landscape</h4>
-          
+
           <p class="lang-en" lang="en">Liangzhu | Resort Landscape</p>
-          
+
         </div>
       </div>
 
       <!-- AI  -->
-      <div class="project-card reveal" data-category="commercial" onclick="openLightbox(this)">
+      <div class="project-card reveal" data-category="commercial"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
         <span class="proj-tag"><span class="lang-en" lang="en">Commercial</span></span>
         <img loading="lazy" class="project-card-img" src="images/ai-works/ai-16-黄仁勋-02-入口-现代精工.jpg" alt=" / Precision Modern · Entrance">
         <div class="project-overlay">
           <h4 class="lang-en" lang="en">Precision Modern · Entrance</h4>
-          
+
           <p class="lang-en" lang="en">JFA | Commercial Concept</p>
-          
+
         </div>
       </div>
-      <div class="project-card reveal reveal-delay-1" data-category="commercial" onclick="openLightbox(this)">
+      <div class="project-card reveal reveal-delay-1" data-category="commercial"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
         <span class="proj-tag"><span class="lang-en" lang="en">Commercial</span></span>
         <img loading="lazy" class="project-card-img" src="images/ai-works/ai-13-马斯克-02-中庭-未来有机.jpg" alt=" / Futuristic Organic · Atrium">
         <div class="project-overlay">
           <h4 class="lang-en" lang="en">Futuristic Organic · Atrium</h4>
-          
+
           <p class="lang-en" lang="en">JFA | Commercial Concept</p>
-          
+
         </div>
       </div>
-      <div class="project-card reveal reveal-delay-2" data-category="hospitality" onclick="openLightbox(this)">
+      <div class="project-card reveal reveal-delay-2" data-category="hospitality"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
         <span class="proj-tag"><span class="lang-en" lang="en">Hospitality</span></span>
         <img loading="lazy" class="project-card-img" src="images/ai-works/ai-02-特斯拉-02-庭院-自然共生.jpg" alt=" / Bio-Organic · Courtyard">
         <div class="project-overlay">
           <h4 class="lang-en" lang="en">Bio-Organic · Courtyard</h4>
-          
+
           <p class="lang-en" lang="en">JFA | Hospitality Concept</p>
-          
+
         </div>
       </div>
-      <div class="project-card reveal" data-category="commercial" onclick="openLightbox(this)">
+      <div class="project-card reveal" data-category="commercial"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
         <span class="proj-tag"><span class="lang-en" lang="en">Rendering</span></span>
         <img loading="lazy" class="project-card-img" src="images/ai-works/ai-06-系列A-建筑外观渲染-v4.jpg" alt=" / Arch Rendering · V4">
         <div class="project-overlay">
           <h4 class="lang-en" lang="en">Arch Rendering · V4</h4>
-          
+
           <p class="lang-en" lang="en">JFA | Arch Visualization</p>
-          
+
         </div>
       </div>
-      <div class="project-card reveal reveal-delay-1" data-category="commercial" onclick="openLightbox(this)">
+      <div class="project-card reveal reveal-delay-1" data-category="commercial"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
         <span class="proj-tag"><span class="lang-en" lang="en">Concept</span></span>
         <img loading="lazy" class="project-card-img" src="images/ai-works/ai-07-系列B-未来概念建筑-v4.jpg" alt=" / Futuristic Concept · V4">
         <div class="project-overlay">
           <h4 class="lang-en" lang="en">Futuristic Concept · V4</h4>
-          
+
           <p class="lang-en" lang="en">JFA | Concept Exploration</p>
-          
+
         </div>
       </div>
-      <div class="project-card reveal reveal-delay-2" data-category="hospitality" onclick="openLightbox(this)">
+      <div class="project-card reveal reveal-delay-2" data-category="hospitality"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
         <span class="proj-tag"><span class="lang-en" lang="en">Landscape</span></span>
         <img loading="lazy" class="project-card-img" src="images/ai-works/ai-09-系列C-景观建筑融合-v2.jpg" alt=" / Landscape Integration · V2">
         <div class="project-overlay">
           <h4 class="lang-en" lang="en">Landscape Integration · V2</h4>
-          
+
           <p class="lang-en" lang="en">JFA | Landscape Concept</p>
-          
+
         </div>
       </div>
-      
+
     </div>
   </div>
 </section>
 
 
-<!-- Lightbox -->
-<div class="ai-lightbox" id="aiLightbox" onclick="closeLightbox(event)">
-  <button class="ai-lightbox-close" onclick="closeLightbox()">&times;</button>
-  <img loading="lazy" id="aiLightboxImg" alt="Enlarged project image">
-</div>
-
-<script>
-function openLightbox(el) {
-  var img = el.querySelector('img');
-  var lbImg = document.getElementById('aiLightboxImg');
-  lbImg.src = img.src;
-  lbImg.alt = (img.alt || 'Project image') + ' (enlarged)';
-  document.getElementById('aiLightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox(e) {
-  if (e && e.target !== e.currentTarget) return;
-  document.getElementById('aiLightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeLightbox();
-});
-</script>
+<!-- Native modal: browser-managed inert background and focus containment. -->
+<dialog class="ai-lightbox" id="aiLightbox" aria-labelledby="aiLightboxCaption">
+  <div class="lightbox-toolbar"><span>Project view</span><button type="button" class="ai-lightbox-close" aria-label="Close project image">&times;</button></div>
+  <img id="aiLightboxImg" alt="">
+  <p id="aiLightboxCaption"></p>
+</dialog>
 
 <!-- ===== Process ===== -->
 <section class="process section" id="process">
   <div class="container">
     <div class="section-title text-center reveal">
       <span class="lang-en" lang="en">Our Process</span>
-      
+
     </div>
     <p class="section-subtitle text-center reveal reveal-delay-1">
       <span class="lang-en" lang="en">A streamlined workflow that ensures quality delivery on every project</span>
-      
+
     </p>
     <div class="process-steps">
       <div class="process-step reveal">
@@ -1560,11 +1573,11 @@ document.addEventListener('keydown', function(e) {
       <div class="contact-info reveal">
         <h2 class="section-title" style="color:#fff;">
           <span class="lang-en" lang="en">Get In Touch</span>
-          
+
         </h2>
         <p class="section-subtitle" style="color:rgba(255,255,255,0.6);">
           <span class="lang-en" lang="en">Whether it's a new project, technical inquiry, or industry exchange — we're always ready to connect.</span>
-          
+
         </p>
         <div class="contact-details">
           <div class="contact-item">
@@ -1593,7 +1606,7 @@ document.addEventListener('keydown', function(e) {
             <div>
               <h4><span class="lang-en" lang="en">Address</span></h4>
               <p class="lang-en" lang="en">Beijing · Shanghai · Guangzhou · Shenzhen · Hangzhou, China</p>
-              
+
             </div>
           </div>
           <div class="contact-item">
@@ -1601,7 +1614,7 @@ document.addEventListener('keydown', function(e) {
             <div>
               <h4><span class="lang-en" lang="en">Service Coverage</span></h4>
               <p class="lang-en" lang="en">Global Reach · Local Delivery</p>
-              
+
             </div>
           </div>
         </div>
@@ -1614,21 +1627,21 @@ document.addEventListener('keydown', function(e) {
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div class="form-group">
-              <label><span class="lang-en" lang="en">Name *</span></label>
-              <input type="text" name="name" required placeholder="Your name">
+              <label for="contact-name"><span class="lang-en" lang="en">Name *</span></label>
+<input id="contact-name" autocomplete="name" type="text" name="name" required placeholder="Your name">
             </div>
             <div class="form-group">
-              <label><span class="lang-en" lang="en">Email *</span></label>
-              <input type="email" name="email" required placeholder="your@email.com">
+              <label for="contact-email"><span class="lang-en" lang="en">Email *</span></label>
+<input id="contact-email" autocomplete="email" type="email" name="email" required placeholder="your@email.com">
             </div>
           </div>
           <div class="form-group">
-            <label><span class="lang-en" lang="en">Company</span></label>
-            <input type="text" name="company" placeholder="Company name">
+            <label for="contact-company"><span class="lang-en" lang="en">Company</span></label>
+<input id="contact-company" autocomplete="organization" type="text" name="company" placeholder="Company name">
           </div>
           <div class="form-group">
-            <label><span class="lang-en" lang="en">Service Needed *</span></label>
-            <select name="service" required>
+            <label for="contact-service"><span class="lang-en" lang="en">Service Needed *</span></label>
+<select id="contact-service" name="service" required>
               <option value="" data-zh="" data-en="Select a service">Select a service / </option>
               <option value="architectural" data-zh="" data-en="Architectural Design">Architectural Design / </option>
               <option value="interior" data-zh="" data-en="Interior Design">Interior Design / </option>
@@ -1639,12 +1652,12 @@ document.addEventListener('keydown', function(e) {
             </select>
           </div>
           <div class="form-group">
-            <label><span class="lang-en" lang="en">Project Details</span></label>
-            <textarea name="message" placeholder="Describe your project..."></textarea>
+            <label for="contact-message"><span class="lang-en" lang="en">Project Details</span></label>
+<textarea id="contact-message" name="message" placeholder="Describe your project..."></textarea>
           </div>
           <button type="submit" class="form-submit">
             <span class="lang-en" lang="en">Send Inquiry</span>
-            
+
             <i class="fas fa-paper-plane"></i>
           </button>
         </form>
@@ -1716,9 +1729,7 @@ document.addEventListener('keydown', function(e) {
 <!-- ===== JavaScript ===== -->
 <script>
 // ===== Mobile Nav Toggle =====
-function toggleNav() {
-  document.getElementById('navLinks').classList.toggle('open');
-}
+
 
 // ===== Navbar scroll effect =====
 window.addEventListener('scroll', () => {
@@ -1740,6 +1751,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 // ===== Counter Animation =====
 function animateCounter(el) {
   const target = parseInt(el.getAttribute('data-target'));
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = target; return; }
   const duration = 2000;
   const start = performance.now();
 
@@ -1763,28 +1775,13 @@ const counterObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 
-// ===== Project Filter =====
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.getAttribute('data-filter');
-    document.querySelectorAll('.project-card').forEach(card => {
-      if (filter === 'all' || card.getAttribute('data-category') === filter) {
-        card.style.display = 'block';
-        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
-      } else {
-        card.style.opacity = '0'; card.style.transform = 'translateY(20px)';
-        setTimeout(() => { card.style.display = 'none'; }, 300);
-      }
-    });
-  });
-});
+// Project filters are initialized by the shared interaction module.
 
 // ===== Contact Form =====
 async function handleFormSubmit(e) {
   e.preventDefault();
   const form = e.target;
+  form.querySelector('.form-recovery')?.remove();
   const btn = form.querySelector('.form-submit');
   const originalHTML = btn.innerHTML;
   const restore = () => { btn.innerHTML = originalHTML; btn.style.background = ''; btn.disabled = false; };
@@ -1817,7 +1814,9 @@ async function handleFormSubmit(e) {
     link.style.cssText = 'display:block;margin-top:12px;color:#fff;text-decoration:underline;font-size:0.9rem;';
     link.textContent = '\u2192  / Send by email instead';
     form.appendChild(link);
-    setTimeout(() => { restore(); link.remove(); }, 15000);
+    link.className = 'form-recovery';
+    link.textContent = 'Sending failed — send by email instead, or retry the form.';
+    restore(); // Keep the recovery link available until the user retries.
   }
 }
 
@@ -1827,8 +1826,8 @@ function applyLang(lang) {
   document.documentElement.lang = 'en';   // English is the primary language in both modes
   const btn = document.getElementById('langToggle');
   if (btn) {
-    btn.textContent = (lang === 'en') ? '' : 'EN';
-    btn.setAttribute('aria-label', (lang === 'en') ? '' : 'Switch to English');
+    btn.textContent = (lang === 'en') ? 'EN' : 'EN';
+    btn.setAttribute('aria-label', (lang === 'en') ? 'Switch display mode' : 'Switch to English');
   }
   document.querySelectorAll('select option[data-zh]').forEach(o => {
     const en = o.getAttribute('data-en'), zh = o.getAttribute('data-zh');
@@ -1845,16 +1844,10 @@ function applyLang(lang) {
 })();
 
 // ===== Close mobile nav on link click =====
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.getElementById('navLinks').classList.remove('open');
-  });
-});
+
 
 // ===== Keyboard: escape closes mobile menu =====
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') document.getElementById('navLinks').classList.remove('open');
-});
+
 
 // ===== Residential project slider =====
 (function () {
@@ -1930,28 +1923,17 @@ document.addEventListener('keydown', (e) => {
     if (!lb || !box) return;
     lb.src = img.src;
     lb.alt = (img.alt || 'Project image') + ' (enlarged)';
-    box.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    window.openProjectImage(img, slider.querySelector('.project-enlarge'));
   });
 
-  function start() { if (!timer) timer = setInterval(function () { go(idx + 1); }, 5000); }
+  function start() { /* Manual browsing: no unsolicited autoplay. */ }
   function stop() { if (timer) { clearInterval(timer); timer = null; } }
   slider.addEventListener('mouseenter', stop);
   slider.addEventListener('mouseleave', start);
   start();
 })();
 
-// ===== About Image Carousel =====
-(function() {
-  var imgs = document.querySelectorAll('#aboutCarousel .carousel-img');
-  if (imgs.length < 2) return;
-  var idx = 0;
-  setInterval(function() {
-    imgs[idx].classList.remove('active');
-    idx = (idx + 1) % imgs.length;
-    imgs[idx].classList.add('active');
-  }, 3500);
-})();
+// About carousel controls are initialized by the shared interaction module.
 </script>
 
 </body>
