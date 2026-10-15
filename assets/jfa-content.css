@@ -28,6 +28,12 @@ html body.content-page #jfa-chat-panel { left: auto; right: 20px; bottom: 76px; 
 }
 @media(prefers-reduced-motion:no-preference) { .content-page .carousel-next:active { transform:scale(.96);transition:transform 150ms ease-out; } }
 
+/* Separate residential arrows after shared styles enlarge their hit areas to 44px.
+   Reset both horizontal offsets so the legacy top-right pair cannot overlap. */
+.content-page #residentialSlider .proj-slider-btn { top: 50%; transform: translateY(-50%); }
+.content-page #residentialSlider .proj-slider-btn.prev { left: 12px; right: auto; }
+.content-page #residentialSlider .proj-slider-btn.next { left: auto; right: 12px; }
+
 /* Keep the supporting chat action in flow, never over project imagery. */
 html body.content-page #jfa-chat-toggle { position: static; margin: 8px 0 0 12px; display: inline-flex; vertical-align: middle; background: #fff; color: var(--content-ink); border: 1px solid var(--content-muted); box-shadow: none; border-radius: 6px; }
 html body.content-page #about .container { row-gap: 20px; grid-template-rows: auto auto 1fr; }
