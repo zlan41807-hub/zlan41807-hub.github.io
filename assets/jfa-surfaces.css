@@ -357,3 +357,8 @@ html body.jfa-read.content-page #services,
 html body.jfa-read.content-page #projects,
 html body.jfa-read.content-page #process,
 html body.jfa-read.content-page #contact { padding-bottom: 56px !important; }
+
+/* Projects and Process read as one block: the 113px band between the last card
+   row and the "Our Process" heading is pulled in to the card edge. */
+html body.jfa-read.content-page #projects { padding-bottom: 16px !important; }
+html body.jfa-read.content-page #process { padding-top: 16px !important; }
