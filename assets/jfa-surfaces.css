@@ -306,8 +306,8 @@ html body.jfa-read .est-pricing .est-plan-note { margin-top: 9px !important; }
 html body.jfa-read :is(.est-hl, .hiw-hl, .dz-hl, .sks-hl) {
   display: inline-block;
   box-sizing: border-box;
-  line-height: 0.88;
-  padding: 0.04em 0.22em 0.08em;
+  line-height: 0.9;
+  padding: 0.02em 0.22em 0.17em;
   border-radius: 0.24em;
   vertical-align: baseline;
   -webkit-box-decoration-break: clone;
