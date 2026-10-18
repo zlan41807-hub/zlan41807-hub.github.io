@@ -326,3 +326,20 @@ html body.jfa-read :is(.est-lede, .est-final-head p, .est-section-head p,
 
 /* The content page pins its own leading with higher specificity. */
 html body.jfa-read.content-page #about .section-subtitle { line-height: 1.3 !important; }
+
+/* ===== Highlighted phrases get their own centred line =====
+   The heading broke wherever the browser decided to, so a plain word shared the
+   line with the gold mark. The mark and its full stop now form one detached,
+   centred line, and the plain words keep the line above. */
+html body.jfa-read .hl-line {
+  display: block;
+  text-align: center;
+  margin-top: 0.06em;
+}
+html body.jfa-read .hl-line .est-hl,
+html body.jfa-read .hl-line .hiw-hl,
+html body.jfa-read .hl-line .dz-hl,
+html body.jfa-read .hl-line .sks-hl { margin: 0; }
+
+/* The full stop hangs past the mark so the mark itself is what sits centred. */
+html body.jfa-read .hl-line .hl-dot { margin-right: -0.264em; }
