@@ -221,3 +221,40 @@ html body.jfa-read .nav-links a.is-current::after { width: 0 !important; }
 html body.jfa-read .nav-links a:hover::after,
 html body.jfa-read .nav-links a:focus-visible::after { width: 100% !important; }
 html body.jfa-read .nav-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+/* ===== Content page: the two calls to action are one matched pair =====
+   "Learn more" and the chat toggle sat side by side at different heights,
+   fonts and corner offsets. They now share one geometry so they read as a
+   pair instead of two unrelated controls. */
+html body.jfa-read.content-page #about .btn,
+html body.jfa-read.content-page #jfa-chat-toggle {
+  box-sizing: border-box;
+  width: 176px;
+  min-height: 52px;
+  height: 52px;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  border-radius: 6px;
+  vertical-align: top;
+  margin-top: 4px;
+}
+html body.jfa-read.content-page #jfa-chat-toggle { margin-left: 12px; margin-right: 0; max-width: none; }
+@media (max-width: 480px) {
+  html body.jfa-read.content-page #about .btn,
+  html body.jfa-read.content-page #jfa-chat-toggle {
+    width: 100%;
+    min-height: 50px;
+    height: 50px;
+    padding: 0 12px;
+    font-size: 14.5px;
+    display: flex;
+  }
+  html body.jfa-read.content-page #jfa-chat-toggle { margin-left: 0; margin-top: 10px; max-width: none; }
+}
