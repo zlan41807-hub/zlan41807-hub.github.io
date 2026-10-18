@@ -313,3 +313,16 @@ html body.jfa-read :is(.est-hl, .hiw-hl, .dz-hl, .sks-hl) {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
+
+/* ===== Lede text sits as compact as the heading above it =====
+   Every paragraph that introduces a section ran at 1.8 leading, which left a
+   loose band between the line pairs and clashed with the tight headings. These
+   are set to 1.3; body copy inside cards keeps its own rhythm. */
+html body.jfa-read :is(.est-lede, .est-final-head p, .est-section-head p,
+  .hiw-lede, .dz-lede, .sks-lede, .sks-sub, .sks-body, .section-subtitle,
+  .st-hero p, .est-plan-desc, .est-quiet, .hiw-head p, .pv-head p, .dz-head p) {
+  line-height: 1.3 !important;
+}
+
+/* The content page pins its own leading with higher specificity. */
+html body.jfa-read.content-page #about .section-subtitle { line-height: 1.3 !important; }
