@@ -258,3 +258,18 @@ html body.jfa-read.content-page #jfa-chat-toggle { margin-left: 12px; margin-rig
   }
   html body.jfa-read.content-page #jfa-chat-toggle { margin-left: 0; margin-top: 10px; max-width: none; }
 }
+
+/* ===== Contact list: the label and value sit level with the icon box =====
+   The rows were aligned to the top of the icon, so the two lines of text hung
+   below the square. The text block is now centred on the icon box, which puts
+   the label and the value level with the frame on the left. */
+html body.jfa-read #contact .contact-item {
+  align-items: center !important;
+}
+html body.jfa-read #contact .contact-item > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+html body.jfa-read #contact .contact-item h4 { margin: 0 0 4px; }
+html body.jfa-read #contact .contact-item p { margin: 0; }
