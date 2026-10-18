@@ -204,3 +204,20 @@ html body.jfa-read .dz-sketch-q,
 html body.jfa-read .dz-sketch-a,
 html body.jfa-read .dz-sketch-note { text-align: center !important; }
 html body.jfa-read .dz-sketch { margin-left: auto !important; margin-right: auto !important; }
+
+/* ===== Navigation state: one indicator, not two =====
+   Older rules marked the current page with a text underline while also drawing
+   a gold hover bar at a different vertical offset, so two lines appeared side by
+   side and looked like they collided. The current page is now gold text only,
+   and the gold bar belongs to hover / keyboard focus alone. */
+html body.jfa-read .nav-links a[aria-current="page"],
+html body.jfa-read .nav-links a.is-current {
+  text-decoration: none !important;
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+}
+html body.jfa-read .nav-links a[aria-current="page"]::after,
+html body.jfa-read .nav-links a.is-current::after { width: 0 !important; }
+html body.jfa-read .nav-links a:hover::after,
+html body.jfa-read .nav-links a:focus-visible::after { width: 100% !important; }
+html body.jfa-read .nav-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
