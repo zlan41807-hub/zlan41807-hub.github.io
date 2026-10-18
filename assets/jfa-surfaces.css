@@ -298,3 +298,18 @@ html body.jfa-read .est-pricing ul.est-ticks li:last-child { margin-bottom: 0 !i
 html body.jfa-read .est-pricing .est-spec:last-of-type { margin-bottom: 16px !important; }
 html body.jfa-read .est-pricing .est-plan-cta { padding: 14px 20px !important; }
 html body.jfa-read .est-pricing .est-plan-note { margin-top: 9px !important; }
+
+/* ===== Highlight marks: rounded, and the box fits the letters =====
+   The gold mark was a square rectangle whose height came from the inherited
+   line box, so it stood well above the capitals and below the baseline. It is
+   now a rounded block whose height is driven by the glyphs themselves. */
+html body.jfa-read :is(.est-hl, .hiw-hl, .dz-hl, .sks-hl) {
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 0.88;
+  padding: 0.04em 0.22em 0.08em;
+  border-radius: 0.24em;
+  vertical-align: baseline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
