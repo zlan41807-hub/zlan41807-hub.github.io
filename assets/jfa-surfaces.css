@@ -273,3 +273,28 @@ html body.jfa-read #contact .contact-item > div {
 }
 html body.jfa-read #contact .contact-item h4 { margin: 0 0 4px; }
 html body.jfa-read #contact .contact-item p { margin: 0; }
+
+/* ===== Estimate pricing cards: same content, much less air =====
+   The two plan cards ran to 1302px because every block carried 20px of padding
+   plus 20px of margin and the bullet lines were set at 1.65 leading. Spacing is
+   tightened here; no sentence, price or exclusion is removed or reworded. */
+html body.jfa-read .est-pricing .est-plan { padding: 24px 28px 22px !important; }
+html body.jfa-read .est-pricing .est-plan-head { padding-bottom: 14px !important; }
+html body.jfa-read .est-pricing .est-plan-tax { margin-top: 6px !important; }
+html body.jfa-read .est-pricing .est-plan-desc { margin: 14px 0 0 !important; line-height: 1.6 !important; }
+html body.jfa-read .est-pricing .est-plan-eyebrow { margin-bottom: 12px !important; padding-bottom: 6px !important; }
+html body.jfa-read .est-pricing .est-callout { margin-top: 14px !important; padding: 12px 16px !important; line-height: 1.55 !important; }
+html body.jfa-read .est-pricing .est-spec { padding-top: 12px !important; margin-top: 12px !important; }
+html body.jfa-read .est-pricing .est-spec-label { margin-bottom: 5px !important; }
+html body.jfa-read .est-pricing .est-spec-body { line-height: 1.55 !important; }
+html body.jfa-read .est-pricing .est-spec-body ul.est-ticks,
+html body.jfa-read .est-pricing .est-spec ul.est-ticks { margin: 0 !important; padding: 0 !important; }
+html body.jfa-read .est-pricing ul.est-ticks li {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  margin-bottom: 4px !important;
+}
+html body.jfa-read .est-pricing ul.est-ticks li:last-child { margin-bottom: 0 !important; }
+html body.jfa-read .est-pricing .est-spec:last-of-type { margin-bottom: 16px !important; }
+html body.jfa-read .est-pricing .est-plan-cta { padding: 14px 20px !important; }
+html body.jfa-read .est-pricing .est-plan-note { margin-top: 9px !important; }
