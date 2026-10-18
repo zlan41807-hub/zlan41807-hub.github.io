@@ -298,20 +298,3 @@ html body.jfa-read .est-pricing ul.est-ticks li:last-child { margin-bottom: 0 !i
 html body.jfa-read .est-pricing .est-spec:last-of-type { margin-bottom: 16px !important; }
 html body.jfa-read .est-pricing .est-plan-cta { padding: 14px 20px !important; }
 html body.jfa-read .est-pricing .est-plan-note { margin-top: 9px !important; }
-
-/* ===== Estimate FAQ: one heading, full-width list =====
-   The section already had a centred "Questions" heading, and the left rail
-   repeated it as "Questions, answered.". The rail is gone and the list now uses
-   the full column; the enquiry link survives as one quiet line under the
-   heading, so nothing actionable was lost. */
-html body.jfa-read .est-faq2 { grid-template-columns: 1fr !important; gap: 0 !important; }
-html body.jfa-read .est-faq2 .rail { display: none !important; }
-html body.jfa-read .est-section-head .est-faq-note {
-  margin: 14px auto 0;
-  max-width: 60ch;
-  text-align: center;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #52606c;
-}
-html body.jfa-read .est-section-head .est-faq-note a { color: #2C3E50; text-decoration: underline; text-underline-offset: 3px; }
