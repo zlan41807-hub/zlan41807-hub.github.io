@@ -303,7 +303,7 @@ html body.jfa-read .est-pricing .est-plan-note { margin-top: 9px !important; }
    The gold mark was a square rectangle whose height came from the inherited
    line box, so it stood well above the capitals and below the baseline. It is
    now a rounded block whose height is driven by the glyphs themselves. */
-html body.jfa-read :is(.est-hl, .hiw-hl, .dz-hl, .sks-hl) {
+html body.jfa-read :is(.est-hl, .hiw-hl, .dz-hl, .sks-hl, .pv-hl) {
   display: inline-block;
   box-sizing: border-box;
   line-height: 0.9;
@@ -339,7 +339,8 @@ html body.jfa-read .hl-line {
 html body.jfa-read .hl-line .est-hl,
 html body.jfa-read .hl-line .hiw-hl,
 html body.jfa-read .hl-line .dz-hl,
-html body.jfa-read .hl-line .sks-hl { margin: 0; }
+html body.jfa-read .hl-line .sks-hl,
+html body.jfa-read .hl-line .pv-hl { margin: 0; }
 
 /* The full stop hangs past the mark so the mark itself is what sits centred. */
 html body.jfa-read .hl-line .hl-dot { margin-right: -0.264em; }
