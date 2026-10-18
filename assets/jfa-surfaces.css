@@ -362,3 +362,35 @@ html body.jfa-read.content-page #contact { padding-bottom: 56px !important; }
    row and the "Our Process" heading is pulled in to the card edge. */
 html body.jfa-read.content-page #projects { padding-bottom: 16px !important; }
 html body.jfa-read.content-page #process { padding-top: 16px !important; }
+
+/* ===== Process page pills: bigger type inside the same frame =====
+   Both the CTA buttons and the seven phase pills carried small type in a box
+   that had room for more. The box height is pinned, the horizontal padding is
+   traded for font size, and the text stays on one line so nothing spills. */
+html body.jfa-read .hiw-cta-row .hiw-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 20px;
+  font-size: 17.5px;
+  line-height: 1;
+  white-space: nowrap;
+}
+html body.jfa-read .hiw-tabs { gap: 5px; }
+html body.jfa-read .hiw-tabs button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 10px;
+  font-size: 15px;
+  line-height: 1;
+  white-space: nowrap;
+}
+html body.jfa-read .hiw-tabs button .n { margin-right: 6px; }
+@media (max-width: 1080px) {
+  html body.jfa-read .hiw-tabs button { padding: 0 9px; font-size: 14px; }
+}
