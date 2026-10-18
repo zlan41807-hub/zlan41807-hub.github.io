@@ -93,3 +93,114 @@ html body.jfa-read.jfa-read.jfa-read .st-field :is(input,textarea)::placeholder 
 html body.jfa-read.jfa-read.jfa-read .dz-filter.is-on .lang-zh { color: #f3f5f7 !important; }
 html body.jfa-read.jfa-read.jfa-read :is(.pv-chrome,.pv-tabs button.is-on) :is(.lang-zh,.lang-en) { color: #dce4eb !important; }
 html body.jfa-read.jfa-read.jfa-read .sks-cmp-tag .lang-zh { color: #f3f5f7 !important; }
+
+/* ===== Centred titles, subtitles and intro blocks — every page =====
+   Layout rule requested by the owner: page and section titles plus their
+   subtitles sit centred. Body copy, forms, lists and tables keep their own
+   alignment. Sections that were already centred are listed only where a
+   narrower legacy rule (is-left, sks-send, etc.) pulled them back. */
+
+/* Home — welcome hero */
+html body.jfa-read .hero-text,
+html body.jfa-read .hero-brand,
+html body.jfa-read .hero-title,
+html body.jfa-read .hero-desc { text-align: center !important; }
+html body.jfa-read .hero-brand { justify-content: center !important; }
+html body.jfa-read .hero-desc { margin-left: auto !important; margin-right: auto !important; }
+html body.jfa-read .hero-actions { justify-content: center !important; }
+
+/* Estimate — hero, section heads, final head, FAQ rail title */
+html body.jfa-read .est-hero .container,
+html body.jfa-read .est-hero h1,
+html body.jfa-read .est-eyebrow,
+html body.jfa-read .est-lede,
+html body.jfa-read .est-fineprint { text-align: center !important; }
+html body.jfa-read .est-lede,
+html body.jfa-read .est-fineprint { margin-left: auto !important; margin-right: auto !important; }
+html body.jfa-read .est-price-strip { justify-content: center !important; align-items: center; text-align: center !important; }
+html body.jfa-read .est-price-chip { text-align: center !important; }
+html body.jfa-read .est-section-head,
+html body.jfa-read .est-section-head h2,
+html body.jfa-read .est-section-head p { text-align: center !important; }
+html body.jfa-read .est-section-head { margin-left: auto !important; margin-right: auto !important; }
+html body.jfa-read .est-final-head,
+html body.jfa-read .est-final-head h2,
+html body.jfa-read .est-final-head p { text-align: center !important; }
+html body.jfa-read .est-final-head { margin-left: auto !important; margin-right: auto !important; }
+html body.jfa-read .est-faq2 .rail h2 { text-align: center !important; }
+
+/* Start a project — hero */
+html body.jfa-read .st-hero .container,
+html body.jfa-read .st-hero h1,
+html body.jfa-read .st-hero p { text-align: center !important; }
+html body.jfa-read .st-hero p { margin-left: auto !important; margin-right: auto !important; }
+
+/* Process — hero and any head marked is-left */
+html body.jfa-read .hiw-hero .container,
+html body.jfa-read .hiw-hero h1,
+html body.jfa-read .hiw-lede { text-align: center !important; }
+html body.jfa-read .hiw-lede { margin-left: auto !important; margin-right: auto !important; }
+html body.jfa-read .hiw-head.is-left { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+
+/* Designs — hero copy and eyebrow */
+html body.jfa-read .dz-hero-copy,
+html body.jfa-read .dz-hero-copy h1,
+html body.jfa-read .dz-eyebrow,
+html body.jfa-read .dz-lede { text-align: center !important; }
+html body.jfa-read .dz-lede { margin-left: auto !important; margin-right: auto !important; }
+html body.jfa-read .dz-hero-copy .dz-eyebrow { display: inline-block; }
+
+/* Sketch — hero copy plus the two blocks that were pinned left */
+html body.jfa-read .sks-copy,
+html body.jfa-read .sks-copy h1,
+html body.jfa-read .sks-sub { text-align: center !important; }
+html body.jfa-read .sks-copy .sks-lede,
+html body.jfa-read .sks-send .sks-lede { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+
+/* Content page — every section title and subtitle */
+html body.jfa-read .section-title,
+html body.jfa-read .section-subtitle,
+html body.jfa-read .section-head { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+
+/* Content page #about: the heading block spans both columns so it centres on
+   the page, not inside the left text column. Rows are explicit, so the photo
+   keeps its own column and cannot overlap the heading. */
+html body.jfa-read.content-page #about .container { grid-template-rows: auto auto auto !important; }
+html body.jfa-read.content-page #about .section-title {
+  grid-column: 1 / -1 !important; grid-row: 1 !important;
+  text-align: center !important; margin-left: auto !important; margin-right: auto !important;
+}
+html body.jfa-read.content-page #about .section-title::after { margin-inline: auto !important; }
+html body.jfa-read.content-page #about .section-subtitle {
+  grid-column: 1 / -1 !important; grid-row: 2 !important;
+  text-align: center !important; margin-left: auto !important; margin-right: auto !important;
+  max-width: 78ch !important;
+}
+html body.jfa-read.content-page #about .about-text { grid-column: 1 !important; grid-row: 3 !important; }
+html body.jfa-read.content-page #about .about-image { grid-column: 2 !important; grid-row: 3 !important; }
+
+/* Estimate FAQ rail: the note under the rail title follows the centred title. */
+html body.jfa-read .est-faq2 .rail p { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+
+/* Sketch: the send block heading was pinned left by a later rule. */
+html body.jfa-read .sks-send h2.sks-h2,
+html body.jfa-read .sks-send .sks-h2 { text-align: center !important; }
+
+/* Hero action rows follow the centred headings, and tick lists keep their
+   ticks on the left while the list block itself is centred. */
+html body.jfa-read .hiw-cta-row,
+html body.jfa-read .hiw-cta-row.is-left,
+html body.jfa-read .dz-cta-row,
+html body.jfa-read .dz-cta-row.is-left,
+html body.jfa-read .sks-cta,
+html body.jfa-read .est-plan-cta { justify-content: center !important; text-align: center !important; }
+
+html body.jfa-read .sks-ticks { text-align: left !important; width: fit-content !important; max-width: 100% !important; margin-left: auto !important; margin-right: auto !important; }
+html body.jfa-read .sks-ticks li { text-align: left !important; }
+
+html body.jfa-read .dz-fine,
+html body.jfa-read .dz-sketch,
+html body.jfa-read .dz-sketch-q,
+html body.jfa-read .dz-sketch-a,
+html body.jfa-read .dz-sketch-note { text-align: center !important; }
+html body.jfa-read .dz-sketch { margin-left: auto !important; margin-right: auto !important; }
