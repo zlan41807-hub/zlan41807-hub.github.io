@@ -16,16 +16,7 @@ import sys
 from pathlib import Path
 
 SITE = Path(__file__).resolve().parent
-PAGES = [
-    "index.html",
-    "content.html",
-    "estimate.html",
-    "start.html",
-    "how-it-works.html",
-    "designs.html",
-    "sketch.html",
-    "404.html",
-]
+PAGES = sorted(p.name for p in SITE.glob("*.html"))
 LINK = re.compile(r'((?:href|src)=")(/?)assets/([^"?]+\.(?:css|js))(\?v=[^"]*)?(")')
 
 
@@ -46,7 +37,8 @@ def main() -> int:
         page = SITE / name
         if not page.exists():
             continue
-        text = page.read_text(encoding="utf-8")
+        with open(page, encoding="utf-8", newline="") as fh:
+            text = fh.read()
 
         def repl(m: re.Match[str]) -> str:
             prefix, slash, rel, _old, quote = m.groups()
@@ -59,7 +51,8 @@ def main() -> int:
 
         new = LINK.sub(repl, text)
         if new != text:
-            page.write_text(new, encoding="utf-8")
+            with open(page, "w", encoding="utf-8", newline="") as fh:
+                fh.write(new)
             changed += 1
 
     print(f"assets tracked: {len(table)} | pages rewritten: {changed}")
