@@ -560,3 +560,19 @@ html body.jfa-read .st-btn {
   line-height: 1;
   white-space: nowrap;
 }
+
+
+/* ------------------------------------------------------------------ *
+ * Sketch page CTA pair: both buttons share one width.
+ * A shared flex basis keeps them equal on desktop (where they sit in
+ * one row) and makes them full width when they wrap on a phone.
+ * ------------------------------------------------------------------ */
+html body.jfa-read .sks-cta > .sks-btn {
+  flex: 1 1 264px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+html body.jfa-read .sks-cta {
+  justify-content: center;
+  align-items: stretch;
+}
