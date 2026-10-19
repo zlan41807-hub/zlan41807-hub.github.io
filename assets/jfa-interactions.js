@@ -60,8 +60,8 @@
     returnTo?.focus({preventScroll: true});
   });
   document.querySelectorAll('.project-open').forEach(button => {
-    const card = button.closest('.project-card');
-    const title = card.querySelector('h4')?.textContent.trim();
+    const card = button.closest('.dz-card, .project-card');
+    const title = card.querySelector('h4, h3')?.textContent.trim();
     button.setAttribute('aria-label', 'View ' + title);
     button.addEventListener('click', () => window.openProjectImage(card.querySelector('img'), button));
   });
@@ -73,8 +73,8 @@
     slider.append(enlarge); // Existing slider click handler resolves the current slide.
   }
   // Featured Projects: one card per screen, same anatomy as the designs carousel.
-  const pjButtons = [...document.querySelectorAll('.filter-btn')];
-  const pjCards = [...document.querySelectorAll('.project-card')];
+  const pjButtons = [...document.querySelectorAll('#projects .dz-filter')];
+  const pjCards = [...document.querySelectorAll('#projects .dz-card')];
   const pjGrid = document.getElementById('pjGrid');
   if (pjButtons.length && pjCards.length) {
     const pjPrev = document.getElementById('pjPrev');
@@ -86,7 +86,7 @@
 
     const pjMeasure = () => {
       if (!pjGrid) return;
-      pjGrid.style.removeProperty('--pj-card-h');
+      pjGrid.style.removeProperty('--dz-card-h');
       const keep = pjCards.map(card => card.hidden);
       pjCards.forEach(card => { card.hidden = false; });
       void pjGrid.offsetHeight;
@@ -95,29 +95,31 @@
         const h = card.getBoundingClientRect().height;
         if (h > tallest) tallest = h;
       });
-      pjGrid.style.setProperty('--pj-card-h', Math.round(tallest) + 'px');
+      pjGrid.style.setProperty('--dz-card-h', Math.round(tallest) + 'px');
       pjCards.forEach((card, i) => { card.hidden = keep[i]; });
       void pjGrid.offsetHeight;
     };
 
     const pjRender = () => {
-      const items = pjCards.filter(card => card.dataset.category === pjCat);
+      const items = pjCards.filter(card => (card.dataset.cat || card.dataset.category) === pjCat);
       if (pjIndex >= items.length) pjIndex = 0;
       if (pjIndex < 0) pjIndex = items.length - 1;
       pjCards.forEach(card => { card.hidden = true; });
       if (items[pjIndex]) { items[pjIndex].hidden = false; items[pjIndex].classList.add('visible'); }
       pjButtons.forEach(b => {
         const on = b.dataset.filter === pjCat;
-        b.classList.toggle('active', on); b.setAttribute('aria-pressed', String(on));
+        b.classList.toggle('is-on', on); b.setAttribute('aria-pressed', String(on));
       });
       if (pjPos) pjPos.textContent = items.length ? (pjIndex + 1) + ' / ' + items.length : '0 / 0';
+      const pjCount = document.getElementById('pjCount');
+      if (pjCount) pjCount.textContent = items.length;
       if (pjPrev) pjPrev.disabled = items.length < 2;
       if (pjNext) pjNext.disabled = items.length < 2;
       if (pjNav) pjNav.hidden = items.length < 2;
     };
 
     pjButtons.forEach(button => {
-      button.setAttribute('aria-pressed', String(button.classList.contains('active')));
+      button.setAttribute('aria-pressed', String(button.classList.contains('is-on')));
       button.addEventListener('click', () => {
         if (button.dataset.filter === pjCat) return;
         pjCat = button.dataset.filter; pjIndex = 0; pjRender();

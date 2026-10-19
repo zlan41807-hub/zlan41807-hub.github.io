@@ -1068,7 +1068,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
 <script defer src="assets/jfa-chat.js?v=265cbd09"></script>
 <link rel="stylesheet" href="assets/jfa-surfaces.css?v=dae581be">
 <link rel="stylesheet" href="assets/jfa-interactions.css?v=6006a494">
-<script defer src="assets/jfa-interactions.js?v=566f040d"></script>
+<script defer src="assets/jfa-interactions.js?v=25774f94"></script>
 
 
 
@@ -1091,7 +1091,7 @@ html body .process-step.reveal-delay-2.reveal > .step-number,
 html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !important; }
 </style>
 <link rel="stylesheet" href="assets/jfa-welcome.css?v=cfd7375c">
-<link rel="stylesheet" href="assets/jfa-content.css?v=b7b78b47">
+<link rel="stylesheet" href="assets/jfa-content.css?v=e9a08889">
 <script defer src="assets/jfa-content.js?v=ec7278be"></script>
 </head>
 <body class="jfa-read content-page">
@@ -1293,65 +1293,72 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 <!-- ===== Projects ===== -->
 <section class="projects section" id="projects">
  <div class="container">
- <div class="section-title text-center reveal">
- <span class="lang-en" lang="en">Featured Projects</span>
-
+ <div class="section-title text-center reveal"><span class="lang-en" lang="en">Featured Projects</span></div>
+ <p class="section-subtitle text-center reveal reveal-delay-1"><span class="lang-en" lang="en">Every project is a promise. Let our work speak for itself.</span></p>
+ <div class="dz-strip">
+ <div class="dz-strip-inner">
+ <div class="ds is-on"><span class="ds-n">1</span><span class="ds-t"><span class="lang-en" lang="en">Pick a design</span></span></div>
+ <div class="ds"><span class="ds-n">2</span><span class="ds-t"><span class="lang-en" lang="en">Detailed Estimate</span></span></div>
+ <div class="ds"><span class="ds-n">3</span><span class="ds-t"><span class="lang-en" lang="en">Preliminary Package</span></span></div>
+ <div class="ds"><span class="ds-n">4</span><span class="ds-t"><span class="lang-en" lang="en">Engineering</span></span></div>
+ <div class="ds"><span class="ds-n">5</span><span class="ds-t"><span class="lang-en" lang="en">Build</span></span></div>
  </div>
- <p class="section-subtitle text-center reveal reveal-delay-1">
- <span class="lang-en" lang="en">Every project is a promise. Let our work speak for itself.</span>
-
- </p>
- <div class="projects-filter reveal" role="group" aria-label="Filter projects">
- <button class="filter-btn active" data-filter="residential" aria-pressed="true"><span class="lang-en" lang="en">Residential</span></button>
- <button class="filter-btn" data-filter="hospitality" aria-pressed="false"><span class="lang-en" lang="en">Hospitality</span></button>
- <button class="filter-btn" data-filter="landscape" aria-pressed="false"><span class="lang-en" lang="en">Landscape</span></button>
- <button class="filter-btn" data-filter="interior" aria-pressed="false"><span class="lang-en" lang="en">Interior</span></button>
- <button class="filter-btn" data-filter="concept" aria-pressed="false"><span class="lang-en" lang="en">Concept</span></button></div>
- <div class="projects-grid pj-carousel" id="pjGrid">
- <div class="project-card" data-category="residential">
- <div class="pj-card-img"> <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <img loading="lazy" class="project-card-img" src="images/projects/project-restaurant-1.jpg" alt="White Block House">
  </div>
- <div class="pj-card-body">
- <p class="pj-tag"><span class="lang-en" lang="en">Residential</span></p>
- <h4><span class="lang-en" lang="en">White Block House</span></h4>
- <p class="pj-tagline"><span class="lang-en" lang="en">Two storeys of white block under deep eaves.</span></p>
- <p class="pj-story"><span class="lang-en" lang="en">The upper floor sits back behind a continuous band of windows over a brick plinth, with the ground floor left solid for parking. Timber eaves shade the glass and the roofline is held flat and level.</span></p>
- <dl class="pj-specs">
+ <div class="dz-bar">
+ <div class="dz-filters" role="group" aria-label="Filter projects">
+ <button type="button" class="dz-filter is-on" data-filter="residential"><span class="lang-en" lang="en">Residential</span></button>
+ <button type="button" class="dz-filter" data-filter="hospitality"><span class="lang-en" lang="en">Hospitality</span></button>
+ <button type="button" class="dz-filter" data-filter="landscape"><span class="lang-en" lang="en">Landscape</span></button>
+ <button type="button" class="dz-filter" data-filter="interior"><span class="lang-en" lang="en">Interior</span></button>
+ <button type="button" class="dz-filter" data-filter="concept"><span class="lang-en" lang="en">Concept</span></button>
+ </div>
+ <p class="dz-count"><span class="lang-en" lang="en"><b id="pjCount">3</b> designs &mdash; each one a starting point, none of them fixed.</span></p>
+ </div>
+ <div class="dz-grid dz-carousel" id="pjGrid">
+ <article class="dz-card" data-cat="residential">
+ <div class="dz-card-img">
+ <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <img loading="lazy" src="images/projects/project-restaurant-1.jpg" alt="White Block House">
+ </div>
+ <div class="dz-card-body">
+ <p class="dz-card-meta"><span class="dz-tag"><span class="lang-en" lang="en">Residential</span></span></p>
+ <h3><span class="lang-en" lang="en">White Block House</span></h3>
+ <p class="dz-tagline"><span class="lang-en" lang="en">Two storeys, deep eaves, one brick base.</span></p>
+ <p class="dz-story"><span class="lang-en" lang="en">A rendered upper floor over a brick plinth, so the ground reads solid and the upper level floats behind a continuous band window. Deep eaves hold the summer sun off the glass. Drawn for a suburban plot in Lishui, Zhejiang.</span></p>
+ <dl class="dz-specs">
  <div><dt><span class="lang-en" lang="en">Type</span></dt><dd>Residential</dd></div>
  <div><dt><span class="lang-en" lang="en">Scope</span></dt><dd>Architecture + facade</dd></div>
  <div><dt><span class="lang-en" lang="en">Good for</span></dt><dd>Suburban plots</dd></div>
- <div><dt><span class="lang-en" lang="en">Location</span></dt><dd>Lishui, Zhejiang</dd></div>
  </dl>
- <div class="pj-foot">
- <span class="pj-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
- <a class="pj-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
+ <div class="dz-card-foot">
+ <span class="dz-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
+ <a class="dz-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
  </div>
  </div>
+ </article>
+ <article class="dz-card" data-cat="hospitality">
+ <div class="dz-card-img">
+ <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <img loading="lazy" src="images/projects/project-cabin-1.jpg" alt="Tropical Courtyard Villa">
  </div>
- <div class="project-card" data-category="hospitality">
- <div class="pj-card-img"> <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <img loading="lazy" class="project-card-img" src="images/projects/project-cabin-1.jpg" alt="Tropical Courtyard Villa">
- </div>
- <div class="pj-card-body">
- <p class="pj-tag"><span class="lang-en" lang="en">Hospitality</span></p>
- <h4><span class="lang-en" lang="en">Tropical Courtyard Villa</span></h4>
- <p class="pj-tagline"><span class="lang-en" lang="en">Stone walls, an arched entrance, palms.</span></p>
- <p class="pj-story"><span class="lang-en" lang="en">A rendered stone villa with a two-storey arched entrance, terracotta roof and a timber pergola over the upper terrace. The drive and planting wrap the base so the building sits low against the palms.</span></p>
- <dl class="pj-specs">
+ <div class="dz-card-body">
+ <p class="dz-card-meta"><span class="dz-tag"><span class="lang-en" lang="en">Hospitality</span></span></p>
+ <h3><span class="lang-en" lang="en">Tropical Courtyard Villa</span></h3>
+ <p class="dz-tagline"><span class="lang-en" lang="en">Stone walls, an arched entrance, palms.</span></p>
+ <p class="dz-story"><span class="lang-en" lang="en">A rendered stone villa with a two-storey arched entrance, terracotta roof and a timber pergola over the upper terrace. The drive and planting wrap the base so the building sits low against the palms. A warm-climate plot in Liangzhu.</span></p>
+ <dl class="dz-specs">
  <div><dt><span class="lang-en" lang="en">Type</span></dt><dd>Hospitality</dd></div>
  <div><dt><span class="lang-en" lang="en">Scope</span></dt><dd>Architecture + facade</dd></div>
  <div><dt><span class="lang-en" lang="en">Good for</span></dt><dd>Warm-climate resort plots</dd></div>
- <div><dt><span class="lang-en" lang="en">Location</span></dt><dd>Liangzhu</dd></div>
  </dl>
- <div class="pj-foot">
- <span class="pj-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
- <a class="pj-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
+ <div class="dz-card-foot">
+ <span class="dz-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
+ <a class="dz-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
  </div>
  </div>
- </div>
- <div class="project-card" data-category="residential">
- <div class="pj-card-img">
+ </article>
+ <article class="dz-card" data-cat="residential">
+ <div class="dz-card-img">
  <div class="proj-slider" id="residentialSlider">
  <div class="proj-slider-track">
  <div class="proj-slide"><img loading="eager" src="images/residential/residential-01-suburban-villa-carport.jpg" alt="Modern-Classic Villa"></div>
@@ -1366,219 +1373,218 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
  <div class="proj-slider-dots"></div>
  </div>
  </div>
- <div class="pj-card-body">
- <p class="pj-tag"><span class="lang-en" lang="en">Residential</span></p>
- <h4><span class="lang-en" lang="en">Residential Collection</span></h4>
- <p class="pj-tagline"><span class="lang-en" lang="en">Six house types, one facade logic.</span></p>
- <p class="pj-story"><span class="lang-en" lang="en">Six residential studies kept together: a suburban villa with carport, a cantilevered concrete house, a dusk deck courtyard, a timber gable cabin, a siding-clad family house and a resort villa. Each is tested for roof pitch, glazing depth and how the ground floor meets the street.</span></p>
- <dl class="pj-specs">
+ <div class="dz-card-body">
+ <p class="dz-card-meta"><span class="dz-tag"><span class="lang-en" lang="en">Residential</span></span></p>
+ <h3><span class="lang-en" lang="en">Residential Collection</span></h3>
+ <p class="dz-tagline"><span class="lang-en" lang="en">Six house types, one facade logic.</span></p>
+ <p class="dz-story"><span class="lang-en" lang="en">Six residential studies kept together: a suburban villa with carport, a cantilevered concrete house, a dusk deck courtyard, a timber gable cabin, a siding-clad family house and a resort villa. Each is tested for roof pitch, glazing depth and how the ground floor meets the street.</span></p>
+ <dl class="dz-specs">
  <div><dt><span class="lang-en" lang="en">Type</span></dt><dd>Residential</dd></div>
  <div><dt><span class="lang-en" lang="en">Scope</span></dt><dd>Typologies + facade studies</dd></div>
  <div><dt><span class="lang-en" lang="en">Good for</span></dt><dd>Multi-plot development</dd></div>
- <div><dt><span class="lang-en" lang="en">Location</span></dt><dd>Multiple sites</dd></div>
  </dl>
- <div class="pj-foot">
- <span class="pj-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
- <a class="pj-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
+ <div class="dz-card-foot">
+ <span class="dz-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
+ <a class="dz-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
  </div>
  </div>
+ </article>
+ <article class="dz-card" data-cat="residential">
+ <div class="dz-card-img">
+ <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <img loading="lazy" src="images/projects/project-restaurant-2.jpg" alt="White Block House, Entrance Side">
  </div>
- <div class="project-card" data-category="residential">
- <div class="pj-card-img"> <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <img loading="lazy" class="project-card-img" src="images/projects/project-restaurant-2.jpg" alt="White Block House, Entrance Side">
- </div>
- <div class="pj-card-body">
- <p class="pj-tag"><span class="lang-en" lang="en">Residential</span></p>
- <h4><span class="lang-en" lang="en">White Block House, Entrance Side</span></h4>
- <p class="pj-tagline"><span class="lang-en" lang="en">The same block, from the entrance side.</span></p>
- <p class="pj-story"><span class="lang-en" lang="en">The other face of the white block: the entrance stair, the garage volume and the tree that shades the forecourt. Windows sit recessed behind white plaster so the wall reads as a single plane.</span></p>
- <dl class="pj-specs">
+ <div class="dz-card-body">
+ <p class="dz-card-meta"><span class="dz-tag"><span class="lang-en" lang="en">Residential</span></span></p>
+ <h3><span class="lang-en" lang="en">White Block House, Entrance Side</span></h3>
+ <p class="dz-tagline"><span class="lang-en" lang="en">The same block, from the entrance side.</span></p>
+ <p class="dz-story"><span class="lang-en" lang="en">The other face of the white block: the entrance stair, the garage volume and the tree that shades the forecourt. Windows sit recessed behind white plaster so the wall reads as a single plane. Same building, Lishui, Zhejiang.</span></p>
+ <dl class="dz-specs">
  <div><dt><span class="lang-en" lang="en">Type</span></dt><dd>Residential</dd></div>
  <div><dt><span class="lang-en" lang="en">Scope</span></dt><dd>Architecture + facade</dd></div>
  <div><dt><span class="lang-en" lang="en">Good for</span></dt><dd>Suburban plots</dd></div>
- <div><dt><span class="lang-en" lang="en">Location</span></dt><dd>Lishui, Zhejiang</dd></div>
  </dl>
- <div class="pj-foot">
- <span class="pj-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
- <a class="pj-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
+ <div class="dz-card-foot">
+ <span class="dz-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
+ <a class="dz-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
  </div>
  </div>
+ </article>
+ <article class="dz-card" data-cat="interior">
+ <div class="dz-card-img">
+ <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <img loading="lazy" src="images/projects/project-dental-1.jpg" alt="Clinic Waiting Lounge">
  </div>
- <div class="project-card" data-category="interior">
- <div class="pj-card-img"> <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <img loading="lazy" class="project-card-img" src="images/projects/project-dental-1.jpg" alt="Clinic Waiting Lounge">
- </div>
- <div class="pj-card-body">
- <p class="pj-tag"><span class="lang-en" lang="en">Interior</span></p>
- <h4><span class="lang-en" lang="en">Clinic Waiting Lounge</span></h4>
- <p class="pj-tagline"><span class="lang-en" lang="en">A long wait that does not feel like one.</span></p>
- <p class="pj-story"><span class="lang-en" lang="en">A double-height waiting hall wrapped in a curved timber lattice, glazed on both long walls, with benches grouped instead of lined up. The screen filters daylight into bands across the floor.</span></p>
- <dl class="pj-specs">
+ <div class="dz-card-body">
+ <p class="dz-card-meta"><span class="dz-tag"><span class="lang-en" lang="en">Interior</span></span></p>
+ <h3><span class="lang-en" lang="en">Clinic Waiting Lounge</span></h3>
+ <p class="dz-tagline"><span class="lang-en" lang="en">A long wait that does not feel like one.</span></p>
+ <p class="dz-story"><span class="lang-en" lang="en">A double-height waiting hall wrapped in a curved timber lattice, glazed on both long walls, with benches grouped instead of lined up. The screen filters daylight into bands across the floor. Hangzhou.</span></p>
+ <dl class="dz-specs">
  <div><dt><span class="lang-en" lang="en">Type</span></dt><dd>Interior</dd></div>
  <div><dt><span class="lang-en" lang="en">Scope</span></dt><dd>Interior + joinery</dd></div>
  <div><dt><span class="lang-en" lang="en">Good for</span></dt><dd>Clinics and waiting areas</dd></div>
- <div><dt><span class="lang-en" lang="en">Location</span></dt><dd>Hangzhou</dd></div>
  </dl>
- <div class="pj-foot">
- <span class="pj-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
- <a class="pj-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
+ <div class="dz-card-foot">
+ <span class="dz-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
+ <a class="dz-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
  </div>
  </div>
+ </article>
+ <article class="dz-card" data-cat="landscape">
+ <div class="dz-card-img">
+ <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <img loading="lazy" src="images/projects/project-cabin-2.jpg" alt="Long Pavilion">
  </div>
- <div class="project-card" data-category="landscape">
- <div class="pj-card-img"> <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <img loading="lazy" class="project-card-img" src="images/projects/project-cabin-2.jpg" alt="Long Pavilion">
- </div>
- <div class="pj-card-body">
- <p class="pj-tag"><span class="lang-en" lang="en">Landscape</span></p>
- <h4><span class="lang-en" lang="en">Long Pavilion</span></h4>
- <p class="pj-tagline"><span class="lang-en" lang="en">One long roof, one exposed frame.</span></p>
- <p class="pj-story"><span class="lang-en" lang="en">A linear pavilion with its steel frame left visible and full-height glazing on the garden side. The upper floor steps back to shade the glass below and break up the length; brick carries the base.</span></p>
- <dl class="pj-specs">
+ <div class="dz-card-body">
+ <p class="dz-card-meta"><span class="dz-tag"><span class="lang-en" lang="en">Landscape</span></span></p>
+ <h3><span class="lang-en" lang="en">Long Pavilion</span></h3>
+ <p class="dz-tagline"><span class="lang-en" lang="en">One long roof, one exposed frame.</span></p>
+ <p class="dz-story"><span class="lang-en" lang="en">A linear pavilion with its steel frame left visible and full-height glazing on the garden side. The upper floor steps back to shade the glass below and break up the length; brick carries the base. Liangzhu.</span></p>
+ <dl class="dz-specs">
  <div><dt><span class="lang-en" lang="en">Type</span></dt><dd>Landscape</dd></div>
  <div><dt><span class="lang-en" lang="en">Scope</span></dt><dd>Architecture + structure</dd></div>
  <div><dt><span class="lang-en" lang="en">Good for</span></dt><dd>Park and campus sites</dd></div>
- <div><dt><span class="lang-en" lang="en">Location</span></dt><dd>Liangzhu</dd></div>
  </dl>
- <div class="pj-foot">
- <span class="pj-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
- <a class="pj-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
+ <div class="dz-card-foot">
+ <span class="dz-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
+ <a class="dz-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
  </div>
  </div>
+ </article>
+ <article class="dz-card" data-cat="interior">
+ <div class="dz-card-img">
+ <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <img loading="lazy" src="images/ai-works/ai-16-黄仁勋-02-入口-现代精工.jpg" alt="Precision Modern · Entrance">
  </div>
- <div class="project-card" data-category="interior">
- <div class="pj-card-img"> <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <img loading="lazy" class="project-card-img" src="images/ai-works/ai-16-黄仁勋-02-入口-现代精工.jpg" alt="Precision Modern · Entrance">
- </div>
- <div class="pj-card-body">
- <p class="pj-tag"><span class="lang-en" lang="en">Interior</span></p>
- <h4><span class="lang-en" lang="en">Precision Modern &middot; Entrance</span></h4>
- <p class="pj-tagline"><span class="lang-en" lang="en">Timber plane, stone floor, one long desk.</span></p>
- <p class="pj-story"><span class="lang-en" lang="en">An entrance hall held between a continuous timber ceiling and a pale stone floor, with planting carried up to the reception counter and glazing kept to a single band at the far end.</span></p>
- <dl class="pj-specs">
+ <div class="dz-card-body">
+ <p class="dz-card-meta"><span class="dz-tag"><span class="lang-en" lang="en">Interior</span></span></p>
+ <h3><span class="lang-en" lang="en">Precision Modern &middot; Entrance</span></h3>
+ <p class="dz-tagline"><span class="lang-en" lang="en">Timber plane, stone floor, one long desk.</span></p>
+ <p class="dz-story"><span class="lang-en" lang="en">An entrance hall held between a continuous timber ceiling and a pale stone floor, with planting carried up to the reception counter and glazing kept to a single band at the far end.</span></p>
+ <dl class="dz-specs">
  <div><dt><span class="lang-en" lang="en">Type</span></dt><dd>Interior</dd></div>
  <div><dt><span class="lang-en" lang="en">Scope</span></dt><dd>Interior public space</dd></div>
  <div><dt><span class="lang-en" lang="en">Good for</span></dt><dd>Hotels and offices</dd></div>
- <div><dt><span class="lang-en" lang="en">Location</span></dt><dd>JFA series</dd></div>
  </dl>
- <div class="pj-foot">
- <span class="pj-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
- <a class="pj-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
+ <div class="dz-card-foot">
+ <span class="dz-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
+ <a class="dz-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
  </div>
  </div>
+ </article>
+ <article class="dz-card" data-cat="interior">
+ <div class="dz-card-img">
+ <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <img loading="lazy" src="images/ai-works/ai-13-马斯克-02-中庭-未来有机.jpg" alt="Futuristic Organic · Atrium">
  </div>
- <div class="project-card" data-category="interior">
- <div class="pj-card-img"> <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <img loading="lazy" class="project-card-img" src="images/ai-works/ai-13-马斯克-02-中庭-未来有机.jpg" alt="Futuristic Organic · Atrium">
- </div>
- <div class="pj-card-body">
- <p class="pj-tag"><span class="lang-en" lang="en">Interior</span></p>
- <h4><span class="lang-en" lang="en">Futuristic Organic &middot; Atrium</span></h4>
- <p class="pj-tagline"><span class="lang-en" lang="en">A stair that spirals through the light.</span></p>
- <p class="pj-story"><span class="lang-en" lang="en">A skylit atrium with a spiral stair wrapping a planted void, curved balconies on two levels and a ribbed white ceiling that follows the curve of the glazing.</span></p>
- <dl class="pj-specs">
+ <div class="dz-card-body">
+ <p class="dz-card-meta"><span class="dz-tag"><span class="lang-en" lang="en">Interior</span></span></p>
+ <h3><span class="lang-en" lang="en">Futuristic Organic &middot; Atrium</span></h3>
+ <p class="dz-tagline"><span class="lang-en" lang="en">A stair that spirals through the light.</span></p>
+ <p class="dz-story"><span class="lang-en" lang="en">A skylit atrium with a spiral stair wrapping a planted void, curved balconies on two levels and a ribbed white ceiling that follows the curve of the glazing.</span></p>
+ <dl class="dz-specs">
  <div><dt><span class="lang-en" lang="en">Type</span></dt><dd>Interior</dd></div>
  <div><dt><span class="lang-en" lang="en">Scope</span></dt><dd>Interior public space</dd></div>
  <div><dt><span class="lang-en" lang="en">Good for</span></dt><dd>Atriums and lobbies</dd></div>
- <div><dt><span class="lang-en" lang="en">Location</span></dt><dd>JFA series</dd></div>
  </dl>
- <div class="pj-foot">
- <span class="pj-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
- <a class="pj-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
+ <div class="dz-card-foot">
+ <span class="dz-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
+ <a class="dz-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
  </div>
  </div>
+ </article>
+ <article class="dz-card" data-cat="landscape">
+ <div class="dz-card-img">
+ <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <img loading="lazy" src="images/ai-works/ai-02-特斯拉-02-庭院-自然共生.jpg" alt="Bio-Organic · Courtyard">
  </div>
- <div class="project-card" data-category="landscape">
- <div class="pj-card-img"> <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <img loading="lazy" class="project-card-img" src="images/ai-works/ai-02-特斯拉-02-庭院-自然共生.jpg" alt="Bio-Organic · Courtyard">
- </div>
- <div class="pj-card-body">
- <p class="pj-tag"><span class="lang-en" lang="en">Landscape</span></p>
- <h4><span class="lang-en" lang="en">Bio-Organic &middot; Courtyard</span></h4>
- <p class="pj-tagline"><span class="lang-en" lang="en">Stone, moss, and one flowering tree.</span></p>
- <p class="pj-story"><span class="lang-en" lang="en">A courtyard garden laid in irregular stone with moss joints, a timber veranda on one side and a single cherry tree set off-centre so the path reads as a slow turn rather than a straight run.</span></p>
- <dl class="pj-specs">
+ <div class="dz-card-body">
+ <p class="dz-card-meta"><span class="dz-tag"><span class="lang-en" lang="en">Landscape</span></span></p>
+ <h3><span class="lang-en" lang="en">Bio-Organic &middot; Courtyard</span></h3>
+ <p class="dz-tagline"><span class="lang-en" lang="en">Stone, moss, and one flowering tree.</span></p>
+ <p class="dz-story"><span class="lang-en" lang="en">A courtyard garden laid in irregular stone with moss joints, a timber veranda on one side and a single cherry tree set off-centre so the path reads as a slow turn rather than a straight run.</span></p>
+ <dl class="dz-specs">
  <div><dt><span class="lang-en" lang="en">Type</span></dt><dd>Landscape</dd></div>
  <div><dt><span class="lang-en" lang="en">Scope</span></dt><dd>Landscape + planting</dd></div>
  <div><dt><span class="lang-en" lang="en">Good for</span></dt><dd>Courtyards and gardens</dd></div>
- <div><dt><span class="lang-en" lang="en">Location</span></dt><dd>JFA series</dd></div>
  </dl>
- <div class="pj-foot">
- <span class="pj-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
- <a class="pj-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
+ <div class="dz-card-foot">
+ <span class="dz-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
+ <a class="dz-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
  </div>
  </div>
+ </article>
+ <article class="dz-card" data-cat="concept">
+ <div class="dz-card-img">
+ <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <img loading="lazy" src="images/ai-works/ai-06-系列A-建筑外观渲染-v4.jpg" alt="Arch Rendering · V4">
  </div>
- <div class="project-card" data-category="concept">
- <div class="pj-card-img"> <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <img loading="lazy" class="project-card-img" src="images/ai-works/ai-06-系列A-建筑外观渲染-v4.jpg" alt="Arch Rendering · V4">
- </div>
- <div class="pj-card-body">
- <p class="pj-tag"><span class="lang-en" lang="en">Concept</span></p>
- <h4><span class="lang-en" lang="en">Arch Rendering &middot; V4</span></h4>
- <p class="pj-tagline"><span class="lang-en" lang="en">Glass, dusk, and a street that reads correctly.</span></p>
- <p class="pj-story"><span class="lang-en" lang="en">A rendering built to test how the block meets the street: glazing reflectivity, shopfront lighting and the pavement line, all checked before the material is fixed.</span></p>
- <dl class="pj-specs">
+ <div class="dz-card-body">
+ <p class="dz-card-meta"><span class="dz-tag"><span class="lang-en" lang="en">Concept</span></span></p>
+ <h3><span class="lang-en" lang="en">Arch Rendering &middot; V4</span></h3>
+ <p class="dz-tagline"><span class="lang-en" lang="en">Glass, dusk, and a street that reads correctly.</span></p>
+ <p class="dz-story"><span class="lang-en" lang="en">A rendering built to test how the block meets the street: glazing reflectivity, shopfront lighting and the pavement line, all checked before the material is fixed.</span></p>
+ <dl class="dz-specs">
  <div><dt><span class="lang-en" lang="en">Type</span></dt><dd>Concept</dd></div>
  <div><dt><span class="lang-en" lang="en">Scope</span></dt><dd>Visualisation</dd></div>
  <div><dt><span class="lang-en" lang="en">Good for</span></dt><dd>Decision support</dd></div>
- <div><dt><span class="lang-en" lang="en">Location</span></dt><dd>JFA series</dd></div>
  </dl>
- <div class="pj-foot">
- <span class="pj-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
- <a class="pj-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
+ <div class="dz-card-foot">
+ <span class="dz-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
+ <a class="dz-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
  </div>
  </div>
+ </article>
+ <article class="dz-card" data-cat="concept">
+ <div class="dz-card-img">
+ <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <img loading="lazy" src="images/ai-works/ai-07-系列B-未来概念建筑-v4.jpg" alt="Futuristic Concept · V4">
  </div>
- <div class="project-card" data-category="concept">
- <div class="pj-card-img"> <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <img loading="lazy" class="project-card-img" src="images/ai-works/ai-07-系列B-未来概念建筑-v4.jpg" alt="Futuristic Concept · V4">
- </div>
- <div class="pj-card-body">
- <p class="pj-tag"><span class="lang-en" lang="en">Concept</span></p>
- <h4><span class="lang-en" lang="en">Futuristic Concept &middot; V4</span></h4>
- <p class="pj-tagline"><span class="lang-en" lang="en">A form study, not a building.</span></p>
- <p class="pj-story"><span class="lang-en" lang="en">A faceted concept study testing how a crystalline mass breaks light before any material or programme is chosen, kept as a shape reference for later massing work.</span></p>
- <dl class="pj-specs">
+ <div class="dz-card-body">
+ <p class="dz-card-meta"><span class="dz-tag"><span class="lang-en" lang="en">Concept</span></span></p>
+ <h3><span class="lang-en" lang="en">Futuristic Concept &middot; V4</span></h3>
+ <p class="dz-tagline"><span class="lang-en" lang="en">A form study, not a building.</span></p>
+ <p class="dz-story"><span class="lang-en" lang="en">A faceted concept study testing how a crystalline mass breaks light before any material or programme is chosen, kept as a shape reference for later massing work.</span></p>
+ <dl class="dz-specs">
  <div><dt><span class="lang-en" lang="en">Type</span></dt><dd>Concept</dd></div>
  <div><dt><span class="lang-en" lang="en">Scope</span></dt><dd>Form study</dd></div>
  <div><dt><span class="lang-en" lang="en">Good for</span></dt><dd>Early massing</dd></div>
- <div><dt><span class="lang-en" lang="en">Location</span></dt><dd>JFA series</dd></div>
  </dl>
- <div class="pj-foot">
- <span class="pj-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
- <a class="pj-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
+ <div class="dz-card-foot">
+ <span class="dz-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
+ <a class="dz-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
  </div>
  </div>
+ </article>
+ <article class="dz-card" data-cat="landscape">
+ <div class="dz-card-img">
+ <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <img loading="lazy" src="images/ai-works/ai-09-系列C-景观建筑融合-v2.jpg" alt="Landscape Integration · V2">
  </div>
- <div class="project-card" data-category="landscape">
- <div class="pj-card-img"> <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <img loading="lazy" class="project-card-img" src="images/ai-works/ai-09-系列C-景观建筑融合-v2.jpg" alt="Landscape Integration · V2">
- </div>
- <div class="pj-card-body">
- <p class="pj-tag"><span class="lang-en" lang="en">Landscape</span></p>
- <h4><span class="lang-en" lang="en">Landscape Integration &middot; V2</span></h4>
- <p class="pj-tagline"><span class="lang-en" lang="en">Set into the slope, not on it.</span></p>
- <p class="pj-story"><span class="lang-en" lang="en">A curved-roof villa stepped into a wooded slope, its deck cantilevered over the water and the pool cut into the terrace below. Roof and planting overlap so the building reads as part of the canopy.</span></p>
- <dl class="pj-specs">
+ <div class="dz-card-body">
+ <p class="dz-card-meta"><span class="dz-tag"><span class="lang-en" lang="en">Landscape</span></span></p>
+ <h3><span class="lang-en" lang="en">Landscape Integration &middot; V2</span></h3>
+ <p class="dz-tagline"><span class="lang-en" lang="en">Set into the slope, not on it.</span></p>
+ <p class="dz-story"><span class="lang-en" lang="en">A curved-roof villa stepped into a wooded slope, its deck cantilevered over the water and the pool cut into the terrace below. Roof and planting overlap so the building reads as part of the canopy.</span></p>
+ <dl class="dz-specs">
  <div><dt><span class="lang-en" lang="en">Type</span></dt><dd>Landscape</dd></div>
  <div><dt><span class="lang-en" lang="en">Scope</span></dt><dd>Architecture + landscape</dd></div>
  <div><dt><span class="lang-en" lang="en">Good for</span></dt><dd>Forest and waterside sites</dd></div>
- <div><dt><span class="lang-en" lang="en">Location</span></dt><dd>JFA series</dd></div>
  </dl>
- <div class="pj-foot">
- <span class="pj-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
- <a class="pj-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
+ <div class="dz-card-foot">
+ <span class="dz-price"><span class="lang-en" lang="en">Estimate US$199 &middot; package from US$1,100</span></span>
+ <a class="dz-go" href="start.html"><span class="lang-en" lang="en">Start from this &rarr;</span></a>
  </div>
  </div>
+ </article>
+ </div>
+ <div class="dz-nav">
+ <button type="button" class="dz-arrow" id="pjPrev" aria-label="Previous project">&lsaquo;</button>
+ <p class="dz-pos" id="pjPos" aria-live="polite">1 / 3</p>
+ <button type="button" class="dz-arrow" id="pjNext" aria-label="Next project">&rsaquo;</button>
  </div>
  </div>
- 
- <div class="pj-nav">
- <button type="button" class="pj-arrow" id="pjPrev" aria-label="Previous project">&lsaquo;</button>
- <p class="pj-pos" id="pjPos" aria-live="polite">1 / 1</p>
- <button type="button" class="pj-arrow" id="pjNext" aria-label="Next project">&rsaquo;</button>
- </div></div>
 </section>
 
 
