@@ -72,9 +72,10 @@
     enlarge.textContent = 'Enlarge'; enlarge.setAttribute('aria-label', 'Enlarge current residential image');
     slider.append(enlarge); // Existing slider click handler resolves the current slide.
   }
-  // Featured Projects: one card per screen, filters limited to the five categories.
+  // Featured Projects: one card per screen, same anatomy as the designs carousel.
   const pjButtons = [...document.querySelectorAll('.filter-btn')];
   const pjCards = [...document.querySelectorAll('.project-card')];
+  const pjGrid = document.getElementById('pjGrid');
   if (pjButtons.length && pjCards.length) {
     const pjPrev = document.getElementById('pjPrev');
     const pjNext = document.getElementById('pjNext');
@@ -82,6 +83,23 @@
     const pjNav = document.querySelector('.pj-nav');
     let pjCat = pjButtons[0].dataset.filter;
     let pjIndex = 0;
+
+    const pjMeasure = () => {
+      if (!pjGrid) return;
+      pjGrid.style.removeProperty('--pj-card-h');
+      const keep = pjCards.map(card => card.hidden);
+      pjCards.forEach(card => { card.hidden = false; });
+      void pjGrid.offsetHeight;
+      let tallest = 0;
+      pjCards.forEach(card => {
+        const h = card.getBoundingClientRect().height;
+        if (h > tallest) tallest = h;
+      });
+      pjGrid.style.setProperty('--pj-card-h', Math.round(tallest) + 'px');
+      pjCards.forEach((card, i) => { card.hidden = keep[i]; });
+      void pjGrid.offsetHeight;
+    };
+
     const pjRender = () => {
       const items = pjCards.filter(card => card.dataset.category === pjCat);
       if (pjIndex >= items.length) pjIndex = 0;
@@ -95,8 +113,9 @@
       if (pjPos) pjPos.textContent = items.length ? (pjIndex + 1) + ' / ' + items.length : '0 / 0';
       if (pjPrev) pjPrev.disabled = items.length < 2;
       if (pjNext) pjNext.disabled = items.length < 2;
-      if (pjNav) pjNav.hidden = items.length < 2;   // no dead arrows for a one-card category
+      if (pjNav) pjNav.hidden = items.length < 2;
     };
+
     pjButtons.forEach(button => {
       button.setAttribute('aria-pressed', String(button.classList.contains('active')));
       button.addEventListener('click', () => {
@@ -106,6 +125,16 @@
     });
     pjPrev?.addEventListener('click', () => { pjIndex--; pjRender(); });
     pjNext?.addEventListener('click', () => { pjIndex++; pjRender(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft' && pjPrev && !pjPrev.disabled) { pjIndex--; pjRender(); }
+      if (e.key === 'ArrowRight' && pjNext && !pjNext.disabled) { pjIndex++; pjRender(); }
+    });
+    let pjTimer = null;
+    addEventListener('resize', () => {
+      clearTimeout(pjTimer);
+      pjTimer = setTimeout(() => { pjMeasure(); pjRender(); }, 180);
+    });
+    pjMeasure();
     pjRender();
   }
   document.querySelectorAll('.pv-toggle,.hiw-tabs').forEach(group => {
