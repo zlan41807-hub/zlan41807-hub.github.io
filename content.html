@@ -1092,7 +1092,7 @@ html body .process-step.reveal-delay-2.reveal > .step-number,
 html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !important; }
 </style>
 <link rel="stylesheet" href="assets/jfa-welcome.css?v=cfd7375c">
-<link rel="stylesheet" href="assets/jfa-content.css?v=90c2d93b">
+<link rel="stylesheet" href="assets/jfa-content.css?v=b2640d4b">
 <script defer src="assets/jfa-content.js?v=ec7278be"></script>
 </head>
 <body class="jfa-read content-page">
@@ -2131,58 +2131,7 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 </section>
 
 <!-- ===== Drawing & built viewer (same block as the designs page) ===== -->
-<section class="pv">
- <div class="container">
- <div class="pv-head">
- <span class="pv-kicker"><span class="lang-en" lang="en">Drawing &amp; built</span></span>
- <h2><span class="lang-en" lang="en">Draw the plan. <span class="pv-hl">Watch it stand up.</span></span></span></h2>
- <p><span class="lang-en" lang="en">Plans, elevations and the finished building come from one model — so what you approve is what gets priced, documented and built.</span></p>
- </div>
- <div class="pv-toggle" role="tablist" aria-label="Views">
- <button type="button" class="is-on" data-view="plan" role="tab"><i class="fas fa-ruler-combined"></i><span class="lang-en" lang="en">Floor plan</span></button>
- <button type="button" data-view="built" role="tab"><i class="fas fa-cube"></i><span class="lang-en" lang="en">Built</span></button>
- </div>
- <div class="pv-frame">
- <div class="pv-chrome">
- <span class="pv-dots"><i></i><i></i><i></i></span>
- <span class="pv-url">jfadesign.pages.dev &middot;<span class="lang-en" lang="en">drawing preview</span></span>
- <span class="pv-badge"><span class="lang-en" lang="en">Static preview</span></span>
- </div>
- <div class="pv-body">
- <div class="pv-view is-on" data-view="plan"><svg class="pv-plan" viewBox="0 0 340 246" role="img" aria-label="Floor plan diagram">
- <rect x="0" y="0" width="340" height="246" fill="#F7F5F1"/>
- <g stroke="#C9C4BA" stroke-width="1"><line x1="46" y1="16" x2="46" y2="224"/><line x1="268" y1="16" x2="268" y2="224"/>
- <line x1="28" y1="40" x2="286" y2="40"/><line x1="28" y1="204" x2="286" y2="204"/></g>
- <g stroke="#8A8A9A" stroke-width="1"><line x1="46" y1="34" x2="46" y2="18"/><line x1="268" y1="34" x2="268" y2="18"/>
- <line x1="40" y1="40" x2="26" y2="40"/><line x1="40" y1="204" x2="26" y2="204"/></g>
- <text x="157" y="30" font-size="9.5" fill="#6B6B78" text-anchor="middle" font-family="Inter, sans-serif">7.0 m</text>
- <text x="21" y="126" font-size="9.5" fill="#6B6B78" text-anchor="middle" transform="rotate(-90 21 126)" font-family="Inter, sans-serif">13.0 m</text>
- <g fill="#22303F" stroke="#22303F"><rect x="46" y="40" width="222" height="164" fill="#FFFFFF" stroke-width="4"/>
- <line x1="150" y1="40" x2="150" y2="122" stroke-width="2.4"/><line x1="150" y1="122" x2="268" y2="122" stroke-width="2.4"/>
- <line x1="206" y1="122" x2="206" y2="204" stroke-width="2.4"/></g>
- <g stroke="#FFFFFF" stroke-width="5"><line x1="120" y1="122" x2="150" y2="122"/><line x1="150" y1="150" x2="150" y2="176"/></g>
- <g fill="#8A8A9A" font-size="8" font-family="Inter, sans-serif"><text x="70" y="128">LIVING</text><text x="70" y="138"></text>
- <text x="168" y="86">BEDROOM</text><text x="168" y="96"></text><text x="168" y="166">BATH</text><text x="168" y="176"></text>
- <text x="224" y="166">KITCHEN</text><text x="224" y="176"></text></g>
- <g stroke="#D4A373" stroke-width="2" opacity="0.9"><line x1="46" y1="216" x2="150" y2="216"/><line x1="150" y1="216" x2="268" y2="216"/></g>
- <text x="157" y="234" font-size="9" fill="#95693A" text-anchor="middle" font-family="Inter, sans-serif">7.0 × 13.0 m · 91 m² GROUND FLOOR</text>
- </svg></div>
- <div class="pv-view" data-view="built">
- <img src="images/residential/residential-04-timber-cabin.jpg" alt="Timber Gable Cabin" decoding="async">
- </div>
- <div class="pv-float">
- <span class="pv-float-lab"><span class="lang-en" lang="en">Example &middot; gable cabin</span></span>
- <span class="pv-float-amt">US$1,100 <small><span class="lang-en" lang="en">preliminary package</span></small></span>
- <a href="estimate.html"><span class="lang-en" lang="en">Get the Detailed Estimate &rarr;</span></a>
- </div>
- </div>
- </div>
- <p class="pv-caption">
- <span class="lang-en" lang="en">Both views describe the same design; the plan is an illustrative diagram, the photograph is a concept render from JFA's own series. Not construction documents.</span>
 
- </p>
- </div>
-</section>
 
 
 <!-- Native modal: browser-managed inert background and focus containment. -->
@@ -2916,19 +2865,6 @@ function applyLang(lang) {
 
 // About carousel controls are initialized by the shared interaction module.
 
-/* ===== drawing / built viewer ===== */
-(function () {
- var btns = document.querySelectorAll('.pv-toggle button');
- var views = document.querySelectorAll('.pv-view');
- if (!btns.length) return;
- Array.prototype.forEach.call(btns, function (b) {
- b.addEventListener('click', function () {
- var v = b.getAttribute('data-view');
- Array.prototype.forEach.call(btns, function (x) { x.classList.toggle('is-on', x === b); });
- Array.prototype.forEach.call(views, function (x) { x.classList.toggle('is-on', x.getAttribute('data-view') === v); });
- });
- });
-})();
 </script>
 
  <script>
