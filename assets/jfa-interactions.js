@@ -60,7 +60,7 @@
     returnTo?.focus({preventScroll: true});
   });
   document.querySelectorAll('.project-open').forEach(button => {
-    const card = button.closest('.dz-card, .project-card');
+    const card = button.closest('.dz-card, .project-card, .cs-card');
     const title = card.querySelector('h4, h3')?.textContent.trim();
     button.setAttribute('aria-label', 'View ' + title);
     button.addEventListener('click', () => window.openProjectImage(card.querySelector('img'), button));
