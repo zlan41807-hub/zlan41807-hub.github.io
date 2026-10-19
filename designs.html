@@ -827,6 +827,8 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
 .dz-main { padding:52px 0 76px; }
 .dz-bar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; margin-bottom:30px; }
 .dz-filters { display:flex; flex-wrap:wrap; gap:8px; }
+.dz-filters-all { flex:1 0 100%; }
+.dz-filters-all + .dz-filters { margin-top:2px; }
 .dz-filter { font:inherit; font-size:13.5px; padding:9px 16px; border-radius:999px; cursor:pointer;
   background:var(--bg-white); border:1px solid var(--border); color:var(--text-body); transition:var(--transition); }
 .dz-filter:hover { border-color:var(--accent); color:var(--text-dark); }
@@ -1317,7 +1319,8 @@ html body .dz-kicker > .lang-en[lang="en"] { color: #4f5a65 !important; }
 <section class="dz-main">
  <div class="container">
  <div class="dz-bar">
- <div class="dz-filters" role="group" aria-label="Filter designs"><button type="button" class="dz-filter is-on" data-filter="residential"><span class="lang-en" lang="en">Residential</span></button><button type="button" class="dz-filter" data-filter="hospitality"><span class="lang-en" lang="en">Hospitality</span></button><button type="button" class="dz-filter" data-filter="landscape"><span class="lang-en" lang="en">Landscape</span></button><button type="button" class="dz-filter" data-filter="interior"><span class="lang-en" lang="en">Interior</span></button><button type="button" class="dz-filter" data-filter="concept"><span class="lang-en" lang="en">Concept</span></button></div>
+ <div class="dz-filters dz-filters-all" role="group" aria-label="All designs"><button type="button" class="dz-filter is-on" data-filter="all"><span class="lang-en" lang="en">All</span></button></div>
+ <div class="dz-filters dz-filters-cats" role="group" aria-label="Filter designs"><button type="button" class="dz-filter" data-filter="residential"><span class="lang-en" lang="en">Residential</span></button><button type="button" class="dz-filter" data-filter="hospitality"><span class="lang-en" lang="en">Hospitality</span></button><button type="button" class="dz-filter" data-filter="landscape"><span class="lang-en" lang="en">Landscape</span></button><button type="button" class="dz-filter" data-filter="interior"><span class="lang-en" lang="en">Interior</span></button><button type="button" class="dz-filter" data-filter="concept"><span class="lang-en" lang="en">Concept</span></button></div>
  <p class="dz-count"><span class="lang-en" lang="en"><b id="dzCount">34</b> designs &mdash; each one a starting point, none of them fixed.</span></span></p>
  </div>
  <div class="dz-grid dz-carousel" id="dzGrid">
@@ -2103,7 +2106,7 @@ function applyLang(lang) {
  function pool() {
   var out = [];
   Array.prototype.forEach.call(cards, function (c) {
-   if (c.getAttribute('data-cat') === cat) out.push(c);
+   if (cat === 'all' || c.getAttribute('data-cat') === cat) out.push(c);
   });
   return out;
  }
@@ -2113,11 +2116,14 @@ function applyLang(lang) {
   Array.prototype.forEach.call(cards, function (c) { keep.push(c.hidden); c.hidden = false; });
   void grid.offsetHeight;
   heights = {};
+  var tallest = 0;
   Array.prototype.forEach.call(cards, function (c) {
    var k = c.getAttribute('data-cat');
    var h = c.getBoundingClientRect().height;
    if (!heights[k] || h > heights[k]) heights[k] = h;
+   if (h > tallest) tallest = h;
   });
+  heights['__all'] = tallest;
   Array.prototype.forEach.call(cards, function (c, i) { c.hidden = keep[i]; });
   void grid.offsetHeight;
  }
@@ -2145,7 +2151,8 @@ function applyLang(lang) {
   if (prev) prev.disabled = items.length < 2;
   if (next) next.disabled = items.length < 2;
   if (empty) empty.hidden = true;
-  grid.style.minHeight = heights[cat] ? heights[cat] + 'px' : '';
+  var key = (cat === 'all') ? '__all' : cat;
+  grid.style.minHeight = heights[key] ? heights[key] + 'px' : '';
  }
 
  measure();
