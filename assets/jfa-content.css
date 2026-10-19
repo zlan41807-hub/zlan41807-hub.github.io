@@ -50,6 +50,9 @@ html body.content-page #about .btn-primary .lang-en { color: #fff !important; op
   opacity: 1 !important; transform: none !important;
 }
 .projects-grid.pj-carousel .project-card[hidden] { display: none; }
+/* the title and location are the card copy: never require a hover to read them */
+.projects-grid.pj-carousel .project-overlay { opacity: 1 !important; }
+.projects-grid.pj-carousel .project-card:hover .project-overlay { opacity: 1 !important; }
 @media (max-width: 700px) { .projects-grid.pj-carousel .project-card { aspect-ratio: 4 / 3; } }
 .pj-nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin: 28px 0 0; }
 .pj-arrow { width: 48px; height: 48px; padding: 0; border-radius: 50%; border: 1px solid var(--border);
