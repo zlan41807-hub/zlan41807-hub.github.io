@@ -844,7 +844,7 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
 .dz-card-img { aspect-ratio:4/3; overflow:hidden; background:#EDEAE4; }
 .dz-card-img img { width:100%; height:100%; object-fit:contain; display:block; transition:transform .6s cubic-bezier(.25,.46,.45,.94); }
 .dz-card:hover .dz-card-img img { transform:none; }
-.dz-card-body { padding:22px 24px 22px; display:flex; flex-direction:column; flex:1; }
+.dz-card-body { padding:22px 24px 22px; display:flex; flex-direction:column; flex:1; justify-content:center; }
 .dz-card-meta { margin:0 0 10px; }
 .dz-tag { display:inline-block; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; font-weight:700;
   color:#95693A; background:rgba(212,163,115,.16); border-radius:999px; padding:4px 11px; }
@@ -1140,15 +1140,16 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
 
 /* ===== one-card carousel ===== */
 .dz-grid.dz-carousel { display:block; }
-.dz-grid.dz-carousel .dz-card { max-width:760px; margin:0 auto; }
+.dz-grid.dz-carousel .dz-card { max-width:760px; margin:0 auto; min-height:var(--dz-card-h,0); }
 .dz-grid.dz-carousel .dz-card:hover { transform:none; box-shadow:var(--shadow); }
 @media (min-width:900px) {
  .dz-grid.dz-carousel .dz-card { flex-direction:row; max-width:1040px; align-items:stretch; }
- .dz-grid.dz-carousel .dz-card-img { flex:0 0 46%; aspect-ratio:auto; }
- .dz-grid.dz-carousel .dz-card-img img { height:100%; object-fit:cover; object-position:center; }
+ .dz-grid.dz-carousel .dz-card-img { flex:0 0 46%; aspect-ratio:auto; position:relative; }
+ .dz-grid.dz-carousel .dz-card-img img { position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center; }
  .dz-grid.dz-carousel .dz-card-body { flex:1 1 54%; justify-content:center; }
 }
-.dz-nav { display:flex; align-items:center; justify-content:center; gap:18px; margin:32px 0 0; }
+.dz-nav { display:flex; align-items:center; justify-content:center; gap:18px; margin:28px 0 0; }
 .dz-arrow { width:48px; height:48px; padding:0; border-radius:50%; border:1px solid var(--border);
  background:var(--bg-white); color:var(--text-dark); font-size:24px; line-height:1;
  display:inline-flex; align-items:center; justify-content:center; cursor:pointer; transition:var(--transition); }
@@ -2101,7 +2102,6 @@ function applyLang(lang) {
  if (!btns.length || !grid || !cards.length) return;
  var cat = btns[0].getAttribute('data-filter');
  var idx = 0;
- var heights = {};
 
  function pool() {
   var out = [];
@@ -2115,15 +2115,13 @@ function applyLang(lang) {
   var keep = [];
   Array.prototype.forEach.call(cards, function (c) { keep.push(c.hidden); c.hidden = false; });
   void grid.offsetHeight;
-  heights = {};
+  grid.style.removeProperty('--dz-card-h');
   var tallest = 0;
   Array.prototype.forEach.call(cards, function (c) {
-   var k = c.getAttribute('data-cat');
    var h = c.getBoundingClientRect().height;
-   if (!heights[k] || h > heights[k]) heights[k] = h;
    if (h > tallest) tallest = h;
   });
-  heights['__all'] = tallest;
+  grid.style.setProperty('--dz-card-h', Math.round(tallest) + 'px');
   Array.prototype.forEach.call(cards, function (c, i) { c.hidden = keep[i]; });
   void grid.offsetHeight;
  }
@@ -2151,8 +2149,7 @@ function applyLang(lang) {
   if (prev) prev.disabled = items.length < 2;
   if (next) next.disabled = items.length < 2;
   if (empty) empty.hidden = true;
-  var key = (cat === 'all') ? '__all' : cat;
-  grid.style.minHeight = heights[key] ? heights[key] + 'px' : '';
+  grid.style.minHeight = '';
  }
 
  measure();
