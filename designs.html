@@ -1135,6 +1135,26 @@ html body.jfa-read.jfa-read.jfa-read .est-card h3 .lang-zh { font-size: 14px !im
 html body.jfa-read.jfa-read.jfa-read footer h3 .lang-zh,
 html body.jfa-read.jfa-read.jfa-read footer .footer-brand .lang-zh,
 html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !important; color: rgba(255,255,255,.86) !important; }
+
+/* ===== one-card carousel ===== */
+.dz-grid.dz-carousel { display:block; }
+.dz-grid.dz-carousel .dz-card { max-width:760px; margin:0 auto; }
+.dz-grid.dz-carousel .dz-card:hover { transform:none; box-shadow:var(--shadow); }
+@media (min-width:900px) {
+ .dz-grid.dz-carousel .dz-card { flex-direction:row; max-width:1040px; align-items:stretch; }
+ .dz-grid.dz-carousel .dz-card-img { flex:0 0 46%; aspect-ratio:auto; }
+ .dz-grid.dz-carousel .dz-card-img img { height:100%; object-fit:cover; object-position:center; }
+ .dz-grid.dz-carousel .dz-card-body { flex:1 1 54%; justify-content:center; }
+}
+.dz-nav { display:flex; align-items:center; justify-content:center; gap:18px; margin:32px 0 0; }
+.dz-arrow { width:48px; height:48px; padding:0; border-radius:50%; border:1px solid var(--border);
+ background:var(--bg-white); color:var(--text-dark); font-size:24px; line-height:1;
+ display:inline-flex; align-items:center; justify-content:center; cursor:pointer; transition:var(--transition); }
+.dz-arrow:hover:not(:disabled) { border-color:var(--accent); background:var(--accent); color:#22303F; }
+.dz-arrow:disabled { opacity:.32; cursor:default; }
+.dz-pos { margin:0; min-width:76px; text-align:center; font-size:14px; letter-spacing:.05em;
+ font-variant-numeric:tabular-nums; color:var(--text-body); }
+@media (max-width:640px) { .dz-arrow { width:44px; height:44px; font-size:22px; } }
 </style>
 <link rel="stylesheet" href="assets/jfa-chat.css?v=23abc6db">
 <script defer src="assets/jfa-chat-config.js?v=09704ffc"></script>
@@ -1297,10 +1317,10 @@ html body .dz-kicker > .lang-en[lang="en"] { color: #4f5a65 !important; }
 <section class="dz-main">
  <div class="container">
  <div class="dz-bar">
- <div class="dz-filters" role="group" aria-label="Filter designs"><button type="button" class="dz-filter is-on" data-filter="all"><span class="lang-en" lang="en">All</span></button><button type="button" class="dz-filter" data-filter="residential"><span class="lang-en" lang="en">Residential</span></button><button type="button" class="dz-filter" data-filter="hospitality"><span class="lang-en" lang="en">Hospitality</span></button><button type="button" class="dz-filter" data-filter="landscape"><span class="lang-en" lang="en">Landscape</span></button><button type="button" class="dz-filter" data-filter="interior"><span class="lang-en" lang="en">Interior</span></button><button type="button" class="dz-filter" data-filter="concept"><span class="lang-en" lang="en">Concept</span></button></div>
- <p class="dz-count"><span class="lang-en" lang="en"><b id="dzCount">17</b> designs &mdash; each one a starting point, none of them fixed.</span></span></p>
+ <div class="dz-filters" role="group" aria-label="Filter designs"><button type="button" class="dz-filter is-on" data-filter="residential"><span class="lang-en" lang="en">Residential</span></button><button type="button" class="dz-filter" data-filter="hospitality"><span class="lang-en" lang="en">Hospitality</span></button><button type="button" class="dz-filter" data-filter="landscape"><span class="lang-en" lang="en">Landscape</span></button><button type="button" class="dz-filter" data-filter="interior"><span class="lang-en" lang="en">Interior</span></button><button type="button" class="dz-filter" data-filter="concept"><span class="lang-en" lang="en">Concept</span></button></div>
+ <p class="dz-count"><span class="lang-en" lang="en"><b id="dzCount">34</b> designs &mdash; each one a starting point, none of them fixed.</span></span></p>
  </div>
- <div class="dz-grid" id="dzGrid">
+ <div class="dz-grid dz-carousel" id="dzGrid">
  <article class="dz-card" data-cat="residential">
  <div class="dz-card-img"><img src="images/projects/project-restaurant-1.jpg" alt="White Block House" loading="lazy"></div>
  <div class="dz-card-body">
@@ -1925,6 +1945,12 @@ html body .dz-kicker > .lang-en[lang="en"] { color: #4f5a65 !important; }
 
  </div>
  <p class="dz-empty" id="dzEmpty" hidden><span class="lang-en" lang="en">Nothing in this category yet.</span></p>
+ <div class="dz-nav">
+ <button type="button" class="dz-arrow" id="dzPrev" aria-label="Previous design">&lsaquo;</button>
+ <p class="dz-pos" id="dzPos" aria-live="polite">1 / 9</p>
+ <button type="button" class="dz-arrow" id="dzNext" aria-label="Next design">&rsaquo;</button>
+ </div>
+
  </div>
 </section>
 
@@ -2061,29 +2087,92 @@ function applyLang(lang) {
 
 
 
-/* ===== design filter ===== */
+/* ===== design carousel ===== */
 (function () {
  var btns = document.querySelectorAll('.dz-filter');
+ var grid = document.getElementById('dzGrid');
  var cards = document.querySelectorAll('.dz-card');
  var empty = document.getElementById('dzEmpty');
  var c1 = document.getElementById('dzCount'), c2 = document.getElementById('dzCountZh');
- if (!btns.length) return;
- function apply(cat) {
- var n = 0;
- Array.prototype.forEach.call(cards, function (c) {
- var show = (cat === 'all' || c.getAttribute('data-cat') === cat);
- c.hidden = !show;
- if (show) n++;
- });
- Array.prototype.forEach.call(btns, function (b) { b.classList.toggle('is-on', b.getAttribute('data-filter') === cat); });
- if (c1) c1.textContent = n;
- if (c2) c2.textContent = n;
- if (empty) empty.hidden = n > 0;
+ var prev = document.getElementById('dzPrev'), next = document.getElementById('dzNext'), pos = document.getElementById('dzPos');
+ if (!btns.length || !grid || !cards.length) return;
+ var cat = btns[0].getAttribute('data-filter');
+ var idx = 0;
+ var heights = {};
+
+ function pool() {
+  var out = [];
+  Array.prototype.forEach.call(cards, function (c) {
+   if (c.getAttribute('data-cat') === cat) out.push(c);
+  });
+  return out;
  }
+
+ function measure() {
+  var keep = [];
+  Array.prototype.forEach.call(cards, function (c) { keep.push(c.hidden); c.hidden = false; });
+  void grid.offsetHeight;
+  heights = {};
+  Array.prototype.forEach.call(cards, function (c) {
+   var k = c.getAttribute('data-cat');
+   var h = c.getBoundingClientRect().height;
+   if (!heights[k] || h > heights[k]) heights[k] = h;
+  });
+  Array.prototype.forEach.call(cards, function (c, i) { c.hidden = keep[i]; });
+  void grid.offsetHeight;
+ }
+
+ function render() {
+  var items = pool();
+  if (!items.length) {
+   Array.prototype.forEach.call(cards, function (c) { c.hidden = true; });
+   if (pos) pos.textContent = '0 / 0';
+   if (prev) prev.disabled = true;
+   if (next) next.disabled = true;
+   if (empty) empty.hidden = false;
+   return;
+  }
+  if (idx >= items.length) idx = 0;
+  if (idx < 0) idx = items.length - 1;
+  Array.prototype.forEach.call(cards, function (c) { c.hidden = true; });
+  items[idx].hidden = false;
+  Array.prototype.forEach.call(btns, function (b) {
+   b.classList.toggle('is-on', b.getAttribute('data-filter') === cat);
+  });
+  if (c1) c1.textContent = items.length;
+  if (c2) c2.textContent = items.length;
+  if (pos) pos.textContent = (idx + 1) + ' / ' + items.length;
+  if (prev) prev.disabled = items.length < 2;
+  if (next) next.disabled = items.length < 2;
+  if (empty) empty.hidden = true;
+  grid.style.minHeight = heights[cat] ? heights[cat] + 'px' : '';
+ }
+
+ measure();
+ render();
+
  Array.prototype.forEach.call(btns, function (b) {
- b.addEventListener('click', function () { apply(b.getAttribute('data-filter')); });
+  b.addEventListener('click', function () {
+   var c = b.getAttribute('data-filter');
+   if (c === cat) return;
+   cat = c;
+   idx = 0;
+   render();
+  });
  });
- apply('all');
+ if (prev) prev.addEventListener('click', function () { idx--; render(); });
+ if (next) next.addEventListener('click', function () { idx++; render(); });
+
+ document.addEventListener('keydown', function (e) {
+  if (e.key === 'ArrowLeft' && prev && !prev.disabled) { idx--; render(); }
+  if (e.key === 'ArrowRight' && next && !next.disabled) { idx++; render(); }
+ });
+
+ var t = null;
+ window.addEventListener('resize', function () {
+  clearTimeout(t);
+  t = setTimeout(function () { measure(); render(); }, 180);
+ });
 })();
 
 /* ===== drawing / built viewer ===== */
