@@ -957,7 +957,8 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; }
 .hiw-card-visual { height:196px; background:#EDEAE4; overflow:hidden; }
 .hiw-card-visual img { width:100%; height:100%; object-fit:cover; display:block; }
-.hiw-card-doc { height:196px; background:#EFEDE8; display:flex; align-items:center; justify-content:center; padding:20px; }
+.hiw-card-doc { position:relative; height:196px; background:#EFEDE8; display:flex; align-items:center; justify-content:center; padding:20px; }
+.hiw-card-doc > .hiw-doc { position:relative; z-index:1; box-shadow:0 14px 30px rgba(28,24,18,.30); }
 .hiw-card-doc .hiw-doc { width:100%; max-width:320px; }
 .hiw-card-body { padding:22px 24px 24px; display:flex; flex-direction:column; flex:1; }
 .hiw-card-eyebrow { align-self:flex-start; display:inline-block; margin:0 0 18px; padding-bottom:8px;
@@ -1376,7 +1377,7 @@ html body .hiw-price > span { color: #f3f5f7 !important; }
  <p class="hiw-cat-sub"><span class="lang-en" lang="en">If the money question is the only one keeping you up, this one answers it on its own.</span></p>
  <div class="hiw-cat-cards">
  <article class="hiw-card">
- <div class="hiw-card-doc"><div class="hiw-doc"><div class="bar"><span>JFA</span><span>DETAILED ESTIMATE</span></div><h5>Detailed Estimate</h5><p class="sub">Ten sections &middot; valid 30 days</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">US$199</span></div></div>
+ <div class="hiw-card-doc"><div class="hiw-vis-bg" aria-hidden="true"><img src="images/series-2026/series-hillside-village.jpg" alt="" loading="lazy"></div><div class="hiw-doc"><div class="bar"><span>JFA</span><span>DETAILED ESTIMATE</span></div><h5>Detailed Estimate</h5><p class="sub">Ten sections &middot; valid 30 days</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">US$199</span></div></div>
  <div class="hiw-card-body">
  <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">This site</span></p>
  <h3><span class="lang-en" lang="en">Detailed Estimate report</span></h3>
@@ -1391,7 +1392,7 @@ html body .hiw-price > span { color: #f3f5f7 !important; }
  <p class="hiw-cat-sub"><span class="lang-en" lang="en">Turn the scheme into something you can put in front of an authority, a builder and your bank.</span></p>
  <div class="hiw-cat-cards">
  <article class="hiw-card">
- <div class="hiw-card-doc"><div class="hiw-doc"><div class="bar"><span>JFA</span><span>PRELIMINARY SET</span></div><h5>Preliminary drawing set</h5><p class="sub">Site &middot; floors &middot; elevations &middot; schedules</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">US$1,100</span></div></div>
+ <div class="hiw-card-doc"><div class="hiw-vis-bg" aria-hidden="true"><img src="images/series-2026/series-timber-hotel.jpg" alt="" loading="lazy"></div><div class="hiw-doc"><div class="bar"><span>JFA</span><span>PRELIMINARY SET</span></div><h5>Preliminary drawing set</h5><p class="sub">Site &middot; floors &middot; elevations &middot; schedules</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">US$1,100</span></div></div>
  <div class="hiw-card-body">
  <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">This site</span></p>
  <h3><span class="lang-en" lang="en">Preliminary set &middot; standard</span></h3>
@@ -1428,7 +1429,7 @@ html body .hiw-price > span { color: #f3f5f7 !important; }
  <p class="hiw-cat-sub"><span class="lang-en" lang="en">Produced together with the drawings after the site investigation, so nothing contradicts.</span></p>
  <div class="hiw-cat-cards">
  <article class="hiw-card">
- <div class="hiw-card-doc"><div class="hiw-doc"><div class="bar"><span>JFA</span><span>STRUCTURAL SET</span></div><h5>Structural design set</h5><p class="sub">Loads &middot; members &middot; connections</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">Quoted per project</span></div></div>
+ <div class="hiw-card-doc"><div class="hiw-vis-bg" aria-hidden="true"><img src="images/series-2026/series-charred-timber-garden.jpg" alt="" loading="lazy"></div><div class="hiw-doc"><div class="bar"><span>JFA</span><span>STRUCTURAL SET</span></div><h5>Structural design set</h5><p class="sub">Loads &middot; members &middot; connections</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">Quoted per project</span></div></div>
  <div class="hiw-card-body">
  <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">Coordinated by JFA</span></p>
  <h3><span class="lang-en" lang="en">Site-specific structural design</span></h3>
@@ -1443,7 +1444,7 @@ html body .hiw-price > span { color: #f3f5f7 !important; }
  <p class="hiw-cat-sub"><span class="lang-en" lang="en">A figure you can take to the bank, and a file that stands up to questions.</span></p>
  <div class="hiw-cat-cards">
  <article class="hiw-card">
- <div class="hiw-card-doc"><div class="hiw-doc"><div class="bar"><span>JFA</span><span>FORMAL QUOTATION</span></div><h5>Formal quotation</h5><p class="sub">Issued against a named revision</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">Against the fixed revision</span></div></div>
+ <div class="hiw-card-doc"><div class="hiw-vis-bg" aria-hidden="true"><img src="images/series-2026/series-brick-warehouse.jpg" alt="" loading="lazy"></div><div class="hiw-doc"><div class="bar"><span>JFA</span><span>FORMAL QUOTATION</span></div><h5>Formal quotation</h5><p class="sub">Issued against a named revision</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">Against the fixed revision</span></div></div>
  <div class="hiw-card-body">
  <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">JFA formal quote</span></p>
  <h3><span class="lang-en" lang="en">Written quotation</span></h3>
@@ -1452,7 +1453,7 @@ html body .hiw-price > span { color: #f3f5f7 !important; }
  </div>
  </article>
  <article class="hiw-card">
- <div class="hiw-card-doc"><div class="hiw-doc"><div class="bar"><span>JFA</span><span>APPROVAL SET</span></div><h5>Approval submission set</h5><p class="sub">Prepared to be questioned</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">Statutory fees are separate</span></div></div>
+ <div class="hiw-card-doc"><div class="hiw-vis-bg" aria-hidden="true"><img src="images/series-2026/series-curved-roof.jpg" alt="" loading="lazy"></div><div class="hiw-doc"><div class="bar"><span>JFA</span><span>APPROVAL SET</span></div><h5>Approval submission set</h5><p class="sub">Prepared to be questioned</p><div class="rule"></div><div class="line"></div><div class="line s"></div><div class="line"></div><span class="stamp">Statutory fees are separate</span></div></div>
  <div class="hiw-card-body">
  <p class="hiw-card-eyebrow"><span class="lang-en" lang="en">Approval submission</span></p>
  <h3><span class="lang-en" lang="en">Approval submission set</span></h3>
