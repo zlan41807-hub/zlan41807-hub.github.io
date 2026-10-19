@@ -621,8 +621,6 @@ p.lang-zh, h4.lang-zh { font-size: 0.72em !important; opacity: 0.62 !important; 
   color: var(--accent); font-size: 0.65rem; font-weight: 500;
   letter-spacing: 1px;
 
-
-
 /* Lightbox */
 .ai-lightbox {
   display:none; position:fixed; inset:0; z-index:2000;
@@ -642,7 +640,6 @@ p.lang-zh, h4.lang-zh { font-size: 0.72em !important; opacity: 0.62 !important; 
   font-size:2rem; cursor:pointer; opacity:0.6;
 }
 .ai-lightbox-close:hover { opacity:1; }
-
 
 /*  */
 .proj-tag {
@@ -1071,8 +1068,6 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
 <link rel="stylesheet" href="assets/jfa-interactions.css?v=6006a494">
 <script defer src="assets/jfa-interactions.js?v=3ce58917"></script>
 
-
-
 <style id="jfa-audited-contrast">
 /* Measured text contrast fixes; preserve existing surfaces and imagery. */
 html body p:nth-child(1) > .lang-en[lang="en"] > .highlight-text,
@@ -1148,6 +1143,7 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
  <a href="estimate.html"><span class="lang-en" lang="en">Estimate</span></a>
  <a href="how-it-works.html"><span class="lang-en" lang="en">Process</span></a>
  <a href="designs.html"><span class="lang-en" lang="en">Designs</span></a>
+ <a href="cases.html"><span class="lang-en" lang="en">Cases</span></a>
  <a href="sketch.html"><span class="lang-en" lang="en">Sketch</span></a>
  </div>
  <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
@@ -1286,10 +1282,6 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
  </div>
  </div>
 </section>
-
-
-
-
 
 <!-- ===== Projects ===== -->
 <section class="projects section" id="projects">
@@ -2132,8 +2124,6 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 
 <!-- ===== Drawing & built viewer (same block as the designs page) ===== -->
 
-
-
 <!-- Native modal: browser-managed inert background and focus containment. -->
 <dialog class="ai-lightbox" id="aiLightbox" aria-labelledby="aiLightboxCaption">
  <div class="lightbox-toolbar"><span>Project view</span><button type="button" class="ai-lightbox-close" aria-label="Close project image">&times;</button></div>
@@ -2184,318 +2174,10 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 <!-- ===== Team ===== -->
 <!-- team merged into #services -->
 
+<!-- ===== Contact ===== -->
 
 <!-- ===== Contact ===== -->
 
-
-<!-- ===== Contact ===== -->
-<section class="cases section" id="cases">
- <div class="container">
-  <div class="section-title text-center reveal"><span class="lang-en" lang="en">Cases</span></div>
-  <p class="section-subtitle text-center reveal reveal-delay-1"><span class="lang-en" lang="en">Twelve jobs we have drawn, priced or built. Filter them down to the one closest to your site.</span></p>
-  <div class="cs-filterbar reveal">
-   <div class="cs-fgroup">
-    <span class="cs-flabel">Type</span>
-    <div class="cs-chips" role="group" aria-label="Filter cases by type">
-     <button type="button" class="cs-chip is-on" data-type="all" aria-pressed="true">All <b>12</b></button>
-     <button type="button" class="cs-chip" data-type="residential" aria-pressed="false">Residential <b>3</b></button>
-     <button type="button" class="cs-chip" data-type="hospitality" aria-pressed="false">Hospitality <b>1</b></button>
-     <button type="button" class="cs-chip" data-type="interior" aria-pressed="false">Interior <b>3</b></button>
-     <button type="button" class="cs-chip" data-type="landscape" aria-pressed="false">Landscape <b>3</b></button>
-     <button type="button" class="cs-chip" data-type="concept" aria-pressed="false">Concept <b>2</b></button>
-    </div>
-   </div>
-   <div class="cs-fgroup">
-    <span class="cs-flabel">Site</span>
-    <div class="cs-chips" role="group" aria-label="Filter cases by site">
-     <button type="button" class="cs-chip is-on" data-site="all" aria-pressed="true">All <b>12</b></button>
-     <button type="button" class="cs-chip" data-site="lishui" aria-pressed="false">Lishui, Zhejiang <b>2</b></button>
-     <button type="button" class="cs-chip" data-site="liangzhu" aria-pressed="false">Liangzhu <b>2</b></button>
-     <button type="button" class="cs-chip" data-site="multiple" aria-pressed="false">Multiple sites <b>1</b></button>
-     <button type="button" class="cs-chip" data-site="hangzhou" aria-pressed="false">Hangzhou <b>1</b></button>
-     <button type="button" class="cs-chip" data-site="series" aria-pressed="false">JFA series <b>6</b></button>
-    </div>
-   </div>
-   <div class="cs-fgroup cs-fgroup-sort">
-    <span class="cs-flabel">Sort</span>
-    <select class="cs-select" id="csSort" aria-label="Sort cases">
-     <option value="series">Series order</option>
-     <option value="name">Name A to Z</option>
-     <option value="type">Type</option>
-     <option value="site">Site</option>
-    </select>
-   </div>
-  </div>
-  <p class="cs-count"><b id="csCount">12</b><span id="csCountWord"> cases</span> &mdash; every photograph is our own file, and every one is yours to adapt.</p>
-  <div class="cs-grid" id="csGrid">
-   <article class="cs-card" data-type="residential" data-site="lishui" data-name="white block house" data-order="0">
-    <div class="cs-card-img">
-     <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
-     <img src="images/projects/project-restaurant-1.jpg" alt="White Block House" loading="lazy">
-     <span class="cs-badge">Residential</span>
-     <span class="cs-pill">Exterior</span>
-    </div>
-    <div class="cs-card-body">
-     <h3>White Block House</h3>
-     <p class="cs-tagline">Two storeys of white block under deep eaves.</p>
-     <dl class="cs-specs">
-      <div><dt>Scope</dt><dd>Architecture + facade</dd></div>
-      <div><dt>Good for</dt><dd>Suburban plots</dd></div>
-      <div><dt>Site</dt><dd>Lishui, Zhejiang</dd></div>
-     </dl>
-     <div class="cs-foot">
-      <span class="cs-foot-label">Where to start</span>
-      <p class="cs-foot-price">Estimate US$199 &middot; package from US$1,100</p>
-      <a class="cs-go" href="start.html">Explore case &rarr;</a>
-     </div>
-    </div>
-   </article>
-   <article class="cs-card" data-type="hospitality" data-site="liangzhu" data-name="tropical courtyard villa" data-order="1">
-    <div class="cs-card-img">
-     <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
-     <img src="images/projects/project-cabin-1.jpg" alt="Tropical Courtyard Villa" loading="lazy">
-     <span class="cs-badge">Hospitality</span>
-     <span class="cs-pill">Exterior</span>
-    </div>
-    <div class="cs-card-body">
-     <h3>Tropical Courtyard Villa</h3>
-     <p class="cs-tagline">Stone walls, an arched entrance, palms.</p>
-     <dl class="cs-specs">
-      <div><dt>Scope</dt><dd>Architecture + facade</dd></div>
-      <div><dt>Good for</dt><dd>Warm-climate resort plots</dd></div>
-      <div><dt>Site</dt><dd>Liangzhu</dd></div>
-     </dl>
-     <div class="cs-foot">
-      <span class="cs-foot-label">Where to start</span>
-      <p class="cs-foot-price">Estimate US$199 &middot; package from US$1,100</p>
-      <a class="cs-go" href="start.html">Explore case &rarr;</a>
-     </div>
-    </div>
-   </article>
-   <article class="cs-card" data-type="residential" data-site="multiple" data-name="residential collection" data-order="2">
-    <div class="cs-card-img">
-     <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
-     <img src="images/residential/residential-01-suburban-villa-carport.jpg" alt="Residential Collection" loading="lazy">
-     <span class="cs-badge">Residential</span>
-     <span class="cs-pill">Exterior</span>
-    </div>
-    <div class="cs-card-body">
-     <h3>Residential Collection</h3>
-     <p class="cs-tagline">Six house types, one facade logic.</p>
-     <dl class="cs-specs">
-      <div><dt>Scope</dt><dd>Typologies + facade studies</dd></div>
-      <div><dt>Good for</dt><dd>Multi-plot development</dd></div>
-      <div><dt>Site</dt><dd>Multiple sites</dd></div>
-     </dl>
-     <div class="cs-foot">
-      <span class="cs-foot-label">Where to start</span>
-      <p class="cs-foot-price">Estimate US$199 &middot; package from US$1,100</p>
-      <a class="cs-go" href="start.html">Explore case &rarr;</a>
-     </div>
-    </div>
-   </article>
-   <article class="cs-card" data-type="residential" data-site="lishui" data-name="white block house, entrance side" data-order="3">
-    <div class="cs-card-img">
-     <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
-     <img src="images/projects/project-restaurant-2.jpg" alt="White Block House, Entrance Side" loading="lazy">
-     <span class="cs-badge">Residential</span>
-     <span class="cs-pill">Exterior</span>
-    </div>
-    <div class="cs-card-body">
-     <h3>White Block House, Entrance Side</h3>
-     <p class="cs-tagline">The same block, from the entrance side.</p>
-     <dl class="cs-specs">
-      <div><dt>Scope</dt><dd>Architecture + facade</dd></div>
-      <div><dt>Good for</dt><dd>Suburban plots</dd></div>
-      <div><dt>Site</dt><dd>Lishui, Zhejiang</dd></div>
-     </dl>
-     <div class="cs-foot">
-      <span class="cs-foot-label">Where to start</span>
-      <p class="cs-foot-price">Estimate US$199 &middot; package from US$1,100</p>
-      <a class="cs-go" href="start.html">Explore case &rarr;</a>
-     </div>
-    </div>
-   </article>
-   <article class="cs-card" data-type="interior" data-site="hangzhou" data-name="clinic waiting lounge" data-order="4">
-    <div class="cs-card-img">
-     <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
-     <img src="images/projects/project-dental-1.jpg" alt="Clinic Waiting Lounge" loading="lazy">
-     <span class="cs-badge">Interior</span>
-     <span class="cs-pill">Interior</span>
-    </div>
-    <div class="cs-card-body">
-     <h3>Clinic Waiting Lounge</h3>
-     <p class="cs-tagline">A long wait that does not feel like one.</p>
-     <dl class="cs-specs">
-      <div><dt>Scope</dt><dd>Interior + joinery</dd></div>
-      <div><dt>Good for</dt><dd>Clinics and waiting areas</dd></div>
-      <div><dt>Site</dt><dd>Hangzhou</dd></div>
-     </dl>
-     <div class="cs-foot">
-      <span class="cs-foot-label">Where to start</span>
-      <p class="cs-foot-price">Estimate US$199 &middot; package from US$1,100</p>
-      <a class="cs-go" href="start.html">Explore case &rarr;</a>
-     </div>
-    </div>
-   </article>
-   <article class="cs-card" data-type="landscape" data-site="liangzhu" data-name="long pavilion" data-order="5">
-    <div class="cs-card-img">
-     <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
-     <img src="images/projects/project-cabin-2.jpg" alt="Long Pavilion" loading="lazy">
-     <span class="cs-badge">Landscape</span>
-     <span class="cs-pill">Exterior</span>
-    </div>
-    <div class="cs-card-body">
-     <h3>Long Pavilion</h3>
-     <p class="cs-tagline">One long roof, one exposed frame.</p>
-     <dl class="cs-specs">
-      <div><dt>Scope</dt><dd>Architecture + structure</dd></div>
-      <div><dt>Good for</dt><dd>Park and campus sites</dd></div>
-      <div><dt>Site</dt><dd>Liangzhu</dd></div>
-     </dl>
-     <div class="cs-foot">
-      <span class="cs-foot-label">Where to start</span>
-      <p class="cs-foot-price">Estimate US$199 &middot; package from US$1,100</p>
-      <a class="cs-go" href="start.html">Explore case &rarr;</a>
-     </div>
-    </div>
-   </article>
-   <article class="cs-card" data-type="interior" data-site="series" data-name="precision modern · entrance" data-order="6">
-    <div class="cs-card-img">
-     <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
-     <img src="images/ai-works/ai-16-黄仁勋-02-入口-现代精工.jpg" alt="Precision Modern · Entrance" loading="lazy">
-     <span class="cs-badge">Interior</span>
-     <span class="cs-pill">Interior</span>
-    </div>
-    <div class="cs-card-body">
-     <h3>Precision Modern &middot; Entrance</h3>
-     <p class="cs-tagline">Timber plane, stone floor, one long desk.</p>
-     <dl class="cs-specs">
-      <div><dt>Scope</dt><dd>Interior public space</dd></div>
-      <div><dt>Good for</dt><dd>Hotels and offices</dd></div>
-      <div><dt>Site</dt><dd>JFA series</dd></div>
-     </dl>
-     <div class="cs-foot">
-      <span class="cs-foot-label">Where to start</span>
-      <p class="cs-foot-price">Estimate US$199 &middot; package from US$1,100</p>
-      <a class="cs-go" href="start.html">Explore case &rarr;</a>
-     </div>
-    </div>
-   </article>
-   <article class="cs-card" data-type="interior" data-site="series" data-name="futuristic organic · atrium" data-order="7">
-    <div class="cs-card-img">
-     <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
-     <img src="images/ai-works/ai-13-马斯克-02-中庭-未来有机.jpg" alt="Futuristic Organic · Atrium" loading="lazy">
-     <span class="cs-badge">Interior</span>
-     <span class="cs-pill">Interior</span>
-    </div>
-    <div class="cs-card-body">
-     <h3>Futuristic Organic &middot; Atrium</h3>
-     <p class="cs-tagline">A stair that spirals through the light.</p>
-     <dl class="cs-specs">
-      <div><dt>Scope</dt><dd>Interior public space</dd></div>
-      <div><dt>Good for</dt><dd>Atriums and lobbies</dd></div>
-      <div><dt>Site</dt><dd>JFA series</dd></div>
-     </dl>
-     <div class="cs-foot">
-      <span class="cs-foot-label">Where to start</span>
-      <p class="cs-foot-price">Estimate US$199 &middot; package from US$1,100</p>
-      <a class="cs-go" href="start.html">Explore case &rarr;</a>
-     </div>
-    </div>
-   </article>
-   <article class="cs-card" data-type="landscape" data-site="series" data-name="bio-organic · courtyard" data-order="8">
-    <div class="cs-card-img">
-     <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
-     <img src="images/ai-works/ai-02-特斯拉-02-庭院-自然共生.jpg" alt="Bio-Organic · Courtyard" loading="lazy">
-     <span class="cs-badge">Landscape</span>
-     <span class="cs-pill">Exterior</span>
-    </div>
-    <div class="cs-card-body">
-     <h3>Bio-Organic &middot; Courtyard</h3>
-     <p class="cs-tagline">Stone, moss, and one flowering tree.</p>
-     <dl class="cs-specs">
-      <div><dt>Scope</dt><dd>Landscape + planting</dd></div>
-      <div><dt>Good for</dt><dd>Courtyards and gardens</dd></div>
-      <div><dt>Site</dt><dd>JFA series</dd></div>
-     </dl>
-     <div class="cs-foot">
-      <span class="cs-foot-label">Where to start</span>
-      <p class="cs-foot-price">Estimate US$199 &middot; package from US$1,100</p>
-      <a class="cs-go" href="start.html">Explore case &rarr;</a>
-     </div>
-    </div>
-   </article>
-   <article class="cs-card" data-type="concept" data-site="series" data-name="arch rendering · v4" data-order="9">
-    <div class="cs-card-img">
-     <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
-     <img src="images/ai-works/ai-06-系列A-建筑外观渲染-v4.jpg" alt="Arch Rendering · V4" loading="lazy">
-     <span class="cs-badge">Concept</span>
-     <span class="cs-pill">Exterior</span>
-    </div>
-    <div class="cs-card-body">
-     <h3>Arch Rendering &middot; V4</h3>
-     <p class="cs-tagline">Glass, dusk, and a street that reads correctly.</p>
-     <dl class="cs-specs">
-      <div><dt>Scope</dt><dd>Visualisation</dd></div>
-      <div><dt>Good for</dt><dd>Decision support</dd></div>
-      <div><dt>Site</dt><dd>JFA series</dd></div>
-     </dl>
-     <div class="cs-foot">
-      <span class="cs-foot-label">Where to start</span>
-      <p class="cs-foot-price">Estimate US$199 &middot; package from US$1,100</p>
-      <a class="cs-go" href="start.html">Explore case &rarr;</a>
-     </div>
-    </div>
-   </article>
-   <article class="cs-card" data-type="concept" data-site="series" data-name="futuristic concept · v4" data-order="10">
-    <div class="cs-card-img">
-     <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
-     <img src="images/ai-works/ai-07-系列B-未来概念建筑-v4.jpg" alt="Futuristic Concept · V4" loading="lazy">
-     <span class="cs-badge">Concept</span>
-     <span class="cs-pill">Exterior</span>
-    </div>
-    <div class="cs-card-body">
-     <h3>Futuristic Concept &middot; V4</h3>
-     <p class="cs-tagline">A form study, not a building.</p>
-     <dl class="cs-specs">
-      <div><dt>Scope</dt><dd>Form study</dd></div>
-      <div><dt>Good for</dt><dd>Early massing</dd></div>
-      <div><dt>Site</dt><dd>JFA series</dd></div>
-     </dl>
-     <div class="cs-foot">
-      <span class="cs-foot-label">Where to start</span>
-      <p class="cs-foot-price">Estimate US$199 &middot; package from US$1,100</p>
-      <a class="cs-go" href="start.html">Explore case &rarr;</a>
-     </div>
-    </div>
-   </article>
-   <article class="cs-card" data-type="landscape" data-site="series" data-name="landscape integration · v2" data-order="11">
-    <div class="cs-card-img">
-     <button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
-     <img src="images/ai-works/ai-09-系列C-景观建筑融合-v2.jpg" alt="Landscape Integration · V2" loading="lazy">
-     <span class="cs-badge">Landscape</span>
-     <span class="cs-pill">Exterior</span>
-    </div>
-    <div class="cs-card-body">
-     <h3>Landscape Integration &middot; V2</h3>
-     <p class="cs-tagline">Set into the slope, not on it.</p>
-     <dl class="cs-specs">
-      <div><dt>Scope</dt><dd>Architecture + landscape</dd></div>
-      <div><dt>Good for</dt><dd>Forest and waterside sites</dd></div>
-      <div><dt>Site</dt><dd>JFA series</dd></div>
-     </dl>
-     <div class="cs-foot">
-      <span class="cs-foot-label">Where to start</span>
-      <p class="cs-foot-price">Estimate US$199 &middot; package from US$1,100</p>
-      <a class="cs-go" href="start.html">Explore case &rarr;</a>
-     </div>
-    </div>
-   </article>
-  </div>
-  <p class="cs-empty" id="csEmpty" hidden>No case matches that combination yet. Clear one filter and try again.</p>
- </div>
-</section>
 <section class="contact section" id="contact">
  <div class="container">
  <div class="contact-grid">
@@ -2660,7 +2342,6 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 <script>
 // ===== Mobile Nav Toggle =====
 
-
 // ===== Navbar scroll effect =====
 window.addEventListener('scroll', () => {
  const nav = document.getElementById('navbar');
@@ -2775,9 +2456,7 @@ function applyLang(lang) {
 
 // ===== Close mobile nav on link click =====
 
-
 // ===== Keyboard: escape closes mobile menu =====
-
 
 // ===== Residential project slider =====
 (function () {
@@ -2867,66 +2546,6 @@ function applyLang(lang) {
 
 </script>
 
- <script>
-/* cases grid: type / site filters and sort */
-(function () {
-  var grid = document.getElementById('csGrid');
-  if (!grid) return;
-  var cards = Array.prototype.slice.call(grid.querySelectorAll('.cs-card'));
-  var typeChips = Array.prototype.slice.call(document.querySelectorAll('#cases .cs-chip[data-type]'));
-  var siteChips = Array.prototype.slice.call(document.querySelectorAll('#cases .cs-chip[data-site]'));
-  var sortSel = document.getElementById('csSort');
-  var countEl = document.getElementById('csCount');
-  var wordEl = document.getElementById('csCountWord');
-  var emptyEl = document.getElementById('csEmpty');
-  var state = { type: 'all', site: 'all', sort: 'series' };
-  function mark(list, key, value) {
-    list.forEach(function (b) {
-      var on = b.getAttribute('data-' + key) === value;
-      b.classList.toggle('is-on', on);
-      b.setAttribute('aria-pressed', on ? 'true' : 'false');
-    });
-  }
-  function ord(el) { return parseInt(el.getAttribute('data-order'), 10); }
-  function apply() {
-    var shown = cards.filter(function (c) {
-      var okType = state.type === 'all' || c.getAttribute('data-type') === state.type;
-      var okSite = state.site === 'all' || c.getAttribute('data-site') === state.site;
-      c.hidden = !(okType && okSite);
-      return okType && okSite;
-    });
-    var list = shown.slice();
-    if (state.sort === 'name') {
-      list.sort(function (a, b) { return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name')); });
-    } else if (state.sort === 'type') {
-      list.sort(function (a, b) { return a.getAttribute('data-type').localeCompare(b.getAttribute('data-type')) || ord(a) - ord(b); });
-    } else if (state.sort === 'site') {
-      list.sort(function (a, b) { return a.getAttribute('data-site').localeCompare(b.getAttribute('data-site')) || ord(a) - ord(b); });
-    } else {
-      list.sort(function (a, b) { return ord(a) - ord(b); });
-    }
-    list.forEach(function (c, i) { c.style.order = String(i); });
-    if (countEl) countEl.textContent = String(shown.length);
-    if (wordEl) wordEl.textContent = shown.length === 1 ? ' case' : ' cases';
-    if (emptyEl) emptyEl.hidden = shown.length > 0;
-  }
-  typeChips.forEach(function (b) {
-    b.addEventListener('click', function () {
-      state.type = b.getAttribute('data-type');
-      mark(typeChips, 'type', state.type);
-      apply();
-    });
-  });
-  siteChips.forEach(function (b) {
-    b.addEventListener('click', function () {
-      state.site = b.getAttribute('data-site');
-      mark(siteChips, 'site', state.site);
-      apply();
-    });
-  });
-  if (sortSel) { sortSel.addEventListener('change', function () { state.sort = sortSel.value; apply(); }); }
-  apply();
-})();
-</script>
+ 
 </body>
 </html>
