@@ -57,7 +57,7 @@ html body.content-page #about .btn-primary .lang-en { color: #fff !important; op
 .ds-t { display: block; margin-top: 10px; font-size: 12.5px; font-weight: 600; color: #1A1A2E; }
 
 #projects .dz-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
-  gap: 16px; margin-bottom: 30px; }
+  gap: 16px; margin: 26px 0 30px; }
 .dz-filters { display: flex; flex-wrap: wrap; gap: 8px; }
 .dz-filter { font: inherit; font-size: 13.5px; padding: 9px 16px; border-radius: 999px; cursor: pointer;
   background: var(--bg-white); border: 1px solid var(--border); color: var(--text-body); transition: var(--transition); }
@@ -101,6 +101,11 @@ html body.content-page #about .btn-primary .lang-en { color: #fff !important; op
 .dz-arrow:disabled { opacity: .32; cursor: default; }
 .dz-pos { margin: 0; min-width: 76px; text-align: center; font-size: 14px; letter-spacing: .05em;
   font-variant-numeric: tabular-nums; color: var(--text-body); }
+
+/* the card body centres its whole content block, so no dead band between
+   the spec table and the price line on shorter cards */
+#projects .dz-card-foot { margin-top: 0; }
+#projects .dz-card .dz-specs { margin-bottom: 14px; }
 
 @media (min-width: 900px) {
   #projects .dz-grid.dz-carousel .dz-card { flex-direction: row; max-width: 1040px; align-items: stretch; }
