@@ -10,7 +10,7 @@ html body.content-page #about .section-title::after { margin-inline-start: 0; }
 html body.content-page #about .section-subtitle { grid-column: 1; text-align: start; margin: 0; max-width: 65ch; color: var(--content-ink); font-size: 1.125rem !important; line-height: 1.6 !important; }
 .content-page #about .about-grid { display: contents; }
 html body.content-page #about .about-text { grid-column: 1; min-width: 0; }
-html body.content-page #about .about-text p { font-size: 1rem !important; line-height: 1.65 !important; color: var(--content-muted); max-width: 65ch; text-wrap: pretty; margin-bottom: 20px; }
+html body.content-page #about .about-text p { font-size: 1.125rem !important; line-height: 1.66 !important; color: var(--content-muted); max-width: 65ch; text-wrap: pretty; margin-bottom: 20px; }
 html body.content-page #about .about-image { grid-column: 2; grid-row: 1 / span 3; width: 100%; height: auto; min-height: 0; aspect-ratio: 4 / 5; max-height: 620px; border-radius: 12px; overflow: hidden; }
 .content-page #about .about-image img { outline: 1px solid #0000001a; outline-offset: -1px; object-fit: cover; }
 html body.content-page #about .btn { margin-top: 4px !important; min-height: 48px; border-radius: 6px; }
