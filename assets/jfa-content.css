@@ -42,3 +42,21 @@ html body.content-page #about .btn-primary { background: var(--content-ink); col
 html body.content-page #about .about-text .lang-en { opacity: 1; color: inherit; }
 
 html body.content-page #about .btn-primary .lang-en { color: #fff !important; opacity: 1 !important; }
+
+/* Featured Projects: one project per screen, same pager as the designs page. */
+.projects-grid.pj-carousel { display: block; }
+.projects-grid.pj-carousel .project-card {
+  max-width: 1040px; margin: 0 auto; aspect-ratio: 16 / 9;
+  opacity: 1 !important; transform: none !important;
+}
+.projects-grid.pj-carousel .project-card[hidden] { display: none; }
+@media (max-width: 700px) { .projects-grid.pj-carousel .project-card { aspect-ratio: 4 / 3; } }
+.pj-nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin: 28px 0 0; }
+.pj-arrow { width: 48px; height: 48px; padding: 0; border-radius: 50%; border: 1px solid var(--border);
+  background: #fff; color: #1A1A2E; font-size: 24px; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); }
+.pj-arrow:hover:not(:disabled) { border-color: #C4975A; background: #C4975A; color: #22303F; }
+.pj-arrow:disabled { opacity: .32; cursor: default; }
+.pj-pos { margin: 0; min-width: 76px; text-align: center; font-size: 14px; letter-spacing: .05em;
+  font-variant-numeric: tabular-nums; color: #4A4A5A; }
+@media (max-width: 640px) { .pj-arrow { width: 44px; height: 44px; font-size: 22px; } }

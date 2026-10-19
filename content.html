@@ -1068,7 +1068,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
 <script defer src="assets/jfa-chat.js?v=265cbd09"></script>
 <link rel="stylesheet" href="assets/jfa-surfaces.css?v=dae581be">
 <link rel="stylesheet" href="assets/jfa-interactions.css?v=6006a494">
-<script defer src="assets/jfa-interactions.js?v=bf3f1558"></script>
+<script defer src="assets/jfa-interactions.js?v=beacaad0"></script>
 
 
 
@@ -1091,7 +1091,7 @@ html body .process-step.reveal-delay-2.reveal > .step-number,
 html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !important; }
 </style>
 <link rel="stylesheet" href="assets/jfa-welcome.css?v=cfd7375c">
-<link rel="stylesheet" href="assets/jfa-content.css?v=d6cf7216">
+<link rel="stylesheet" href="assets/jfa-content.css?v=caaef8db">
 <script defer src="assets/jfa-content.js?v=ec7278be"></script>
 </head>
 <body class="jfa-read content-page">
@@ -1301,26 +1301,15 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
  <span class="lang-en" lang="en">Every project is a promise. Let our work speak for itself.</span>
 
  </p>
- <div class="projects-filter reveal">
- <button class="filter-btn active" data-filter="all">
- <span class="lang-en" lang="en">All</span>
- </button>
- <button class="filter-btn" data-filter="commercial">
- <span class="lang-en" lang="en">Commercial</span>
- </button>
- <button class="filter-btn" data-filter="hospitality">
- <span class="lang-en" lang="en">Hospitality</span>
- </button>
- <button class="filter-btn" data-filter="healthcare">
- <span class="lang-en" lang="en">Healthcare</span>
- </button>
- <button class="filter-btn" data-filter="residential">
- <span class="lang-en" lang="en">Residential</span>
- </button>
- </div>
- <div class="projects-grid">
- <div class="project-card reveal" data-category="commercial"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <span class="proj-tag"><span class="lang-en" lang="en">Commercial</span></span>
+ <div class="projects-filter reveal" role="group" aria-label="Filter projects">
+ <button class="filter-btn active" data-filter="residential" aria-pressed="true"><span class="lang-en" lang="en">Residential</span></button>
+ <button class="filter-btn" data-filter="hospitality" aria-pressed="false"><span class="lang-en" lang="en">Hospitality</span></button>
+ <button class="filter-btn" data-filter="landscape" aria-pressed="false"><span class="lang-en" lang="en">Landscape</span></button>
+ <button class="filter-btn" data-filter="interior" aria-pressed="false"><span class="lang-en" lang="en">Interior</span></button>
+ <button class="filter-btn" data-filter="concept" aria-pressed="false"><span class="lang-en" lang="en">Concept</span></button></div>
+ <div class="projects-grid pj-carousel" id="pjGrid">
+ <div class="project-card reveal" data-category="hospitality"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <span class="proj-tag"><span class="lang-en" lang="en">Hospitality</span></span>
  <img loading="lazy" class="project-card-img" src="images/projects/project-restaurant-1.jpg" alt="Eco-Tourism Restaurant">
  <div class="project-overlay">
  <h4 class="lang-en" lang="en">Eco-Tourism Restaurant</h4>
@@ -1361,8 +1350,8 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 
  </div>
  </div>
- <div class="project-card reveal" data-category="commercial"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <span class="proj-tag"><span class="lang-en" lang="en">Commercial</span></span>
+ <div class="project-card reveal" data-category="interior"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <span class="proj-tag"><span class="lang-en" lang="en">Interior</span></span>
  <img loading="lazy" class="project-card-img" src="images/projects/project-restaurant-2.jpg" alt="Restaurant Interior">
  <div class="project-overlay">
  <h4 class="lang-en" lang="en">Restaurant Interior</h4>
@@ -1371,8 +1360,8 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 
  </div>
  </div>
- <div class="project-card reveal reveal-delay-1" data-category="healthcare"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <span class="proj-tag"><span class="lang-en" lang="en">Healthcare</span></span>
+ <div class="project-card reveal reveal-delay-1" data-category="interior"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <span class="proj-tag"><span class="lang-en" lang="en">Interior</span></span>
  <img loading="lazy" class="project-card-img" src="images/projects/project-dental-1.jpg" alt="Dental Clinic Chain">
  <div class="project-overlay">
  <h4 class="lang-en" lang="en">Dental Clinic Chain</h4>
@@ -1381,8 +1370,8 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 
  </div>
  </div>
- <div class="project-card reveal reveal-delay-2" data-category="hospitality"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <span class="proj-tag"><span class="lang-en" lang="en">Hospitality</span></span>
+ <div class="project-card reveal reveal-delay-2" data-category="landscape"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <span class="proj-tag"><span class="lang-en" lang="en">Landscape</span></span>
  <img loading="lazy" class="project-card-img" src="images/projects/project-cabin-2.jpg" alt="Cabin Landscape">
  <div class="project-overlay">
  <h4 class="lang-en" lang="en">Cabin Landscape</h4>
@@ -1393,8 +1382,8 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
  </div>
 
  <!-- AI  -->
- <div class="project-card reveal" data-category="commercial"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <span class="proj-tag"><span class="lang-en" lang="en">Commercial</span></span>
+ <div class="project-card reveal" data-category="interior"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <span class="proj-tag"><span class="lang-en" lang="en">Interior</span></span>
  <img loading="lazy" class="project-card-img" src="images/ai-works/ai-16-黄仁勋-02-入口-现代精工.jpg" alt="Precision Modern · Entrance">
  <div class="project-overlay">
  <h4 class="lang-en" lang="en">Precision Modern · Entrance</h4>
@@ -1403,8 +1392,8 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 
  </div>
  </div>
- <div class="project-card reveal reveal-delay-1" data-category="commercial"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <span class="proj-tag"><span class="lang-en" lang="en">Commercial</span></span>
+ <div class="project-card reveal reveal-delay-1" data-category="interior"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <span class="proj-tag"><span class="lang-en" lang="en">Interior</span></span>
  <img loading="lazy" class="project-card-img" src="images/ai-works/ai-13-马斯克-02-中庭-未来有机.jpg" alt="Futuristic Organic · Atrium">
  <div class="project-overlay">
  <h4 class="lang-en" lang="en">Futuristic Organic · Atrium</h4>
@@ -1413,8 +1402,8 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 
  </div>
  </div>
- <div class="project-card reveal reveal-delay-2" data-category="hospitality"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <span class="proj-tag"><span class="lang-en" lang="en">Hospitality</span></span>
+ <div class="project-card reveal reveal-delay-2" data-category="interior"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <span class="proj-tag"><span class="lang-en" lang="en">Interior</span></span>
  <img loading="lazy" class="project-card-img" src="images/ai-works/ai-02-特斯拉-02-庭院-自然共生.jpg" alt="Bio-Organic · Courtyard">
  <div class="project-overlay">
  <h4 class="lang-en" lang="en">Bio-Organic · Courtyard</h4>
@@ -1423,8 +1412,8 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 
  </div>
  </div>
- <div class="project-card reveal" data-category="commercial"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
- <span class="proj-tag"><span class="lang-en" lang="en">Rendering</span></span>
+ <div class="project-card reveal" data-category="concept"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <span class="proj-tag"><span class="lang-en" lang="en">Concept</span></span>
  <img loading="lazy" class="project-card-img" src="images/ai-works/ai-06-系列A-建筑外观渲染-v4.jpg" alt="Arch Rendering · V4">
  <div class="project-overlay">
  <h4 class="lang-en" lang="en">Arch Rendering · V4</h4>
@@ -1433,7 +1422,7 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 
  </div>
  </div>
- <div class="project-card reveal reveal-delay-1" data-category="commercial"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <div class="project-card reveal reveal-delay-1" data-category="concept"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
  <span class="proj-tag"><span class="lang-en" lang="en">Concept</span></span>
  <img loading="lazy" class="project-card-img" src="images/ai-works/ai-07-系列B-未来概念建筑-v4.jpg" alt="Futuristic Concept · V4">
  <div class="project-overlay">
@@ -1443,7 +1432,7 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 
  </div>
  </div>
- <div class="project-card reveal reveal-delay-2" data-category="hospitality"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
+ <div class="project-card reveal reveal-delay-2" data-category="landscape"><button type="button" class="project-open" aria-haspopup="dialog"><span class="sr-only">View project image</span></button>
  <span class="proj-tag"><span class="lang-en" lang="en">Landscape</span></span>
  <img loading="lazy" class="project-card-img" src="images/ai-works/ai-09-系列C-景观建筑融合-v2.jpg" alt="Landscape Integration · V2">
  <div class="project-overlay">
@@ -1455,7 +1444,12 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
  </div>
 
  </div>
- </div>
+ 
+ <div class="pj-nav">
+ <button type="button" class="pj-arrow" id="pjPrev" aria-label="Previous project">&lsaquo;</button>
+ <p class="pj-pos" id="pjPos" aria-live="polite">1 / 1</p>
+ <button type="button" class="pj-arrow" id="pjNext" aria-label="Next project">&rsaquo;</button>
+ </div></div>
 </section>
 
 

@@ -72,17 +72,42 @@
     enlarge.textContent = 'Enlarge'; enlarge.setAttribute('aria-label', 'Enlarge current residential image');
     slider.append(enlarge); // Existing slider click handler resolves the current slide.
   }
-  document.querySelectorAll('.filter-btn').forEach(button => {
-    button.setAttribute('aria-pressed', String(button.classList.contains('active')));
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => {
-        b.classList.toggle('active', b === button); b.setAttribute('aria-pressed', String(b === button));
+  // Featured Projects: one card per screen, filters limited to the five categories.
+  const pjButtons = [...document.querySelectorAll('.filter-btn')];
+  const pjCards = [...document.querySelectorAll('.project-card')];
+  if (pjButtons.length && pjCards.length) {
+    const pjPrev = document.getElementById('pjPrev');
+    const pjNext = document.getElementById('pjNext');
+    const pjPos = document.getElementById('pjPos');
+    const pjNav = document.querySelector('.pj-nav');
+    let pjCat = pjButtons[0].dataset.filter;
+    let pjIndex = 0;
+    const pjRender = () => {
+      const items = pjCards.filter(card => card.dataset.category === pjCat);
+      if (pjIndex >= items.length) pjIndex = 0;
+      if (pjIndex < 0) pjIndex = items.length - 1;
+      pjCards.forEach(card => { card.hidden = true; });
+      if (items[pjIndex]) { items[pjIndex].hidden = false; items[pjIndex].classList.add('visible'); }
+      pjButtons.forEach(b => {
+        const on = b.dataset.filter === pjCat;
+        b.classList.toggle('active', on); b.setAttribute('aria-pressed', String(on));
       });
-      document.querySelectorAll('.project-card').forEach(card => {
-        card.hidden = button.dataset.filter !== 'all' && card.dataset.category !== button.dataset.filter;
+      if (pjPos) pjPos.textContent = items.length ? (pjIndex + 1) + ' / ' + items.length : '0 / 0';
+      if (pjPrev) pjPrev.disabled = items.length < 2;
+      if (pjNext) pjNext.disabled = items.length < 2;
+      if (pjNav) pjNav.hidden = items.length < 2;   // no dead arrows for a one-card category
+    };
+    pjButtons.forEach(button => {
+      button.setAttribute('aria-pressed', String(button.classList.contains('active')));
+      button.addEventListener('click', () => {
+        if (button.dataset.filter === pjCat) return;
+        pjCat = button.dataset.filter; pjIndex = 0; pjRender();
       });
     });
-  });
+    pjPrev?.addEventListener('click', () => { pjIndex--; pjRender(); });
+    pjNext?.addEventListener('click', () => { pjIndex++; pjRender(); });
+    pjRender();
+  }
   document.querySelectorAll('.pv-toggle,.hiw-tabs').forEach(group => {
     group.setAttribute('role', 'group');
     group.querySelectorAll('[role="tab"]').forEach(button => { button.removeAttribute('role'); button.removeAttribute('aria-selected'); });
