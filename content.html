@@ -492,6 +492,9 @@ p.lang-zh, h4.lang-zh { font-size: 0.72em !important; opacity: 0.62 !important; 
   font-size: 1rem; color: rgba(255,255,255,0.7);
   font-weight: 400;
 }
+/* The label sits under a centred number; the readability pass inherited
+   text-align:left here, which pulled the pair off-axis by ~60px. */
+html body .stats .stat-label { text-align: center; }
 
 /* ===== Services ===== */
 .services { background: var(--bg-warm); }
@@ -1063,7 +1066,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
 <link rel="stylesheet" href="assets/jfa-chat.css?v=23abc6db">
 <script defer src="assets/jfa-chat-config.js?v=09704ffc"></script>
 <script defer src="assets/jfa-chat.js?v=265cbd09"></script>
-<link rel="stylesheet" href="assets/jfa-surfaces.css?v=dae581be">
+<link rel="stylesheet" href="assets/jfa-surfaces.css?v=72e7a9b0">
 <link rel="stylesheet" href="assets/jfa-interactions.css?v=6006a494">
 <script defer src="assets/jfa-interactions.js?v=3ce58917"></script>
 
