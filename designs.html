@@ -1158,7 +1158,7 @@ html body.jfa-read.jfa-read.jfa-read footer h3.lang-zh { font-size: 15px !import
 <script defer src="assets/jfa-chat.js?v=265cbd09"></script>
 <link rel="stylesheet" href="assets/jfa-surfaces.css?v=271b94f6">
 <link rel="stylesheet" href="assets/jfa-interactions.css?v=6006a494">
-<script defer src="assets/jfa-interactions.js?v=3ce58917"></script>
+<script defer src="assets/jfa-interactions.js?v=7a63aac9"></script>
 
 <style id="jfa-audited-contrast">
 /* Measured text contrast fixes; preserve existing surfaces and imagery.
@@ -2245,6 +2245,14 @@ window.addEventListener('scroll', function () {
  }
 
  function measure() {
+  // Pin the grid to its current height while measuring: unhiding every card at once
+  // used to stretch the document to tens of thousands of pixels for one frame, and on
+  // a phone that frame moved the scroll position to the footer.
+  var lock = Math.round(grid.getBoundingClientRect().height);
+  var prevMin = grid.style.minHeight;
+  grid.style.minHeight = lock + 'px';
+  grid.style.maxHeight = lock + 'px';
+  grid.style.overflow = 'hidden';
   var keep = [];
   Array.prototype.forEach.call(cards, function (c) { keep.push(c.hidden); c.hidden = false; });
   void grid.offsetHeight;
@@ -2256,6 +2264,9 @@ window.addEventListener('scroll', function () {
   });
   grid.style.setProperty('--dz-card-h', Math.round(tallest) + 'px');
   Array.prototype.forEach.call(cards, function (c, i) { c.hidden = keep[i]; });
+  grid.style.minHeight = prevMin;
+  grid.style.maxHeight = '';
+  grid.style.overflow = '';
   void grid.offsetHeight;
  }
 
@@ -2305,10 +2316,16 @@ window.addEventListener('scroll', function () {
   if (e.key === 'ArrowRight' && next && !next.disabled) { idx++; render(); }
  });
 
- var t = null;
+ var t = null, lastWidth = window.innerWidth;
  window.addEventListener('resize', function () {
   clearTimeout(t);
-  t = setTimeout(function () { measure(); render(); }, 180);
+  t = setTimeout(function () {
+   // A phone fires resize when its URL bar shows or hides; card height only depends on
+   // the width, so ignore height-only changes instead of re-measuring mid-scroll.
+   if (window.innerWidth === lastWidth) return;
+   lastWidth = window.innerWidth;
+   measure(); render();
+  }, 180);
  });
 })();
 

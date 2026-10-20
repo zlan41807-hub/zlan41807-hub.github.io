@@ -86,6 +86,15 @@
 
     const pjMeasure = () => {
       if (!pjGrid) return;
+      // Showing all cards at once to measure them grew the document from about 9,000px
+      // to about 41,000px for a single frame. On a phone that frame (the URL bar showing
+      // or hiding fires resize) threw the scroll position down to the footer, so the grid
+      // is pinned to its current height while the measurement happens.
+      const lock = Math.round(pjGrid.getBoundingClientRect().height);
+      const prevMin = pjGrid.style.minHeight;
+      pjGrid.style.minHeight = lock + 'px';
+      pjGrid.style.maxHeight = lock + 'px';
+      pjGrid.style.overflow = 'hidden';
       pjGrid.style.removeProperty('--dz-card-h');
       const keep = pjCards.map(card => card.hidden);
       pjCards.forEach(card => { card.hidden = false; });
@@ -97,6 +106,9 @@
       });
       pjGrid.style.setProperty('--dz-card-h', Math.round(tallest) + 'px');
       pjCards.forEach((card, i) => { card.hidden = keep[i]; });
+      pjGrid.style.minHeight = prevMin;
+      pjGrid.style.maxHeight = '';
+      pjGrid.style.overflow = '';
       void pjGrid.offsetHeight;
     };
 
@@ -131,10 +143,16 @@
       if (e.key === 'ArrowLeft' && pjPrev && !pjPrev.disabled) { pjIndex--; pjRender(); }
       if (e.key === 'ArrowRight' && pjNext && !pjNext.disabled) { pjIndex++; pjRender(); }
     });
-    let pjTimer = null;
+    let pjTimer = null, pjWidth = window.innerWidth;
     addEventListener('resize', () => {
       clearTimeout(pjTimer);
-      pjTimer = setTimeout(() => { pjMeasure(); pjRender(); }, 180);
+      pjTimer = setTimeout(() => {
+        // Phone browsers fire resize every time the URL bar shows or hides. The card
+        // height only depends on the width, so a height-only change must not re-measure.
+        if (window.innerWidth === pjWidth) return;
+        pjWidth = window.innerWidth;
+        pjMeasure(); pjRender();
+      }, 180);
     });
     pjMeasure();
     pjRender();
