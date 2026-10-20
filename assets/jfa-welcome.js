@@ -1,12 +1,12 @@
 /* Welcome page navigation.
-   The homepage is a real page and must not move on its own: an earlier version
-   sent every visitor to content.html after five seconds, which read as the page
-   jumping while people were still looking at the hero.
+   The homepage is the fixed entry point and stays on screen for three seconds,
+   long enough to read the hero, then hands the visitor to content.html.
    Deep links that carry an in-page target (for example index.html#projects)
-   still resolve on the content page immediately, because that is where those
+   resolve on the content page immediately, because that is where those
    sections live. */
 (() => {
   'use strict';
+  const HOLD_MS = 3000;
   const url = (hash) => new URL('content.html' + location.search + (hash || ''), location.href).href;
   function transferHash() {
     if (location.hash && location.hash !== '#home') {
@@ -15,6 +15,9 @@
     }
     return false;
   }
-  transferHash();
+  if (transferHash()) return;
   window.addEventListener('hashchange', transferHash);
+  const start = () => window.setTimeout(() => location.replace(url('')), HOLD_MS);
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start, { once: true });
 })();
