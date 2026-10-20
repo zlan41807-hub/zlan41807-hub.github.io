@@ -578,3 +578,17 @@ html body.jfa-read .sks-cta {
   align-items: stretch;
 }
 
+/* ===== Navigation: the links sit on the bar's own axis =====
+   A language pill used to sit at the right end of the bar, so justify-content:
+   space-between parked the links left of it. With the pill gone the same rule
+   pushed them onto the right edge and left a ~300px hole in the middle, which
+   reads as a layout shift. From tablet width up the bar is a three-column grid
+   so the links are centred again.
+   Phones keep the original flex layout on purpose: the open menu is positioned
+   absolutely against this element, and a grid item would shrink it to its cell. */
+@media (min-width: 769px) {
+  html body .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; }
+  html body .nav-logo { grid-column: 1; justify-self: start; }
+  html body .nav-links { grid-column: 2; justify-self: center; }
+  html body .nav-toggle { grid-column: 3; justify-self: end; }
+}
