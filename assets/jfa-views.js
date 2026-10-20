@@ -5,7 +5,8 @@
  * page, and nothing is sent when the page is not a case page or the backend is unset.
  */
 (function () {
-  var m = /^\/case-([a-z0-9][a-z0-9-]{0,119})\.html$/.exec(window.location.pathname);
+  // Cloudflare Pages redirects /case-x.html to /case-x, so the extension is optional here.
+  var m = /(?:^|\/)case-([a-z0-9][a-z0-9-]{0,119})(?:\.html)?\/?$/.exec(window.location.pathname);
   if (!m) return;
   var slug = m[1];
 
