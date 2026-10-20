@@ -126,7 +126,9 @@ html body.content-page #about .btn-primary .lang-en { color: #fff !important; op
 #cases { background: #F6F7F8; }
 #cases .cs-filterbar {
   display: grid;
-  grid-template-columns: minmax(0,1.25fr) minmax(0,1.25fr) minmax(200px,auto);
+  /* Type holds six chips, so it takes the full width of the bar on its own row;
+     Setting and Sort then share the row underneath. */
+  grid-template-columns: minmax(0,1fr) minmax(200px,auto);
   gap: 16px 28px;
   align-items: start;
   background: #fff;
@@ -137,6 +139,7 @@ html body.content-page #about .btn-primary .lang-en { color: #fff !important; op
   margin-top: 26px;
 }
 #cases .cs-fgroup { display: flex; flex-direction: column; gap: 9px; min-width: 0; }
+#cases .cs-filterbar > .cs-fgroup:first-child { grid-column: 1 / -1; }
 #cases .cs-flabel {
   font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase;
   font-weight: 700; color: var(--text-light);
@@ -215,7 +218,7 @@ html body.content-page #about .btn-primary .lang-en { color: #fff !important; op
 #cases .cs-empty { margin: 22px 0 0; font-size: 13.5px; color: var(--text-light); }
 @media (max-width: 1100px) {
   #cases .cs-filterbar { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
-  #cases .cs-fgroup-sort { grid-column: 1 / -1; max-width: 260px; }
+  #cases .cs-fgroup-sort { max-width: 260px; min-width: 200px; justify-self: end; }
   #cases .cs-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
 }
 @media (max-width: 860px) {
@@ -223,7 +226,7 @@ html body.content-page #about .btn-primary .lang-en { color: #fff !important; op
 }
 @media (max-width: 560px) {
   #cases .cs-filterbar { grid-template-columns: minmax(0,1fr); padding: 16px; }
-  #cases .cs-fgroup-sort { max-width: none; }
+  #cases .cs-fgroup-sort { max-width: none; min-width: 0; justify-self: stretch; }
   #cases .cs-grid { grid-template-columns: minmax(0,1fr); gap: 18px; }
   #cases .cs-tagline { min-height: 0; }
 }
