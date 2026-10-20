@@ -576,7 +576,6 @@ p.lang-zh, h4.lang-zh { font-size: 0.72em !important; opacity: 0.62 !important; 
   letter-spacing: 1px;
 
 
-
 /* Lightbox */
 .ai-lightbox {
   display:none; position:fixed; inset:0; z-index:2000;
@@ -1487,7 +1486,7 @@ html body .est-disclaimer > .lang-en[lang="en"] > strong { color: #4f5a65 !impor
  <a href="cases.html"><span class="lang-en" lang="en">Cases</span></a>
  <a href="sketch.html"><span class="lang-en" lang="en">Sketch</span></a>
  </div>
- <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
+ 
  <button class="nav-toggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu">
  <span></span><span></span><span></span>
  </button>
@@ -1956,26 +1955,6 @@ window.addEventListener('scroll', () => {
  const nav = document.getElementById('navbar');
  if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
 });
-// ===== / Language toggle =====
-function applyLang(lang) {
- document.documentElement.setAttribute('data-lang', lang);
- document.documentElement.lang = 'en';
- const btn = document.getElementById('langToggle');
- if (btn) {
- btn.textContent = (lang === 'en') ? 'EN' : 'EN';
- btn.setAttribute('aria-label', (lang === 'en') ? 'Switch display mode' : 'Switch to English');
- }
- try { localStorage.setItem('jfa-lang', lang); } catch (e) {}
-}
-(function initLang() {
- let saved = null;
- try { saved = localStorage.getItem('jfa-lang'); } catch (e) {}
- const btn = document.getElementById('langToggle');
- if (btn) btn.addEventListener('click', () => {
- applyLang(document.documentElement.getAttribute('data-lang') === 'en' ? 'zh' : 'en');
- });
- applyLang(saved === 'en' ? 'en' : (saved === 'zh' ? 'zh' : 'zh'));
-})();
 
 
 /* ===== ten-page sample report viewer ===== */
@@ -2060,8 +2039,7 @@ function applyLang(lang) {
  });
  document.getElementById('estPrev').addEventListener('click', function () { i = (i + 9) % 10; render(); });
  document.getElementById('estNext').addEventListener('click', function () { i = (i + 1) % 10; render(); });
- render();
- applyLang(document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh');
+ render();
 })();
 </script>
 

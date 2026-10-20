@@ -573,7 +573,6 @@ p.lang-zh, h4.lang-zh { font-size: 0.72em !important; opacity: 0.62 !important; 
   letter-spacing: 1px;
 
 
-
 /* Lightbox */
 .ai-lightbox {
   display:none; position:fixed; inset:0; z-index:2000;
@@ -593,7 +592,6 @@ p.lang-zh, h4.lang-zh { font-size: 0.72em !important; opacity: 0.62 !important; 
   font-size:2rem; cursor:pointer; opacity:0.6;
 }
 .ai-lightbox-close:hover { opacity:1; }
-
 
 /*  */
 .proj-tag {
@@ -814,7 +812,6 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   .floating-cta-btn { width:48px; height:48px; font-size:1.1rem; }
 }
 
-
 .dz-hero { padding: calc(var(--nav-height) + 74px) 0 54px; background:linear-gradient(160deg,#2C3E50 0%,#384C60 55%,#2A3B4C 100%); color:#F3F1EC; }
 .dz-eyebrow { display:inline-block; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-light);
   border:1px solid rgba(212,163,115,.45); border-radius:999px; padding:6px 14px; margin-bottom:20px; }
@@ -970,7 +967,6 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   .pv-float { position:static; width:auto; margin:0; border-radius:0; box-shadow:none; }
 }
 @media (max-width: 767px) { .dz-hero { padding: calc(var(--nav-height) + 40px) 0 40px; } .dz-card-img { aspect-ratio:4/3; } }
-
 
 /* ===== Navigation: eight items must fit ===== */
 /* Between this width and the menu breakpoint the Chinese sub-labels step aside,
@@ -1246,7 +1242,7 @@ html body .dz-kicker > .lang-en[lang="en"] { color: #4f5a65 !important; }
  <a href="cases.html"><span class="lang-en" lang="en">Cases</span></a>
  <a href="sketch.html"><span class="lang-en" lang="en">Sketch</span></a>
  </div>
- <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
+ 
  <button class="nav-toggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu">
  <span></span><span></span><span></span>
  </button>
@@ -1944,7 +1940,6 @@ html body .dz-kicker > .lang-en[lang="en"] { color: #4f5a65 !important; }
 
 
 
-
   <article class="dz-card" data-cat="landscape">
  <div class="dz-card-img">
  <img src="images/series-2026/series-olive-garden.jpg" alt="Olive Garden Villa" loading="lazy">
@@ -2171,7 +2166,6 @@ html body .dz-kicker > .lang-en[lang="en"] { color: #4f5a65 !important; }
 
 
 
-
 </main>
 <footer class="footer">
  <div class="container">
@@ -2227,25 +2221,6 @@ window.addEventListener('scroll', function () {
  var nav = document.getElementById('navbar');
  if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
 });
-function applyLang(lang) {
- document.documentElement.setAttribute('data-lang', lang);
- document.documentElement.lang = 'en';
- var btn = document.getElementById('langToggle');
- if (btn) {
- btn.textContent = (lang === 'en') ? 'EN' : 'EN';
- btn.setAttribute('aria-label', (lang === 'en') ? 'Switch display mode' : 'Switch to English');
- }
- try { localStorage.setItem('jfa-lang', lang); } catch (e) {}
-}
-(function () {
- var saved = null;
- try { saved = localStorage.getItem('jfa-lang'); } catch (e) {}
- var btn = document.getElementById('langToggle');
- if (btn) btn.addEventListener('click', function () {
- applyLang(document.documentElement.getAttribute('data-lang') === 'en' ? 'zh' : 'en');
- });
- applyLang(saved === 'en' ? 'en' : 'zh');
-})();
 
 
 

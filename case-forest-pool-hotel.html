@@ -75,7 +75,6 @@
 <!--  JS  .reveal ； JS  -->
 <script>document.documentElement.classList.add('js');
 </script>
-<script>(function(){try{var l=localStorage.getItem('jfa-lang');}catch(e){var l=null;}document.documentElement.setAttribute('data-lang',l==='en'?'en':'zh');})();</script>
 <style>
 /* ===== CSS Variables ===== */
 :root {
@@ -1147,7 +1146,7 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
  <a href="cases.html" class="is-current" aria-current="page"><span class="lang-en" lang="en">Cases</span></a>
  <a href="sketch.html"><span class="lang-en" lang="en">Sketch</span></a>
  </div>
- <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
+ 
  <button class="nav-toggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu">
  <span></span><span></span><span></span>
  </button>
@@ -1370,27 +1369,6 @@ async function handleFormSubmit(e) {
 }
 
 // ===== / Language toggle =====
-function applyLang(lang) {
- document.documentElement.setAttribute('data-lang', lang);
- document.documentElement.lang = 'en'; // English is the primary language in both modes
- const btn = document.getElementById('langToggle');
- if (btn) {
- btn.textContent = (lang === 'en') ? 'EN' : 'EN';
- btn.setAttribute('aria-label', (lang === 'en') ? 'Switch display mode' : 'Switch to English');
- }
- document.querySelectorAll('select option[data-zh]').forEach(o => {
- const en = o.getAttribute('data-en'), zh = o.getAttribute('data-zh');
- o.textContent = (lang === 'en') ? en : (en + '' + zh);
- });
- try { localStorage.setItem('jfa-lang', lang); } catch (e) {}
-}
-(function initLang() {
- const btn = document.getElementById('langToggle');
- if (btn) btn.addEventListener('click', () => {
- applyLang(document.documentElement.getAttribute('data-lang') === 'en' ? 'zh' : 'en');
- });
- applyLang(document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh');
-})();
 
 // ===== Close mobile nav on link click =====
 

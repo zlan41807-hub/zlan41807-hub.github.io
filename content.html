@@ -75,7 +75,6 @@
 <!--  JS  .reveal ； JS  -->
 <script>document.documentElement.classList.add('js');
 </script>
-<script>(function(){try{var l=localStorage.getItem('jfa-lang');}catch(e){var l=null;}document.documentElement.setAttribute('data-lang',l==='en'?'en':'zh');})();</script>
 <style>
 /* ===== CSS Variables ===== */
 :root {
@@ -121,7 +120,7 @@ ul { list-style:none; }
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 700;
   color: var(--text-dark);
-  margin-bottom: 16px;
+  margin: 0 0 16px;
 }
 .section-subtitle {
   font-size: 1.05rem;
@@ -983,7 +982,7 @@ html body .section-subtitle { color: #52606d; }
 @media (max-width: 360px) {
   html body .container { padding-left: 16px; padding-right: 16px; }
   html body h1 { font-size: clamp(26px, 8.5vw, 34px) !important; line-height: 1.22 !important; }
-  html body h2 { font-size: clamp(21px, 6.6vw, 27px) !important; line-height: 1.25 !important; }
+  html body h2:not(.section-title) { font-size: clamp(21px, 6.6vw, 27px) !important; line-height: 1.25 !important; }
   html body .hero-stats, html body .stats-grid, html body .projects-grid,
   html body .service-grid, html body .team-grid, html body .est-grid { grid-template-columns: 1fr !important; }
 }
@@ -1146,7 +1145,7 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
  <a href="cases.html"><span class="lang-en" lang="en">Cases</span></a>
  <a href="sketch.html"><span class="lang-en" lang="en">Sketch</span></a>
  </div>
- <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
+ 
  <button class="nav-toggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu">
  <span></span><span></span><span></span>
  </button>
@@ -1214,10 +1213,10 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 <!-- ===== Services ===== -->
 <section class="services section merged" id="services">
  <div class="container">
- <div class="section-title text-center reveal">
+ <h2 class="section-title text-center reveal">
  <span class="lang-en" lang="en">Services &amp; Team</span>
 
- </div>
+ </h2>
  <p class="section-subtitle text-center reveal reveal-delay-1">
  <span class="lang-en" lang="en">Four in-house disciplines. One coordinated team from concept to handover.</span>
 
@@ -1286,7 +1285,7 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 <!-- ===== Projects ===== -->
 <section class="projects section" id="projects">
  <div class="container">
- <div class="section-title text-center reveal"><span class="lang-en" lang="en">Featured Projects</span></div>
+ <h2 class="section-title text-center reveal"><span class="lang-en" lang="en">Featured Projects</span></h2>
  <p class="section-subtitle text-center reveal reveal-delay-1"><span class="lang-en" lang="en">Every project is a promise. Let our work speak for itself.</span></p>
  <div class="dz-bar">
  <div class="dz-filters" role="group" aria-label="Filter projects">
@@ -2134,10 +2133,10 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
 <!-- ===== Process ===== -->
 <section class="process section" id="process">
  <div class="container">
- <div class="section-title text-center reveal">
+ <h2 class="section-title text-center reveal">
  <span class="lang-en" lang="en">Our Process</span>
 
- </div>
+ </h2>
  <p class="section-subtitle text-center reveal reveal-delay-1">
  <span class="lang-en" lang="en">A streamlined workflow that ensures quality delivery on every project</span>
 
@@ -2253,13 +2252,13 @@ html body .reveal-delay-3.process-step.reveal > .step-number { color: #4f5a65 !i
  <div class="form-group">
  <label for="contact-service"><span class="lang-en" lang="en">Service Needed *</span></label>
 <select id="contact-service" name="service" required>
- <option value="" data-zh="" data-en="Select a service">Select a service</option>
- <option value="architectural" data-zh="" data-en="Architectural Design">Architectural Design</option>
- <option value="interior" data-zh="" data-en="Interior Design">Interior Design</option>
- <option value="landscape" data-zh="" data-en="Landscape Design">Landscape Design</option>
- <option value="structural" data-zh="" data-en="Structural Engineering">Structural Engineering</option>
- <option value="bim" data-zh="BIM" data-en="BIM Consulting">BIM Consulting / BIM</option>
- <option value="other" data-zh="" data-en="Other">Other</option>
+ <option value="">Select a service</option>
+ <option value="architectural">Architectural Design</option>
+ <option value="interior">Interior Design</option>
+ <option value="landscape">Landscape Design</option>
+ <option value="structural">Structural Engineering</option>
+ <option value="bim">BIM Consulting</option>
+ <option value="other">Other</option>
  </select>
  </div>
  <div class="form-group">
@@ -2432,27 +2431,6 @@ async function handleFormSubmit(e) {
 }
 
 // ===== / Language toggle =====
-function applyLang(lang) {
- document.documentElement.setAttribute('data-lang', lang);
- document.documentElement.lang = 'en'; // English is the primary language in both modes
- const btn = document.getElementById('langToggle');
- if (btn) {
- btn.textContent = (lang === 'en') ? 'EN' : 'EN';
- btn.setAttribute('aria-label', (lang === 'en') ? 'Switch display mode' : 'Switch to English');
- }
- document.querySelectorAll('select option[data-zh]').forEach(o => {
- const en = o.getAttribute('data-en'), zh = o.getAttribute('data-zh');
- o.textContent = (lang === 'en') ? en : (en + '' + zh);
- });
- try { localStorage.setItem('jfa-lang', lang); } catch (e) {}
-}
-(function initLang() {
- const btn = document.getElementById('langToggle');
- if (btn) btn.addEventListener('click', () => {
- applyLang(document.documentElement.getAttribute('data-lang') === 'en' ? 'zh' : 'en');
- });
- applyLang(document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh');
-})();
 
 // ===== Close mobile nav on link click =====
 
